@@ -1,7 +1,9 @@
 'use client'
+import Image from 'next/image'
+import Link from 'next/link'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
 import Hero from '@/components/hero'
-import { Icons } from '@/components/icons'
-import { Button, buttonVariants } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -12,11 +14,8 @@ import {
 } from '@/components/ui/card'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 import { cn } from '@/lib/utils'
-import { AspectRatio } from '@radix-ui/react-aspect-ratio'
 import { motion } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -33,9 +32,11 @@ export default function Home() {
             },
           },
         }}
-
       >
-        <motion.div className='flex flex-col justify-center items-center animate-pulse' variants={FADE_DOWN_ANIMATION_VARIANTS}>
+        <motion.div
+          className='flex flex-col justify-center items-center animate-pulse'
+          variants={FADE_DOWN_ANIMATION_VARIANTS}
+        >
           Scroll
           <ArrowDown className='w-5 h-5 animate-bounce ' />
         </motion.div>
@@ -56,13 +57,14 @@ export default function Home() {
       >
         <motion.div variants={FADE_DOWN_ANIMATION_VARIANTS}>
           <Card>
-            <CardHeader className='border-b p-0'>
-              <AspectRatio ratio={16 / 9}>
+            <CardHeader className='border-b bg-card p-0'>
+              <AspectRatio ratio={4 / 3}>
                 <Image
                   src='/netflix-clone.png'
                   alt='Netflix Clone'
                   sizes='(min-width: 640px) 640px, 100vw'
                   fill
+                  priority
                   loading='lazy'
                 />
                 {/* ) : (
@@ -82,8 +84,10 @@ export default function Home() {
             </CardHeader>
 
             <CardContent>
-              <CardTitle className='line-clamp-1 my-3'>Recipely</CardTitle>
-              <CardDescription className=''>
+              <CardTitle className='line-clamp-1 text-2xl my-3'>
+                Recipely
+              </CardTitle>
+              <CardDescription className='text-base '>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Quisquam, voluptatum.
               </CardDescription>
