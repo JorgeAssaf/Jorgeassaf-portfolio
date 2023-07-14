@@ -11,6 +11,7 @@ import {
   HelpCircle,
   Image,
   Laptop,
+  Linkedin,
   Loader2,
   LucideProps,
   Moon,
@@ -31,8 +32,10 @@ export type Icon = LucideIcon
 
 export const Icons = {
   logo: Command,
+  placeholder: Image,
   menu: Menu,
   close: X,
+  linkedIn: Linkedin,
   spinner: Loader2,
   chevronLeft: ChevronLeft,
   chevronRight: ChevronRight,
