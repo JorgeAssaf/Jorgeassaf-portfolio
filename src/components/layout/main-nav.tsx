@@ -17,16 +17,16 @@ const MainNav: FC<MainNavProps> = ({ items }) => {
           className='hidden items-center space-x-2 md:flex'
         >
           <p className='hidden text-2xl font-bold md:inline-block'>
-            JA<span className='text-blue-500'>.</span>
+            JA<span className='text-primary'>.</span>
           </p>
         </Link>
 
         <div className='flex gap-6'>
           {items?.map((item) => (
             <Link
-              key={item.label}
+              key={item.title}
               href={`${item.href}`}
-              className='flex items-center space-x-2 text-base hover:text-blue-500 transition-colors font-medium'
+              className='flex items-center space-x-2 text-base  transition-colors font-medium'
             >
               <span>{item.title}</span>
             </Link>

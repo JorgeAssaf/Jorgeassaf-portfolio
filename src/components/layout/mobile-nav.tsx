@@ -26,7 +26,7 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
     <div className='h-20 items-center flex md:hidden justify-between'>
       <div className='flex text-left md:flex'>
         <p className='text-2xl font-bold md:flex'>
-          JA<span className='text-blue-500'>.</span>
+          JA<span className='text-primary'>.</span>
         </p>
       </div>
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -48,12 +48,12 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
               onClick={() => setIsOpen(false)}
             >
               <p className='text-2xl font-bold md:inline-block'>
-                JA<span className='text-blue-500'>.</span>
+                JA<span className='text-primary'>.</span>
               </p>
             </Link>
           </div>
           {items?.map((item) => (
-            <SheetDescription key={item.label}>
+            <SheetDescription key={item.title}>
               <MobileLink
                 href={`${item.href}`}
                 pathname={pathname}
@@ -90,8 +90,8 @@ function MobileLink({
     <Link
       href={href}
       className={cn(
-        'text-foreground/70 text-lg transition-colors hover:text-blue-500',
-        pathname === href && 'text-blue-500',
+        'text-foreground/70 text-lg transition-colors hover:text-primary',
+        pathname === href && 'text-primary',
         disabled && 'pointer-events-none opacity-60',
       )}
       onClick={() => setIsOpen(false)}
