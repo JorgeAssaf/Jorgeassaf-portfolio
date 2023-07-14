@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang='en'>
       <body
         className={cn(
-          'antialiased min-h-screen ',
+          'min-h-screen bg-background antialiased ',
           fontmono.variable,
           Satoshi.className,
         )}

@@ -1,4 +1,4 @@
-import SiteHeader from "@/components/layout/site-header"
+import SiteHeader from '@/components/layout/site-header'
 
 export default function HomeLayout({
   children,
@@ -6,9 +6,9 @@ export default function HomeLayout({
   children: React.ReactNode
 }) {
   return (
-    <div>
+    <>
       <SiteHeader />
-      {children}
-    </div>
+      <div className='container'>{children}</div>
+    </>
   )
 }
