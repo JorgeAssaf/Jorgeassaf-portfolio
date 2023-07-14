@@ -58,13 +58,12 @@ export default function Home() {
         <motion.div variants={FADE_DOWN_ANIMATION_VARIANTS}>
           <Card>
             <CardHeader className='border-b bg-card p-0'>
-              <AspectRatio ratio={4 / 3}>
+              <AspectRatio ratio={16 / 9}>
                 <Image
                   src='/netflix-clone.png'
                   alt='Netflix Clone'
                   sizes='(min-width: 640px) 640px, 100vw'
                   fill
-                  priority
                   loading='lazy'
                 />
                 {/* ) : (
@@ -101,7 +100,7 @@ export default function Home() {
                     className={cn(
                       buttonVariants({
                         className: cn(
-                          'font-medium bg-primary hover:bg-primary transition-colors ',
+                          'font-medium bg-primary  transition-colors ',
                         ),
                       }),
                     )}
@@ -113,7 +112,7 @@ export default function Home() {
                     className={buttonVariants({
                       variant: 'outline',
                       className: cn(
-                        'font-medium border border-blue-500 transition-colors  ',
+                        'font-medium border border-primary transition-colors  ',
                       ),
                     })}
                   >

@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion'
-import HomeScene from '@/scenes/home-scene'
 import { Button } from './ui/button'
 import { Icons } from './icons'
-import { ArrowDownFromLine } from 'lucide-react'
 import Image from 'next/image'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 
@@ -31,13 +29,13 @@ const Hero = () => {
         </motion.h1>
         <motion.h2
           variants={FADE_DOWN_ANIMATION_VARIANTS}
-          className='decoration-wavy underline-offset-1 underline text-primary md:text-4xl mt-3 font-semibold text-2xl'
+          className='decoration-wavy underline-offset-1 underline text-primary md:text-4xl my-1 font-semibold text-2xl'
         >
           Front-end Developer.
         </motion.h2>
         <motion.p
           variants={FADE_DOWN_ANIMATION_VARIANTS}
-          className='text-gray-500 mt-3 md:text-xl text-base'
+          className='text-muted-foreground mt-3 md:text-xl text-base'
         >
           I’m a Front-end Developer based in Mexico City, Mexico. I have a
           passion for web development and love to create for web and mobile
@@ -47,11 +45,11 @@ const Hero = () => {
           variants={FADE_DOWN_ANIMATION_VARIANTS}
           className='mt-5 flex gap-5'
         >
-          <Button className='bg-primary'>
-            <Icons.gitHub className='w-5 h-5' />
+          <Button >
+            <Icons.gitHub className='w-6 h-6' />
           </Button>
-          <Button className='bg-primary'>
-            <Icons.linkedIn className='w-5 h-5' />
+          <Button>
+            <Icons.linkedIn className='w-7 h-7' />
           </Button>
           <Button variant='outline'>Resumen</Button>
         </motion.div>
