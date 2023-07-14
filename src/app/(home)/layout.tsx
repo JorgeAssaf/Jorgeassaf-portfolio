@@ -1,3 +1,4 @@
+import SiteFooter from '@/components/layout/site-footer'
 import SiteHeader from '@/components/layout/site-header'
 
 export default function HomeLayout({
@@ -9,6 +10,7 @@ export default function HomeLayout({
     <>
       <SiteHeader />
       <div className='container'>{children}</div>
+      <SiteFooter />
     </>
   )
 }
