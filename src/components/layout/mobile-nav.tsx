@@ -14,6 +14,7 @@ import { Button } from '../ui/button'
 import { Icons } from '../icons'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
+import { ThemeToggle } from './theme-toggle'
 
 interface MobileNavProps {
   items: MainNavItem[]
@@ -29,6 +30,7 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
           JA<span className='text-primary'>.</span>
         </p>
       </div>
+      <ThemeToggle />
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger asChild>
           <Button
@@ -52,6 +54,7 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
               </p>
             </Link>
           </div>
+
           {items?.map((item) => (
             <SheetDescription key={item.title}>
               <MobileLink
