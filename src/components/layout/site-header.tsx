@@ -1,16 +1,17 @@
 'use client'
 import { motion } from 'framer-motion'
 
-import { FADE_UP_ANIMATION_VARIANTS } from '@/constans'
 import { siteConfig } from '@/config/site'
 
 import MainNav from './main-nav'
 import MobileNav from './mobile-nav'
+import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 
 const SiteHeader = () => {
   return (
-    <motion.header initial="hidden"
-      animate="show"
+    <motion.header
+      initial='hidden'
+      animate='show'
       viewport={{ once: true }}
       variants={{
         hidden: {},
@@ -20,8 +21,12 @@ const SiteHeader = () => {
           },
         },
       }}
-      className='sticky top-0 z-40 w-full bg-background/50 backdrop-blur-md'>
-      <motion.div variants={FADE_UP_ANIMATION_VARIANTS} className='container py-5 '>
+      className='sticky top-0 z-40 w-full bg-background/50 backdrop-blur-md'
+    >
+      <motion.div
+        variants={FADE_DOWN_ANIMATION_VARIANTS}
+        className='container py-5 '
+      >
         <MainNav items={siteConfig.mainNav} />
         <MobileNav items={siteConfig.mainNav} />
       </motion.div>

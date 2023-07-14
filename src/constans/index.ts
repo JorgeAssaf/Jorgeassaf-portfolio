@@ -2,6 +2,10 @@ export const FADE_UP_ANIMATION_VARIANTS = {
   hidden: { opacity: 0, y: 10 },
   show: { opacity: 1, y: 0, transition: { type: 'spring' } },
 }
+export const FADE_DOWN_ANIMATION_VARIANTS = {
+  hidden: { opacity: 0, y: -10 },
+  show: { opacity: 1, y: 0, transition: { type: 'spring' } },
+}
 
 export const MULTIDIRECTION_SLIDE_VARIANTS = {
   hidden: { opacity: 0, x: '-25vw' },
@@ -25,6 +29,6 @@ export const PULLUPVARIANT = {
 }
 
 export const BLURVARIANT = {
-  hidden: { filter: "blur(10px)", opacity: 0 },
-  visible: { filter: "blur(0px)", opacity: 1 },
-};
+  hidden: { filter: 'blur(10px)', opacity: 0 },
+  visible: { filter: 'blur(0px)', opacity: 1 },
+}
