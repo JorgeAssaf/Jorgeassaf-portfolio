@@ -1,10 +1,9 @@
 'use client'
 import { createClient, groq } from "next-sanity";
-import { Project } from "@/types/Project";
 import clientConfig from './config/client-config'
-import { Page } from "@/types/Page";
+import { Projects } from "@/app/types/sanity";
 
-export async function getProjects(): Promise<Project[]> {
+export async function getProjects(): Promise<Projects[]> {
   return createClient(clientConfig).fetch(
     groq`*[_type == "project"]{
       _id,
@@ -24,7 +23,7 @@ export async function getProjects(): Promise<Project[]> {
   )
 }
 
-export async function getProject(slug: string): Promise<Project> {
+export async function getProject(slug: string): Promise<Projects> {
   return createClient(clientConfig).fetch(
     groq`*[_type == "project" && slug.current == $slug][0]{
       _id,
