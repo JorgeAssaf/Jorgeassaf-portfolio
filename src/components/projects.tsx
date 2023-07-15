@@ -19,13 +19,15 @@ const Projects = () => {
           },
         }}
       >
-        <motion.div
-          className='flex flex-col justify-center items-center animate-pulse'
-          variants={FADE_DOWN_ANIMATION_VARIANTS}
-        >
-          Scroll
-          <ArrowDown className='w-5 h-5 animate-bounce ' />
-        </motion.div>
+        <div className='flex flex-col justify-center items-center animate-pulse'>
+          <motion.p variants={FADE_DOWN_ANIMATION_VARIANTS}>
+            Scroll
+
+          </motion.p>
+          <motion.span variants={FADE_DOWN_ANIMATION_VARIANTS}>
+            <ArrowDown className='w-5 h-5 animate-bounce ' />
+          </motion.span>
+        </div>
       </motion.div>
 
       <motion.section
@@ -43,7 +45,6 @@ const Projects = () => {
       >
         <motion.div variants={FADE_DOWN_ANIMATION_VARIANTS}>
           <ProjectsCard />
-
         </motion.div>
       </motion.section>
     </>
