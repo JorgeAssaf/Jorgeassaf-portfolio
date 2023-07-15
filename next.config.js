@@ -2,6 +2,7 @@
 const nextConfig = {
   images: {
     formats: ['image/webp', 'image/avif'],
+    domains: ['cdn.sanity.io'],
   }
 
 }
