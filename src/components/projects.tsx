@@ -1,4 +1,3 @@
-import { getProjects } from '@/sanity/sanity-utils'
 import { buttonVariants } from '@/components/ui/button'
 import {
   Card,
@@ -15,8 +14,31 @@ import { cn } from '@/lib/utils'
 import { Icons } from './icons'
 import { PortableText } from '@portabletext/react'
 
+import { createClient, groq } from "next-sanity";
+import { client } from '@/lib/sanity'
+import { Projects } from "@/app/types/sanity";
+
+export async function getProjects() {
+  const query = `*[_type == "project"]{
+    _id,
+    _createdAt,
+    name,
+    "slug": slug.current,
+    "image": image.asset->url,
+    github,
+    url,
+    technologies[]->{
+      name,
+      "image": image.asset->url
+    },
+    content
+  }`
+
+  const data = await client.fetch(query);
+  return data;
+}
 const Projects = async () => {
-  const projects = await getProjects()
+  const projects = (await getProjects()) as Projects[] ?? [];
   console.log(projects)
   return (
     <>
