@@ -19,8 +19,7 @@ import { Projects } from '@/app/types/sanity'
 import { cache } from 'react'
 import { groq } from 'next-sanity'
 
-export async function getProjects() {
-  const query = groq`*[_type == "project"]{
+const query = groq`*[_type == "project"]{
     _id,
     _createdAt,
     name,
@@ -34,11 +33,9 @@ export async function getProjects() {
     },
     content
   }`
-  const data = await client.fetch(query)
-  return data
-}
+
 const ProjectsCard = async () => {
-  const projects = ((await getProjects()) as Projects[]) ?? []
+  const projects = (await client.fetch<Projects[]>(query)) ?? []
   console.log(projects)
   return (
     <>
@@ -50,7 +47,6 @@ const ProjectsCard = async () => {
               <Image
                 src={project.image}
                 alt={project.name}
-                sizes='(min-width: 640px) 640px, 100vw'
                 fill
                 loading='lazy'
               />
