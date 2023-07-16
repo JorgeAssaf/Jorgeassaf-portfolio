@@ -16,24 +16,12 @@ import { PortableText } from '@portabletext/react'
 import { client } from '@/lib/sanity'
 import { Projects } from '@/app/types/sanity'
 import { groq } from 'next-sanity'
+import { projectsQuery } from '@/utils/querys'
 
-const query = groq`*[_type == "project"]{
-    _id,
-    _createdAt,
-    name,
-    "slug": slug.current,
-    "image": image.asset->url,
-    github,
-    url,
-    technologies[]->{
-      name,
-      "image": image.asset->url
-    },
-    content
-  }`
+
 
 const ProjectsCard = async () => {
-  const projects = (await client.fetch<Projects[]>(query)) ?? []
+  const projects = (await client.fetch<Projects[]>(projectsQuery)) ?? []
   console.log(projects)
   return (
     <>
