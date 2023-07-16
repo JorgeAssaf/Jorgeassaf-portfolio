@@ -2,7 +2,6 @@ import { buttonVariants } from '@/components/ui/button'
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -16,7 +15,6 @@ import { PortableText } from '@portabletext/react'
 
 import { client } from '@/lib/sanity'
 import { Projects } from '@/app/types/sanity'
-import { cache } from 'react'
 import { groq } from 'next-sanity'
 
 const query = groq`*[_type == "project"]{
