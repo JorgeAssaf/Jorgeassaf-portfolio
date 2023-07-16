@@ -1,6 +1,6 @@
 import Hero from "@/components/hero"
-import Projects from "@/components/projects"
-
+import dynamic from "next/dynamic"
+const Projects = dynamic(() => import("@/components/projects"))
 
 export default function Home() {
 
