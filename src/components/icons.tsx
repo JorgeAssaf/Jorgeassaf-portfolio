@@ -24,8 +24,8 @@ import {
   Twitter,
   User,
   X,
-  type Icon as LucideIcon,
   Menu,
+  type LucideIcon,
 } from 'lucide-react'
 
 export type Icon = LucideIcon
@@ -35,7 +35,6 @@ export const Icons = {
   placeholder: Image,
   menu: Menu,
   close: X,
-
   spinner: Loader2,
   chevronLeft: ChevronLeft,
   chevronRight: ChevronRight,
