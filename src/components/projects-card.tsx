@@ -46,7 +46,7 @@ const ProjectsCard = async () => {
                 src={project.image}
                 alt={project.name}
                 fill
-                loading='lazy'
+                priority
               />
               ) : (
               <div
