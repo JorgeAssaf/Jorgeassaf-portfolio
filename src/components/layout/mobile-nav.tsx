@@ -1,5 +1,5 @@
 'use client'
-import { FC, useState } from 'react'
+import { type FC, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { MainNavItem } from '@/app/types/site'
 import {
@@ -7,7 +7,6 @@ import {
   SheetContent,
   SheetDescription,
   SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from '../ui/sheet'
 import { Button } from '../ui/button'
@@ -42,18 +41,20 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
           </Button>
         </SheetTrigger>
         <SheetContent side='left' className='pl-1px-7 pr-0'>
-          <div className='my-5'>
-            <Link
-              aria-label='Home'
-              href='/'
-              className='flex items-center'
-              onClick={() => setIsOpen(false)}
-            >
-              <p className='text-2xl font-bold md:inline-block'>
-                JA<span className='text-primary'>.</span>
-              </p>
-            </Link>
-          </div>
+          <SheetHeader>
+            <div className='my-5'>
+              <Link
+                aria-label='Home'
+                href='/'
+                className='flex items-center'
+                onClick={() => setIsOpen(false)}
+              >
+                <p className='text-2xl font-bold md:inline-block'>
+                  JA<span className='text-primary'>.</span>
+                </p>
+              </Link>
+            </div>
+          </SheetHeader>
 
           {items?.map((item) => (
             <SheetDescription key={item.title}>
