@@ -59,7 +59,7 @@ const SiteFooter = () => {
                         href={link.href}
                         target={link?.external ? '_blank' : undefined}
                         rel={link?.external ? 'noreferrer' : undefined}
-                        className='text-sm text-muted-foreground transition-colors hover:text-foreground'
+                        className='text-sm capitalize text-muted-foreground transition-colors hover:text-foreground'
                       >
                         {link.title}
                         <span className='sr-only'>{link.title}</span>

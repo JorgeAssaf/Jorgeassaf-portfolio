@@ -21,7 +21,7 @@ const Projects = () => {
 
         className='my-10 flex justify-center items-center'
       >
-        <div className='flex flex-col justify-center items-center animate-pulse'>
+        <div className='flex flex-col justify-center items-center animate-pulse my-20'>
           <motion.p variants={FADE_DOWN_ANIMATION_VARIANTS}>
             Scroll
 

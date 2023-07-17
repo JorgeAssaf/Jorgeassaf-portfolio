@@ -19,7 +19,7 @@ const Hero = () => {
           },
         },
       }}
-      className='my-14 md:my-10 flex items-center '
+      className='my-14 md:mb-14 md:mt-24 md:my-10 flex items-center '
     >
       <div className='max-w-[34rem]'>
         <motion.h1
@@ -46,11 +46,17 @@ const Hero = () => {
           variants={FADE_DOWN_ANIMATION_VARIANTS}
           className='mt-5 flex gap-5'
         >
-          <Button >
+          <Button aria-label='GitHub'>
             <Icons.gitHub className='w-6 h-6' />
+            <span className='sr-only'>
+              GitHub
+            </span>
           </Button>
-          <Button>
+          <Button aria-label='LinkedIn'>
             <Icons.linkedIn className='w-7 h-7' />
+            <span className='sr-only'>
+              LinkedIn
+            </span>
           </Button>
           <Button variant='outline'>Resumen</Button>
         </motion.div>
@@ -64,7 +70,7 @@ const Hero = () => {
         <Image
           src='/Vector.png'
           alt='image'
-          className='h-72 '
+          className='h-full '
           width={320}
           height={500}
         />

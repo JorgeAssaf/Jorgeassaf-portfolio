@@ -18,8 +18,6 @@ import { Projects } from '@/app/types/sanity'
 import { groq } from 'next-sanity'
 import { projectsQuery } from '@/utils/querys'
 
-
-
 const ProjectsCard = async () => {
   const projects = (await client.fetch<Projects[]>(projectsQuery)) ?? []
   console.log(projects)
@@ -33,8 +31,9 @@ const ProjectsCard = async () => {
               <Image
                 src={project.image}
                 alt={project.name}
+                sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                 fill
-                priority
+                loading='lazy'
               />
               ) : (
               <div
