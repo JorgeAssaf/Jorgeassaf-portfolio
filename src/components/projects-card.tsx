@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { buttonVariants } from '@/components/ui/button'
 import {
   Card,
@@ -6,7 +7,16 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import Image from 'next/image'
+import {
+  Tooltip,
+  TooltipContent,
+
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
+
+
+
 import Link from 'next/link'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { cn } from '@/lib/utils'
@@ -15,11 +25,11 @@ import { PortableText } from '@portabletext/react'
 
 import { client } from '@/lib/sanity'
 import { Projects } from '@/app/types/sanity'
-import { groq } from 'next-sanity'
 import { projectsQuery } from '@/utils/querys'
 
 const ProjectsCard = async () => {
   const projects = (await client.fetch<Projects[]>(projectsQuery)) ?? []
+
   console.log(projects)
   return (
     <>
@@ -57,15 +67,24 @@ const ProjectsCard = async () => {
 
             <PortableText value={project.content} />
 
-            <div>
+            <div className='my-3'>
               {project.technologies.map((technologie) => (
-                <Image
-                  key={technologie.name}
-                  src={technologie.image}
-                  alt={technologie.name}
-                  width={24}
-                  height={24}
-                />
+                <TooltipProvider key={technologie.name}>
+                  <Tooltip>
+                    <TooltipTrigger>
+                      <Image
+
+                        src={technologie.image}
+                        alt={technologie.name}
+                        width={24}
+                        height={24}
+                      />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{technologie.name}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               ))}
             </div>
             <CardFooter
