@@ -51,9 +51,9 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
             },
           },
         }}
-        className='grid grid-cols-1 gap-5 ls:grid-cols-2 '
+
       >
-        <motion.div variants={FADE_DOWN_ANIMATION_VARIANTS}>
+        <motion.div className='grid grid-cols-1 gap-5 ls:grid-cols-2 ' variants={FADE_DOWN_ANIMATION_VARIANTS}>
           <ProjectsCard projects={projects} />
         </motion.div>
       </motion.section>

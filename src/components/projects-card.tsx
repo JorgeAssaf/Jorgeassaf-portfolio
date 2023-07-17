@@ -38,26 +38,30 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
         <Card key={project._id}>
           <CardHeader className='border-b bg-card p-0'>
             <AspectRatio ratio={16 / 9}>
-              project.image ? (
-              <Image
-                src={project.image}
-                alt={project.name}
-                sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-                fill
-                priority
-              />
-              ) : (
-              <div
-                aria-label='Placeholder'
-                role='img'
-                aria-roledescription='placeholder'
-              >
-                <Icons.placeholder
-                  className='h-9 w-9 text-muted-foreground'
-                  aria-hidden='true'
+              {project.image ? (
+                <Image
+                  src={project.image}
+                  alt={project?.name}
+
+                  quality={100}
+                  sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                  className='object-cover'
+                  fill
+                  priority
                 />
-              </div>
-              )
+              ) : (
+                <div
+                  aria-label='Placeholder'
+                  role='img'
+                  aria-roledescription='placeholder'
+                  className='flex items-center justify-center h-full w-full'
+                >
+                  <Icons.placeholder
+                    className='h-14 w-14 text-muted-foreground'
+                    aria-hidden='true'
+                  />
+                </div>
+              )}
             </AspectRatio>
           </CardHeader>
 
