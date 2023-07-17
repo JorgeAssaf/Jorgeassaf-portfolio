@@ -1,9 +1,8 @@
+import { groq } from 'next-sanity'
 
-export const projectsQuery = `*[_type == "project"]{
+export const projectsQuery = groq`*[_type == "project"]{
     _id,
-    _createdAt,
     name,
-    "slug": slug.current,
     "image": image.asset->url,
     github,
     url,
@@ -13,4 +12,3 @@ export const projectsQuery = `*[_type == "project"]{
     },
     content
   }`
-
