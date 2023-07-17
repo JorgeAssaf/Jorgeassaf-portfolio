@@ -21,13 +21,13 @@ const Projects = () => {
 
         className='my-10 flex justify-center items-center'
       >
-        <div className='flex flex-col justify-center items-center animate-pulse my-20'>
+        <div className='flex flex-col justify-center items-center animate-pulse md:my-20 my-10'>
           <motion.p variants={FADE_DOWN_ANIMATION_VARIANTS}>
             Scroll
 
           </motion.p>
           <motion.span variants={FADE_DOWN_ANIMATION_VARIANTS}>
-            <ArrowDown className='w-5 h-5 animate-bounce ' />
+            <ArrowDown className='w-5 h-5 mt-2 animate-bounce ' />
           </motion.span>
         </div>
       </motion.div>
