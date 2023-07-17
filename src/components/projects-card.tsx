@@ -23,10 +23,15 @@ import { PortableText } from '@portabletext/react'
 import { client } from '@/lib/sanity'
 import { Projects } from '@/app/types/sanity'
 import { projectsQuery } from '@/utils/querys'
+import { FC } from 'react'
 
-const ProjectsCard = async () => {
-  const projects =
-    (await client.fetch<Projects[]>(projectsQuery, {})) ?? []
+interface ProjectsCardProps {
+  projects: Projects[]
+
+}
+
+
+const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
 
   console.log(projects)
   return (

@@ -3,8 +3,16 @@ import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 import { motion } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
 import ProjectsCard from '@/components/projects-card'
+import { Projects } from '@/app/types/sanity'
+import { FC } from 'react'
 
-const Projects = () => {
+interface ProjectsProps {
+
+  projects: Projects[]
+}
+
+
+const Projects: FC<ProjectsProps> = ({ projects }) => {
   return (
     <>
       <motion.div
@@ -46,7 +54,7 @@ const Projects = () => {
         className='grid grid-cols-1 gap-5 ls:grid-cols-2 '
       >
         <motion.div variants={FADE_DOWN_ANIMATION_VARIANTS}>
-          <ProjectsCard />
+          <ProjectsCard projects={projects} />
         </motion.div>
       </motion.section>
     </>
