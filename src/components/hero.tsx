@@ -19,9 +19,9 @@ const Hero = () => {
           },
         },
       }}
-      className='my-14 md:mb-14 md:mt-24 md:my-10 flex items-center '
+      className='my-14 md:mb-14 md:mt-24 md:my-10 flex items-center justify-between '
     >
-      <div className='max-w-[34rem]'>
+      <div className='w-[34rem]'>
         <motion.h1
           variants={FADE_DOWN_ANIMATION_VARIANTS}
           className='text-4xl md:text-6xl font-bold'
@@ -63,7 +63,7 @@ const Hero = () => {
       </div>
       <motion.div
         variants={FADE_DOWN_ANIMATION_VARIANTS}
-        className='max-w-lg h-full mx-auto hidden lg:flex'
+        className='max-w-lg h-full  hidden lg:flex'
       >
         {/* <HomeScene /> */}
 
@@ -71,7 +71,7 @@ const Hero = () => {
           src='/Vector.png'
           alt='image'
           className='h-full '
-          width={320}
+          width={420}
           height={500}
         />
       </motion.div>
