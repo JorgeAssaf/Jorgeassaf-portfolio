@@ -25,7 +25,8 @@ import { Projects } from '@/app/types/sanity'
 import { projectsQuery } from '@/utils/querys'
 
 const ProjectsCard = async () => {
-  const projects = (await client.fetch<Projects[]>(projectsQuery)) ?? []
+  const projects =
+    (await client.fetch<Projects[]>(projectsQuery, {})) ?? []
 
   console.log(projects)
   return (
