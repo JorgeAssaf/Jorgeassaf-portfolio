@@ -86,9 +86,6 @@ dependencies:
   react-wrap-balancer:
     specifier: 1.0.0
     version: 1.0.0(react@18.2.0)
-  sanity:
-    specifier: 3.14.2
-    version: 3.14.2(@types/node@20.4.2)(@types/react@18.2.15)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
   tailwind-merge:
     specifier: 1.14.0
     version: 1.14.0
