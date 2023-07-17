@@ -20,9 +20,7 @@ import { cn } from '@/lib/utils'
 import { Icons } from './icons'
 import { PortableText } from '@portabletext/react'
 
-import { client } from '@/lib/sanity'
 import { Projects } from '@/app/types/sanity'
-import { projectsQuery } from '@/utils/querys'
 import { FC } from 'react'
 
 interface ProjectsCardProps {
