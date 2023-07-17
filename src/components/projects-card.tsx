@@ -10,12 +10,9 @@ import {
 import {
   Tooltip,
   TooltipContent,
-
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
-
-
 
 import Link from 'next/link'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
@@ -43,7 +40,7 @@ const ProjectsCard = async () => {
                 alt={project.name}
                 sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                 fill
-                loading='lazy'
+                priority
               />
               ) : (
               <div
@@ -73,7 +70,6 @@ const ProjectsCard = async () => {
                   <Tooltip>
                     <TooltipTrigger>
                       <Image
-
                         src={technologie.image}
                         alt={technologie.name}
                         width={24}
