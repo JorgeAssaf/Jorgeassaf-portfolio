@@ -1,14 +1,9 @@
 'use client'
-import { siteConfig } from '@/config/site'
-import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
-import { cn } from '@/lib/utils'
-import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { buttonVariants } from '../ui/button'
-import { Icons } from '../icons'
+import { motion } from 'framer-motion'
+import { siteConfig } from '@/config/site'
 
 const SiteFooter = () => {
-  console.log(siteConfig.footerNav)
   return (
     <motion.footer
       initial='hidden'
