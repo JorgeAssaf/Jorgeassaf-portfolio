@@ -78,3 +78,15 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer base {
+  ::-webkit-scrollbar {
+    width: 7px;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--muted-foreground));
+    border-radius: 1rem;
+  }
+}
