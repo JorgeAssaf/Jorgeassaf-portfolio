@@ -11,7 +11,7 @@ export const siteConfig = {
   name: 'Jorge Assaf',
   description:
     'Personal portfolio of Jorge Assaf, a software engineer based in Mexico City. ',
-  url: 'https://jorgeassaf.com',
+  url: 'https://jorgeassaf.vercel.app',
   ogImage: 'https://jorgeassaf/opengraph-image.png',
   mainNav: [
     {
