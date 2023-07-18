@@ -10,6 +10,7 @@ import {
   Twitter,
   X,
   Menu,
+  ArrowDown,
   type LucideProps,
   type LucideIcon,
 } from 'lucide-react'
@@ -23,6 +24,7 @@ export const Icons = {
   spinner: Loader2,
   chevronLeft: ChevronLeft,
   chevronRight: ChevronRight,
+  arrowDown: ArrowDown,
   media: Image,
   arrowRight: ArrowRight,
   sun: SunMedium,
