@@ -8,11 +8,11 @@ const links = {
 }
 
 export const siteConfig = {
-  name: 'Assaf',
+  name: 'Jorge Assaf',
   description:
     'Personal portfolio of Jorge Assaf, a software engineer based in Mexico City. ',
-  url: 'https://skateshop.sadmn.com',
-  ogImage: 'https://skateshop.sadmn.com/opengraph-image.png',
+  url: 'https://jorgeassaf.com',
+  ogImage: 'https://jorgeassaf/opengraph-image.png',
   mainNav: [
     {
       title: 'Home',
