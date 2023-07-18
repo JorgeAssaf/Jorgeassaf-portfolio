@@ -1,4 +1,6 @@
+import { type FC } from 'react'
 import Image from 'next/image'
+import { PortableText } from '@portabletext/react'
 import { buttonVariants } from '@/components/ui/button'
 import {
   Card,
@@ -18,10 +20,8 @@ import Link from 'next/link'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { cn } from '@/lib/utils'
 import { Icons } from './icons'
-import { PortableText } from '@portabletext/react'
 
-import { Projects } from '@/app/types/sanity'
-import { FC } from 'react'
+import { type Projects } from '@/app/types/sanity'
 
 interface ProjectsCardProps {
   projects: Projects[]
@@ -33,7 +33,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
     <>
       {projects.map((project) => (
         <Card key={project._id}>
-          <CardHeader className='border-b bg-card p-0'>
+          <CardHeader className={cn('border-b bg-card p-0')}>
             <AspectRatio ratio={4 / 3}>
               {project.image ? (
                 <Image
@@ -63,7 +63,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
           </CardHeader>
 
           <CardContent>
-            <CardTitle className='line-clamp-1 text-2xl my-3'>
+            <CardTitle className={cn('line-clamp-1 text-2xl my-3')}>
               {project.name}
             </CardTitle>
 
@@ -90,7 +90,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
               ))}
             </div>
             <CardFooter
-              className={cn('p-0 flex justify-between items-center', 'mt-3')}
+              className={cn('p-0 flex justify-between items-center mt-3')}
             >
               <div className='flex items-center gap-5'>
                 <Link
