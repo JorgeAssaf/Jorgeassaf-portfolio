@@ -25,25 +25,24 @@ import { FC } from 'react'
 
 interface ProjectsCardProps {
   projects: Projects[]
-
 }
 
-
 const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
-
   console.log(projects)
   return (
     <>
       {projects.map((project) => (
         <Card key={project._id}>
           <CardHeader className='border-b bg-card p-0'>
-            <AspectRatio ratio={16 / 9}>
+            <AspectRatio ratio={4 / 3}>
               {project.image ? (
                 <Image
                   src={project.image}
                   alt={project?.name}
                   quality={100}
-                  className='object-cover'
+                  className={`object-cover ${project.name == 'Netflix clone' ? 'object-left-top' : ''
+                    }`}
+                  sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                   fill
                   priority
                 />
@@ -70,16 +69,17 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
 
             <PortableText value={project.content} />
 
-            <div className='my-3'>
+            <div className='my-3 flex items-center gap-3 flex-wrap'>
               {project.technologies.map((technologie) => (
-                <TooltipProvider key={technologie.name}>
+                <TooltipProvider key={technologie.name} delayDuration={450}>
                   <Tooltip>
-                    <TooltipTrigger>
+                    <TooltipTrigger asChild>
                       <Image
+                        className='cursor-pointer'
                         src={technologie.image}
                         alt={technologie.name}
-                        width={24}
-                        height={24}
+                        width={26}
+                        height={26}
                       />
                     </TooltipTrigger>
                     <TooltipContent>

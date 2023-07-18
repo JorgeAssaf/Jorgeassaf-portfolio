@@ -7,10 +7,8 @@ import { Projects } from '@/app/types/sanity'
 import { FC } from 'react'
 
 interface ProjectsProps {
-
   projects: Projects[]
 }
-
 
 const Projects: FC<ProjectsProps> = ({ projects }) => {
   return (
@@ -26,14 +24,10 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
             },
           },
         }}
-
         className='my-10 flex justify-center items-center'
       >
         <div className='flex flex-col justify-center items-center animate-pulse md:my-20 my-10'>
-          <motion.p variants={FADE_DOWN_ANIMATION_VARIANTS}>
-            Scroll
-
-          </motion.p>
+          <motion.p variants={FADE_DOWN_ANIMATION_VARIANTS}>Scroll</motion.p>
           <motion.span variants={FADE_DOWN_ANIMATION_VARIANTS}>
             <ArrowDown className='w-5 h-5 mt-2 animate-bounce ' />
           </motion.span>
@@ -51,9 +45,18 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
             },
           },
         }}
-
       >
-        <motion.div className='grid grid-cols-1 gap-5 ls:grid-cols-2 ' variants={FADE_DOWN_ANIMATION_VARIANTS}>
+        <motion.h3
+          variants={FADE_DOWN_ANIMATION_VARIANTS}
+          className='md:text-5xl text-3xl font-semibold justify-center flex mb-20 '
+        >
+          Projects
+        </motion.h3>
+
+        <motion.div
+          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10    '
+          variants={FADE_DOWN_ANIMATION_VARIANTS}
+        >
           <ProjectsCard projects={projects} />
         </motion.div>
       </motion.section>
