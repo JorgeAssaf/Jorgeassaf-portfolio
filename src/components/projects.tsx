@@ -1,10 +1,10 @@
 'use client'
-import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
-import { motion } from 'framer-motion'
-import { ArrowDown } from 'lucide-react'
-import ProjectsCard from '@/components/projects-card'
-import { Projects } from '@/app/types/sanity'
 import { FC } from 'react'
+import { motion } from 'framer-motion'
+import ProjectsCard from '@/components/projects-card'
+import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
+import { Icons } from './icons'
+import { type Projects } from '@/app/types/sanity'
 
 interface ProjectsProps {
   projects: Projects[]
@@ -29,7 +29,7 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
         <div className='flex flex-col justify-center items-center animate-pulse md:my-20 my-10'>
           <motion.p variants={FADE_DOWN_ANIMATION_VARIANTS}>Scroll</motion.p>
           <motion.span variants={FADE_DOWN_ANIMATION_VARIANTS}>
-            <ArrowDown className='w-5 h-5 mt-2 animate-bounce ' />
+            <Icons.arrowDown className='w-5 h-5 mt-2 animate-bounce ' />
           </motion.span>
         </div>
       </motion.div>
