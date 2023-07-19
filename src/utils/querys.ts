@@ -3,7 +3,7 @@ import { groq } from 'next-sanity'
 export const projectsQuery = groq`*[_type == "project"]{
     _id,
     name,
-    
+     "image": image.asset->url,
     github,
     url,
     technologies[]->{
@@ -22,12 +22,12 @@ export const CategoryQuery = groq`*[_type == "category"]{
 
 export const PostQuery = groq`*[_type == "post"]{
   _id,
-    title,
-     "image": image.asset->url,
-    _updatedAt,
-_createdAt,
+  title,
+  "image": image.asset->url,
+  _updatedAt,
+  _createdAt,
   categories[]->{
-     title,
-    },
-    body,
+    title,
+  },
+  body,
 }`
