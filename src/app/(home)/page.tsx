@@ -4,8 +4,8 @@ import { client } from '@/lib/sanity'
 import { projectsQuery } from '@/utils/querys'
 
 export const revalidate = 0
-export const fetchCache = 'force-no-store'
-export const dynamic = 'force-dynamic'
+export const fetchCache = 'auto'
+export const dynamic = 'force-static'
 
 export default async function Home() {
   const projects = (await client.fetch<Projects[]>(projectsQuery)) ?? []
