@@ -28,7 +28,14 @@ export function Header({
         },
       }}
     >
-      <div {...props} className={cn('my-10 mx-auto justify-center', className, !description && 'my-20')}>
+      <div
+        {...props}
+        className={cn(
+          'my-10 mx-auto justify-center',
+          className,
+          !description && 'my-20',
+        )}
+      >
         <motion.h3
           variants={FADE_DOWN_ANIMATION_VARIANTS}
           className={cn(
