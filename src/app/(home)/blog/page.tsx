@@ -1,3 +1,4 @@
+import { Header } from '@/components/header'
 import { Button } from '@/components/ui/button'
 import { PortableText } from '@portabletext/react'
 
@@ -33,6 +34,11 @@ const BlogPage = async ({
   console.log(searchParams)
   return (
     <>
+      <Header
+        title='Blog'
+        description='Here my last posts about web development, mobile development, ui/ux design and devops'
+        className='my-10'
+      />
       <div className='md:grid grid-rows-1 grid-flow-col gap-4 flex flex-col '>
         <div className='row-span-1 flex gap-2 md:flex-col flex-row flex-wrap md:justify-start justify-between'>
           {blogCategories.map((category) => (
