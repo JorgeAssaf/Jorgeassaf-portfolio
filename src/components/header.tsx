@@ -32,7 +32,7 @@ export function Header({
         <motion.h3
           variants={FADE_DOWN_ANIMATION_VARIANTS}
           className={cn(
-            ' text-3xl font-bold tracking-tight md:text-4xl justify-center flex flex-col ',
+            'md:text-5xl text-3xl font-bold tracking-tight justify-center flex flex-col ',
             !description && 'flex flex-row',
           )}
         >
