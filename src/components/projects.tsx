@@ -7,12 +7,10 @@ import { type Projects } from '@/app/types/sanity'
 
 interface ProjectsProps {
   projects: Projects[]
-
 }
 
 const Projects: FC<ProjectsProps> = ({ projects }) => {
   return (
-
     <motion.section
       initial='hidden'
       animate='show'
@@ -25,8 +23,6 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
         },
       }}
     >
-
-
       <motion.div
         className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10    '
         variants={FADE_DOWN_ANIMATION_VARIANTS}
@@ -34,7 +30,6 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
         <ProjectsCard projects={projects} />
       </motion.div>
     </motion.section>
-
   )
 }
 
