@@ -69,7 +69,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
 
             <PortableText value={project.content} />
 
-            <div className='my-3 flex items-center gap-3 flex-wrap'>
+            <div className='mt-3 mb-4 flex items-center gap-3 flex-wrap'>
               {project.technologies.map((technologie) => (
                 <TooltipProvider key={technologie.name} delayDuration={450}>
                   <Tooltip>
@@ -94,13 +94,15 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
             >
               <div className='flex items-center gap-5'>
                 <Link
+                  aria-label='View code on GitHub'
                   href={project.github}
                   target='_blank'
                   rel='noopener noreferrer'
                   className={cn(
                     buttonVariants({
+                      size: 'sm',
                       className: cn(
-                        'font-medium bg-primary  transition-colors ',
+                        'font-medium bg-primary transition-colors ',
                       ),
                     }),
                   )}
@@ -108,11 +110,13 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
                   View Code
                 </Link>
                 <Link
+                  aria-label='View live demo'
                   href={project.url}
                   target='_blank'
                   rel='noopener noreferrer'
                   className={buttonVariants({
                     variant: 'outline',
+                    size: 'sm',
                     className: cn(
                       'font-medium border border-primary transition-colors  ',
                     ),

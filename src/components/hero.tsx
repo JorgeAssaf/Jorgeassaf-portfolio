@@ -1,9 +1,9 @@
 'use client'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 import { Button } from './ui/button'
 import { Icons } from './icons'
-import Image from 'next/image'
-import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 
 const Hero = () => {
   return (
@@ -65,7 +65,9 @@ const Hero = () => {
         variants={FADE_DOWN_ANIMATION_VARIANTS}
         className='max-w-lg h-full  hidden lg:flex'
       >
+
         {/* <HomeScene /> */}
+
 
         <Image
           src='/Vector.png'
