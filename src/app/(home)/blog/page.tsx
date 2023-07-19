@@ -1,9 +1,9 @@
+import { Category, Post } from '@/app/types/sanity'
 import { Header } from '@/components/header'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { client } from '@/lib/sanity'
 import { CategoryQuery, PostQuery } from '@/utils/querys'
-import { PortableText } from '@portabletext/react'
 
 
 
@@ -16,8 +16,6 @@ const BlogPage = async ({
   const blogCategories = await client.fetch(CategoryQuery)
   const blog = await client.fetch(PostQuery)
   const [posts, categories] = await Promise.all([blog, blogCategories])
-  console.log(searchParams)
-  console.log(posts, categories);
   return (
     <>
       <Header
@@ -27,7 +25,7 @@ const BlogPage = async ({
       />
       <div className='md:grid grid-rows-1 grid-flow-col gap-4 flex flex-col '>
         <div className='row-span-1 flex gap-2 md:flex-col flex-row flex-wrap md:justify-start justify-between'>
-          {categories.map((category) => (
+          {categories.map((category: Category) => (
             <div key={category.title} className='flex '>
               <Button className='' variant='outline' size='sm'>
                 {category.title}
@@ -37,12 +35,12 @@ const BlogPage = async ({
         </div>
         <div className=' flex flex-col max-w-3xl'>
           {
-            posts.map((post) => (
+            posts.map((post: Post) => (
               <Card key={post._id}>
                 <div className='md:mt-2 mt-0'>
-                  <div className=''>
-                    <h1 className='text-3xl font-bold'>{post.title}</h1>
-                  </div>
+
+                  <h2 className='text-3xl font-bold'>{post.title}</h2>
+
                   <div className='flex gap-4'>
                     <span>
                       {new Date(post._createdAt).toLocaleDateString()}
@@ -53,9 +51,6 @@ const BlogPage = async ({
                       ))}
                     </span>
                   </div>
-                </div>
-                <div>
-                  <PortableText value={post.body} />
                 </div>
               </Card>
             ))
