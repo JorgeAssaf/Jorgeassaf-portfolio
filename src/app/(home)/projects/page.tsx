@@ -17,7 +17,7 @@ const ProjectsPage = async () => {
         title='Projects'
         description='Here you can see my last projects'
       />
-      <Projects projects={projects} title='Last Projects' />
+      <Projects projects={projects} />
     </section>
   )
 }
