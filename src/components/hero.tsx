@@ -1,9 +1,11 @@
 'use client'
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
-import { Button } from './ui/button'
+import { buttonVariants } from './ui/button'
 import { Icons } from './icons'
+import { cn } from '@/lib/utils'
 
 const Hero = () => {
   return (
@@ -46,28 +48,48 @@ const Hero = () => {
           variants={FADE_DOWN_ANIMATION_VARIANTS}
           className='mt-5 flex gap-5'
         >
-          <Button aria-label='GitHub'>
+          <Link
+            arial-label='GitHub'
+            href='https://github.com/JorgeAssaf'
+            target='_blank'
+            rel='noopener noreferrer'
+            className={cn(buttonVariants({ variant: 'default' }))}
+          >
             <Icons.gitHub className='w-6 h-6' />
-            <span className='sr-only'>
-              GitHub
-            </span>
-          </Button>
-          <Button aria-label='LinkedIn'>
+            <span className='sr-only'>GitHub</span>
+          </Link>
+
+          <Link
+            arial-label='LinkedIn'
+            href='https://www.linkedin.com/in/jorge-enrique-assaf/'
+            target='_blank'
+            rel='noopener noreferrer'
+            className={cn(buttonVariants({ variant: 'default' }))}
+          >
             <Icons.linkedIn className='w-7 h-7' />
-            <span className='sr-only'>
-              LinkedIn
-            </span>
-          </Button>
-          <Button variant='outline'>Resumen</Button>
+            <span className='sr-only'>LinkedIn</span>
+          </Link>
+          <Link
+            arial-label='Download Resume'
+            download={true}
+            target='_blank'
+            rel='noopener noreferrer'
+            href='https://cdn-153.anonfiles.com/M3pckcscz3/6cd0105f-1689803143/Jorge_Assaf_CV.pdf'
+            className={cn(
+              buttonVariants({
+                variant: 'outline',
+              }),
+            )}
+          >
+            Resumen
+          </Link>
         </motion.div>
       </div>
       <motion.div
         variants={FADE_DOWN_ANIMATION_VARIANTS}
         className='max-w-lg h-full  hidden lg:flex'
       >
-
         {/* <HomeScene /> */}
-
 
         <Image
           src='/Vector.png'
