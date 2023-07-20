@@ -3,7 +3,7 @@ import { FC } from 'react'
 import { motion } from 'framer-motion'
 import ProjectsCard from '@/components/projects-card'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
-import { type Projects } from '@/app/types/sanity'
+import type { Projects } from '@/app/types/sanity'
 
 interface ProjectsProps {
   projects: Projects[]
