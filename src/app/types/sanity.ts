@@ -37,6 +37,7 @@ export interface Post {
   categories: Category[]
   body: Body[]
   _id: string
+  author: Author
   title: string
 }
 
@@ -46,6 +47,12 @@ export interface Body {
   _key: string
   markDefs: any[]
   children: Child[]
+}
+
+
+export interface Author {
+  image?: string
+  name: string
 }
 
 export interface Child {
