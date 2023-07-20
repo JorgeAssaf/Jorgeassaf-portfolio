@@ -4,9 +4,9 @@ import { Header } from '@/components/header'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
 import { client } from '@/lib/sanity'
-import { cn } from '@/lib/utils'
+import { cn, slugify } from '@/lib/utils'
 import { CategoryQuery, PostQuery } from '@/utils/querys'
-import { slugify } from '@/utils/utils'
+
 
 const getPostsByCategory = async (category: string) => {
   const posts = await client.fetch(PostQuery)

@@ -2,8 +2,7 @@
 import { Category } from '@/app/types/sanity'
 import { FC, useTransition, useCallback } from 'react'
 import { Button } from './ui/button'
-import { cn } from '@/lib/utils'
-import { slugify } from '@/utils/utils'
+import { cn, slugify } from '@/lib/utils'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 interface CategoryButtonsProps {
