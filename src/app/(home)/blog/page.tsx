@@ -32,11 +32,11 @@ const BlogPage = async ({
         description='Here my last posts about web development, mobile development, ui/ux design and devops'
         className='my-10'
       />
-      <div className='md:grid grid-rows-1 grid-flow-col gap-4 flex flex-col '>
-        <div className='row-span-1 flex gap-2 md:flex-col flex-row flex-wrap md:justify-start justify-between'>
+      <div className='md:grid grid-rows-1 grid-flow-col gap-10 flex flex-col justify-start '>
+        <div className='row-span-1 flex gap-2 md:flex-col flex-row flex-wrap  md:justify-start justify-between'>
           <CategoryButtons categories={categories} />
         </div>
-        <div className=' flex flex-col max-w-3xl'>
+        <div className=' flex flex-col max-w-2xl'>
           {posts.length > 0 ? (
             posts.map((post: Post) => (
               <Card key={post._id}>
@@ -58,6 +58,9 @@ const BlogPage = async ({
                           {category.title}
                         </Badge>
                       ))}
+                      {
+                        post.author.name
+                      }
                     </div>
                   </div>
                 </div>
@@ -67,7 +70,7 @@ const BlogPage = async ({
             <h2>No posts found</h2>
           )}
         </div>
-      </div>
+      </div >
     </>
   )
 }
