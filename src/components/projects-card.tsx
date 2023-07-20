@@ -21,7 +21,7 @@ import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { cn } from '@/lib/utils'
 import { Icons } from './icons'
 
-import { type Projects } from '@/app/types/sanity'
+import type { Projects } from '@/app/types/sanity'
 
 interface ProjectsCardProps {
   projects: Projects[]
