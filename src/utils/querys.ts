@@ -29,5 +29,9 @@ export const PostQuery = groq`*[_type == "post"]{
   categories[]->{
     title,
   },
+  author->{
+    name,
+    "image": image.asset->url,
+  },
   body,
 }`
