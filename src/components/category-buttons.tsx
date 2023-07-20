@@ -1,5 +1,5 @@
 'use client'
-import { Category } from '@/app/types/sanity'
+import type { Category } from '@/app/types/sanity'
 import { FC, useTransition, useCallback } from 'react'
 import { Button } from './ui/button'
 import { cn, slugify } from '@/lib/utils'
@@ -16,7 +16,6 @@ const CategoryButtons: FC<CategoryButtonsProps> = ({ categories }) => {
   const [isPending, startTransition] = useTransition()
 
   const categoryParam = searchParams.get('category')
-
 
   const createQueryString = useCallback(
     (params: Record<string, string | number | null>) => {
@@ -37,6 +36,26 @@ const CategoryButtons: FC<CategoryButtonsProps> = ({ categories }) => {
 
   return (
     <>
+      <Button
+        onClick={() => {
+          startTransition(() => {
+            router.push(
+              `${pathname}?${createQueryString({
+                category: null,
+              })}`,
+            )
+          })
+        }}
+        disabled={isPending}
+        className={cn(
+          !categoryParam &&
+          'bg-primary text-primary-foreground hover:bg-primary-hover hover:text-primary-hover-foreground',
+        )}
+        variant='outline'
+        size='sm'
+      >
+        All posts
+      </Button>
       {categories.map((category: Category) => (
         <div key={category.title} className='flex'>
           <Button
