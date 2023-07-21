@@ -20,6 +20,7 @@ const ProjectsPage = async () => {
   return (
     <section>
       <Header
+        page
         title='Projects'
         description='Here you can see my last projects'
       />

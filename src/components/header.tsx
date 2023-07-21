@@ -6,12 +6,14 @@ import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 interface HeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string
   description?: string | null
+  page?: boolean
   size?: 'default' | 'sm'
 }
 
 export function Header({
   title,
   description,
+  page = false,
   className,
   ...props
 }: HeaderProps) {
@@ -31,9 +33,9 @@ export function Header({
       <div
         {...props}
         className={cn(
-          'my-10 mx-auto justify-center',
+          'my-20 mx-auto justify-center',
           className,
-          !description && 'my-20',
+          page ? 'my-10' : 'my-20',
         )}
       >
         <motion.h3
