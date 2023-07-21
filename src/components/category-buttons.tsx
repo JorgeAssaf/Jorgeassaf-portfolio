@@ -36,28 +36,31 @@ const CategoryButtons: FC<CategoryButtonsProps> = ({ categories }) => {
 
   return (
     <>
-      <Button
-        onClick={() => {
-          startTransition(() => {
-            router.push(
-              `${pathname}?${createQueryString({
-                category: null,
-              })}`,
-            )
-          })
-        }}
-        disabled={isPending}
-        className={cn(
-          !categoryParam &&
-          'bg-primary text-primary-foreground hover:bg-primary-hover hover:text-primary-hover-foreground',
-        )}
-        variant='outline'
-        size='sm'
-      >
-        All posts
-      </Button>
+      <div>
+        <Button
+          onClick={() => {
+            startTransition(() => {
+              router.push(
+                `${pathname}?${createQueryString({
+                  category: null,
+                })}`,
+              )
+            })
+          }}
+          disabled={isPending}
+          className={cn(
+            !categoryParam &&
+            'bg-primary text-primary-foreground hover:bg-primary-hover hover:text-primary-hover-foreground',
+          )}
+          variant='outline'
+          size='sm'
+        >
+          All posts
+        </Button>
+      </div>
+
       {categories.map((category: Category) => (
-        <div key={category.title} className='flex'>
+        <div key={category.title}>
           <Button
             onClick={() => {
               startTransition(() => {
