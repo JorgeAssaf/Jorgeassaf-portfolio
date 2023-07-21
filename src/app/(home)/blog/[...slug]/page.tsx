@@ -51,13 +51,15 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
       <Badge className='mb-10 hover:bg-primary hover:text-primary-foreground'>
         <Link
           href='/blog'
-          className='flex text-sm justify-start gap-2 items-center '
+          className='flex text-[10px]  md:text-sm justify-start gap-x-1 md:gap-3 flex-wrap items-center '
         >
           <Icons.chevronLeft size='20' />
-          Blog <Icons.chevronLeft size='20' />
+          Blog
+          <Icons.chevronLeft size='20' />
           {post.categories.map((category, i) => (
-            <span key={category.title}>
-              {category.title} {i < post.categories.length - 1 && ' / '}
+            <span className=' ' key={category.title}>
+              {category.title}
+              {i < post.categories.length - 1 && ' / '}
             </span>
           ))}
         </Link>
