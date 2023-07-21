@@ -1,11 +1,12 @@
 import { Header } from '@/components/header'
 import { Icons } from '@/components/icons'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import Image from 'next/image'
 const AboutPage = () => {
   return (
     <div>
       <Header title='About' page />
-      <div className='w-3/4 mx-auto'>
+      <div className='md:w-3/4 mx-auto '>
         <p className='leading-7 [&:not(:first-child)]:mt-6'>
           I&apos;m a front-end web developer with experience in JavaScript,
           React, Next.js and Astro. My goal is to become a FullStack programmer.
@@ -20,8 +21,22 @@ const AboutPage = () => {
         </p>
       </div>
       <div className='my-5 flex flex-col justify-center items-center'>
+        <h3 className='text-3xl font-bold '>Experience</h3>
+        <section className='my-5'>
+          <div className='  '>
+            <h4 className='text-xl font-bold '>Frontend Developer in omaka</h4>
+            <p className='leading-7'>
+              One year of experience as a front-end web developer with
+              javaScript, react, next.js, redux, tailwind, styled-components and
+              more.
+            </p>
+          </div>
+        </section>
+      </div>
+      <div className='my-5 flex flex-col 
+       justify-center items-center'>
         <h3 className='text-3xl font-bold '>Skills</h3>
-        <div className='flex gap-3 my-5 items-center'>
+        <div className='flex gap-3 my-5 items-center justify-center flex-wrap'>
           <Icons.react className='w-7 h-7' />
           <span>React</span>
           <Icons.next className='w-7 h-7' />
