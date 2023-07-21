@@ -33,5 +33,6 @@ export const PostQuery = groq`*[_type == "post"]{
     name,
     "image": image.asset->url,
   },
+   'slug': slug.current,
   body,
 }`
