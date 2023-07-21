@@ -25,9 +25,14 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
   return (
     <div className='h-20 items-center flex md:hidden justify-between'>
       <div className='flex text-left md:flex'>
-        <p className='text-2xl font-bold md:flex'>
-          JA<span className='text-primary'>.</span>
-        </p>
+        <Link
+          aria-label='Home'
+          href='/'
+        >
+          <p className='text-2xl font-bold md:flex'>
+            JA<span className='text-primary'>.</span>
+          </p>
+        </Link>
       </div>
       <ThemeToggle />
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
