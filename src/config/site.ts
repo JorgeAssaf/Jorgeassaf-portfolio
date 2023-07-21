@@ -2,9 +2,9 @@ export type SiteConfig = typeof siteConfig
 
 const links = {
   twitter: 'https://twitter.com/@assafEnrique',
-  github: 'https://github.com/sadmann7/portfolio',
+  github: 'https://github.com/JorgeAssaf/JA',
   githubAccount: 'https://github.com/jorgeassaf',
-  discord: 'https://discord.com/users/sadmann7',
+  threads: 'https://threads.net/@jorgeassaf_dev',
 }
 
 export const siteConfig = {
@@ -13,6 +13,7 @@ export const siteConfig = {
     'Personal portfolio of Jorge Assaf, a software engineer based in Mexico City. ',
   url: 'https://jorgeassaf.vercel.app',
   ogImage: 'https://jorgeassaf/opengraph-image.png',
+  sourceCode: links.github,
   mainNav: [
     {
       title: 'Home',
@@ -50,8 +51,8 @@ export const siteConfig = {
           external: true,
         },
         {
-          title: 'Discord',
-          href: links.discord,
+          title: 'Threads',
+          href: links.threads,
           external: true,
         },
       ],
