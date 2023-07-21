@@ -11,6 +11,7 @@ import {
   X,
   Menu,
   ArrowDown,
+  ArrowLeft,
   type LucideProps,
   type LucideIcon,
 } from 'lucide-react'
@@ -19,6 +20,7 @@ export type Icon = LucideIcon
 
 export const Icons = {
   placeholder: Image,
+  arrowLeft: ArrowLeft,
   menu: Menu,
   close: X,
   spinner: Loader2,
