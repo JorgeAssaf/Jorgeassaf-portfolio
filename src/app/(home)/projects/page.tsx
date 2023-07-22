@@ -10,13 +10,9 @@ export const metadata: Metadata = {
     'Here you can see my latest projects and what technologies they are made with',
 }
 
-const getProjects = async () => {
-  const projects = (await client.fetch<Projects[]>(projectsQuery)) ?? []
-  return projects
-}
 
 const ProjectsPage = async () => {
-  const projects = await getProjects()
+  const projects = (await client.fetch<Projects[]>(projectsQuery)) ?? []
   return (
     <section>
       <Header
