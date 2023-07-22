@@ -94,6 +94,7 @@ const Hero = () => {
         <Image
           src='/Vector.png'
           alt='image'
+          loading='lazy'
           className='h-full '
           width={420}
           height={500}
