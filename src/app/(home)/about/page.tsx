@@ -3,7 +3,7 @@ import { Icons } from '@/components/icons'
 const AboutPage = () => {
   return (
     <div className='md:w-3/4 mx-auto '>
-      <Header title='About' page />
+      <Header title='About me' page />
       <div>
         <p className='leading-7 [&:not(:first-child)]:mt-6'>
           I&apos;m a front-end web developer with experience in JavaScript,
