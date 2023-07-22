@@ -1,7 +1,5 @@
 import { Header } from '@/components/header'
 import { Icons } from '@/components/icons'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import Image from 'next/image'
 const AboutPage = () => {
   return (
     <div className='md:w-3/4 mx-auto '>
@@ -33,12 +31,20 @@ const AboutPage = () => {
               </time>
               <h3 className='text-lg font-semibold'>
                 Frontend Developer at{' '}
-                <span className='text-primary'>Omaka</span>
+                <a
+                  href='https://omaka.mx'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='text-primary underline hover:text-primary-hover transition-colors'
+                >
+                  {' '}
+                  Omaka
+                </a>
               </h3>
               <p className='mb-4 text-base font-normal text-muted-foreground'>
-                I am currently working as a Frontend Developer at Omaka. I am
-                working on a project that is being developed with Next.js,
-                Tailwind CSS, Redux and Typescript.
+                I am currently working as a Frontend Developer at Omaka. Working
+                on a project that is being developed with Next.js, Tailwind CSS,
+                Redux and Typescript.
               </p>
             </li>
             {/* <li className='mb-10 ml-4'>
