@@ -1,7 +1,12 @@
 'use client'
-import { FC, useTransition } from 'react'
+import { FC } from 'react'
 import { Badge } from './ui/badge'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from './ui/card'
 import { Post } from '@/app/types/sanity'
 import { cn } from '@/lib/utils'
 import { PortableText } from '@portabletext/react'
@@ -16,15 +21,15 @@ const PostCard: FC<PostCardProps> = ({ posts }) => {
         posts.map((post: Post) => (
           <Card key={post._id}>
             <CardHeader>
-              <Link
-                href={`/blog/${post.slug}`}
-
-              >
-                <CardTitle className='text-2xl my-2 font-bold line-clamp-2'> {post.title}</CardTitle>
+              <Link href={`/blog/${post.slug}`}>
+                <CardTitle
+                  className={cn('text-2xl my-2 font-bold line-clamp-2')}
+                >
+                  {' '}
+                  {post.title}
+                </CardTitle>
               </Link>
               <div className='md:mt-2 mt-0'>
-
-
                 <div className='flex gap-4 flex-wrap'>
                   <span>{new Date(post._createdAt).getMonth()} months ago</span>
                   <div className='flex gap-3 flex-wrap'>
@@ -38,7 +43,6 @@ const PostCard: FC<PostCardProps> = ({ posts }) => {
                         {category.title}
                       </Badge>
                     ))}
-
                   </div>
                 </div>
               </div>
@@ -46,9 +50,7 @@ const PostCard: FC<PostCardProps> = ({ posts }) => {
                 <PortableText value={post.body} />
               </div>
             </CardHeader>
-            <CardContent>
-              {post.author.name}
-            </CardContent>
+            <CardContent>{post.author.name}</CardContent>
           </Card>
         ))
       ) : (
