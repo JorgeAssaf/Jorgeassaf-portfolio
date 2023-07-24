@@ -36,7 +36,9 @@ const SiteFooter = () => {
           <div className='flex gap-5'>
             <Link
               href='mailto:jorgeassaf160@gmail.com'
-
+              className={cn(buttonVariants({
+                variant: 'default',
+              }))}
             >
               <Icons.mail className='w-6 h-6' />
               <span className='sr-only'>Mail</span>
@@ -45,6 +47,9 @@ const SiteFooter = () => {
               href='https://www.linkedin.com/in/jorge-enrique-assaf/'
               target='_blank'
               rel='noreferrer'
+              className={cn(buttonVariants({
+                variant: 'default',
+              }))}
 
             >
               <Icons.linkedIn className='w-6 h-6' />
