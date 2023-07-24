@@ -75,7 +75,12 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <Image
-                        className='cursor-pointer'
+                        className={cn(
+                          technologie.name === 'Clerk auth'
+                            ? 'rounded-full'
+                            : '',
+                          'cursor-pointer',
+                        )}
                         src={technologie.image}
                         alt={technologie.name}
                         width={26}
