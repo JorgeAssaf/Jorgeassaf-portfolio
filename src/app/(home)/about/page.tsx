@@ -20,11 +20,6 @@ const AboutPage = () => {
           connect with users. I am always looking for new opportunities to grow
           and collaborate on exciting projects.
         </p>
-        <p className='leading-7 [&:not(:first-child)]:mt-6'>
-          I hope this shorter version is useful to you. If you need more
-          adjustments or changes, do not hesitate to tell me. Much success in
-          your career as a web developer!
-        </p>
       </div>
       <div className='my-5 flex flex-col justify-center items-center'>
         <h3 className='text-3xl font-bold '>Experience</h3>
@@ -36,7 +31,7 @@ const AboutPage = () => {
                 June 2023 - Present
               </time>
               <h3 className='text-lg font-semibold'>
-                Frontend Developer at
+                Frontend Developer at{' '}
                 <a
                   href='https://omaka.mx'
                   target='_blank'
@@ -76,6 +71,10 @@ const AboutPage = () => {
           <div className='flex justify-center flex-col items-center'>
             <Icons.typescript className='w-7 h-7' />
             <span>Typescript</span>
+          </div>
+          <div className='flex justify-center flex-col items-center'>
+            <Icons.prisma className='w-7 h-7' />
+            <span>Prisma</span>
           </div>
         </div>
       </div>
