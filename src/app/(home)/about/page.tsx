@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const AboutPage = () => {
   return (
-    <div className='md:w-3/4 mx-auto '>
+    <div className=' max-w-[75ch] mx-auto'>
       <Header title='About me' page />
       <div>
         <p className='leading-7 [&:not(:first-child)]:mt-6'>

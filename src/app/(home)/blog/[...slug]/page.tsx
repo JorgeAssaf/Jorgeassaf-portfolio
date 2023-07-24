@@ -6,12 +6,12 @@ import { Badge } from '@/components/ui/badge'
 import { client } from '@/lib/sanity'
 import { urlFor } from '@/lib/sanityImage'
 import { PortableText } from '@portabletext/react'
+import { formatDate } from '@/lib/utils'
 
 async function getPost(slug: string) {
   const query = `*[_type == "post" && slug.current == "${slug}"][0] { 
   _id,
   title,
-  "image": image.asset->url,
   _updatedAt,
   _createdAt,
   categories[]->{
@@ -46,7 +46,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
   const post = await getPost(params.slug)
   console.log(post)
   return (
-    <div className='relative'>
+    <div className=' max-w-[75ch] mx-auto '>
       <Badge className='mb-10 hover:bg-primary hover:text-primary-foreground'>
         <Link
           href='/blog'
@@ -63,10 +63,19 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
           ))}
         </Link>
       </Badge>
-      <section>
-        <h2 className='scroll-m-20 border-b pb-2 text-4xl font-semibold tracking-tight transition-colors first:mt-0'>
+      <section className='border-b pb-2'>
+        <h2 className='scroll-m-20 text-[2.1rem] font-semibold tracking-tight leading-[1.1] transition-colors first:mt-0'>
           {post.title}
         </h2>
+
+        <div className='flex items-center gap-10 mt-4 mb-4'>
+          <div className='flex items-center gap-5'>
+            <span className='text-sm'>{post.author.name}</span>
+          </div>
+          <span className='text-sm text-muted-foreground'>
+            {formatDate(post._createdAt)}
+          </span>
+        </div>
       </section>
 
       <article className='divide-y divide-gray-200 pb-7 dark:divide-gray-700 xl:divide-y-0  '>
