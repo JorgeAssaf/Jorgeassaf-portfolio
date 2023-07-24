@@ -1,7 +1,6 @@
 'use client'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { siteConfig } from '@/config/site'
 import { Icons } from '../icons'
 import { buttonVariants } from '../ui/button'
 import { cn } from '@/lib/utils'

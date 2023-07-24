@@ -1,9 +1,7 @@
 import CategoryButtons from '@/components/category-buttons'
 import { Header } from '@/components/header'
-import { Badge } from '@/components/ui/badge'
-import { Card } from '@/components/ui/card'
 import { client } from '@/lib/sanity'
-import { cn, slugify } from '@/lib/utils'
+import { slugify } from '@/lib/utils'
 import { CategoryQuery, PostQuery } from '@/utils/querys'
 
 import type { Metadata } from 'next'

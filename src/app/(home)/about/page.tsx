@@ -1,6 +1,5 @@
 import { Header } from '@/components/header'
 import { Icons } from '@/components/icons'
-import { client } from '@/lib/sanity'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -10,7 +9,6 @@ export const metadata: Metadata = {
 }
 
 const AboutPage = () => {
-
   return (
     <div className='md:w-3/4 mx-auto '>
       <Header title='About me' page />
@@ -31,7 +29,6 @@ const AboutPage = () => {
       <div className='my-5 flex flex-col justify-center items-center'>
         <h3 className='text-3xl font-bold '>Experience</h3>
         <section className='my-5 '>
-
           <ol className='relative border-l text '>
             <li className='mb-10 ml-4'>
               <div className='absolute w-3 h-3 bg-muted-foreground rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900'></div>

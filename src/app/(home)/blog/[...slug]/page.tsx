@@ -1,11 +1,11 @@
-import { Post } from '@/app/types/sanity'
+import Image from 'next/image'
+import Link from 'next/link'
+import type { Post } from '@/app/types/sanity'
 import { Icons } from '@/components/icons'
 import { Badge } from '@/components/ui/badge'
 import { client } from '@/lib/sanity'
 import { urlFor } from '@/lib/sanityImage'
 import { PortableText } from '@portabletext/react'
-import Image from 'next/image'
-import Link from 'next/link'
 
 async function getPost(slug: string) {
   const query = `*[_type == "post" && slug.current == "${slug}"][0] { 
@@ -21,7 +21,6 @@ async function getPost(slug: string) {
     name,
     "image": image.asset->url,
   },
- 
   body,
 }`
 
