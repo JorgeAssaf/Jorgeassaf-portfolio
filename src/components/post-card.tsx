@@ -1,16 +1,11 @@
 'use client'
-import { FC } from 'react'
-import { Badge } from './ui/badge'
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from './ui/card'
-import { Post } from '@/app/types/sanity'
-import { cn } from '@/lib/utils'
-import { PortableText } from '@portabletext/react'
 import Link from 'next/link'
+import type { FC } from 'react'
+import { Badge } from './ui/badge'
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
+import type { Post } from '@/app/types/sanity'
+import { cn, formatDate } from '@/lib/utils'
+import { PortableText } from '@portabletext/react'
 interface PostCardProps {
   posts: Post[]
 }
@@ -31,7 +26,7 @@ const PostCard: FC<PostCardProps> = ({ posts }) => {
               </Link>
               <div className='md:mt-2 mt-0'>
                 <div className='flex gap-4 flex-wrap'>
-                  <span>{new Date(post._createdAt).getMonth()} months ago</span>
+                  <span>{formatDate(post._createdAt)}</span>
                   <div className='flex gap-3 flex-wrap'>
                     {post.categories.map((category) => (
                       <Badge

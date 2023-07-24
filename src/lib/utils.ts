@@ -26,3 +26,12 @@ export const deslugify = (text: string) => {
     .replace(/^[a-z]/g, (m) => m.toUpperCase())
     .replace(/\w\S*/g, (w) => w.replace(/^\w/, (c) => c.toUpperCase()))
 }
+
+export const formatDate = (date: Date) => {
+  return new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  })
+
+}
