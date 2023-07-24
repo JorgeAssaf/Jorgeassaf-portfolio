@@ -83,6 +83,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
                         )}
                         src={technologie.image}
                         alt={technologie.name}
+                        loading='lazy'
                         width={26}
                         height={26}
                       />
