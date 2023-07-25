@@ -8,7 +8,6 @@ import type { Metadata } from 'next'
 import type { Category, Post } from '@/app/types/sanity'
 import PostCard from '@/components/post-card'
 
-export const dynamic = 'force-static'
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -19,9 +18,11 @@ export const metadata: Metadata = {
 const getPostsByCategory = async (category: string) => {
   const posts = await client.fetch<Post[]>(PostQuery)
   if (!category) return posts
-  return posts.filter((post: Post) =>
+  posts.filter((post: Post) =>
     post.categories.some((c: Category) => slugify(c.title) === category),
   )
+  return posts
+
 }
 
 const BlogPage = async ({
@@ -29,10 +30,11 @@ const BlogPage = async ({
 }: {
   searchParams: { [key: string]: string | string[] | undefined }
 }) => {
+
   const blogCategories = (await client.fetch<Category[]>(CategoryQuery)) ?? []
-  const blogPost = await getPostsByCategory(searchParams.category?.toString() ?? '')
+  const blogPost = await getPostsByCategory(searchParams.category as string)
   const [posts, categories] = await Promise.all([blogPost, blogCategories])
-  console.log(posts);
+
   return (
     <>
       <Header
