@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge'
 import { client } from '@/lib/sanity'
 import { urlFor } from '@/lib/sanityImage'
 import { PortableText } from '@portabletext/react'
-import { formatDate } from '@/lib/utils'
+import { formatDate, slugify } from '@/lib/utils'
 
 async function getPost(slug: string) {
   const query = `*[_type == "post" && slug.current == "${slug}"][0] { 
@@ -48,7 +48,10 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
     <div className=' max-w-[75ch] mx-auto '>
       <Badge className='mb-10 hover:bg-primary hover:text-primary-foreground'>
         <Link
-          href='/blog'
+          href={{
+            pathname: '/blog',
+            query: { category: slugify(post.categories[0].title) },
+          }}
           className='flex text-[10px] md:text-sm justify-start gap-x-1 md:gap-3 flex-wrap items-center '
         >
           <Icons.chevronLeft size='20' />
@@ -72,20 +75,18 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
 
         <div className='flex items-center gap-10 mt-4 mb-4'>
           <div className='flex items-center gap-3 mt-1'>
-            {
-              post.author.image && <Image
+            {post.author.image && (
+              <Image
                 src={post.author.image}
                 alt='Image'
                 className='rounded-full'
                 width={30}
                 height={30}
               />
-            }
+            )}
 
-            <span className="leading-7">
-              {post.author.name}</span>
+            <span className='leading-7'>{post.author.name}</span>
           </div>
-
         </div>
       </section>
 

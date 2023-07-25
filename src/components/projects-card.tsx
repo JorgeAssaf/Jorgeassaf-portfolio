@@ -31,15 +31,15 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
   return (
     <>
       {projects.map((project) => (
-        <Card key={project._id}>
-          <CardHeader className={cn('border-b bg-card p-0')}>
+        <Card key={project._id} className={cn("h-full overflow-hidden rounded-md")} >
+          <CardHeader className="border-b p-0">
             <AspectRatio ratio={4 / 3}>
               {project.image ? (
                 <Image
                   src={project.image}
                   alt={project?.name}
                   quality={100}
-                  className={`object-cover ${project.name == 'Netflix clone' ? 'object-left-top' : ''
+                  className={`object-cover  ${project.name == 'Netflix clone' ? 'object-left-top' : ''
                     }`}
                   sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                   fill
@@ -70,7 +70,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
 
             <div className='mt-3 mb-4 flex items-center gap-3 flex-wrap'>
               {project.technologies.map((technologie) => (
-                <TooltipProvider key={technologie.name} delayDuration={450}>
+                <TooltipProvider key={technologie.name} delayDuration={250}>
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <Image
@@ -97,7 +97,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
             <CardFooter
               className={cn('p-0 flex justify-between items-center mt-3')}
             >
-              <div className='flex items-center gap-5'>
+              <div className='flex items-center flex gap-5'>
                 <Link
                   aria-label='View code on GitHub'
                   href={project.github}
