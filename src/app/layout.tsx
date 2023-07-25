@@ -1,3 +1,5 @@
+import { Analytics } from '@vercel/analytics/react';
+
 import { ThemeProvider } from '@/components/theme-provider'
 import { siteConfig } from '@/config/site'
 import { Satoshi, fontmono } from '@/lib/fonts'
@@ -68,6 +70,7 @@ export default function RootLayout({
       >
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
           {children}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

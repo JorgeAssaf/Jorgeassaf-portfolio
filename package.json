@@ -21,6 +21,7 @@
     "@types/react": "18.2.16",
     "@types/react-dom": "18.2.7",
     "@types/three": "0.154.0",
+    "@vercel/analytics": "^1.0.1",
     "autoprefixer": "10.4.14",
     "class-variance-authority": "0.7.0",
     "clsx": "2.0.0",
