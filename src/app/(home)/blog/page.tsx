@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 }
 
 const getPostsByCategory = async (category: string) => {
-  const posts = (await client.fetch<Post[]>(PostQuery)) ?? []
+  const posts = await client.fetch<Post[]>(PostQuery)
   if (!category) return posts
   return posts.filter((post: Post) =>
     post.categories.some((c: Category) => slugify(c.title) === category),
