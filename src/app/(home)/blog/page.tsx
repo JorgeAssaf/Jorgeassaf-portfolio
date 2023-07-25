@@ -8,7 +8,6 @@ import type { Metadata } from 'next'
 import type { Category, Post } from '@/app/types/sanity'
 import PostCard from '@/components/post-card'
 
-
 export const metadata: Metadata = {
   title: 'Blog',
   description:

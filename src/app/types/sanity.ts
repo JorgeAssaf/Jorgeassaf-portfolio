@@ -35,6 +35,7 @@ export interface Post {
   _updatedAt: Date
   _createdAt: Date
   categories: Category[]
+  description: string
   body: Body[]
   _id: string
   author: Author

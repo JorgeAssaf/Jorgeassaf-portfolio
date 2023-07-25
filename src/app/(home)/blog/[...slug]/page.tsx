@@ -49,7 +49,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
       <Badge className='mb-10 hover:bg-primary hover:text-primary-foreground'>
         <Link
           href='/blog'
-          className='flex text-[10px]  md:text-sm justify-start gap-x-1 md:gap-3 flex-wrap items-center '
+          className='flex text-[10px] md:text-sm justify-start gap-x-1 md:gap-3 flex-wrap items-center '
         >
           <Icons.chevronLeft size='20' />
           Blog
@@ -63,17 +63,29 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
         </Link>
       </Badge>
       <section className='border-b pb-2'>
-        <h2 className='scroll-m-20 text-[2.1rem] font-semibold tracking-tight leading-[1.1] transition-colors first:mt-0'>
+        <span className='text-sm text-muted-foreground'>
+          Published on {formatDate(post._createdAt)}
+        </span>
+        <h2 className='scroll-m-20 text-[2.1rem] mt-3 font-semibold tracking-tight leading-[1.1] transition-colors first:mt-0'>
           {post.title}
         </h2>
 
         <div className='flex items-center gap-10 mt-4 mb-4'>
-          <div className='flex items-center gap-5'>
-            <span className='text-sm'>{post.author.name}</span>
+          <div className='flex items-center gap-3 mt-1'>
+            {
+              post.author.image && <Image
+                src={post.author.image}
+                alt='Image'
+                className='rounded-full'
+                width={30}
+                height={30}
+              />
+            }
+
+            <span className="leading-7">
+              {post.author.name}</span>
           </div>
-          <span className='text-sm text-muted-foreground'>
-            {formatDate(post._createdAt)}
-          </span>
+
         </div>
       </section>
 

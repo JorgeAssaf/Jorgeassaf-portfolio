@@ -41,9 +41,9 @@ const PostCard: FC<PostCardProps> = ({ posts }) => {
                   </div>
                 </div>
               </div>
-              <div className='line-clamp-2'>
-                <PortableText value={post.body} />
-              </div>
+              <p className="leading-7 [&:not(:first-child)]:mt-6">
+                {post.description}
+              </p>
             </CardHeader>
             <CardContent>{post.author.name}</CardContent>
           </Card>
