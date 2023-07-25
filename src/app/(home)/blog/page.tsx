@@ -8,7 +8,7 @@ import type { Metadata } from 'next'
 import type { Category, Post } from '@/app/types/sanity'
 import PostCard from '@/components/post-card'
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -33,6 +33,7 @@ const BlogPage = async ({
   const blogCategories = (await client.fetch<Category[]>(CategoryQuery)) ?? []
   const blogPost = await getPostsByCategory(searchParams.category as string)
   const [posts, categories] = await Promise.all([blogPost, blogCategories])
+  console.log(posts);
   return (
     <>
       <Header

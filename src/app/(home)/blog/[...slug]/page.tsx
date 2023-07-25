@@ -44,7 +44,6 @@ const PortableTextComponent = {
 
 const PostPage = async ({ params }: { params: { slug: string } }) => {
   const post = await getPost(params.slug)
-  console.log(post)
   return (
     <div className=' max-w-[75ch] mx-auto '>
       <Badge className='mb-10 hover:bg-primary hover:text-primary-foreground'>

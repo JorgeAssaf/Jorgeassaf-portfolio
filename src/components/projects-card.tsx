@@ -28,7 +28,6 @@ interface ProjectsCardProps {
 }
 
 const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
-  console.log(projects)
   return (
     <>
       {projects.map((project) => (
