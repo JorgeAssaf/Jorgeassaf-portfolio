@@ -33,7 +33,6 @@ const BlogPage = async ({
   const blogCategories = (await client.fetch<Category[]>(CategoryQuery)) ?? []
   const blogPost = await getPostsByCategory(searchParams.category as string)
   const [posts, categories] = await Promise.all([blogPost, blogCategories])
-  console.log(posts);
   return (
     <>
       <Header
