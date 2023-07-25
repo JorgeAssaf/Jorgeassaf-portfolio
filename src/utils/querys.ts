@@ -16,23 +16,18 @@ export const projectsQuery = groq`*[_type == "project"]{
 export const CategoryQuery = groq`*[_type == "category"]{
   _id,
   title,
-  _updatedAt,
-  _createdAt
 }`
 
 export const PostQuery = groq`*[_type == "post"]{
   _id,
   title,
-  "image": image.asset->url,
-  _updatedAt,
   _createdAt,
   categories[]->{
     title,
   },
+  description,
   author->{
     name,
-    "image": image.asset->url,
   },
    'slug': slug.current,
-  body,
 }`
