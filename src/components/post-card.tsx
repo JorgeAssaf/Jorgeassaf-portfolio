@@ -12,8 +12,8 @@ interface PostCardProps {
 const PostCard: FC<PostCardProps> = ({ posts }) => {
   return (
     <div className='grid md:grid-cols-2 gap-10 grid-cols-1'>
-      {posts.length > 0 ? (
-        posts.map((post: Post) => (
+      {posts?.length > 0 ? (
+        posts?.map((post: Post) => (
           <Card key={post._id}>
             <CardHeader>
               <Link href={`/blog/${post.slug}`}>
