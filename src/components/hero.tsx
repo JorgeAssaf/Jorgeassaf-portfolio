@@ -32,7 +32,7 @@ const Hero = () => {
         </motion.h1>
         <motion.h2
           variants={FADE_DOWN_ANIMATION_VARIANTS}
-          className='decoration-wavy underline-offset-1 underline text-primary md:text-4xl my-1 font-semibold text-2xl'
+          className=' text-primary md:text-4xl my-1 font-semibold text-2xl'
         >
           Front-end Developer.
         </motion.h2>
@@ -40,9 +40,8 @@ const Hero = () => {
           variants={FADE_DOWN_ANIMATION_VARIANTS}
           className='text-muted-foreground mt-3 md:text-xl text-base'
         >
-          I’m a Front-end Developer based in Mexico City, Mexico. I have a
-          passion for web development and love to create for web and mobile
-          devices.
+          Based in Mexico City. I take great pleasure in creating and developing
+          applications for both web and mobile devices.
         </motion.p>
         <motion.div
           variants={FADE_DOWN_ANIMATION_VARIANTS}
@@ -69,20 +68,19 @@ const Hero = () => {
             <Icons.linkedIn className='w-7 h-7' />
             <span className='sr-only'>LinkedIn</span>
           </Link>
-          <Link
+          <a
             arial-label='Download Resume'
             download={true}
-            target='_blank'
             rel='noopener noreferrer'
-            href='https://cdn-153.anonfiles.com/M3pckcscz3/6cd0105f-1689803143/Jorge_Assaf_CV.pdf'
+            href='https://cdn-147.anonfiles.com/M3pckcscz3/66303ff0-1690301820/Jorge_Assaf_CV.pdf'
             className={cn(
               buttonVariants({
                 variant: 'outline',
               }),
             )}
           >
-            Resumen
-          </Link>
+            Resume
+          </a>
         </motion.div>
       </div>
       <motion.div
