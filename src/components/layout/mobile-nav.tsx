@@ -99,7 +99,7 @@ function MobileLink({
     <Link
       href={href}
       className={cn(
-        'text-foreground/70 text-lg transition-colors hover:text-primary',
+        'text-foreground text-lg transition-colors hover:text-primary',
         pathname === href && 'text-primary',
         disabled && 'pointer-events-none opacity-60',
       )}
