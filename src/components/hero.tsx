@@ -88,7 +88,7 @@ const Hero = () => {
         className='max-w-lg h-full  hidden lg:flex'
       >
         {/* <HomeScene /> */}
-
+        {/* 
         <Image
           src='/Vector.png'
           alt='image'
@@ -96,7 +96,7 @@ const Hero = () => {
           className='h-full '
           width={420}
           height={500}
-        />
+        /> */}
       </motion.div>
     </motion.div>
   )
