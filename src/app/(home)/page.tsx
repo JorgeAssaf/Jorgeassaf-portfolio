@@ -5,6 +5,8 @@ import Scroll from '@/components/scroll'
 import { client } from '@/lib/sanity'
 import { projectsQuery } from '@/utils/querys'
 
+export const dynamic = 'force-static'
+
 export default async function Home() {
   const projects = (await client.fetch<Projects[]>(projectsQuery)) ?? []
 
