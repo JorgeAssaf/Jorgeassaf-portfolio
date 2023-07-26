@@ -21,7 +21,7 @@ const AboutPage = () => {
           and collaborate on exciting projects.
         </p>
       </div>
-      <div className='my-5 flex flex-col justify-center items-center'>
+      <div className='my-10 flex flex-col justify-center items-center'>
         <h3 className='text-3xl font-bold '>Experience</h3>
         <section className='my-5 '>
           <ol className='relative border-l text '>
@@ -51,28 +51,28 @@ const AboutPage = () => {
         </section>
       </div>
       <div
-        className='my-5 flex flex-col 
+        className=' flex flex-col 
        justify-center items-center'
       >
         <h3 className='text-3xl font-bold '>My stack</h3>
         <div className='flex gap-5 my-7 items-center justify-center flex-wrap'>
-          <div className='flex justify-center flex-col items-center'>
+          <div className='flex justify-center gap-y-1 flex-col items-center'>
             <Icons.react className='w-7 h-7' />
             <span>React</span>
           </div>
-          <div className='flex justify-center flex-col items-center'>
+          <div className='flex justify-center gap-y-1 flex-col items-center'>
             <Icons.next className='w-7 h-7' />
             <span>Next</span>
           </div>
-          <div className='flex justify-center flex-col items-center'>
+          <div className='flex justify-center gap-y-1 flex-col items-center'>
             <Icons.tailwind className='w-7 h-7' />
             <span>Tailwind</span>
           </div>
-          <div className='flex justify-center flex-col items-center'>
+          <div className='flex justify-center gap-y-1 flex-col items-center'>
             <Icons.typescript className='w-7 h-7' />
             <span>Typescript</span>
           </div>
-          <div className='flex justify-center flex-col items-center'>
+          <div className='flex justify-center gap-y-1 flex-col items-center'>
             <Icons.prisma className='w-7 h-7' />
             <span>Prisma</span>
           </div>
