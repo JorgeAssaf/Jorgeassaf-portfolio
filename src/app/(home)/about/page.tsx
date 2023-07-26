@@ -13,7 +13,7 @@ const AboutPage = () => {
     <div className=' max-w-[75ch] mx-auto'>
       <Header title='About me' page />
       <div>
-        <p className='leading-7 [&:not(:first-child)]:mt-6'>
+        <p className='leading-7  md:text-lg [&:not(:first-child)]:mt-6'>
           I&apos;m a front-end web developer with experience in JavaScript,
           React, Next.js and Astro. My goal is to become a FullStack programmer.
           I enjoy creating beautiful and easy to use web applications that
