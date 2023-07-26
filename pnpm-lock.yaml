@@ -74,6 +74,9 @@ dependencies:
   next-themes:
     specifier: 0.2.1
     version: 0.2.1(next@13.4.10)(react-dom@18.2.0)(react@18.2.0)
+  postcss:
+    specifier: 8.4.27
+    version: 8.4.27
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -106,9 +109,6 @@ devDependencies:
   cssnano:
     specifier: ^6.0.1
     version: 6.0.1(postcss@8.4.27)
-  postcss:
-    specifier: 8.4.27
-    version: 8.4.27
 
 packages:
 
@@ -465,6 +465,7 @@ packages:
 
   /@emotion/memoize@0.7.4:
     resolution: {integrity: sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==}
+    requiresBuild: true
     dev: false
     optional: true
 
