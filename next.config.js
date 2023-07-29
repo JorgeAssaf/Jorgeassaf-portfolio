@@ -4,6 +4,7 @@ const nextConfig = {
     formats: ['image/webp'],
     domains: ['cdn.sanity.io'],
   },
+  transpilePackages: ['three'],
 }
 
 module.exports = nextConfig
