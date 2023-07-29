@@ -1,11 +1,11 @@
 'use client'
-import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 import { buttonVariants } from './ui/button'
 import { Icons } from './icons'
 import { cn } from '@/lib/utils'
+import HomeScene from '@/scenes/home-scene'
 
 const Hero = () => {
   return (
@@ -21,7 +21,7 @@ const Hero = () => {
           },
         },
       }}
-      className='my-14 md:mb-14 md:mt-24 md:my-10 flex items-center justify-between '
+      className='my-14  md:my-10 flex items-center justify-between '
     >
       <div className='w-[34rem]'>
         <motion.h1
@@ -65,7 +65,7 @@ const Hero = () => {
             rel='noopener noreferrer'
             className={cn(buttonVariants({ variant: 'default' }))}
           >
-            <Icons.linkedIn className='w-7 h-7' />
+            <Icons.linkedIn className='w-6 h-6' />
             <span className='sr-only'>LinkedIn</span>
           </Link>
           <a
@@ -85,9 +85,9 @@ const Hero = () => {
       </div>
       <motion.div
         variants={FADE_DOWN_ANIMATION_VARIANTS}
-        className='max-w-lg h-full  hidden lg:flex'
+        className='max-w-lg h-full justify-center items-center hidden lg:flex'
       >
-        {/* <HomeScene /> */}
+        <HomeScene />
         {/* 
         <Image
           src='/Vector.png'
