@@ -1,10 +1,10 @@
 'use client'
-import { MainNavItem } from '@/app/types/site'
-import { type FC } from 'react'
+import type { FC } from 'react'
 import Link from 'next/link'
 import { ThemeToggle } from './theme-toggle'
 import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
+import type { MainNavItem } from '@/app/types/site'
 interface MainNavProps {
   items?: MainNavItem[]
 }
@@ -61,12 +61,11 @@ function MenuLink({
     <Link
       href={`${href}`}
       className={cn(
-        "text-foreground transition-colors hover:text-primary-hover",
-        pathname === href && "text-primary-hover",
-        disabled && "pointer-events-none opacity-60",
-        className
+        'text-foreground transition-colors hover:text-primary/90',
+        pathname === href && 'text-primary',
+        disabled && 'pointer-events-none opacity-60',
+        className,
       )}
-
     >
       {children}
     </Link>

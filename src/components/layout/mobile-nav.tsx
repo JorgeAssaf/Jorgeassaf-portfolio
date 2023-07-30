@@ -1,7 +1,8 @@
 'use client'
 import { type FC, useState } from 'react'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { MainNavItem } from '@/app/types/site'
+import type { MainNavItem } from '@/app/types/site'
 import {
   Sheet,
   SheetContent,
@@ -11,7 +12,6 @@ import {
 } from '../ui/sheet'
 import { Button } from '../ui/button'
 import { Icons } from '../icons'
-import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { ThemeToggle } from './theme-toggle'
 
@@ -25,10 +25,7 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
   return (
     <div className='h-20 items-center flex md:hidden justify-between'>
       <div className='flex text-left md:flex'>
-        <Link
-          aria-label='Home'
-          href='/'
-        >
+        <Link aria-label='Home' href='/'>
           <p className='text-2xl font-bold md:flex'>
             JA<span className='text-primary'>.</span>
           </p>
@@ -99,7 +96,7 @@ function MobileLink({
     <Link
       href={href}
       className={cn(
-        'text-foreground text-lg transition-colors hover:text-primary',
+        'text-foreground text-lg transition-colors hover:text-primary/90',
         pathname === href && 'text-primary',
         disabled && 'pointer-events-none opacity-60',
       )}
