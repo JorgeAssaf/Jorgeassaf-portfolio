@@ -1,4 +1,4 @@
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/react'
 
 import { ThemeProvider } from '@/components/theme-provider'
 import { siteConfig } from '@/config/site'
@@ -8,7 +8,9 @@ import '@/styles/globals.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000',
+  ),
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
@@ -21,6 +23,12 @@ export const metadata: Metadata = {
     'Server Components',
     'TypeScript',
     'Shadcn',
+    'Jorge Assaf',
+    'Portfolio',
+    'Blog',
+    'Web Development',
+    'Frontend Development',
+    'Fullstack Development',
     'Sanity',
   ],
   authors: [
@@ -63,7 +71,7 @@ export default function RootLayout({
     <html lang='en' suppressHydrationWarning>
       <body
         className={cn(
-          'min-h-screen bg-background antialiased ',
+          'min-h-screen bg-background antialiased flex flex-col',
           fontmono.variable,
           Satoshi.className,
         )}

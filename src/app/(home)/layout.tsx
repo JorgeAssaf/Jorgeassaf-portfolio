@@ -9,7 +9,7 @@ export default function HomeLayout({
   return (
     <>
       <SiteHeader />
-      <div className='container'>{children}</div>
+      <div className='container flex-1'>{children}</div>
       <SiteFooter />
     </>
   )
