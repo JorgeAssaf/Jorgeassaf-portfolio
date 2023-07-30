@@ -40,7 +40,7 @@ const BlogPage = async ({
       />
 
       <div className='md:grid grid-cols-[0.5fr,3fr] flex flex-col gap-10'>
-        <div className='flex md:flex-col flex-row flex-wrap  gap-5  '>
+        <div>
           <CategoryButtons categories={categories} />
         </div>
         <div className='flex flex-col gap-5'>

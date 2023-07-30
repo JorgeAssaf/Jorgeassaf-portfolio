@@ -1,9 +1,11 @@
 'use client'
 import type { Category } from '@/app/types/sanity'
+import { motion } from 'framer-motion'
 import { type FC, useTransition, useCallback } from 'react'
 import { Button } from './ui/button'
 import { cn, slugify } from '@/lib/utils'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { FADE_LEFT_ANIMATION_VARIANTS } from '@/constans'
 
 interface CategoryButtonsProps {
   categories: Category[]
@@ -35,8 +37,20 @@ const CategoryButtons: FC<CategoryButtonsProps> = ({ categories }) => {
   )
 
   return (
-    <>
-      <div>
+    <motion.div
+      initial='hidden'
+      animate='show'
+      variants={{
+        hidden: {},
+        show: {
+          transition: {
+            staggerChildren: 0.15,
+          },
+        },
+      }}
+      className='flex md:flex-col flex-row flex-wrap  gap-5  '
+    >
+      <motion.div variants={FADE_LEFT_ANIMATION_VARIANTS}>
         <Button
           onClick={() => {
             startTransition(() => {
@@ -57,10 +71,13 @@ const CategoryButtons: FC<CategoryButtonsProps> = ({ categories }) => {
         >
           All posts
         </Button>
-      </div>
+      </motion.div>
 
       {categories.map((category: Category) => (
-        <div key={category.title}>
+        <motion.div
+          variants={FADE_LEFT_ANIMATION_VARIANTS}
+          key={category.title}
+        >
           <Button
             onClick={() => {
               startTransition(() => {
@@ -81,9 +98,9 @@ const CategoryButtons: FC<CategoryButtonsProps> = ({ categories }) => {
           >
             {category.title}
           </Button>
-        </div>
+        </motion.div>
       ))}
-    </>
+    </motion.div>
   )
 }
 

@@ -1,6 +1,10 @@
+'use client'
+import { motion } from 'framer-motion'
 import { Header } from '@/components/header'
 import { Icons } from '@/components/icons'
-import { Metadata } from 'next'
+import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
+
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'About me',
@@ -10,9 +14,21 @@ export const metadata: Metadata = {
 
 const AboutPage = () => {
   return (
-    <div className=' max-w-[75ch] mx-auto'>
+    <motion.div
+      initial='hidden'
+      animate='show'
+      variants={{
+        hidden: {},
+        show: {
+          transition: {
+            staggerChildren: 0.15,
+          },
+        },
+      }}
+      className=' max-w-[75ch] mx-auto'
+    >
       <Header title='About me' page />
-      <div>
+      <motion.div variants={FADE_DOWN_ANIMATION_VARIANTS}>
         <p className='leading-7 md:text-lg [&:not(:first-child)]:mt-6'>
           I&apos;m a front-end web developer with experience in JavaScript,
           React, Next.js and Astro. My goal is to become a FullStack programmer.
@@ -20,8 +36,11 @@ const AboutPage = () => {
           connect with users. I am always looking for new opportunities to grow
           and collaborate on exciting projects.
         </p>
-      </div>
-      <div className='my-10 flex flex-col justify-center items-center'>
+      </motion.div>
+      <motion.div
+        variants={FADE_DOWN_ANIMATION_VARIANTS}
+        className='my-10 flex flex-col justify-center items-center'
+      >
         <h3 className='text-3xl font-bold '>Experience</h3>
         <section className='my-5'>
           <ol className='relative border-l-2'>
@@ -49,8 +68,11 @@ const AboutPage = () => {
             </li>
           </ol>
         </section>
-      </div>
-      <div className=' flex flex-col  justify-center items-center'>
+      </motion.div>
+      <motion.div
+        variants={FADE_DOWN_ANIMATION_VARIANTS}
+        className='flex flex-col justify-center items-center'
+      >
         <h3 className='text-3xl font-bold '>My stack</h3>
         <div className='flex gap-5 my-7 items-center justify-center flex-wrap'>
           <div className='flex justify-center gap-y-1 flex-col items-center'>
@@ -74,8 +96,8 @@ const AboutPage = () => {
             <span>Prisma</span>
           </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   )
 }
 
