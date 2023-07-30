@@ -1,5 +1,5 @@
 'use client'
-import { FC } from 'react'
+import type { FC } from 'react'
 import { motion } from 'framer-motion'
 import ProjectsCard from '@/components/projects-card'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
