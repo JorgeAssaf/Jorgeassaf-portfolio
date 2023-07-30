@@ -50,7 +50,7 @@ const CategoryButtons: FC<CategoryButtonsProps> = ({ categories }) => {
           disabled={isPending}
           className={cn(
             !categoryParam &&
-            'bg-primary text-primary-foreground hover:bg-primary-hover hover:text-primary-hover-foreground',
+            'bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-hover-foreground',
           )}
           variant='outline'
           size='sm'
@@ -74,7 +74,7 @@ const CategoryButtons: FC<CategoryButtonsProps> = ({ categories }) => {
             disabled={isPending}
             className={cn(
               slugify(category.title) == categoryParam &&
-              'bg-primary text-primary-foreground hover:bg-primary-hover hover:text-primary-hover-foreground',
+              'bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-hover-foreground',
             )}
             variant='outline'
             size='sm'
