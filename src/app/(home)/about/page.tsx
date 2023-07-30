@@ -1,5 +1,3 @@
-
-
 import Aboutme from '@/components/about-me'
 import type { Metadata } from 'next'
 
@@ -10,10 +8,7 @@ export const metadata: Metadata = {
 }
 
 const AboutPage = () => {
-  return (
-    <Aboutme
-    />
-  )
+  return <Aboutme />
 }
 
 export default AboutPage
