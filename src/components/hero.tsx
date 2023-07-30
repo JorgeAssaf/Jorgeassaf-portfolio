@@ -68,11 +68,11 @@ const Hero = () => {
             <Icons.linkedIn className='w-6 h-6' />
             <span className='sr-only'>LinkedIn</span>
           </Link>
-          <a
+          <Link
             arial-label='Download Resume'
-            download={true}
+            target='_blank'
             rel='noopener noreferrer'
-            href='https://cdn-147.anonfiles.com/M3pckcscz3/66303ff0-1690301820/Jorge_Assaf_CV.pdf'
+            href='https://drive.google.com/file/d/1KGmCNQLKOSRosglp8x-hNxsHgeHxkGPr/view?usp=sharing'
             className={cn(
               buttonVariants({
                 variant: 'outline',
@@ -80,7 +80,7 @@ const Hero = () => {
             )}
           >
             Resume
-          </a>
+          </Link>
         </motion.div>
       </div>
       <motion.div
