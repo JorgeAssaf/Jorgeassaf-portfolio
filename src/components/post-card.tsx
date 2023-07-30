@@ -1,11 +1,10 @@
 'use client'
-import Link from 'next/link'
 import type { FC } from 'react'
+import Link from 'next/link'
 import { Badge } from './ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
-import type { Post } from '@/app/types/sanity'
 import { cn, formatDate } from '@/lib/utils'
-import { PortableText } from '@portabletext/react'
+import type { Post } from '@/app/types/sanity'
 interface PostCardProps {
   posts: Post[]
 }
@@ -41,7 +40,7 @@ const PostCard: FC<PostCardProps> = ({ posts }) => {
                   </div>
                 </div>
               </div>
-              <p className="leading-7 [&:not(:first-child)]:mt-6">
+              <p className='leading-7 [&:not(:first-child)]:mt-6'>
                 {post.description}
               </p>
             </CardHeader>
