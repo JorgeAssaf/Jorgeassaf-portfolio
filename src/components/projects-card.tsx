@@ -1,5 +1,6 @@
-import { type FC } from 'react'
+import type { FC } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { PortableText } from '@portabletext/react'
 import { buttonVariants } from '@/components/ui/button'
 import {
@@ -16,7 +17,6 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip'
 
-import Link from 'next/link'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { cn } from '@/lib/utils'
 import { Icons } from './icons'
@@ -48,7 +48,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
                   )}
                   sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                   fill
-                  priority
+                  loading='lazy'
                 />
               ) : (
                 <div
