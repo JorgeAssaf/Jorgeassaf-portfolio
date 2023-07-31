@@ -15,6 +15,7 @@ const AboutPage = () => {
     <FramerDiv
       initial='hidden'
       animate='show'
+      viewport={{ once: true }}
       variants={{
         hidden: {},
         show: {

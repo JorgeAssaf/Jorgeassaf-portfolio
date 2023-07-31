@@ -14,6 +14,7 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
     <motion.section
       initial='hidden'
       animate='show'
+      viewport={{ once: true }}
       variants={{
         hidden: {},
         show: {

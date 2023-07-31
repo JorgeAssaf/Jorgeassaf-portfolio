@@ -15,6 +15,7 @@ const PostCard: FC<PostCardProps> = ({ posts }) => {
     <motion.div
       initial='hidden'
       animate='show'
+      viewport={{ once: true }}
       variants={{
         hidden: {},
         show: {

@@ -21,6 +21,7 @@ export function Header({
     <motion.div
       initial='hidden'
       animate='show'
+      viewport={{ once: true }}
       variants={{
         hidden: {},
         show: {
