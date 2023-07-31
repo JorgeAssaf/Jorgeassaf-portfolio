@@ -6,8 +6,13 @@ import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 import { buttonVariants } from './ui/button'
 import { Icons } from './icons'
 import { cn } from '@/lib/utils'
+import { LoaderModel } from '@/scenes/home-scene'
+import { Suspense } from 'react'
 
-const HomeScene = dynamic(() => import('@/scenes/home-scene').then((mod) => mod.default), { ssr: false })
+const HomeScene = dynamic(
+  () => import('@/scenes/home-scene').then((mod) => mod.default),
+  { ssr: false },
+)
 
 const Hero = () => {
   return (
@@ -87,9 +92,11 @@ const Hero = () => {
       </div>
       <motion.div
         variants={FADE_DOWN_ANIMATION_VARIANTS}
-        className='max-w-lg h-full justify-center items-center hidden lg:flex'
+        className=' h-[500px] justify-center items-center hidden lg:flex'
       >
-        <HomeScene />
+        <Suspense fallback={<LoaderModel />}>
+          <HomeScene />
+        </Suspense>
         {/* 
         <Image
           src='/Vector.png'
