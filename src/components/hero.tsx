@@ -1,11 +1,13 @@
 'use client'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 import { buttonVariants } from './ui/button'
 import { Icons } from './icons'
 import { cn } from '@/lib/utils'
-import HomeScene from '@/scenes/home-scene'
+
+const HomeScene = dynamic(() => import('@/scenes/home-scene').then((mod) => mod.default), { ssr: false })
 
 const Hero = () => {
   return (
