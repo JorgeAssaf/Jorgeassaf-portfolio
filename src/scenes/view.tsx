@@ -3,9 +3,8 @@
 import { Suspense } from 'react'
 import { OrbitControls } from '@react-three/drei'
 
-export const Common = ({ color }: { color?: string }) => (
+export const Common = () => (
   <Suspense fallback={null}>
-    {color && <color attach='background' args={[color]} />}
     <OrbitControls autoRotate autoRotateSpeed={0.5} />
     <ambientLight intensity={1.8} />
   </Suspense>

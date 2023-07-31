@@ -39,9 +39,8 @@ const HomeScene = () => {
         <Dog
           position={[0, -1, 0]}
           scale={[0.6, 0.6, 0.6]}
-          rotation={[0.0, -0.3, 0]}
         />
-        <Common color='#020202' />
+        <Common />
       </Suspense>
     </Canvas>
   )
