@@ -31,7 +31,7 @@ const HomeScene = () => {
       <Suspense fallback={<LoaderModel />}>
         <Model position={[0, -1, 0]} scale={[0.6, 0.6, 0.6]} />
         <PerspectiveCamera position={[4, 3, 5]} makeDefault />
-        <OrbitControls />
+        <OrbitControls autoRotate={true} autoRotateSpeed={0.5} />
         <ambientLight intensity={1.8} />
       </Suspense>
     </Canvas>
