@@ -1,23 +1,21 @@
 'use client'
 
-import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
+import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { Html, OrbitControls, Preload, useProgress } from '@react-three/drei'
+import { Html, Preload, useProgress } from '@react-three/drei'
 
 const Dog = dynamic(() => import('@/scenes/Model').then((mod) => mod.Dog), {
   ssr: false,
 })
 
-import { Common } from '@/scenes/view'
+const Common = dynamic(() => import('@/scenes/view').then((mod) => mod.Common), {
+  ssr: false,
+})
 
 function LoaderModel() {
   const { progress } = useProgress()
-  return (
-    <Html className='text-primary' center position={[-3, 4, -5]}>
-      {progress} % loaded
-    </Html>
-  )
+  return <Html position={[-3, 4, -5]}>{progress} % loaded</Html>
 }
 
 const HomeScene = () => {
@@ -36,11 +34,9 @@ const HomeScene = () => {
       gl={{ antialias: true }}
     >
       <Suspense fallback={<LoaderModel />}>
-        <Dog
-          position={[0, -1, 0]}
-          scale={[0.6, 0.6, 0.6]}
-        />
+        <Dog position={[0, -1, 0]} scale={[0.6, 0.6, 0.6]} />
         <Common />
+        <Preload all />
       </Suspense>
     </Canvas>
   )
