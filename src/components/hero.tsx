@@ -94,9 +94,8 @@ const Hero = () => {
         variants={FADE_DOWN_ANIMATION_VARIANTS}
         className=' h-[500px] justify-center items-center hidden lg:flex'
       >
-        <Suspense fallback={<LoaderModel />}>
-          <HomeScene />
-        </Suspense>
+
+        <HomeScene />
         {/* 
         <Image
           src='/Vector.png'

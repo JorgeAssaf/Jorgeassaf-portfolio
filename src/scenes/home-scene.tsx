@@ -6,7 +6,7 @@ import { Html, OrbitControls, Preload, useProgress } from '@react-three/drei'
 
 import { Model } from '@/scenes/Model'
 
-export function LoaderModel() {
+function LoaderModel() {
   const { progress } = useProgress()
   return (
     <Html className='text-primary' center position={[-3, 4, -5]}>
