@@ -42,6 +42,7 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "0.5.9"
+    "@tailwindcss/typography": "0.5.9",
+    "tailwindcss-animate": "^1.0.6"
   }
 }
