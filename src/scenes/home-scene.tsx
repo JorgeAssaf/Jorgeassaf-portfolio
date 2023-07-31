@@ -9,8 +9,7 @@ const Dog = dynamic(() => import('@/scenes/Model').then((mod) => mod.Dog), {
   ssr: false,
 })
 
-import { Common, View } from './view'
-import { Layout } from './layout'
+import { Common } from '@/scenes/view'
 
 function LoaderModel() {
   const { progress } = useProgress()
