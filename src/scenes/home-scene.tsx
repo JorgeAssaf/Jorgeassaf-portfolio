@@ -1,6 +1,6 @@
 'use client'
 
-import { Suspense } from 'react'
+import { Suspense, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
 import {
   Html,
@@ -21,6 +21,27 @@ function LoaderModel() {
 }
 
 const HomeScene = () => {
+  useEffect(() => {
+    // Obtenemos el elemento DOM del canvas
+    const canvas = document.querySelector('canvas')
+    if (!canvas) return
+
+    // Configuramos el listener pasivo para el evento de rueda (wheel)
+    canvas.addEventListener('wheel', (event) => event.preventDefault(), {
+      passive: true,
+    })
+
+    // Configuramos los listeners pasivos para eventos táctiles (touch)
+    canvas.addEventListener('touchstart', (event) => event.preventDefault(), {
+      passive: true,
+    })
+    canvas.addEventListener('touchend', (event) => event.preventDefault(), {
+      passive: true,
+    })
+    canvas.addEventListener('touchmove', (event) => event.preventDefault(), {
+      passive: true,
+    })
+  }, [])
   return (
     <Canvas
       style={{
@@ -31,7 +52,7 @@ const HomeScene = () => {
       <Suspense fallback={<LoaderModel />}>
         <Model position={[0, -1, 0]} scale={[0.6, 0.6, 0.6]} />
         <PerspectiveCamera position={[4, 3, 5]} makeDefault />
-        <OrbitControls autoRotate={true} autoRotateSpeed={0.5} />
+        <OrbitControls autoRotate autoRotateSpeed={0.5} />
         <ambientLight intensity={1.8} />
       </Suspense>
     </Canvas>
