@@ -3,10 +3,12 @@ import { Header } from '@/components/header'
 import { client } from '@/lib/sanity'
 import { slugify } from '@/lib/utils'
 import { CategoryQuery, PostQuery } from '@/utils/querys'
+import PostCard from '@/components/post-card'
+import { FramerH2, FramerSection } from '@/components/framer'
+import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 
 import type { Metadata } from 'next'
 import type { Category, Post } from '@/app/types/sanity'
-import PostCard from '@/components/post-card'
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -43,16 +45,31 @@ const BlogPage = async ({
         <div>
           <CategoryButtons categories={categories} />
         </div>
-        <div className='flex flex-col gap-5'>
-          <h2 className='text-2xl font-bold'>
+        <FramerSection
+          initial='hidden'
+          animate='show'
+          variants={{
+            hidden: {},
+            show: {
+              transition: {
+                staggerChildren: 0.15,
+              },
+            },
+          }}
+          className='flex flex-col gap-5'
+        >
+          <FramerH2
+            variants={FADE_DOWN_ANIMATION_VARIANTS}
+            className='text-2xl font-bold'
+          >
             {blogCategories.find(
               (category: Category) =>
                 slugify(category.title) === searchParams.category,
             )?.title ?? 'All posts'}
-          </h2>
+          </FramerH2>
 
           <PostCard posts={posts} />
-        </div>
+        </FramerSection>
       </div>
     </>
   )
