@@ -1,10 +1,10 @@
 
+import '@/styles/globals.css'
 import { Analytics } from '@/components/analytics'
 import { ThemeProvider } from '@/components/theme-provider'
 import { siteConfig } from '@/config/site'
 import { Satoshi, fontmono } from '@/lib/fonts'
 import { cn } from '@/lib/utils'
-import '@/styles/globals.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {

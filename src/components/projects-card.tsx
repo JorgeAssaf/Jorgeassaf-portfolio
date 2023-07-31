@@ -41,14 +41,13 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
                 <Image
                   src={project.image}
                   alt={project?.name}
-                  quality={100}
                   className={cn(
                     'object-cover',
                     project.name == 'Netflix clone' ? 'object-left-top' : '',
                   )}
                   sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                   fill
-                  loading='lazy'
+                  priority
                 />
               ) : (
                 <div
@@ -83,7 +82,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
                           technologie.name === 'Clerk auth'
                             ? 'rounded-full'
                             : '',
-                          'cursor-pointer',
+                          'cursor-pointer w-[26px] h-[26px] object-cover',
                         )}
                         src={technologie.image}
                         alt={technologie.name}
