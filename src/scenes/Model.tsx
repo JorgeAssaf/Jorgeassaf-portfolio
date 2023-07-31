@@ -18,20 +18,16 @@ export function Model(props: JSX.IntrinsicElements['group']) {
   return (
     <group {...props} dispose={null}>
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.main.geometry}
         material={materials.palette}
-        position={[3.68604755, 0, 0]}
+        position={[3.686048, 0, 0]}
         rotation={[Math.PI / 2, 0, 0]}
       />
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Plane.geometry}
         material={materials['Material.001']}
-        position={[-3.39897418, 0, -2.95387173]}
-        scale={[7.04990101, 1, 7.04990101]}
+        position={[-3.398974, 0, -2.953872]}
+        scale={[7.049901, 1, 7.049901]}
       />
     </group>
   )
