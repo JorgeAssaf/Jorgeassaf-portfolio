@@ -7,7 +7,16 @@ import { Html, Preload, useProgress } from '@react-three/drei'
 
 const Dog = dynamic(() => import('@/scenes/Model').then((mod) => mod.Dog), {
   ssr: false,
-  loading: () => <LoaderModel />,
+  loading: () => {
+    return <Html>
+      <span>
+        Loading...
+      </span>
+    </Html>
+  }
+
+
+
 })
 
 const Common = dynamic(
@@ -16,11 +25,6 @@ const Common = dynamic(
     ssr: false,
   },
 )
-
-function LoaderModel() {
-  const { progress } = useProgress()
-  return <Html position={[0, 0, 0]}>{progress} % loaded</Html>
-}
 
 const HomeScene = () => {
   return (
@@ -37,10 +41,10 @@ const HomeScene = () => {
       }}
       gl={{ antialias: true }}
     >
-      <Suspense fallback={<LoaderModel />}>
+      <Suspense fallback={null}>
         <Dog position={[0, -1, 0]} scale={[0.6, 0.6, 0.6]} />
         <Common />
-        <Preload all />
+
       </Suspense>
     </Canvas>
   )
