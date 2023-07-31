@@ -6,8 +6,7 @@ import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 import { buttonVariants } from './ui/button'
 import { Icons } from './icons'
 import { cn } from '@/lib/utils'
-import { LoaderModel } from '@/scenes/home-scene'
-import { Suspense } from 'react'
+
 
 const HomeScene = dynamic(
   () => import('@/scenes/home-scene').then((mod) => mod.default),
