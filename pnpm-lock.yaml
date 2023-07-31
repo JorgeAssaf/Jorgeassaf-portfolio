@@ -42,7 +42,7 @@ dependencies:
     specifier: 0.154.0
     version: 0.154.0
   '@vercel/analytics':
-    specifier: ^1.0.1
+    specifier: 1.0.1
     version: 1.0.1
   autoprefixer:
     specifier: 10.4.14
@@ -89,26 +89,20 @@ dependencies:
   tailwindcss:
     specifier: 3.3.3
     version: 3.3.3
-  tailwindcss-animate:
-    specifier: 1.0.6
-    version: 1.0.6(tailwindcss@3.3.3)
   three:
     specifier: 0.155.0
     version: 0.155.0
   three-stdlib:
-    specifier: ^2.23.13
-    version: 2.23.13(three@0.155.0)
+    specifier: 2.23.14
+    version: 2.23.14(three@0.155.0)
   typescript:
     specifier: 5.1.6
     version: 5.1.6
 
 devDependencies:
   '@tailwindcss/typography':
-    specifier: ^0.5.9
+    specifier: 0.5.9
     version: 0.5.9(tailwindcss@3.3.3)
-  '@total-typescript/ts-reset':
-    specifier: 0.4.2
-    version: 0.4.2
 
 packages:
 
@@ -1682,7 +1676,7 @@ packages:
       suspend-react: 0.1.3(react@18.2.0)
       three: 0.155.0
       three-mesh-bvh: 0.6.1(three@0.155.0)
-      three-stdlib: 2.23.13(three@0.155.0)
+      three-stdlib: 2.23.14(three@0.155.0)
       troika-three-text: 0.47.2(three@0.155.0)
       utility-types: 3.10.0
       zustand: 3.7.2(react@18.2.0)
@@ -2095,10 +2089,6 @@ packages:
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
     engines: {node: '>= 10'}
     dev: false
-
-  /@total-typescript/ts-reset@0.4.2:
-    resolution: {integrity: sha512-vqd7ZUDSrXFVT1n8b2kc3LnklncDQFPvR58yUS1kEP23/nHPAO9l1lMjUfnPrXYYk4Hj54rrLKMW5ipwk7k09A==}
-    dev: true
 
   /@tweenjs/tween.js@18.6.4:
     resolution: {integrity: sha512-lB9lMjuqjtuJrx7/kOkqQBtllspPIN+96OvTCeJ2j5FEzinoAXTdAMFnDAQT1KVPRlnYfBrqxtqP66vDM40xxQ==}
@@ -6706,14 +6696,6 @@ packages:
     resolution: {integrity: sha512-3mFKyCo/MBcgyOTlrY8T7odzZFx+w+qKSMAmdFzRvqBfLlSigU6TZnlFHK0lkMwj9Bj8OYU+9yW9lmGuS0QEnQ==}
     dev: false
 
-  /tailwindcss-animate@1.0.6(tailwindcss@3.3.3):
-    resolution: {integrity: sha512-4WigSGMvbl3gCCact62ZvOngA+PRqhAn7si3TQ3/ZuPuQZcIEtVap+ENSXbzWhpojKB8CpvnIsrwBu8/RnHtuw==}
-    peerDependencies:
-      tailwindcss: '>=3.0.0 || insiders'
-    dependencies:
-      tailwindcss: 3.3.3
-    dev: false
-
   /tailwindcss@3.3.3:
     resolution: {integrity: sha512-A0KgSkef7eE4Mf+nKJ83i75TMyq8HqY3qmFIJSWy8bNt0v1lG7jUcpGpoTFxAwYcWOphcTBLPPJg+bDfhDf52w==}
     engines: {node: '>=14.0.0'}
@@ -6792,8 +6774,8 @@ packages:
       three: 0.155.0
     dev: false
 
-  /three-stdlib@2.23.13(three@0.155.0):
-    resolution: {integrity: sha512-WU4XHs4E6szAyoREzTs5bUAc1WFadiz5jRjNlA7aIIqf+raT4jfA320P0XmlyZz/wJwmpZnOuki4kAFsmadkTQ==}
+  /three-stdlib@2.23.14(three@0.155.0):
+    resolution: {integrity: sha512-gXqBGDNw4eB7m6RQomPwigUWfr78UYT32hOh/qQq1bUoTdyOPb/NS8AvCjbfBw+CvuPOW8tj/bA+sBOhkxVOfA==}
     peerDependencies:
       three: '>=0.128.0'
     dependencies:
