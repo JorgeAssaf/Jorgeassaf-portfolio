@@ -1,5 +1,5 @@
-import { Analytics } from '@vercel/analytics/react'
 
+import { Analytics } from '@/components/analytics'
 import { ThemeProvider } from '@/components/theme-provider'
 import { siteConfig } from '@/config/site'
 import { Satoshi, fontmono } from '@/lib/fonts'
@@ -20,7 +20,6 @@ export const metadata: Metadata = {
     'Next.js',
     'React',
     'Tailwind CSS',
-    'Server Components',
     'TypeScript',
     'Shadcn',
     'Jorge Assaf',
