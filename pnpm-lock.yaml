@@ -92,9 +92,6 @@ dependencies:
   three:
     specifier: 0.155.0
     version: 0.155.0
-  three-stdlib:
-    specifier: 2.23.14
-    version: 2.23.14(three@0.155.0)
   typescript:
     specifier: 5.1.6
     version: 5.1.6
