@@ -73,12 +73,25 @@ module.exports = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: 0 },
         },
-      },
-      animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
+        pulse: {
+          '0%, 100%': { opacity: 1 },
+          '50%': { opacity: 0.5 },
+        },
+        debounce: {
+          '0%, 100%': { opacity: 1 },
+          '50%': { opacity: 0.5 },
+        },
+
+        animation: {
+          'accordion-down': 'accordion-down 0.2s ease-out',
+          'accordion-up': 'accordion-up 0.2s ease-out',
+          'animate-pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          'animate-debounce': 'bounce 1s infinite;',
+        },
       },
     },
+    plugins: [
+      require('@tailwindcss/typography'),
+    ],
   },
-  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
 }
