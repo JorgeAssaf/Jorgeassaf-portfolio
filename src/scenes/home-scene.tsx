@@ -7,15 +7,19 @@ import { Html, Preload, useProgress } from '@react-three/drei'
 
 const Dog = dynamic(() => import('@/scenes/Model').then((mod) => mod.Dog), {
   ssr: false,
+  loading: () => <LoaderModel />,
 })
 
-const Common = dynamic(() => import('@/scenes/view').then((mod) => mod.Common), {
-  ssr: false,
-})
+const Common = dynamic(
+  () => import('@/scenes/view').then((mod) => mod.Common),
+  {
+    ssr: false,
+  },
+)
 
 function LoaderModel() {
   const { progress } = useProgress()
-  return <Html position={[-3, 4, -5]}>{progress} % loaded</Html>
+  return <Html position={[0, 0, 0]}>{progress} % loaded</Html>
 }
 
 const HomeScene = () => {
