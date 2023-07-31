@@ -90,7 +90,7 @@ const Hero = () => {
           variants={FADE_DOWN_ANIMATION_VARIANTS}
           className=' h-[500px] justify-center items-center hidden lg:flex'
         >
-
+          <HomeScene />
         </m.div>
       </m.div>
     </LazyMotion>
