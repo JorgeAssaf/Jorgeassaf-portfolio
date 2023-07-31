@@ -6,6 +6,7 @@ import {
   Html,
   OrbitControls,
   PerspectiveCamera,
+  Preload,
   useProgress,
 } from '@react-three/drei'
 
@@ -21,19 +22,22 @@ function LoaderModel() {
 }
 
 const HomeScene = () => {
-
   return (
     <Canvas
       style={{
         width: 500,
         height: 500,
       }}
+      shadows
+      camera={{ position: [0, 0, 0], fov: 25 }}
+      gl={{ preserveDrawingBuffer: true }}
     >
       <Suspense fallback={<LoaderModel />}>
         <Model position={[0, -1, 0]} scale={[0.6, 0.6, 0.6]} />
-        <PerspectiveCamera position={[4, 3, 5]} makeDefault />
+        <PerspectiveCamera position={[4, 3, 5]} />
         <OrbitControls autoRotate autoRotateSpeed={0.5} />
         <ambientLight intensity={1.8} />
+        <Preload all />
       </Suspense>
     </Canvas>
   )
