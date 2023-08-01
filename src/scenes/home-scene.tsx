@@ -3,20 +3,17 @@
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { Html, Preload, useProgress } from '@react-three/drei'
+import { Html } from '@react-three/drei'
 
 const Dog = dynamic(() => import('@/scenes/Model').then((mod) => mod.Dog), {
   ssr: false,
   loading: () => {
-    return <Html>
-      <span>
-        Loading...
-      </span>
-    </Html>
-  }
-
-
-
+    return (
+      <Html>
+        <span>Loading...</span>
+      </Html>
+    )
+  },
 })
 
 const Common = dynamic(
@@ -42,9 +39,8 @@ const HomeScene = () => {
       gl={{ antialias: true }}
     >
       <Suspense fallback={null}>
-        <Dog position={[0, -1, 0]} scale={[0.6, 0.6, 0.6]} />
+        <Dog position={[-0.5, -0.9, 0]} scale={[0.67, 0.67, 0.67]} />
         <Common />
-
       </Suspense>
     </Canvas>
   )

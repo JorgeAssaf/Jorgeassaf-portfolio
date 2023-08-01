@@ -24,9 +24,9 @@ const Hero = () => {
             },
           },
         }}
-        className='my-14  md:my-10 flex items-center justify-between '
+        className='my-14 md:my-10 flex items-center justify-between '
       >
-        <div className='w-[34rem]'>
+        <div className='w-[37rem]'>
           <m.h1
             variants={FADE_DOWN_ANIMATION_VARIANTS}
             className='text-4xl md:text-6xl font-bold'
