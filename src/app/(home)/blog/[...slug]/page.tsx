@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 import type { Post } from '@/app/types/sanity'
 import { Icons } from '@/components/icons'
 import { Badge } from '@/components/ui/badge'
@@ -44,6 +45,9 @@ const PortableTextComponent = {
 
 const PostPage = async ({ params }: { params: { slug: string } }) => {
   const post = await getPost(params.slug)
+  if (!post) {
+    return notFound()
+  }
   return (
     <div className=' max-w-[75ch] mx-auto '>
       <Badge className='mb-10 hover:bg-primary hover:text-primary-foreground'>
