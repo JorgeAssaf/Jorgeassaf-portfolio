@@ -1,13 +1,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
 import type { Post } from '@/app/types/sanity'
 import { Icons } from '@/components/icons'
 import { Badge } from '@/components/ui/badge'
 import { client } from '@/lib/sanity'
 import { urlFor } from '@/lib/sanityImage'
 import { PortableText } from '@portabletext/react'
-import { formatDate, slugify } from '@/lib/utils'
+import { cn, formatDate, slugify } from '@/lib/utils'
+import { buttonVariants } from '@/components/ui/button'
+import { notFound } from 'next/navigation'
 
 async function getPost(slug: string) {
   const query = `*[_type == "post" && slug.current == "${slug}"][0] { 
