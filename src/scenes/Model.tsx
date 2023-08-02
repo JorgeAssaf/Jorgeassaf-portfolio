@@ -1,3 +1,4 @@
+'use client'
 import { useGLTF } from "@react-three/drei"
 
 export function Dog(props: JSX.IntrinsicElements['group']) {
