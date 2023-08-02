@@ -12,7 +12,7 @@ export default async function Home() {
     <main>
       <Hero />
       <Scroll />
-      <Header title='All projects' />
+      <Header title='Latest Projects' />
       <Projects projects={projects} />
 
     </main>
