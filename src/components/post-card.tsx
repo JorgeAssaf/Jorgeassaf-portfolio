@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import { cn, formatDate } from '@/lib/utils'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 import type { Post } from '@/app/types/sanity'
+import { FileWarningIcon } from 'lucide-react'
 interface PostCardProps {
   posts: Post[]
 }
@@ -67,7 +68,16 @@ const PostCard: FC<PostCardProps> = ({ posts }) => {
             </Card>
           ))
         ) : (
-          <h2>No posts found</h2>
+          <section className='flex flex-col items-center justify-center'>
+            <FileWarningIcon className='w-10 h-10 text-primary mt-7 mb-5' />
+
+            <h2 className='scroll-m-20 text-3xl font-semibold tracking-tight transition-colors first:mt-0'>
+              No posts found
+            </h2>
+            <p className='leading-7 [&:not(:first-child)]:mt-2'>
+              Try changing the filters or reloading the page
+            </p>
+          </section>
         )}
       </motion.div>
     </motion.div>
