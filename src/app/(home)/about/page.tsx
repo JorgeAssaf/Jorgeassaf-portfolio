@@ -1,8 +1,9 @@
 import { Header } from '@/components/header'
-import { Icons } from '@/components/icons'
+
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 import { FramerDiv } from '@/components/framer'
 import type { Metadata } from 'next'
+import { Next, React, Tailwind, Typescript, Prisma } from '@/components/icons'
 
 export const metadata: Metadata = {
   title: 'About me',
@@ -76,23 +77,23 @@ const AboutPage = () => {
           <h3 className='text-3xl font-bold '>My stack</h3>
           <div className='flex gap-5 my-7 items-center justify-center flex-wrap'>
             <div className='flex justify-center gap-y-1 flex-col items-center'>
-              <Icons.react className='w-7 h-7' />
+              <React className='w-7 h-7' />
               <span>React</span>
             </div>
             <div className='flex justify-center gap-y-1 flex-col items-center'>
-              <Icons.next className='w-7 h-7' />
+              <Next className='w-7 h-7' />
               <span>Next</span>
             </div>
             <div className='flex justify-center gap-y-1 flex-col items-center'>
-              <Icons.tailwind className='w-7 h-7' />
+              <Tailwind className='w-7 h-7' />
               <span>Tailwind</span>
             </div>
             <div className='flex justify-center gap-y-1 flex-col items-center'>
-              <Icons.typescript className='w-7 h-7' />
+              <Typescript className='w-7 h-7' />
               <span>Typescript</span>
             </div>
             <div className='flex justify-center gap-y-1 flex-col items-center'>
-              <Icons.prisma className='w-7 h-7' />
+              <Prisma className='w-7 h-7' />
               <span>Prisma</span>
             </div>
           </div>

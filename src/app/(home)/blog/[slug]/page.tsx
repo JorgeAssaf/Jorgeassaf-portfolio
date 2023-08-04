@@ -1,13 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Post } from '@/app/types/sanity'
-import { Icons } from '@/components/icons'
+import { ChevronLeft } from '@/components/icons'
 import { Badge } from '@/components/ui/badge'
 import { client } from '@/lib/sanity'
 import { urlFor } from '@/lib/sanityImage'
 import { PortableText } from '@portabletext/react'
-import { cn, formatDate, slugify } from '@/lib/utils'
-import { buttonVariants } from '@/components/ui/button'
+import { formatDate, slugify } from '@/lib/utils'
 import { notFound } from 'next/navigation'
 
 async function getPost(slug: string) {
@@ -59,9 +58,9 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
           }}
           className='flex text-[10px] md:text-sm justify-start gap-x-1 md:gap-3 flex-wrap items-center '
         >
-          <Icons.chevronLeft size='20' />
+          <ChevronLeft size='20' />
           Blog
-          <Icons.chevronLeft size='20' />
+          <ChevronLeft size='20' />
           {post.categories.map((category, i) => (
             <span className=' ' key={category.title}>
               {category.title}
@@ -79,19 +78,24 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
         </h2>
 
         <div className='flex items-center gap-10 mt-4 mb-4'>
-          <div className='flex items-center gap-3 mt-1'>
+          <a className='flex items-center gap-3 mt-1'>
             {post.author.image && (
               <Image
                 src={post.author.image}
                 alt='Image'
                 className='rounded-full'
-                width={30}
-                height={30}
+                width={42}
+                height={42}
               />
             )}
 
-            <span className='leading-7'>{post.author.name}</span>
-          </div>
+            <div className='flex flex-col'>
+              <p className='leading-7'>{post.author.name}</p>
+              <span className='text-xs text-muted-foreground'>
+                @{post.author.name.split(' ').join('').toLowerCase()}
+              </span>
+            </div>
+          </a>
         </div>
       </section>
 

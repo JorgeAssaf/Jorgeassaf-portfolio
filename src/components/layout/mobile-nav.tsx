@@ -11,7 +11,7 @@ import {
   SheetTrigger,
 } from '../ui/sheet'
 import { Button } from '../ui/button'
-import { Icons } from '../icons'
+import { Menu } from '../icons'
 import { cn } from '@/lib/utils'
 import { ThemeToggle } from './theme-toggle'
 
@@ -38,7 +38,7 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
             variant='ghost'
             className='px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 lg:hidden'
           >
-            <Icons.menu size='26' />
+            <Menu size='26' />
             <span className='sr-only'>Toggle Menu</span>
           </Button>
         </SheetTrigger>

@@ -2,10 +2,10 @@
 import Link from 'next/link'
 import { m } from 'framer-motion'
 import { LazyMotion, domAnimation } from 'framer-motion'
-
+import { GitHub, LinkedIn } from '@/components/icons'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 import { buttonVariants } from './ui/button'
-import { Icons } from './icons'
+
 import { cn } from '@/lib/utils'
 import HomeScene from '@/scenes/home-scene'
 
@@ -57,7 +57,7 @@ const Hero = () => {
               rel='noopener noreferrer'
               className={cn(buttonVariants({ variant: 'default' }))}
             >
-              <Icons.gitHub className='w-6 h-6' />
+              <GitHub className='w-6 h-6' />
               <span className='sr-only'>GitHub</span>
             </Link>
 
@@ -68,7 +68,7 @@ const Hero = () => {
               rel='noopener noreferrer'
               className={cn(buttonVariants({ variant: 'default' }))}
             >
-              <Icons.linkedIn className='w-6 h-6' />
+              <LinkedIn className='w-6 h-6' />
               <span className='sr-only'>LinkedIn</span>
             </Link>
             <Link

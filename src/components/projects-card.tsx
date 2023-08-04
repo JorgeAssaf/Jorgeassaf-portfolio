@@ -19,7 +19,7 @@ import {
 
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { cn } from '@/lib/utils'
-import { Icons } from './icons'
+import { Placeholder } from '@/components/icons'
 
 import type { Projects } from '@/app/types/sanity'
 
@@ -56,7 +56,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
                   aria-roledescription='placeholder'
                   className='flex items-center justify-center h-full w-full'
                 >
-                  <Icons.placeholder
+                  <Placeholder
                     className='h-14 w-14 text-muted-foreground'
                     aria-hidden='true'
                   />

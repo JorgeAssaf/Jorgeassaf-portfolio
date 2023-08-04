@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Icons } from '../icons'
+import { Mail, LinkedIn } from '@/components/icons'
 import { buttonVariants } from '../ui/button'
 import { cn } from '@/lib/utils'
 
@@ -41,7 +41,7 @@ const SiteFooter = () => {
                 }),
               )}
             >
-              <Icons.mail className='w-6 h-6' />
+              <Mail className='w-6 h-6' />
               <span className='sr-only'>Mail</span>
             </Link>
             <Link
@@ -54,7 +54,7 @@ const SiteFooter = () => {
                 }),
               )}
             >
-              <Icons.linkedIn className='w-6 h-6' />
+              <LinkedIn className='w-6 h-6' />
               <span className='sr-only'>LinkedIn</span>
             </Link>
           </div>
