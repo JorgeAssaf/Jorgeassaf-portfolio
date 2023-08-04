@@ -3,11 +3,12 @@ import type { FC } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Badge } from './ui/badge'
+import { FileWarningIcon } from '@/components/icons'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import { cn, formatDate } from '@/lib/utils'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 import type { Post } from '@/app/types/sanity'
-import { FileWarningIcon } from 'lucide-react'
+
 interface PostCardProps {
   posts: Post[]
 }

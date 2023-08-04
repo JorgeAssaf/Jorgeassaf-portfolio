@@ -13,16 +13,12 @@ import {
   ArrowDown,
   ArrowLeft,
   Mail,
+  FileWarningIcon,
   type LucideProps,
   type LucideIcon,
 } from 'lucide-react'
 
 type Icon = LucideIcon
-
-
-
-
-
 
 const GitHub = ({ ...props }: LucideProps) => (
   <svg
@@ -134,7 +130,6 @@ export {
   React,
   Tailwind,
   Typescript,
-
+  FileWarningIcon,
   type Icon,
-
 }
