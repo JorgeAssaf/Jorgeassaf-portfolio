@@ -1,11 +1,10 @@
-import { Icons } from "@/components/icons"
-
+import { type Icon } from "@/components/icons"
 export interface NavItem {
   title: string
   href?: string
   disabled?: boolean
   external?: boolean
-  icon?: keyof typeof Icons
+  icon?: Icon
   label?: string
   description?: string
 }

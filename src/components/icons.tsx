@@ -17,14 +17,14 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 
-export type Icon = LucideIcon
+type Icon = LucideIcon
 
 
 
 
 
 
-export const GitHub = ({ ...props }: LucideProps) => (
+const GitHub = ({ ...props }: LucideProps) => (
   <svg
     aria-hidden='true'
     focusable='false'
@@ -40,7 +40,7 @@ export const GitHub = ({ ...props }: LucideProps) => (
     ></path>
   </svg>
 )
-export const LinkedIn = ({ ...props }: LucideProps) => (
+const LinkedIn = ({ ...props }: LucideProps) => (
   <svg viewBox='0 0 32 32' fill='currentColor' {...props}>
     <g strokeWidth='0'></g>
     <g strokeLinecap='round' strokeLinejoin='round'></g>
@@ -50,7 +50,7 @@ export const LinkedIn = ({ ...props }: LucideProps) => (
     </g>
   </svg>
 )
-export const Prisma = ({ ...props }: LucideProps) => (
+const Prisma = ({ ...props }: LucideProps) => (
   <svg {...props} viewBox='0 0 32 32'>
     <path
       d='M25.21,24.21,12.739,27.928a.525.525,0,0,1-.667-.606L16.528,5.811a.43.43,0,0,1,.809-.094l8.249,17.661A.6.6,0,0,1,25.21,24.21Zm2.139-.878L17.8,2.883h0A1.531,1.531,0,0,0,16.491,2a1.513,1.513,0,0,0-1.4.729L4.736,19.648a1.592,1.592,0,0,0,.018,1.7l5.064,7.909a1.628,1.628,0,0,0,1.83.678l14.7-4.383a1.6,1.6,0,0,0,1-2.218Z'
@@ -58,7 +58,7 @@ export const Prisma = ({ ...props }: LucideProps) => (
     />
   </svg>
 )
-export const Next = ({ ...props }: LucideProps) => (
+const Next = ({ ...props }: LucideProps) => (
   <svg
     fill='#000'
     stroke='#000'
@@ -80,7 +80,7 @@ export const Next = ({ ...props }: LucideProps) => (
     </g>
   </svg>
 )
-export const React = ({ ...props }: LucideProps) => (
+const React = ({ ...props }: LucideProps) => (
   <svg {...props} viewBox='0 0 32 32' fill='none'>
     <path
       d='M18.6789 15.9759C18.6789 14.5415 17.4796 13.3785 16 13.3785C14.5206 13.3785 13.3211 14.5415 13.3211 15.9759C13.3211 17.4105 14.5206 18.5734 16 18.5734C17.4796 18.5734 18.6789 17.4105 18.6789 15.9759Z'
@@ -94,7 +94,7 @@ export const React = ({ ...props }: LucideProps) => (
     />
   </svg>
 )
-export const Tailwind = ({ ...props }: LucideProps) => (
+const Tailwind = ({ ...props }: LucideProps) => (
   <svg {...props} viewBox='0 0 32 32'>
     <path
       d='M9 13.7q1.4-5.6 7-5.6c5.6 0 6.3 4.2 9.1 4.9q2.8.7 4.9-2.1-1.4 5.6-7 5.6c-5.6 0-6.3-4.2-9.1-4.9q-2.8-.7-4.9 2.1Zm-7 8.4q1.4-5.6 7-5.6c5.6 0 6.3 4.2 9.1 4.9q2.8.7 4.9-2.1-1.4 5.6-7 5.6c-5.6 0-6.3-4.2-9.1-4.9q-2.8-.7-4.9 2.1Z'
@@ -102,7 +102,7 @@ export const Tailwind = ({ ...props }: LucideProps) => (
     />
   </svg>
 )
-export const Typescript = ({ ...props }: LucideProps) => (
+const Typescript = ({ ...props }: LucideProps) => (
   <svg role='img' {...props} viewBox='0 0 512 512'>
     <rect width='512' height='512' fill='#3178c6' rx='15%' />
     <path
@@ -127,6 +127,14 @@ export {
   ArrowDown,
   ArrowLeft,
   Mail,
+  GitHub,
+  LinkedIn,
+  Prisma,
+  Next,
+  React,
+  Tailwind,
+  Typescript,
 
+  type Icon,
 
 }
