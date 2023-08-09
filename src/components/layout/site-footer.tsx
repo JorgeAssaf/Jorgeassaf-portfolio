@@ -60,6 +60,21 @@ const SiteFooter = () => {
           </div>
         </div>
         <p className='mt-10 '>Built by Jorge Assaf.</p>
+        <p>
+          Model by{' '}
+          <Link
+            target='_blank'
+            href='https://github.com/craftzdog'
+            className={cn(
+              buttonVariants({
+                variant: 'link',
+              }),
+              'p-0',
+            )}
+          >
+            Takuya Matsuyama.
+          </Link>
+        </p>
       </div>
     </motion.footer>
   )
