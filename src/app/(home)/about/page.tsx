@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Header } from '@/components/header'
 
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
@@ -52,14 +53,14 @@ const AboutPage = () => {
                 </time>
                 <h3 className='text-lg font-semibold'>
                   Frontend Developer at{' '}
-                  <a
+                  <Link
                     href='https://omaka.mx'
                     target='_blank'
                     rel='noopener noreferrer'
                     className='text-primary underline hover:text-primary/90 transition-colors'
                   >
                     Omaka
-                  </a>
+                  </Link>
                 </h3>
                 <p className='mb-4 text-base font-normal text-muted-foreground'>
                   I am currently working as a Frontend Developer at Omaka.
