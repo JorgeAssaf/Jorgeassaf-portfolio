@@ -1,13 +1,24 @@
 # Jorge Assaf Portfolio
 
-This is my personal portfolio, built to :
+[![Jorge Assaf](./public/images/screenshot/landing-page-screenshot.png)](https://jorgeassaf.vercel.app/)
 
-- Next.js app directory
-- TypeScript
-- FramerMotion
-- Sanity
-- TailwindCSS
-- Shadcn
+## Tech Stack
+
+- **Framework:** [Next.js](https://nextjs.org)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com)
+- **Animation:** [Framer Motion](https://www.framer.com/motion/)
+- **3D:** [Three.js](https://threejs.org) and [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction)
+- **UI Components:** [shadcn/ui](https://ui.shadcn.com)
+- **CMS:** [Sanity](https://sanity.io)
+
+## Features implemented
+
+- [x] Next.js app directory
+- [x] Write in TypeScript
+- [x] Implement 3D with Three.js and React Three Fiber
+- [x] Use 75ch width in blog and about page
+- [x] Query params for blog categories
+- [x] Use Sanity for blog and projects
 
 ## Learn More
 
