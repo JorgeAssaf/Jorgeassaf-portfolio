@@ -9,6 +9,8 @@ import { PortableText } from '@portabletext/react'
 import { formatDate, slugify } from '@/lib/utils'
 import { notFound } from 'next/navigation'
 
+export const dynamic = 'force-dynamic'
+
 async function getPost(slug: string) {
   const query = `*[_type == "post" && slug.current == "${slug}"][0] { 
   _id,
