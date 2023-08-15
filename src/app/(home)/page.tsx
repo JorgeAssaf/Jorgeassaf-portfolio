@@ -15,7 +15,6 @@ export default async function Home() {
       <Scroll />
       <Header title='Latest Projects' />
       <Projects projects={projects} />
-
     </main>
   )
 }
