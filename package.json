@@ -25,8 +25,6 @@
     "autoprefixer": "10.4.15",
     "class-variance-authority": "0.7.0",
     "clsx": "2.0.0",
-    "eslint": "8.47.0",
-    "eslint-config-next": "13.4.16",
     "framer-motion": "10.15.2",
     "lucide-react": "0.268.0",
     "next": "13.4.16",
@@ -41,8 +39,22 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "eslint": "8.47.0",
+    "eslint-config-next": "13.4.16",
     "@tailwindcss/typography": "0.5.9",
     "standard": "^17.1.0",
     "tailwindcss-animate": "^1.0.6"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "useTabs": false,
+    "trailingComma": "es5",
+    "jsxSingleQuote": true,
+    "printWidth": 80,
+    "bracketSpacing": true,
+    "comaDangle": "none",
+    "arrowParens": "avoid"
   }
 }
