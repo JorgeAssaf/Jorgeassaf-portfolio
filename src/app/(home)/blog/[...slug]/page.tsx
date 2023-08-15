@@ -84,7 +84,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
             {post.author.image && (
               <Image
                 src={post.author.image}
-                alt='Image'
+                alt={post.author.name}
                 className='rounded-full'
                 width={42}
                 height={42}
