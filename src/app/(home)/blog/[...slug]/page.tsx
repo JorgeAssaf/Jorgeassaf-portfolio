@@ -1,31 +1,43 @@
-import Image from 'next/image'
-import Link from 'next/link'
 import type { Post } from '@/app/types/sanity'
 import { ChevronLeft } from '@/components/icons'
 import { Badge } from '@/components/ui/badge'
 import { client } from '@/lib/sanity'
 import { urlFor } from '@/lib/sanityImage'
-import { PortableText } from '@portabletext/react'
 import { formatDate, slugify } from '@/lib/utils'
+import { PortableText } from '@portabletext/react'
+import type { Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 export const dynamic = 'force-dynamic'
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}): Promise<Metadata> {
+  const slug = await getPost(params.slug)
+
+  return {
+    title: `Blog - ${slug.title}`,
+  }
+}
 async function getPost(slug: string) {
-  const query = `*[_type == "post" && slug.current == "${slug}"][0] { 
-  _id,
-  title,
-  _updatedAt,
-  _createdAt,
-  categories[]->{
-    title,
-  },
-  author->{
-    name,
-    "image": image.asset->url,
-  },
-  body,
-}`
+  const query = `* [_type == "post" && slug.current == "${slug}"][0] {
+    _id,
+      title,
+      _updatedAt,
+      _createdAt,
+      categories[] -> {
+        title,
+      },
+      author -> {
+        name,
+        "image": image.asset -> url,
+      },
+      body,
+} `
 
   const post = await client.fetch<Post>(query)
 
