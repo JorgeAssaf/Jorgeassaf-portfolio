@@ -1,9 +1,9 @@
 'use client'
-import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { Mail, LinkedIn } from '@/components/icons'
-import { buttonVariants } from '../ui/button'
+import { Fiverr, LinkedIn } from '@/components/icons'
 import { cn } from '@/lib/utils'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { buttonVariants } from '../ui/button'
 
 const SiteFooter = () => {
   return (
@@ -28,7 +28,7 @@ const SiteFooter = () => {
               Let&apos;s talk
             </h3>
             <h4 className='scroll-m-20 text-base tracking-tight '>
-              Send me message on LinkedIn
+              Send me message on LinkedIn or Fiverr.
             </h4>
           </div>
 
@@ -37,14 +37,19 @@ const SiteFooter = () => {
               href='https://www.linkedin.com/in/jorge-enrique-assaf/'
               target='_blank'
               rel='noreferrer'
-              className={cn(
-                buttonVariants({
-                  variant: 'default',
-                }),
-              )}
+              className={cn(buttonVariants())}
             >
               <LinkedIn className='w-6 h-6' />
               <span className='sr-only'>LinkedIn</span>
+            </Link>
+            <Link
+              href='https://www.fiverr.com/jorgeassaf/custom-landing-pages-for-your-business-or-personal-projects?utm_campaign=gigs_show&utm_medium=shared&utm_source=copy_link&utm_term=gl40al'
+              target='_blank'
+              rel='noreferrer noopener'
+              className={cn(buttonVariants())}
+            >
+              <Fiverr className='w-14 h-1w-14' />
+              <span className='sr-only'>Fiverr</span>
             </Link>
           </div>
         </div>
@@ -53,12 +58,13 @@ const SiteFooter = () => {
           Model by{' '}
           <Link
             target='_blank'
-            href='https://github.com/craftzdog'
+            href='https://www.craftz.dog/'
+            rel='noopener noreferrer'
             className={cn(
               buttonVariants({
                 variant: 'link',
               }),
-              'p-0',
+              'p-0'
             )}
           >
             Takuya Matsuyama.
