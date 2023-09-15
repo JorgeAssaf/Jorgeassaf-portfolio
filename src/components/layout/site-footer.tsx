@@ -48,7 +48,7 @@ const SiteFooter = () => {
               rel='noreferrer noopener'
               className={cn(buttonVariants())}
             >
-              <Fiverr className='w-14 h-1w-14' />
+              <Fiverr className='w-12 h-12 md:w-14 md:h-14' />
               <span className='sr-only'>Fiverr</span>
             </Link>
           </div>
