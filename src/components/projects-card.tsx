@@ -30,20 +30,22 @@ interface ProjectsCardProps {
 const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
   return (
     <>
-      {projects.map((project) => (
+      {projects.map(project => (
         <Card
           key={project._id}
-          className={cn('h-full overflow-hidden rounded-md flex flex-col')}
+          className={cn(
+            'h-full w-full overflow-hidden rounded-md flex flex-col'
+          )}
         >
           <CardHeader className='border-b p-0 '>
-            <AspectRatio ratio={4 / 3}>
+            <AspectRatio ratio={16 / 9}>
               {project.image ? (
                 <Image
                   src={project.image}
                   alt={project?.name}
                   className={cn(
                     'object-cover',
-                    project.name == 'Netflix clone' ? 'object-left-top' : '',
+                    project.name === 'Netflix clone' ? 'object-left-top' : ''
                   )}
                   sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                   fill
@@ -70,10 +72,12 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
               {project.name}
             </CardTitle>
 
-            <PortableText value={project.content} />
+            <div className='prose-p:font-medium'>
+              <PortableText value={project.content} />
+            </div>
 
             <div className='my-3 flex items-center gap-3 flex-wrap'>
-              {project.technologies.map((technologie) => (
+              {project.technologies.map(technologie => (
                 <TooltipProvider key={technologie.name} delayDuration={250}>
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -82,7 +86,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
                           technologie.name === 'Clerk auth'
                             ? 'rounded-full'
                             : '',
-                          'cursor-pointer w-[26px] h-[26px] object-cover',
+                          'cursor-pointer w-[26px] h-[26px] object-cover'
                         )}
                         src={technologie.image}
                         alt={technologie.name}
@@ -92,7 +96,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
                       />
                     </TooltipTrigger>
                     <TooltipContent>
-                      <p>{technologie.name}</p>
+                      <p className='font-semibold'>{technologie.name}</p>
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
@@ -111,9 +115,9 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
                     buttonVariants({
                       size: 'sm',
                       className: cn(
-                        'font-medium bg-primary transition-colors ',
+                        'font-medium bg-primary transition-colors '
                       ),
-                    }),
+                    })
                   )}
                 >
                   View Code
@@ -127,7 +131,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
                     variant: 'outline',
                     size: 'sm',
                     className: cn(
-                      'font-medium border border-primary transition-colors  ',
+                      'font-medium border border-primary transition-colors  '
                     ),
                   })}
                 >
