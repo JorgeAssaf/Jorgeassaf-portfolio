@@ -92,7 +92,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
         </h2>
 
         <div className='flex items-center gap-10 mt-4 mb-4'>
-          <a className='flex items-center gap-3 mt-1'>
+          <div className='flex items-center gap-3 mt-1'>
             {post.author.image && (
               <Image
                 src={post.author.image}
@@ -109,7 +109,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
                 @{post.author.name.split(' ').join('').toLowerCase()}
               </span>
             </div>
-          </a>
+          </div>
         </div>
       </section>
 
