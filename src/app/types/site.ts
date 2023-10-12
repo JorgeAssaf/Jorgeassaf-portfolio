@@ -1,4 +1,5 @@
-import { type Icon } from "@/components/icons"
+import { type Icon } from '@/components/icons'
+
 export interface NavItem {
   title: string
   href?: string

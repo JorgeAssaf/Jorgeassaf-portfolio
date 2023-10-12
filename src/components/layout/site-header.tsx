@@ -1,11 +1,12 @@
 'use client'
+
+import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 import { motion } from 'framer-motion'
 
 import { siteConfig } from '@/config/site'
 
 import MainNav from './main-nav'
 import MobileNav from './mobile-nav'
-import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 
 const SiteHeader = () => {
   return (

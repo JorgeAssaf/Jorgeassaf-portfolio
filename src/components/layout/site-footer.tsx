@@ -1,8 +1,11 @@
 'use client'
-import { Fiverr, LinkedIn } from '@/components/icons'
-import { cn } from '@/lib/utils'
-import { motion } from 'framer-motion'
+
 import Link from 'next/link'
+import { motion } from 'framer-motion'
+
+import { cn } from '@/lib/utils'
+import { Fiverr, LinkedIn } from '@/components/icons'
+
 import { buttonVariants } from '../ui/button'
 
 const SiteFooter = () => {
@@ -19,12 +22,12 @@ const SiteFooter = () => {
           },
         },
       }}
-      className='w-full border-t bg-background my-10'
+      className='my-10 w-full border-t bg-background'
     >
       <div className='container py-7 '>
-        <div className='scroll-m-20 flex  gap-5 justify-between items-center'>
+        <div className='flex scroll-m-20  items-center justify-between gap-5'>
           <div>
-            <h3 className='scroll-m-20 text-3xl font-semibold mb-5 tracking-tight'>
+            <h3 className='mb-5 scroll-m-20 text-3xl font-semibold tracking-tight'>
               Let&apos;s talk
             </h3>
             <h4 className='scroll-m-20 text-base tracking-tight '>
@@ -39,7 +42,7 @@ const SiteFooter = () => {
               rel='noreferrer'
               className={cn(buttonVariants())}
             >
-              <LinkedIn className='w-6 h-6' />
+              <LinkedIn className='h-6 w-6' />
               <span className='sr-only'>LinkedIn</span>
             </Link>
             <Link
@@ -48,7 +51,7 @@ const SiteFooter = () => {
               rel='noreferrer noopener'
               className={cn(buttonVariants())}
             >
-              <Fiverr className='w-12 h-12 md:w-14 md:h-14' />
+              <Fiverr className='h-12 w-12 md:h-14 md:w-14' />
               <span className='sr-only'>Fiverr</span>
             </Link>
           </div>
@@ -64,7 +67,7 @@ const SiteFooter = () => {
               buttonVariants({
                 variant: 'link',
               }),
-              'p-0'
+              'p-0',
             )}
           >
             Takuya Matsuyama.

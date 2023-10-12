@@ -1,10 +1,14 @@
 'use client'
+
 import type { FC } from 'react'
 import Link from 'next/link'
-import { ThemeToggle } from './theme-toggle'
-import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
+
+import { cn } from '@/lib/utils'
 import type { MainNavItem } from '@/app/types/site'
+
+import { ThemeToggle } from './theme-toggle'
+
 interface MainNavProps {
   items?: MainNavItem[]
 }
@@ -12,7 +16,7 @@ const MainNav: FC<MainNavProps> = ({ items }) => {
   const pathname = usePathname()
   return (
     <>
-      <div className='hidden h-20 items-center md:flex justify-between'>
+      <div className='hidden h-20 items-center justify-between md:flex'>
         <Link
           aria-label='Home'
           href='/'
@@ -23,7 +27,7 @@ const MainNav: FC<MainNavProps> = ({ items }) => {
           </p>
         </Link>
 
-        <div className='flex gap-6 items-center'>
+        <div className='flex items-center gap-6'>
           {items?.map((item) => (
             <MenuLink
               pathname={pathname}

@@ -1,8 +1,14 @@
 'use client'
-import { type FC, useState } from 'react'
+
+import { useState, type FC } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+
+import { cn } from '@/lib/utils'
 import type { MainNavItem } from '@/app/types/site'
+
+import { Menu } from '../icons'
+import { Button } from '../ui/button'
 import {
   Sheet,
   SheetContent,
@@ -10,9 +16,6 @@ import {
   SheetHeader,
   SheetTrigger,
 } from '../ui/sheet'
-import { Button } from '../ui/button'
-import { Menu } from '../icons'
-import { cn } from '@/lib/utils'
 import { ThemeToggle } from './theme-toggle'
 
 interface MobileNavProps {
@@ -23,7 +26,7 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   return (
-    <div className='h-20 items-center flex md:hidden justify-between'>
+    <div className='flex h-20 items-center justify-between md:hidden'>
       <div className='flex text-left md:flex'>
         <Link aria-label='Home' href='/'>
           <p className='text-2xl font-bold md:flex'>
@@ -42,7 +45,7 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
             <span className='sr-only'>Toggle Menu</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side='left' className='pl-1px-7 pr-0'>
+        <SheetContent side='left' className='px-7 pl-1 pr-0'>
           <SheetHeader>
             <div className='my-5'>
               <Link
@@ -96,7 +99,7 @@ function MobileLink({
     <Link
       href={href}
       className={cn(
-        'text-foreground text-lg transition-colors hover:text-primary/90',
+        'text-lg text-foreground transition-colors hover:text-primary/90',
         pathname === href && 'text-primary',
         disabled && 'pointer-events-none opacity-60',
       )}

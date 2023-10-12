@@ -1,7 +1,9 @@
 'use client'
-import { motion } from 'framer-motion'
-import { cn } from '@/lib/utils'
+
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
+import { motion } from 'framer-motion'
+
+import { cn } from '@/lib/utils'
 
 interface HeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string
@@ -34,7 +36,7 @@ export function Header({
       <div
         {...props}
         className={cn(
-          'my-20 mx-auto justify-center',
+          'mx-auto my-20 justify-center',
           className,
           page ? 'my-10' : 'my-20',
         )}
@@ -42,7 +44,7 @@ export function Header({
         <motion.h3
           variants={FADE_DOWN_ANIMATION_VARIANTS}
           className={cn(
-            'md:text-5xl text-3xl font-bold tracking-tight justify-center flex flex-col ',
+            'flex flex-col justify-center text-3xl font-bold tracking-tight md:text-5xl ',
             !description && 'flex flex-row',
           )}
         >
@@ -53,7 +55,7 @@ export function Header({
           <motion.p
             variants={FADE_DOWN_ANIMATION_VARIANTS}
             className={cn(
-              'line-clamp-2 text-muted-foreground text-lg md:text-xl mt-3  ',
+              'mt-3 line-clamp-2 text-lg text-muted-foreground md:text-xl  ',
               !description && 'hidden',
             )}
           >

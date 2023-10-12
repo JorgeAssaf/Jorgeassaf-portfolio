@@ -2,6 +2,9 @@ import type { FC } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { PortableText } from '@portabletext/react'
+
+import { cn } from '@/lib/utils'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
 import {
   Card,
@@ -16,11 +19,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
-
-import { AspectRatio } from '@/components/ui/aspect-ratio'
-import { cn } from '@/lib/utils'
 import { Placeholder } from '@/components/icons'
-
 import type { Projects } from '@/app/types/sanity'
 
 interface ProjectsCardProps {
@@ -30,11 +29,11 @@ interface ProjectsCardProps {
 const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
   return (
     <>
-      {projects.map(project => (
+      {projects.map((project) => (
         <Card
           key={project._id}
           className={cn(
-            'h-full w-full overflow-hidden rounded-md flex flex-col'
+            'flex h-full w-full flex-col overflow-hidden rounded-md',
           )}
         >
           <CardHeader className='border-b p-0 '>
@@ -45,7 +44,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
                   alt={project?.name}
                   className={cn(
                     'object-cover',
-                    project.name === 'Netflix clone' ? 'object-left-top' : ''
+                    project.name === 'Netflix clone' ? 'object-left-top' : '',
                   )}
                   sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                   fill
@@ -56,7 +55,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
                   aria-label='Placeholder'
                   role='img'
                   aria-roledescription='placeholder'
-                  className='flex items-center justify-center h-full w-full'
+                  className='flex h-full w-full items-center justify-center'
                 >
                   <Placeholder
                     className='h-14 w-14 text-muted-foreground'
@@ -67,8 +66,8 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
             </AspectRatio>
           </CardHeader>
 
-          <CardContent className={cn('flex-1 flex justify-between flex-col')}>
-            <CardTitle className={cn('line-clamp-1 text-2xl my-3')}>
+          <CardContent className={cn('flex flex-1 flex-col justify-between')}>
+            <CardTitle className={cn('my-3 line-clamp-1 text-2xl')}>
               {project.name}
             </CardTitle>
 
@@ -76,8 +75,8 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
               <PortableText value={project.content} />
             </div>
 
-            <div className='my-3 flex items-center gap-3 flex-wrap'>
-              {project.technologies.map(technologie => (
+            <div className='my-3 flex flex-wrap items-center gap-3'>
+              {project.technologies.map((technologie) => (
                 <TooltipProvider key={technologie.name} delayDuration={250}>
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -86,7 +85,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
                           technologie.name === 'Clerk auth'
                             ? 'rounded-full'
                             : '',
-                          'cursor-pointer w-[26px] h-[26px] object-cover'
+                          'h-[26px] w-[26px] cursor-pointer object-cover',
                         )}
                         src={technologie.image}
                         alt={technologie.name}
@@ -103,7 +102,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
               ))}
             </div>
             <CardFooter
-              className={cn('p-0 flex justify-between items-center mt-3')}
+              className={cn('mt-3 flex items-center justify-between p-0')}
             >
               <div className='flex items-center gap-5'>
                 <Link
@@ -115,9 +114,9 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
                     buttonVariants({
                       size: 'sm',
                       className: cn(
-                        'font-medium bg-primary transition-colors '
+                        'bg-primary font-medium transition-colors ',
                       ),
-                    })
+                    }),
                   )}
                 >
                   View Code
@@ -131,7 +130,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
                     variant: 'outline',
                     size: 'sm',
                     className: cn(
-                      'font-medium border border-primary transition-colors  '
+                      'border border-primary font-medium transition-colors  ',
                     ),
                   })}
                 >

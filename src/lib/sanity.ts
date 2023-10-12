@@ -1,4 +1,4 @@
-import { type SanityClient, createClient } from 'next-sanity'
+import { createClient, type SanityClient } from 'next-sanity'
 
 const projectId = '88pyznww'
 const dataset = 'production'

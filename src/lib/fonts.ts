@@ -1,5 +1,5 @@
-import localFont from 'next/font/local'
 import { JetBrains_Mono as FontMono } from 'next/font/google'
+import localFont from 'next/font/local'
 
 export const Satoshi = localFont({
   src: '../fonts/Satoshi-Variable.ttf',

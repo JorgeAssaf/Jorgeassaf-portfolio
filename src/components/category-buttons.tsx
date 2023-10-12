@@ -1,11 +1,14 @@
 'use client'
-import type { Category } from '@/app/types/sanity'
-import { motion } from 'framer-motion'
-import { type FC, useTransition, useCallback } from 'react'
-import { Button } from './ui/button'
-import { cn, slugify } from '@/lib/utils'
+
+import { useCallback, useTransition, type FC } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { FADE_LEFT_ANIMATION_VARIANTS } from '@/constans'
+import { motion } from 'framer-motion'
+
+import { cn, slugify } from '@/lib/utils'
+import type { Category } from '@/app/types/sanity'
+
+import { Button } from './ui/button'
 
 interface CategoryButtonsProps {
   categories: Category[]
@@ -49,7 +52,7 @@ const CategoryButtons: FC<CategoryButtonsProps> = ({ categories }) => {
           },
         },
       }}
-      className='flex md:flex-col flex-row flex-wrap  gap-5  '
+      className='flex flex-row flex-wrap gap-5  md:flex-col  '
     >
       <motion.div variants={FADE_LEFT_ANIMATION_VARIANTS}>
         <Button
@@ -65,7 +68,7 @@ const CategoryButtons: FC<CategoryButtonsProps> = ({ categories }) => {
           disabled={isPending}
           className={cn(
             !categoryParam &&
-            'bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-hover-foreground',
+            'bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground/90',
           )}
           variant='outline'
           size='sm'
@@ -92,7 +95,7 @@ const CategoryButtons: FC<CategoryButtonsProps> = ({ categories }) => {
             disabled={isPending}
             className={cn(
               slugify(category.title) == categoryParam &&
-              'bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-hover-foreground',
+              'bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground/90',
             )}
             variant='outline'
             size='sm'
