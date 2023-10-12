@@ -4,13 +4,13 @@ import { Skeleton } from '@/components/ui/skeleton'
 export default function BlogLoading() {
   return (
     <div>
-      <div className='space-y-3 mb-5'>
+      <div className='mb-5 space-y-3'>
         <Skeleton className='h-14 w-28' />
         <Skeleton className='h-4 w-60' />
       </div>
 
-      <div className='md:grid grid-cols-[0.5fr,3fr] flex flex-col gap-10'>
-        <div className='flex md:flex-col flex-row flex-wrap gap-5  '>
+      <div className='flex grid-cols-[0.5fr,3fr] flex-col gap-10 md:grid'>
+        <div className='flex flex-row flex-wrap gap-5 md:flex-col  '>
           {new Array(6).fill(0).map((_, i) => (
             <Skeleton key={i} className='h-9 w-32' />
           ))}
@@ -18,7 +18,7 @@ export default function BlogLoading() {
         <div className='flex flex-col gap-5 '>
           <Skeleton className='h-4 w-60' />
           <div>
-            <div className='grid md:grid-cols-2 gap-10 grid-cols-1'>
+            <div className='grid grid-cols-1 gap-10 md:grid-cols-2'>
               {new Array(2).fill(0).map((_, i) => (
                 <Card key={i}>
                   <CardHeader>
@@ -27,7 +27,7 @@ export default function BlogLoading() {
                     </CardTitle>
 
                     <Skeleton className='h-4 w-1/4' />
-                    <div className='flex gap-3 flex-wrap'>
+                    <div className='flex flex-wrap gap-3'>
                       {new Array(2).fill(0).map((_, i) => (
                         <Skeleton key={i} className='h-4 w-1/4' />
                       ))}

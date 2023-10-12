@@ -1,11 +1,12 @@
-
 import '@/styles/globals.css'
+
+import type { Metadata } from 'next'
+
+import { siteConfig } from '@/config/site'
+import { fontmono, Satoshi } from '@/lib/fonts'
+import { cn } from '@/lib/utils'
 import { Analytics } from '@/components/analytics'
 import { ThemeProvider } from '@/components/theme-provider'
-import { siteConfig } from '@/config/site'
-import { Satoshi, fontmono } from '@/lib/fonts'
-import { cn } from '@/lib/utils'
-import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -70,7 +71,7 @@ export default function RootLayout({
     <html lang='en' suppressHydrationWarning>
       <body
         className={cn(
-          'min-h-screen bg-background antialiased flex flex-col',
+          'flex min-h-screen flex-col bg-background antialiased',
           fontmono.variable,
           Satoshi.className,
         )}

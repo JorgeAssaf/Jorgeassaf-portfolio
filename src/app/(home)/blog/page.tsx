@@ -1,14 +1,14 @@
+import type { Metadata } from 'next'
+import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
+import { CategoryQuery, PostQuery } from '@/utils/querys'
+
+import { client } from '@/lib/sanity'
+import { slugify } from '@/lib/utils'
 import CategoryButtons from '@/components/category-buttons'
 import { FramerH2, FramerSection } from '@/components/framer'
 import { Header } from '@/components/header'
 import PostCard from '@/components/post-card'
-import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
-import { client } from '@/lib/sanity'
-import { slugify } from '@/lib/utils'
-import { CategoryQuery, PostQuery } from '@/utils/querys'
-
 import type { Category, Post } from '@/app/types/sanity'
-import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -21,7 +21,7 @@ const getPostsByCategory = async (category: string) => {
   if (!category) return posts
 
   return posts.filter((post: Post) =>
-    post.categories.some((c: Category) => slugify(c.title) === category)
+    post.categories.some((c: Category) => slugify(c.title) === category),
   )
 }
 
@@ -44,7 +44,7 @@ const BlogPage = async ({
         description='Here my last posts about web development, mobile development, ui/ux design and devops'
       />
 
-      <div className='md:grid grid-cols-[0.5fr,3fr] flex flex-col gap-10'>
+      <div className='flex grid-cols-[0.5fr,3fr] flex-col gap-10 md:grid'>
         <div>
           <CategoryButtons categories={categories} />
         </div>
@@ -68,7 +68,7 @@ const BlogPage = async ({
           >
             {blogCategories.find(
               (category: Category) =>
-                slugify(category.title) === searchParams.category
+                slugify(category.title) === searchParams.category,
             )?.title ?? 'All posts'}
           </FramerH2>
 
