@@ -1,5 +1,4 @@
 import { ImageResponse } from 'next/server'
-import { Satoshi } from '@/lib/fonts'
 
 // Route segment config
 export const runtime = 'edge'
@@ -26,7 +25,6 @@ export default function Icon() {
           alignItems: 'center',
           fontWeight: 'bold',
           borderRadius: '50%',
-          fontFamily: `${Satoshi}`,
           justifyContent: 'center',
           color: 'white',
         }}
@@ -39,8 +37,6 @@ export default function Icon() {
       // For convenience, we can re-use the exported icons size metadata
       // config to also set the ImageResponse's width and height.
       ...size,
-
-
     },
   )
 }
