@@ -11,7 +11,7 @@ export interface Projects {
 }
 
 export interface Content {
-  markDefs: any[]
+  markDefs: unknown[]
   children: Child[]
   _type: string
   style: string
@@ -20,7 +20,7 @@ export interface Content {
 
 export interface Child {
   _type: string
-  marks: any[]
+  marks: unknown[]
   text: string
   _key: string
 }
@@ -39,7 +39,7 @@ export interface Post {
   body: Body[]
   _id: string
   author: Author
-  slug: { current: string }
+  slug: string
   title: string
 }
 
@@ -47,10 +47,9 @@ export interface Body {
   _type: string
   style: string
   _key: string
-  markDefs: any[]
+  markDefs: unknown[]
   children: Child[]
 }
-
 
 export interface Author {
   image?: string
@@ -59,11 +58,81 @@ export interface Author {
 
 export interface Child {
   _type: string
-  marks: any[]
+  marks: unknown[]
   text: string
   _key: string
 }
 
 export interface Category {
   title: string
+}
+
+export interface ImageBuilder {
+  value: Value
+  isInline: boolean
+  index: number
+}
+
+export interface Value {
+  _type: string
+  alt: string
+  _key: string
+  asset: Asset
+}
+
+export interface Asset {
+  _ref: string
+  _type: string
+}
+
+export interface PortableTextBuilder {
+  children: string[]
+  index: number
+  isInline: boolean
+  node: Node
+  value: Value
+}
+
+export interface Node {
+  _type: string
+  style: string
+  _key: string
+  markDefs: unknown[]
+  children: Children[]
+}
+
+export interface Children {
+  _type: string
+  marks: unknown[]
+  text: string
+  _key: string
+}
+
+export interface Value {
+  _type: string
+  style: string
+  _key: string
+  markDefs: unknown[]
+  children: Children2[]
+}
+
+export interface Children2 {
+  _type: string
+  marks: unknown[]
+  text: string
+  _key: string
+}
+
+export interface LinkBuilder {
+  text: string
+  value: Value
+  markType: string
+  markKey: string
+  children: string[]
+}
+
+export interface Value {
+  _key: string
+  _type: string
+  href: string
 }

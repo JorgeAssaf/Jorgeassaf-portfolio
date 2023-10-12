@@ -22,7 +22,6 @@ export const deslugify = (text: string) => {
     .replace(/-/g, ' ')
     .trim()
     .toLowerCase()
-    .replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase())
     .replace(/^[a-z]/g, (m) => m.toUpperCase())
     .replace(/\w\S*/g, (w) => w.replace(/^\w/, (c) => c.toUpperCase()))
 }
