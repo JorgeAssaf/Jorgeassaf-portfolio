@@ -1,0 +1,5 @@
+dist
+node_module
+.next
+build
+.contentlayer
