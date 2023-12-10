@@ -30,9 +30,13 @@
     }
   },
   "include": [
+    ".eslintrc.cjs",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "**/*.cjs",
+    "**/*.mjs",
+    "next.config.js",
     ".next/types/**/*.ts"
   ],
   "exclude": [
