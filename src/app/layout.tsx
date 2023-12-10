@@ -1,6 +1,6 @@
 import '@/styles/globals.css'
 
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 
 import { siteConfig } from '@/config/site'
 import { fontmono, Satoshi } from '@/lib/fonts'
@@ -38,10 +38,6 @@ export const metadata: Metadata = {
     },
   ],
   creator: 'Jorge Assaf',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -62,6 +58,13 @@ export const metadata: Metadata = {
   },
 }
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: 'white' },
+    { media: '(prefers-color-scheme: dark)', color: 'black' },
+  ],
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -76,7 +79,12 @@ export default function RootLayout({
           Satoshi.className,
         )}
       >
-        <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange
+        >
           {children}
           <Analytics />
         </ThemeProvider>
