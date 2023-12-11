@@ -1,10 +1,10 @@
-import Link from 'next/link'
-import { Header } from '@/components/header'
-
-import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
-import { FramerDiv } from '@/components/framer'
 import type { Metadata } from 'next'
-import { Next, React, Tailwind, Typescript, Prisma } from '@/components/icons'
+import Link from 'next/link'
+import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
+
+import { FramerDiv } from '@/components/framer'
+import { Header } from '@/components/header'
+import { Next, Prisma, React, Tailwind, Typescript } from '@/components/icons'
 
 export const metadata: Metadata = {
   title: 'About me',
@@ -28,7 +28,7 @@ const AboutPage = () => {
             },
           },
         }}
-        className=' max-w-[75ch] mx-auto'
+        className=' mx-auto max-w-[75ch]'
       >
         <FramerDiv variants={FADE_DOWN_ANIMATION_VARIANTS}>
           <p className='leading-7 md:text-lg [&:not(:first-child)]:mt-6'>
@@ -41,13 +41,32 @@ const AboutPage = () => {
         </FramerDiv>
         <FramerDiv
           variants={FADE_DOWN_ANIMATION_VARIANTS}
-          className='my-10 flex flex-col justify-center items-center'
+          className='my-10 flex flex-col items-center justify-center'
         >
           <h3 className='text-3xl font-bold '>Experience</h3>
           <section className='my-5'>
             <ol className='relative border-l-2'>
               <li className='mb-10 ml-4'>
-                <div className='absolute w-3 h-3 bg-muted-foreground rounded-full mt-1.5 -left-[0.43rem] border border-muted-foreground'></div>
+                <div className='absolute left-[-0.43rem] mt-1.5 h-3 w-3 rounded-full border border-muted-foreground bg-muted-foreground' />
+                <time className='mb-1 text-sm font-thin leading-none '>
+                  August 2023 - Present
+                </time>
+
+                <h3 className='text-lg font-semibold'>
+                  Frontend Developer at{' '}
+                  <span className='text-primary '>Pawtrics Software</span>
+                </h3>
+                <h4 className='my-1 text-sm font-normal text-primary/80'>
+                  Florida - <span>Remote</span>
+                </h4>
+                <p className='mb-4 text-base font-normal text-muted-foreground'>
+                  I am currently working as a Frontend Developer at Pawtrics
+                  Software. Working on a project that is being developed with
+                  Next.js, Tailwind CSS, Redux and Typescript.
+                </p>
+              </li>
+              <li className='mb-10 ml-4'>
+                <div className='absolute left-[-0.43rem] mt-1.5 h-3 w-3 rounded-full border border-muted-foreground bg-muted-foreground' />
                 <time className='mb-1 text-sm font-thin leading-none '>
                   June 2023 - Present
                 </time>
@@ -57,11 +76,14 @@ const AboutPage = () => {
                     href='https://omaka.mx'
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='text-primary underline hover:text-primary/90 transition-colors'
+                    className='text-primary underline transition-colors hover:text-primary/90'
                   >
                     Omaka
                   </Link>
                 </h3>
+                <h4 className='my-1 text-sm font-normal text-primary/80'>
+                  México - <span>Remote</span>
+                </h4>
                 <p className='mb-4 text-base font-normal text-muted-foreground'>
                   I am currently working as a Frontend Developer at Omaka.
                   Working on a project that is being developed with Next.js,
@@ -73,28 +95,28 @@ const AboutPage = () => {
         </FramerDiv>
         <FramerDiv
           variants={FADE_DOWN_ANIMATION_VARIANTS}
-          className='flex flex-col justify-center items-center'
+          className='flex flex-col items-center justify-center'
         >
           <h3 className='text-3xl font-bold '>My stack</h3>
-          <div className='flex gap-5 my-7 items-center justify-center flex-wrap'>
-            <div className='flex justify-center gap-y-1 flex-col items-center'>
-              <React className='w-7 h-7' />
+          <div className='my-7 flex flex-wrap items-center justify-center gap-5'>
+            <div className='flex flex-col items-center justify-center gap-y-1'>
+              <React className='h-7 w-7' />
               <span>React</span>
             </div>
-            <div className='flex justify-center gap-y-1 flex-col items-center'>
-              <Next className='w-7 h-7' />
+            <div className='flex flex-col items-center justify-center gap-y-1'>
+              <Next className='h-7 w-7' />
               <span>Next</span>
             </div>
-            <div className='flex justify-center gap-y-1 flex-col items-center'>
-              <Tailwind className='w-7 h-7' />
+            <div className='flex flex-col items-center justify-center gap-y-1'>
+              <Tailwind className='h-7 w-7' />
               <span>Tailwind</span>
             </div>
-            <div className='flex justify-center gap-y-1 flex-col items-center'>
-              <Typescript className='w-7 h-7' />
+            <div className='flex flex-col items-center justify-center gap-y-1'>
+              <Typescript className='h-7 w-7' />
               <span>Typescript</span>
             </div>
-            <div className='flex justify-center gap-y-1 flex-col items-center'>
-              <Prisma className='w-7 h-7' />
+            <div className='flex flex-col items-center justify-center gap-y-1'>
+              <Prisma className='h-7 w-7' />
               <span>Prisma</span>
             </div>
           </div>

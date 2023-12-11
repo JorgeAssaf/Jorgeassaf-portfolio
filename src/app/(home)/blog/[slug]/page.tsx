@@ -1,4 +1,3 @@
-import { type ReactNode } from 'react'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -7,13 +6,11 @@ import {
   PortableText,
   type PortableTextReactComponents,
 } from '@portabletext/react'
-import { type PortableTextLink } from '@portabletext/types'
 
 import { client } from '@/lib/sanity'
 import { urlFor } from '@/lib/sanityImage'
-import { cn, formatDate, slugify } from '@/lib/utils'
+import { formatDate, slugify } from '@/lib/utils'
 import { Badge } from '@/components/ui/badge'
-import { buttonVariants } from '@/components/ui/button'
 import { ChevronLeft } from '@/components/icons'
 import type { ImageBuilder, Post } from '@/app/types/sanity'
 
