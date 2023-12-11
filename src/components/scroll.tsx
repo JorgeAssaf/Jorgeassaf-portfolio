@@ -16,12 +16,12 @@ const Scroll = () => {
           },
         },
       }}
-      className='my-10 flex justify-center items-center'
+      className='my-10 flex items-center justify-center'
     >
-      <div className='flex flex-col justify-center items-center animate-pulse md:my-20 my-10'>
+      <div className='my-10 flex animate-pulse flex-col items-center justify-center md:my-20'>
         <motion.p variants={FADE_DOWN_ANIMATION_VARIANTS}>Scroll</motion.p>
         <motion.span variants={FADE_DOWN_ANIMATION_VARIANTS}>
-          <ArrowDown className='w-5 h-5 mt-2 animate-bounce ' />
+          <ArrowDown className='mt-2 h-5 w-5 animate-bounce ' />
         </motion.span>
       </div>
     </motion.div>

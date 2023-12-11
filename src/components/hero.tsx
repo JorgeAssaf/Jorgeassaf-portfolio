@@ -1,13 +1,14 @@
 'use client'
+
 import Link from 'next/link'
-import { m } from 'framer-motion'
-import { LazyMotion, domAnimation } from 'framer-motion'
-import { GitHub, LinkedIn } from '@/components/icons'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
-import { buttonVariants } from './ui/button'
+import HomeScene from '@/scenes/home-scene'
+import { domAnimation, LazyMotion, m } from 'framer-motion'
 
 import { cn } from '@/lib/utils'
-import HomeScene from '@/scenes/home-scene'
+import { GitHub, LinkedIn } from '@/components/icons'
+
+import { buttonVariants } from './ui/button'
 
 const Hero = () => {
   return (
@@ -24,24 +25,24 @@ const Hero = () => {
             },
           },
         }}
-        className='my-14 md:my-10 flex items-center justify-between '
+        className='my-14 flex items-center justify-between '
       >
         <div className='w-[37rem]'>
           <m.h1
             variants={FADE_DOWN_ANIMATION_VARIANTS}
-            className='text-4xl md:text-6xl font-bold'
+            className='text-4xl font-bold md:text-6xl'
           >
             Hi, I’m Jorge Assaf.
           </m.h1>
           <m.h2
             variants={FADE_DOWN_ANIMATION_VARIANTS}
-            className=' text-primary md:text-4xl my-1 font-semibold text-2xl'
+            className=' my-1 text-2xl font-semibold text-primary md:text-4xl'
           >
             Front-end Developer.
           </m.h2>
           <m.p
             variants={FADE_DOWN_ANIMATION_VARIANTS}
-            className='text-muted-foreground mt-3 md:text-xl text-base'
+            className='mt-3 text-base text-muted-foreground md:text-xl'
           >
             Based in Mexico City. I take great pleasure in creating and
             developing applications for both web and mobile devices.
@@ -57,7 +58,7 @@ const Hero = () => {
               rel='noopener noreferrer'
               className={cn(buttonVariants({ variant: 'default' }))}
             >
-              <GitHub className='w-6 h-6' />
+              <GitHub className='h-6 w-6' />
               <span className='sr-only'>GitHub</span>
             </Link>
 
@@ -68,7 +69,7 @@ const Hero = () => {
               rel='noopener noreferrer'
               className={cn(buttonVariants({ variant: 'default' }))}
             >
-              <LinkedIn className='w-6 h-6' />
+              <LinkedIn className='h-6 w-6' />
               <span className='sr-only'>LinkedIn</span>
             </Link>
             <Link
@@ -88,7 +89,7 @@ const Hero = () => {
         </div>
         <m.div
           variants={FADE_DOWN_ANIMATION_VARIANTS}
-          className=' h-[500px] justify-center items-center hidden lg:flex'
+          className=' hidden h-[500px] items-center justify-center lg:flex'
         >
           <HomeScene />
         </m.div>
