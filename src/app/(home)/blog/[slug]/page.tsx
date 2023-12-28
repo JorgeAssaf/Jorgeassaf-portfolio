@@ -27,7 +27,6 @@ export async function generateMetadata({
     metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'),
     title: `Blog - ${slug.title}`,
     openGraph: {
-      url: `https://jorgeassaf.com/blog/${slug.slug}`,
       description: slug.description,
       title: `Blog - ${slug.title}`,
     },
