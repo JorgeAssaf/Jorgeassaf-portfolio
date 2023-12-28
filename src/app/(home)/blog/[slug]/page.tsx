@@ -24,7 +24,13 @@ export async function generateMetadata({
   const slug = await getPost(params.slug)
 
   return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'),
     title: `Blog - ${slug.title}`,
+    openGraph: {
+      url: `https://jorgeassaf.com/blog/${slug.slug}`,
+      description: slug.description,
+      title: `Blog - ${slug.title}`,
+    },
   }
 }
 async function getPost(slug: string) {
@@ -155,8 +161,8 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
         </div>
       </section>
 
-      <article className='divide-y divide-gray-200 pb-7 dark:divide-gray-700 xl:divide-y-0  '>
-        <div className='divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0'>
+      <article className='divide-y divide-gray-200 pb-7 xl:divide-y-0 dark:divide-gray-700  '>
+        <div className='divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0 dark:divide-gray-700'>
           <div className='prose prose-lg dark:prose-invert max-w-none pb-8 pt-10'>
             <PortableText
               value={post.body}
