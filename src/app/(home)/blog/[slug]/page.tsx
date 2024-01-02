@@ -123,7 +123,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
           Blog
           <ChevronLeft size='20' />
           {post.categories.map((category, i) => (
-            <span className=' ' key={category.title}>
+            <span key={category.title}>
               {category.title}
               {i < post.categories.length - 1 && ' / '}
             </span>

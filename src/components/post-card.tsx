@@ -73,7 +73,7 @@ const PostCard: FC<PostCardProps> = ({ posts }) => {
           ))
         ) : (
           <section className='flex flex-col items-center justify-center'>
-            <FileWarningIcon className='mb-5 mt-7 h-10 w-10 text-primary' />
+            <FileWarningIcon className='mb-5 mt-7 size-10 text-primary' />
 
             <h2 className='scroll-m-20 text-3xl font-semibold tracking-tight transition-colors first:mt-0'>
               No posts found

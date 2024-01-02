@@ -42,7 +42,7 @@ const SiteFooter = () => {
               rel='noreferrer'
               className={cn(buttonVariants())}
             >
-              <LinkedIn className='h-6 w-6' />
+              <LinkedIn className='size-6' />
               <span className='sr-only'>LinkedIn</span>
             </Link>
             <Link
@@ -51,12 +51,12 @@ const SiteFooter = () => {
               rel='noreferrer noopener'
               className={cn(buttonVariants())}
             >
-              <Fiverr className='h-12 w-12 md:h-14 md:w-14' />
+              <Fiverr className='size-12 md:size-14' />
               <span className='sr-only'>Fiverr</span>
             </Link>
           </div>
         </div>
-        <p className='mt-10 '>Built by Jorge Assaf.</p>
+        <p className='mt-10'>Built by Jorge Assaf.</p>
         <p>
           Model by{' '}
           <Link

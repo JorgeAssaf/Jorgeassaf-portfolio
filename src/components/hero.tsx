@@ -58,7 +58,7 @@ const Hero = () => {
               rel='noopener noreferrer'
               className={cn(buttonVariants({ variant: 'default' }))}
             >
-              <GitHub className='h-6 w-6' />
+              <GitHub className='size-6' />
               <span className='sr-only'>GitHub</span>
             </Link>
 
@@ -69,7 +69,7 @@ const Hero = () => {
               rel='noopener noreferrer'
               className={cn(buttonVariants({ variant: 'default' }))}
             >
-              <LinkedIn className='h-6 w-6' />
+              <LinkedIn className='size-6' />
               <span className='sr-only'>LinkedIn</span>
             </Link>
             <Link

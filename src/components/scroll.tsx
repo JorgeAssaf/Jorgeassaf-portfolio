@@ -21,7 +21,7 @@ const Scroll = () => {
       <div className='my-10 flex animate-pulse flex-col items-center justify-center md:my-20'>
         <motion.p variants={FADE_DOWN_ANIMATION_VARIANTS}>Scroll</motion.p>
         <motion.span variants={FADE_DOWN_ANIMATION_VARIANTS}>
-          <ArrowDown className='mt-2 h-5 w-5 animate-bounce ' />
+          <ArrowDown className='mt-2 size-5 animate-bounce ' />
         </motion.span>
       </div>
     </motion.div>

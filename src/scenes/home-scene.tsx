@@ -4,13 +4,16 @@ import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Html } from '@react-three/drei'
+import { Loader2 } from 'lucide-react'
 
 const Dog = dynamic(() => import('@/scenes/Model').then((mod) => mod.Dog), {
   ssr: false,
   loading: () => {
     return (
       <Html>
-        <span>Loading...</span>
+        <div>
+          Loading...
+        </div>
       </Html>
     )
   },

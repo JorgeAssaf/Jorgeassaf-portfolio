@@ -47,7 +47,7 @@ const AboutPage = () => {
           <section className='my-5'>
             <ol className='relative border-l-2'>
               <li className='mb-10 ml-4'>
-                <div className='absolute left-[-0.43rem] mt-1.5 h-3 w-3 rounded-full border border-muted-foreground bg-muted-foreground' />
+                <div className='absolute left-[-0.43rem] mt-1.5 size-3 rounded-full border border-muted-foreground bg-muted-foreground' />
                 <time className='mb-1 text-sm font-thin leading-none '>
                   August 2023 - Present
                 </time>
@@ -66,7 +66,7 @@ const AboutPage = () => {
                 </p>
               </li>
               <li className='mb-10 ml-4'>
-                <div className='absolute left-[-0.43rem] mt-1.5 h-3 w-3 rounded-full border border-muted-foreground bg-muted-foreground' />
+                <div className='absolute left-[-0.43rem] mt-1.5 size-3 rounded-full border border-muted-foreground bg-muted-foreground' />
                 <time className='mb-1 text-sm font-thin leading-none '>
                   June 2023 - Present
                 </time>
@@ -100,23 +100,23 @@ const AboutPage = () => {
           <h3 className='text-3xl font-bold '>My stack</h3>
           <div className='my-7 flex flex-wrap items-center justify-center gap-5'>
             <div className='flex flex-col items-center justify-center gap-y-1'>
-              <React className='h-7 w-7' />
+              <React className='size-7' />
               <span>React</span>
             </div>
             <div className='flex flex-col items-center justify-center gap-y-1'>
-              <Next className='h-7 w-7' />
+              <Next className='size-7' />
               <span>Next</span>
             </div>
             <div className='flex flex-col items-center justify-center gap-y-1'>
-              <Tailwind className='h-7 w-7' />
+              <Tailwind className='size-7' />
               <span>Tailwind</span>
             </div>
             <div className='flex flex-col items-center justify-center gap-y-1'>
-              <Typescript className='h-7 w-7' />
+              <Typescript className='size-7' />
               <span>Typescript</span>
             </div>
             <div className='flex flex-col items-center justify-center gap-y-1'>
-              <Prisma className='h-7 w-7' />
+              <Prisma className='size-7' />
               <span>Prisma</span>
             </div>
           </div>

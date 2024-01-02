@@ -33,7 +33,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
         <Card
           key={project._id}
           className={cn(
-            'flex h-full w-full flex-col overflow-hidden rounded-md',
+            'flex size-full flex-col overflow-hidden rounded-md',
           )}
         >
           <CardHeader className='border-b p-0 '>
@@ -55,10 +55,10 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
                   aria-label='Placeholder'
                   role='img'
                   aria-roledescription='placeholder'
-                  className='flex h-full w-full items-center justify-center'
+                  className='flex size-full items-center justify-center'
                 >
                   <Placeholder
-                    className='h-14 w-14 text-muted-foreground'
+                    className='size-14 text-muted-foreground'
                     aria-hidden='true'
                   />
                 </div>
@@ -85,7 +85,7 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
                           technologie.name === 'Clerk auth'
                             ? 'rounded-full'
                             : '',
-                          'h-[26px] w-[26px] cursor-pointer object-cover',
+                          'size-[26px] cursor-pointer object-cover',
                         )}
                         src={technologie.image}
                         alt={technologie.name}
