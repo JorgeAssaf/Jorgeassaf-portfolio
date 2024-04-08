@@ -9,12 +9,10 @@ import { Analytics } from '@/components/analytics'
 import { ThemeProvider } from '@/components/theme-provider'
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000',
-  ),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL!),
   title: {
     default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
+    template: `${siteConfig.name} - %s`,
   },
   description: siteConfig.description,
   keywords: [
@@ -65,25 +63,17 @@ export const viewport: Viewport = {
   ],
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: React.PropsWithChildren) {
   return (
     <html lang='en' suppressHydrationWarning>
       <body
         className={cn(
-          'flex min-h-screen flex-col bg-background antialiased',
+          'flex min-h-screen flex-col antialiased',
           fontmono.variable,
           Satoshi.className,
         )}
       >
-        <ThemeProvider
-          attribute='class'
-          defaultTheme='system'
-          enableSystem
-        >
+        <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
           {children}
           <Analytics />
         </ThemeProvider>
