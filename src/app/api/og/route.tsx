@@ -15,20 +15,20 @@ export function GET(req: Request) {
     return new ImageResponse(
       (
         <div
-          tw="flex h-full w-full flex-col items-center justify-center"
+          tw='flex size-full flex-col items-center justify-center'
           style={{
             color: mode === 'dark' ? '#fff' : '#000',
             background: mode === 'dark' ? '#09090b' : '#ffffff',
           }}
         >
           <div
-            tw="flex max-w-4xl flex-col items-center justify-center"
+            tw='flex max-w-4xl flex-col items-center justify-center'
             style={{
               whiteSpace: 'pre-wrap',
             }}
           >
             {type ? (
-              <div tw="px-8 text-xl font-medium uppercase leading-tight tracking-tight">
+              <div tw='px-8 text-xl font-medium uppercase leading-tight tracking-tight'>
                 {type}
               </div>
             ) : null}
