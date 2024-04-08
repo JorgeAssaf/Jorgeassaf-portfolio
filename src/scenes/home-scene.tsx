@@ -1,30 +1,22 @@
 'use client'
 
-import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
-import { Canvas } from '@react-three/fiber'
+import dynamic from 'next/dynamic'
 import { Html } from '@react-three/drei'
-import { Loader2 } from 'lucide-react'
+import { Canvas } from '@react-three/fiber'
+
+import { Common } from './view'
 
 const Dog = dynamic(() => import('@/scenes/Model').then((mod) => mod.Dog), {
   ssr: false,
   loading: () => {
     return (
       <Html>
-        <div>
-          Loading...
-        </div>
+        <div>Loading...</div>
       </Html>
     )
   },
 })
-
-const Common = dynamic(
-  () => import('@/scenes/view').then((mod) => mod.Common),
-  {
-    ssr: false,
-  },
-)
 
 const HomeScene = () => {
   return (
