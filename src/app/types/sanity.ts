@@ -39,7 +39,10 @@ export interface Post {
   body: Body[]
   _id: string
   author: Author
-  slug: string
+  slug: {
+    current: string
+    type: string
+  }
   title: string
 }
 
