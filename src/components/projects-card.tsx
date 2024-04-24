@@ -32,21 +32,15 @@ const ProjectsCard: FC<ProjectsCardProps> = ({ projects }) => {
       {projects.map((project) => (
         <Card
           key={project._id}
-          className={cn(
-            'flex size-full flex-col overflow-hidden rounded-md',
-          )}
+          className={cn('flex size-full flex-col overflow-hidden rounded-md')}
         >
-          <CardHeader className='border-b p-0 '>
+          <CardHeader className='h-auto w-full space-y-0 border-b p-0'>
             <AspectRatio ratio={16 / 9}>
               {project.image ? (
                 <Image
                   src={project.image}
                   alt={project?.name}
-                  className={cn(
-                    'object-cover',
-                    project.name === 'Netflix clone' ? 'object-left-top' : '',
-                  )}
-                  sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                  sizes='100vw'
                   fill
                   priority
                 />
