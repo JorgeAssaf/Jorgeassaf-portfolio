@@ -1,30 +1,24 @@
 'use client'
 
 import { Suspense } from 'react'
-import dynamic from 'next/dynamic'
-import { Html } from '@react-three/drei'
+import { Html, OrbitControls, useProgress } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 
-import { Common } from './view'
+import { Dog } from './Model'
 
-const Dog = dynamic(() => import('@/scenes/Model').then((mod) => mod.Dog), {
-  ssr: false,
-  loading: () => {
-    return (
-      <Html>
-        <div>Loading...</div>
-      </Html>
-    )
-  },
-})
+const HomeSceneFallback = () => {
+  const { progress } = useProgress()
+  return (
+    <Html className='w-[500px] text-foreground'>
+      {progress.toFixed(1)}% loaded
+    </Html>
+  )
+}
 
 const HomeScene = () => {
   return (
     <Canvas
-      style={{
-        height: 500,
-        width: 500,
-      }}
+      className='size-full'
       camera={{
         fov: 45,
         near: 0.1,
@@ -32,10 +26,13 @@ const HomeScene = () => {
         position: [4, 3, 6],
       }}
       gl={{ antialias: true }}
+      dpr={[1, 2]}
     >
-      <Suspense fallback={null}>
+      <ambientLight intensity={1.8} />
+
+      <Suspense fallback={<HomeSceneFallback />}>
         <Dog position={[-0.5, -0.9, 0]} scale={[0.67, 0.67, 0.67]} />
-        <Common />
+        <OrbitControls autoRotate autoRotateSpeed={0.5} />
       </Suspense>
     </Canvas>
   )
