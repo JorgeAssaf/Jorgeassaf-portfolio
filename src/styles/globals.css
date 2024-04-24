@@ -70,9 +70,15 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
+  p {
+    @apply text-pretty;
+  }
+
   ::-webkit-scrollbar {
     width: 7px;
     background-color: transparent;
@@ -84,3 +90,10 @@
   }
 }
 
+@layer utilities {
+  @supports (min-height: 100svh) {
+    .min-h-screen {
+      min-height: 100svh;
+    }
+  }
+}
