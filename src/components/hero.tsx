@@ -1,14 +1,21 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
-import HomeScene from '@/scenes/home-scene'
 import { domAnimation, LazyMotion, m } from 'framer-motion'
 
 import { cn } from '@/lib/utils'
 import { GitHub, LinkedIn } from '@/components/icons'
 
 import { buttonVariants } from './ui/button'
+
+const HomeScene = dynamic(() => import('@/scenes/home-scene'), {
+  ssr: false,
+  loading: () => {
+    return <div>Loading...</div>
+  },
+})
 
 const Hero = () => {
   return (
