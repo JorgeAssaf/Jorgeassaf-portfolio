@@ -4,12 +4,12 @@ import { Skeleton } from '@/components/ui/skeleton'
 export default function BlogLoading() {
   return (
     <div>
-      <div className='mb-5 space-y-3'>
+      <div className='mt-10 space-y-3'>
         <Skeleton className='h-14 w-28' />
-        <Skeleton className='h-4 w-60' />
+        <Skeleton className='h-4 w-80' />
       </div>
 
-      <div className='flex grid-cols-[0.5fr,3fr] flex-col gap-10 md:grid'>
+      <div className='my-10 flex grid-cols-[0.5fr,3fr] flex-col gap-10 md:grid'>
         <div className='flex flex-row flex-wrap gap-5 md:flex-col  '>
           {new Array(6).fill(0).map((_, i) => (
             <Skeleton key={i} className='h-9 w-32' />
