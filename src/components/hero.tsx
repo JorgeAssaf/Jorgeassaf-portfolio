@@ -12,9 +12,6 @@ import { buttonVariants } from './ui/button'
 
 const HomeScene = dynamic(() => import('@/scenes/home-scene'), {
   ssr: false,
-  loading: () => {
-    return <div>Loading...</div>
-  },
 })
 
 const Hero = () => {
@@ -96,7 +93,7 @@ const Hero = () => {
         </div>
         <m.div
           variants={FADE_DOWN_ANIMATION_VARIANTS}
-          className=' hidden h-[500px] items-center justify-center lg:flex'
+          className='hidden size-[500px] items-center justify-center lg:flex'
         >
           <HomeScene />
         </m.div>
