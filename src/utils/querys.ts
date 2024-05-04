@@ -1,33 +1,20 @@
 import { groq } from 'next-sanity'
 
-export const projectsQuery = groq`*[_type == "project"]{
+export const projectsQuery = groq`*[_type == "projects"]{
     _id,
     name,
-     "image": image.asset->url,
-    github,
-    url,
+    "image":{
+      "url": image.asset->url,
+      "alt": image.alt,
+    },
+    repo,
+    link,
+    category,
     technologies[]->{
       name,
-      "image": image.asset->url
+      "image": image.asset->url,
+      color,
     },
-    content
+    description,
   }`
 
-export const CategoryQuery = groq`*[_type == "category"]{
-  _id,
-  title,
-}`
-
-export const PostQuery = groq`*[_type == "post"]{
-  _id,
-  title,
-  _createdAt,
-  categories[]->{
-    title,
-  },
-  description,
-  author->{
-    name,
-  },
-   'slug': slug.current,
-}`
