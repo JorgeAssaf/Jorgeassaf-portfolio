@@ -1,15 +1,14 @@
 import { type MetadataRoute } from 'next'
 
 import { siteConfig } from '@/config/site'
-import { client } from '@/lib/sanity'
 
-import type { Post } from './types/sanity'
+import { allPosts } from 'contentlayer/generated'
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const allPosts = await client.fetch<Post[]>(`*[_type == "post"]{'slug': slug.current, _updatedAt}`)
+export default function sitemap(): MetadataRoute.Sitemap {
+
   const posts = allPosts.map((post) => ({
-    url: `${siteConfig.url}/blog/${post.slug}`,
-    lastModified: post._updatedAt,
+    url: `${siteConfig.url}/blog/${post.url}`,
+    lastModified: post.date,
     changeFrequency: 'monthly',
   })) satisfies MetadataRoute.Sitemap
   const routes = ['', '/about', '/blog', '/projects'].map((route) => ({
