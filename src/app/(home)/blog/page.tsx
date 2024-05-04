@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
-import { CategoryQuery, PostQuery } from '@/utils/querys'
+import { allPosts } from 'contentlayer/generated'
+import { FileWarningIcon } from 'lucide-react'
 
-import { client } from '@/lib/sanity'
+import { siteConfig } from '@/config/site'
 import { slugify } from '@/lib/utils'
+import { PostCard } from '@/components/cards/post-card'
 import CategoryButtons from '@/components/category-buttons'
 import { FramerH2, FramerSection } from '@/components/framer'
-import { Header } from '@/components/header'
-import PostCard from '@/components/post-card'
-import type { Category, Post } from '@/app/types/sanity'
+import { PageHeader } from '@/components/page-header'
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -16,29 +16,14 @@ export const metadata: Metadata = {
     'Here my last posts about web development, mobile development, ui/ux design, devops etc ',
 }
 
-const getPostsByCategory = async (category: string) => {
-  const posts = (await client.fetch<Post[]>(PostQuery)) ?? []
-  if (!category) return posts
-
-  return posts.filter((post: Post) =>
-    post.categories.some((c: Category) => slugify(c.title) === category),
-  )
-}
-
-const BlogPage = async ({
+const BlogPage = ({
   searchParams,
 }: {
   searchParams: { [key: string]: string | string[] | undefined }
 }) => {
-  const blogCategories = (await client.fetch<Category[]>(CategoryQuery)) ?? []
-  const [posts, categories] = await Promise.all([
-    getPostsByCategory(searchParams.category?.toString() ?? ''),
-    client.fetch<Category[]>(CategoryQuery),
-  ])
-
   return (
     <>
-      <Header
+      <PageHeader
         title='Blog'
         page
         description='Here my last posts about web development, mobile development, ui/ux design and devops'
@@ -46,7 +31,7 @@ const BlogPage = async ({
 
       <div className='flex grid-cols-[0.5fr,3fr] flex-col gap-10 md:grid'>
         <div>
-          <CategoryButtons categories={categories} />
+          <CategoryButtons categories={siteConfig.blogCategories} withAll />
         </div>
         <FramerSection
           initial='hidden'
@@ -66,13 +51,25 @@ const BlogPage = async ({
             variants={FADE_DOWN_ANIMATION_VARIANTS}
             className='text-2xl font-bold'
           >
-            {blogCategories.find(
-              (category: Category) =>
-                slugify(category.title) === searchParams.category,
+            {siteConfig.blogCategories.find(
+              (category) => slugify(category.title) === searchParams.category,
             )?.title ?? 'All posts'}
           </FramerH2>
 
-          <PostCard posts={posts} />
+          {allPosts.length > 0 ? (
+            allPosts.map((post) => <PostCard key={post._id} post={post} />)
+          ) : (
+            <div className='flex flex-col items-center justify-center'>
+              <FileWarningIcon className='mb-5 mt-7 size-10 text-primary' />
+
+              <h2 className='scroll-m-20 text-3xl font-semibold tracking-tight transition-colors first:mt-0'>
+                No posts found
+              </h2>
+              <p className='leading-7 [&:not(:first-child)]:mt-2'>
+                Try changing the filters or reloading the page
+              </p>
+            </div>
+          )}
         </FramerSection>
       </div>
     </>

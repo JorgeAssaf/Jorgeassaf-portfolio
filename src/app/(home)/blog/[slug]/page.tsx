@@ -1,138 +1,74 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import {
-  PortableText,
-  type PortableTextReactComponents,
-} from '@portabletext/react'
+import { allPosts } from 'contentlayer/generated'
+import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
+import { useMDXComponent } from 'next-contentlayer/hooks'
 
-import { client } from '@/lib/sanity'
-import { urlFor } from '@/lib/sanityImage'
-import { formatDate, slugify } from '@/lib/utils'
+import { cn, formatDate, slugify } from '@/lib/utils'
 import { Badge } from '@/components/ui/badge'
+import { Button, buttonVariants } from '@/components/ui/button'
 import { ChevronLeft } from '@/components/icons'
-import type { ImageBuilder, Post } from '@/app/types/sanity'
 
-export const dynamic = 'force-dynamic'
-
-export async function generateMetadata({
+export function generateMetadata({
   params,
 }: {
   params: { slug: string }
-}): Promise<Metadata> {
-  const slug = await getPost(params.slug)
+}): Metadata {
+  const slug = allPosts.find((post) => post.url === params.slug)
+  if (!slug) {
+    return {
+      metadataBase: new URL(
+        process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000',
+      ),
+      title: 'Post not found',
+    }
+  }
 
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'),
-    title: `Blog - ${slug.title}`,
+    metadataBase: new URL(
+      process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000',
+    ),
+    title: `Post - ${slug.title}`,
     openGraph: {
-      description: slug.description,
-      title: `Blog - ${slug.title}`,
+      description: '',
+      title: `Post - ${slug.title}`,
     },
   }
 }
-async function getPost(slug: string) {
-  const query = `* [_type == "post" && slug.current == "${slug}"][0] {
-    _id,
-      title,
-      _updatedAt,
-      _createdAt,
-      categories[] -> {
-        title,
-      },
-      author -> {
-        name,
-        "image": image.asset -> url,
-      },
-      body,
-} `
 
-  const post = await client.fetch<Post>(query)
+const PostPage = ({ params }: { params: { slug: string } }) => {
+  const post = allPosts.find((post) => post.url === params.slug)
+  if (!post) notFound()
 
-  return post
-}
-
-const PortableTextComponent: Partial<PortableTextReactComponents> = {
-  types: {
-    image: ({ value }: ImageBuilder) => {
-      return (
-        <Image
-          src={urlFor(value).url()}
-          alt={value.alt}
-          className='rounded-lg'
-          width={800}
-          height={800}
-        />
-      )
-    },
-  },
-  // block: {
-  //   h4: ({ children }) => {
-  //     console.log(children)
-  //     return <h4 className='text-xl font-semibold'>{children}</h4>
-  //   },
-  //   blockquote: ({ children }) => (
-  //     <blockquote className='border-l-purple-500'>{children}</blockquote>
-  //   ),
-
-  //   h2: ({ children }) => <h2 className='text-lg text-red-500'>{children}</h2>,
-  // },
-  // marks: {
-  //   link: ({
-  //     value,
-  //     children,
-  //   }: {
-  //     value?: PortableTextLink
-  //     children: ReactNode
-  //   }) => {
-  //     const target = (value?.href || '').startsWith('http')
-  //       ? '_blank'
-  //       : undefined
-  //     console.log()
-  //     return (
-  //       <Link
-  //         href={value?.href ?? ''}
-  //         target={target}
-  //         rel={target ? 'noopener noreferrer' : undefined}
-  //         className={cn(buttonVariants(), 'no-underline')}
-  //       >
-  //         {children}
-  //       </Link>
-  //     )
-  //   },
-  // },
-}
-
-const PostPage = async ({ params }: { params: { slug: string } }) => {
-  const post = await getPost(params.slug)
-  if (!post) {
-    return notFound()
-  }
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+  const MDXContent = useMDXComponent(post.body.code)
+  const pager = getPager(post, allPosts)
   return (
-    <div className=' mx-auto max-w-[75ch] '>
+    <section className=' mx-auto max-w-[75ch] '>
       <Badge className='mb-10 hover:bg-primary hover:text-primary-foreground'>
         <Link
           href={{
             pathname: '/blog',
-            query: { category: slugify(post.categories[0].title) },
+            query: { category: slugify(post.categories[0]) },
           }}
-          className='flex flex-wrap items-center justify-start gap-x-1 text-[10px] md:gap-3 md:text-sm '
+          className='flex flex-wrap items-center justify-start gap-1.5 text-[0.625rem] md:text-sm '
         >
           <ChevronLeft size='20' />
           Blog
           <ChevronLeft size='20' />
           {post.categories.map((category, i) => (
-            <span key={category.title}>
-              {category.title}
+            <span key={category}>
+              {category}
               {i < post.categories.length - 1 && ' / '}
             </span>
           ))}
         </Link>
       </Badge>
-      <section className='border-b pb-2'>
+
+      <article className='border-b pb-2'>
         <span className='text-sm text-muted-foreground'>
-          Published on {formatDate(post._createdAt)}
+          Published on {formatDate(post.date)}
         </span>
         <h2 className='mt-3 scroll-m-20 text-[2.1rem] font-semibold leading-[1.1] tracking-tight transition-colors first:mt-0'>
           {post.title}
@@ -141,7 +77,8 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
         <div className='my-4 flex items-center gap-10'>
           <div className='mt-1 flex items-center gap-3'>
             {post.author.image && (
-              <Image
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
                 src={post.author.image}
                 alt={post.author.name}
                 className='rounded-full'
@@ -158,19 +95,259 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
             </div>
           </div>
         </div>
-      </section>
+      </article>
 
-      <article className='divide-y divide-gray-200 pb-7 xl:divide-y-0 dark:divide-gray-700  '>
-        <div className='divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0 dark:divide-gray-700'>
-          <div className='prose prose-lg dark:prose-invert max-w-none pb-8 pt-10'>
-            <PortableText
+      <div className='pb-8 pt-10'>
+        {/* <PortableText
               value={post.body}
               components={PortableTextComponent}
-            />
-          </div>
-        </div>
-      </article>
-    </div>
+            /> */}
+        <MDXContent
+          components={{
+            Button,
+            h1: ({
+              className,
+              ...props
+            }: React.HTMLAttributes<HTMLHeadingElement>) => (
+              <h1
+                className={cn('mt-2 scroll-m-20 text-4xl font-bold', className)}
+                {...props}
+              />
+            ),
+            h2: ({
+              className,
+              ...props
+            }: React.HTMLAttributes<HTMLHeadingElement>) => (
+              <h2
+                className={cn(
+                  'mt-8 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0',
+                  className,
+                )}
+                {...props}
+              />
+            ),
+            h3: ({
+              className,
+              ...props
+            }: React.HTMLAttributes<HTMLHeadingElement>) => (
+              <h3
+                className={cn(
+                  'mt-6 scroll-m-20 text-xl font-semibold tracking-tight',
+                  className,
+                )}
+                {...props}
+              />
+            ),
+            h4: ({
+              className,
+              ...props
+            }: React.HTMLAttributes<HTMLHeadingElement>) => (
+              <h4
+                className={cn(
+                  'mt-6 scroll-m-20 text-lg font-semibold tracking-tight',
+                  className,
+                )}
+                {...props}
+              />
+            ),
+            h5: ({
+              className,
+              ...props
+            }: React.HTMLAttributes<HTMLHeadingElement>) => (
+              <h5
+                className={cn(
+                  'mt-6 scroll-m-20 text-lg font-semibold tracking-tight',
+                  className,
+                )}
+                {...props}
+              />
+            ),
+            h6: ({
+              className,
+              ...props
+            }: React.HTMLAttributes<HTMLHeadingElement>) => (
+              <h6
+                className={cn(
+                  'mt-6 scroll-m-20 text-base font-semibold tracking-tight',
+                  className,
+                )}
+                {...props}
+              />
+            ),
+            a: ({
+              className,
+              ...props
+            }: React.HTMLAttributes<HTMLAnchorElement>) => (
+              <a
+                aria-label='Link'
+                className={cn(
+                  'font-medium underline underline-offset-4',
+                  className,
+                )}
+                {...props}
+              />
+            ),
+            Link: ({
+              className,
+              ...props
+            }: React.ComponentProps<typeof Link>) => (
+              <Link
+                className={cn(
+                  'font-medium underline underline-offset-4',
+                  className,
+                )}
+                {...props}
+              />
+            ),
+            p: ({
+              className,
+              ...props
+            }: React.HTMLAttributes<HTMLParagraphElement>) => (
+              <p
+                className={cn(
+                  'leading-7 [&:not(:first-child)]:mt-6',
+                  className,
+                )}
+                {...props}
+              />
+            ),
+
+            ul: ({
+              className,
+              ...props
+            }: React.HTMLAttributes<HTMLUListElement>) => (
+              <ul className={cn('my-6 ml-6 list-disc', className)} {...props} />
+            ),
+            ol: ({
+              className,
+              ...props
+            }: React.HTMLAttributes<HTMLOListElement>) => (
+              <ol
+                className={cn('my-6 ml-6 list-decimal', className)}
+                {...props}
+              />
+            ),
+            li: ({
+              className,
+              ...props
+            }: React.HTMLAttributes<HTMLElement>) => (
+              <li className={cn('mt-2', className)} {...props} />
+            ),
+            blockquote: ({
+              className,
+              ...props
+            }: React.HTMLAttributes<HTMLElement>) => (
+              <blockquote
+                className={cn('mt-6 border-l-2 pl-6 italic', className)}
+                {...props}
+              />
+            ),
+            img: ({
+              className,
+              alt,
+              ...props
+            }: React.ImgHTMLAttributes<HTMLImageElement>) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                className={cn('rounded-md', className)}
+                alt={alt}
+                {...props}
+              />
+            ),
+            hr: ({ ...props }: React.HTMLAttributes<HTMLHRElement>) => (
+              <hr className='my-4 md:my-8' {...props} />
+            ),
+            table: ({
+              className,
+              ...props
+            }: React.HTMLAttributes<HTMLTableElement>) => (
+              <div className='my-6 w-full overflow-y-auto'>
+                <table className={cn('w-full', className)} {...props} />
+              </div>
+            ),
+            tr: ({
+              className,
+              ...props
+            }: React.HTMLAttributes<HTMLTableRowElement>) => (
+              <tr
+                className={cn('m-0 border-t p-0 even:bg-muted', className)}
+                {...props}
+              />
+            ),
+            th: ({
+              className,
+              ...props
+            }: React.HTMLAttributes<HTMLTableCellElement>) => (
+              <th
+                className={cn(
+                  'border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right',
+                  className,
+                )}
+                {...props}
+              />
+            ),
+            td: ({
+              className,
+              ...props
+            }: React.HTMLAttributes<HTMLTableCellElement>) => (
+              <td
+                className={cn(
+                  'border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right',
+                  className,
+                )}
+                {...props}
+              />
+            ),
+          }}
+        />
+      </div>
+
+      <div className='mt-10 flex justify-between'>
+        {pager.previousPost && (
+          <Link
+            href={`/blog/${pager.previousPost.url}`}
+            className={cn(
+              buttonVariants({ variant: 'ghost' }),
+              'text-muted-foreground',
+            )}
+          >
+            <ChevronLeftIcon className='mr-2 size-4' aria-hidden='true' />
+            {pager.previousPost.title}
+          </Link>
+        )}
+        {pager.nextPost && (
+          <Link
+            href={`/blog/${pager.nextPost.url}`}
+            className={cn(
+              buttonVariants({ variant: 'ghost' }),
+              'text-muted-foreground',
+            )}
+          >
+            {pager.nextPost.title}
+            <ChevronRightIcon className='ml-2 size-4' aria-hidden='true' />
+          </Link>
+        )}
+      </div>
+    </section>
   )
 }
+interface MdxPagerItem {
+  title: string
+  url: string
+}
+
 export default PostPage
+
+const getPager = (currentPage: MdxPagerItem, allPosts: MdxPagerItem[]) => {
+  const allFlattenedPosts = allPosts.flat()
+  const currentIndex = allFlattenedPosts.findIndex(
+    (post) => post.url === currentPage.url,
+  )
+  const nextPost =
+    currentIndex !== allFlattenedPosts.length - 1
+      ? allFlattenedPosts[currentIndex + 1]
+      : null
+  const previousPost =
+    currentIndex !== 0 ? allFlattenedPosts[currentIndex - 1] : null
+  return { nextPost, previousPost }
+}
