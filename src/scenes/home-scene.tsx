@@ -1,7 +1,7 @@
 'use client'
 
 import { Suspense } from 'react'
-import { Html, OrbitControls, useProgress } from '@react-three/drei'
+import { Html, OrbitControls, Preload, useProgress } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 
 import { Dog } from './Model'
@@ -20,7 +20,7 @@ const HomeScene = () => {
     <Canvas
       className='size-full'
       camera={{
-        fov: 45,
+        fov: 47,
         near: 0.1,
         far: 200,
         position: [4, 3, 6],
@@ -31,7 +31,8 @@ const HomeScene = () => {
       <ambientLight intensity={1.8} />
 
       <Suspense fallback={<HomeSceneFallback />}>
-        <Dog position={[-0.5, -0.9, 0]} scale={[0.67, 0.67, 0.67]} />
+        <Dog position={[0, -0.9, 0]} scale={[0.67, 0.67, 0.67]} />
+        <Preload all />
         <OrbitControls autoRotate autoRotateSpeed={0.5} />
       </Suspense>
     </Canvas>
