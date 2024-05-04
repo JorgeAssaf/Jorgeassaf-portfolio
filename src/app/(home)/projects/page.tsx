@@ -3,7 +3,6 @@ import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 import { projectsQuery } from '@/utils/querys'
 
 import { client } from '@/lib/sanity'
-import CategoryButtons from '@/components/category-buttons'
 import { FramerDiv } from '@/components/framer'
 import { PageHeader } from '@/components/page-header'
 import Projects from '@/components/projects'
@@ -15,13 +14,13 @@ export const metadata: Metadata = {
     'Here you can see my latest projects and what technologies they are made with',
 }
 
-const categories = [
-  { title: 'All' },
-  { title: 'Frontend' },
-  { title: 'Backend' },
-  { title: 'Mobile' },
-  { title: 'Fullstack' },
-]
+// const categories = [
+//   { title: 'All' },
+//   { title: 'Frontend' },
+//   { title: 'Backend' },
+//   { title: 'Mobile' },
+//   { title: 'Fullstack' },
+// ]
 
 const ProjectsPage = async () => {
   const projects = (await client.fetch<ProjectsType[]>(projectsQuery)) ?? []
