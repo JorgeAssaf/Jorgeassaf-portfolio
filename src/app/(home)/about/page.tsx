@@ -2,9 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 
+import { JOB_EXPERIENCE } from '@/config/experience'
+import { formatDate } from '@/lib/utils'
 import { FramerDiv } from '@/components/framer'
-import { Header } from '@/components/header'
 import { Next, Prisma, React, Tailwind, Typescript } from '@/components/icons'
+import { MyResumen } from '@/components/my-resumen'
+import { PageHeader } from '@/components/page-header'
 
 export const metadata: Metadata = {
   title: 'About me',
@@ -15,7 +18,7 @@ export const metadata: Metadata = {
 const AboutPage = () => {
   return (
     <>
-      <Header title='About me' page />
+      <PageHeader title='About me' page />
       <FramerDiv
         initial='hidden'
         animate='show'
@@ -31,7 +34,7 @@ const AboutPage = () => {
         className=' mx-auto max-w-[75ch]'
       >
         <FramerDiv variants={FADE_DOWN_ANIMATION_VARIANTS}>
-          <p className='leading-7 md:text-lg [&:not(:first-child)]:mt-6'>
+          <p className=' leading-7 text-foreground/70 md:text-lg [&:not(:first-child)]:mt-6'>
             I&apos;m a front-end web developer with experience in JavaScript,
             React, Next.js and Astro. My goal is to become a FullStack
             programmer. I enjoy creating beautiful and easy to use web
@@ -39,6 +42,14 @@ const AboutPage = () => {
             opportunities to grow and collaborate on exciting projects.
           </p>
         </FramerDiv>
+
+        <FramerDiv
+          variants={FADE_DOWN_ANIMATION_VARIANTS}
+          className='my-10 flex flex-col items-center justify-center'
+        >
+          <MyResumen />
+        </FramerDiv>
+
         <FramerDiv
           variants={FADE_DOWN_ANIMATION_VARIANTS}
           className='my-10 flex flex-col items-center justify-center'
@@ -46,50 +57,32 @@ const AboutPage = () => {
           <h3 className='text-3xl font-bold '>Experience</h3>
           <section className='my-5'>
             <ol className='relative border-l-2'>
-              <li className='mb-10 ml-4'>
-                <div className='absolute left-[-0.43rem] mt-1.5 size-3 rounded-full border border-muted-foreground bg-muted-foreground' />
-                <time className='mb-1 text-sm font-thin leading-none '>
-                  August 2023 - Present
-                </time>
+              {JOB_EXPERIENCE.map((job, index) => (
+                <li className='mb-10 ml-4' key={index}>
+                  <div className='absolute left-[-0.43rem] mt-1.5 size-3 rounded-full border border-muted-foreground bg-muted-foreground' />
+                  <time className='mb-1 text-sm font-thin leading-none '>
+                    {formatDate(job.startDate)} - {job.endDate || 'Present'}
+                  </time>
 
-                <h3 className='text-lg font-semibold'>
-                  Frontend Developer at{' '}
-                  <span className='text-primary '>Pawtrics Software</span>
-                </h3>
-                <h4 className='my-1 text-sm font-normal text-primary/80'>
-                  Florida - <span>Remote</span>
-                </h4>
-                <p className='mb-4 text-base font-normal text-muted-foreground'>
-                  I am currently working as a Frontend Developer at Pawtrics
-                  Software. Working on a project that is being developed with
-                  Next.js, Tailwind CSS, Redux and Typescript.
-                </p>
-              </li>
-              <li className='mb-10 ml-4'>
-                <div className='absolute left-[-0.43rem] mt-1.5 size-3 rounded-full border border-muted-foreground bg-muted-foreground' />
-                <time className='mb-1 text-sm font-thin leading-none '>
-                  June 2023 - Present
-                </time>
-                <h3 className='text-lg font-semibold'>
-                  Frontend Developer at{' '}
-                  <Link
-                    href='https://omaka.mx'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='text-primary underline transition-colors hover:text-primary/90'
-                  >
-                    Omaka
-                  </Link>
-                </h3>
-                <h4 className='my-1 text-sm font-normal text-primary/80'>
-                  México - <span>Remote</span>
-                </h4>
-                <p className='mb-4 text-base font-normal text-muted-foreground'>
-                  I am currently working as a Frontend Developer at Omaka.
-                  Working on a project that is being developed with Next.js,
-                  Tailwind CSS, Redux and Typescript.
-                </p>
-              </li>
+                  <h3 className='text-lg font-semibold'>
+                    {job.ocupation} at{' '}
+                    <Link
+                      href='https://likasoftware.com'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='text-primary underline transition-colors hover:text-primary/90'
+                    >
+                      {job.company}
+                    </Link>
+                  </h3>
+                  <h4 className='my-1 text-sm font-normal text-primary/80'>
+                    {job.location}
+                  </h4>
+                  <p className='mb-4 text-base font-normal text-muted-foreground'>
+                    {job.description}
+                  </p>
+                </li>
+              ))}
             </ol>
           </section>
         </FramerDiv>
