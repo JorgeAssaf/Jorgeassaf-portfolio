@@ -45,7 +45,7 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
             <span className='sr-only'>Toggle Menu</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side='left' className='px-7 pl-1 pr-0'>
+        <SheetContent side='right' className='px-5'>
           <SheetHeader>
             <div className='my-5'>
               <Link
@@ -54,24 +54,27 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
                 className='flex items-center'
                 onClick={() => setIsOpen(false)}
               >
-                <p className='text-2xl font-bold md:inline-block'>
+                <p className='text-3xl font-bold md:inline-block'>
                   JA<span className='text-primary'>.</span>
                 </p>
               </Link>
             </div>
           </SheetHeader>
-
-          {items?.map((item) => (
-            <SheetDescription key={item.title}>
-              <MobileLink
-                href={`${item.href}`}
-                pathname={pathname}
-                setIsOpen={setIsOpen}
-              >
-                {item.title}
-              </MobileLink>
-            </SheetDescription>
-          ))}
+          <SheetDescription asChild className='flex flex-col gap-2'>
+            <div>
+              {items.map((item) => (
+                <MobileLink
+                  key={item.title}
+                  href={`${item.href}`}
+                  pathname={pathname}
+                  disabled={item.disabled}
+                  setIsOpen={setIsOpen}
+                >
+                  {item.title}
+                </MobileLink>
+              ))}
+            </div>
+          </SheetDescription>
         </SheetContent>
       </Sheet>
     </div>
@@ -99,7 +102,7 @@ function MobileLink({
     <Link
       href={href}
       className={cn(
-        'text-lg text-foreground transition-colors hover:text-primary/90',
+        'text-xl font-medium text-foreground transition-colors hover:text-primary/90',
         pathname === href && 'text-primary',
         disabled && 'pointer-events-none opacity-60',
       )}

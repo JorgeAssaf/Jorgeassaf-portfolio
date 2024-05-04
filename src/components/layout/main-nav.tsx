@@ -32,6 +32,7 @@ const MainNav: FC<MainNavProps> = ({ items }) => {
             <MenuLink
               pathname={pathname}
               key={item.title}
+              disabled={item.disabled}
               href={item.href!}
               className='text-lg font-medium'
             >
@@ -65,7 +66,7 @@ function MenuLink({
     <Link
       href={`${href}`}
       className={cn(
-        'text-foreground transition-colors hover:text-primary/90',
+        'relative text-foreground transition-colors hover:text-primary/90',
         pathname === href && 'text-primary',
         disabled && 'pointer-events-none opacity-60',
         className,
