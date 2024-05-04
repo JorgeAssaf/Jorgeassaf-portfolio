@@ -28,6 +28,7 @@ export const siteConfig = {
     {
       title: 'Blog',
       href: '/blog',
+      disabled: true,
       items: [],
     },
     {
@@ -35,6 +36,12 @@ export const siteConfig = {
       href: '/about',
       items: [],
     },
+  ],
+  blogCategories: [
+    { title: 'Web Development' },
+    { title: 'Mobile Development' },
+    { title: 'UI/UX Design' },
+    { title: 'DevOps' },
   ],
   footerNav: [
     {
@@ -83,4 +90,5 @@ export const siteConfig = {
       ],
     },
   ],
+
 }
