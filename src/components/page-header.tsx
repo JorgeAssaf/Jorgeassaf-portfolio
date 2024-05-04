@@ -1,7 +1,7 @@
 'use client'
 
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 
 import { cn } from '@/lib/utils'
 
@@ -12,15 +12,15 @@ interface HeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: 'default' | 'sm'
 }
 
-export function Header({
+export const PageHeader = ({
   title,
   description,
   page = false,
   className,
   ...props
-}: HeaderProps) {
+}: HeaderProps) => {
   return (
-    <motion.div
+    <m.div
       initial='hidden'
       animate='show'
       viewport={{ once: true }}
@@ -41,7 +41,7 @@ export function Header({
           page ? 'my-10' : 'my-20',
         )}
       >
-        <motion.h3
+        <m.h3
           variants={FADE_DOWN_ANIMATION_VARIANTS}
           className={cn(
             'flex flex-col justify-center text-3xl font-bold tracking-tight md:text-5xl ',
@@ -49,10 +49,10 @@ export function Header({
           )}
         >
           {title}
-        </motion.h3>
+        </m.h3>
 
         {description ? (
-          <motion.p
+          <m.p
             variants={FADE_DOWN_ANIMATION_VARIANTS}
             className={cn(
               'mt-3 line-clamp-2 text-lg text-muted-foreground md:text-xl  ',
@@ -60,9 +60,9 @@ export function Header({
             )}
           >
             {description}
-          </motion.p>
+          </m.p>
         ) : null}
       </div>
-    </motion.div>
+    </m.div>
   )
 }
