@@ -1,6 +1,7 @@
 import '@/styles/globals.css'
 
 import type { Metadata, Viewport } from 'next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import { siteConfig } from '@/config/site'
 import { fontmono, Satoshi } from '@/lib/fonts'
@@ -27,7 +28,6 @@ export const metadata: Metadata = {
     'Web Development',
     'Frontend Development',
     'Fullstack Development',
-    'Sanity',
   ],
   authors: [
     {
@@ -74,8 +74,10 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
         )}
       >
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+          <div className='fixed -z-10 size-full dark:bg-[radial-gradient(ellipse_100%_100%_at_50%_-10%,rgba(120,119,198,0.35),transparent)]' />
           {children}
           <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
