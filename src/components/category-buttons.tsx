@@ -1,20 +1,28 @@
 'use client'
 
-import { useCallback, useTransition, type FC } from 'react'
+import { useCallback, useTransition } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { FADE_LEFT_ANIMATION_VARIANTS } from '@/constans'
-import { domAnimation, LazyMotion, m } from 'framer-motion'
+import { m } from 'framer-motion'
 
 import { cn, slugify } from '@/lib/utils'
-import type { Category } from '@/app/types/sanity'
 
-import { Button } from './ui/button'
+import { Button, type ButtonProps } from './ui/button'
 
-interface CategoryButtonsProps {
-  categories: Category[]
-}
+const CategoryButtons = ({
+  withAll = false,
+  buttonVariant = 'outline',
+  buttonSize = 'sm',
+  categories,
+  className,
+}: {
+  categories: Record<string, string>[]
+  withAll?: boolean
 
-const CategoryButtons: FC<CategoryButtonsProps> = ({ categories }) => {
+  className?: string
+  buttonSize?: ButtonProps['size']
+  buttonVariant?: ButtonProps['variant']
+}) => {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -40,21 +48,21 @@ const CategoryButtons: FC<CategoryButtonsProps> = ({ categories }) => {
   )
 
   return (
-    <LazyMotion features={domAnimation}>
-      <m.div
-        initial='hidden'
-        animate='show'
-        viewport={{ once: true }}
-        variants={{
-          hidden: {},
-          show: {
-            transition: {
-              staggerChildren: 0.15,
-            },
+    <m.div
+      initial='hidden'
+      animate='show'
+      viewport={{ once: true }}
+      variants={{
+        hidden: {},
+        show: {
+          transition: {
+            staggerChildren: 0.15,
           },
-        }}
-        className='flex flex-row flex-wrap gap-5  md:flex-col  '
-      >
+        },
+      }}
+      className={cn('flex flex-row flex-wrap gap-5 md:flex-col', className)}
+    >
+      {withAll && (
         <m.div variants={FADE_LEFT_ANIMATION_VARIANTS}>
           <Button
             onClick={() => {
@@ -69,41 +77,43 @@ const CategoryButtons: FC<CategoryButtonsProps> = ({ categories }) => {
             disabled={isPending}
             className={cn(
               !categoryParam &&
+                buttonVariant === 'outline' &&
                 'bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground/90',
             )}
-            variant='outline'
-            size='sm'
+            variant={buttonVariant}
+            size={buttonSize}
           >
-            All posts
+            All
           </Button>
         </m.div>
+      )}
 
-        {categories.map((category: Category) => (
-          <m.div variants={FADE_LEFT_ANIMATION_VARIANTS} key={category.title}>
-            <Button
-              onClick={() => {
-                startTransition(() => {
-                  router.push(
-                    `${pathname}?${createQueryString({
-                      category: slugify(category.title),
-                    })}`,
-                  )
-                })
-              }}
-              disabled={isPending}
-              className={cn(
-                slugify(category.title) == categoryParam &&
-                  'bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground/90',
-              )}
-              variant='outline'
-              size='sm'
-            >
-              {category.title}
-            </Button>
-          </m.div>
-        ))}
-      </m.div>
-    </LazyMotion>
+      {categories.map((category) => (
+        <m.div variants={FADE_LEFT_ANIMATION_VARIANTS} key={category.title}>
+          <Button
+            onClick={() => {
+              startTransition(() => {
+                router.push(
+                  `${pathname}?${createQueryString({
+                    category: slugify(category.title),
+                  })}`,
+                )
+              })
+            }}
+            disabled={isPending}
+            className={cn(
+              slugify(category.title) == categoryParam &&
+                buttonVariant === 'outline' &&
+                'bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground/90',
+            )}
+            variant={buttonVariant}
+            size={buttonSize}
+          >
+            {category.title}
+          </Button>
+        </m.div>
+      ))}
+    </m.div>
   )
 }
 
