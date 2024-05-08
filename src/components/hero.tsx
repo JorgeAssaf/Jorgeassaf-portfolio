@@ -8,6 +8,7 @@ import { m } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { GitHub, LinkedIn } from '@/components/icons'
 
+import { MyResumen } from './my-resumen'
 import { buttonVariants } from './ui/button'
 
 const HomeScene = dynamic(() => import('@/scenes/home-scene'), {
@@ -75,19 +76,7 @@ const Hero = () => {
             <LinkedIn className='size-6' />
             <span className='sr-only'>LinkedIn</span>
           </Link>
-          <Link
-            arial-label='Download Resume'
-            target='_blank'
-            rel='noopener noreferrer'
-            href='https://drive.google.com/file/d/1KGmCNQLKOSRosglp8x-hNxsHgeHxkGPr/view?usp=sharing'
-            className={cn(
-              buttonVariants({
-                variant: 'outline',
-              }),
-            )}
-          >
-            Resume
-          </Link>
+          <MyResumen variant={'outline'} className='bg-background/60' />
         </m.div>
       </div>
       <m.div
