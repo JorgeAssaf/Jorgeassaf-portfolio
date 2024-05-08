@@ -14,11 +14,12 @@ const CategoryButtons = ({
   buttonVariant = 'outline',
   buttonSize = 'sm',
   categories,
+  activeCategory: currentSelection,
   className,
 }: {
   categories: Record<string, string>[]
   withAll?: boolean
-
+  activeCategory?: string
   className?: string
   buttonSize?: ButtonProps['size']
   buttonVariant?: ButtonProps['variant']
@@ -26,6 +27,7 @@ const CategoryButtons = ({
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
+
   const [isPending, startTransition] = useTransition()
 
   const categoryParam = searchParams.get('category')
@@ -60,10 +62,12 @@ const CategoryButtons = ({
           },
         },
       }}
-      className={cn('flex flex-row flex-wrap gap-5 md:flex-col', className)}
     >
-      {withAll && (
-        <m.div variants={FADE_LEFT_ANIMATION_VARIANTS}>
+      <m.div
+        variants={FADE_LEFT_ANIMATION_VARIANTS}
+        className={cn('flex flex-col items-start gap-5', className)}
+      >
+        {withAll && (
           <Button
             onClick={() => {
               startTransition(() => {
@@ -76,21 +80,18 @@ const CategoryButtons = ({
             }}
             disabled={isPending}
             className={cn(
-              !categoryParam &&
-                buttonVariant === 'outline' &&
-                'bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground/90',
+              !categoryParam && currentSelection && currentSelection,
             )}
             variant={buttonVariant}
             size={buttonSize}
           >
             All
           </Button>
-        </m.div>
-      )}
+        )}
 
-      {categories.map((category) => (
-        <m.div variants={FADE_LEFT_ANIMATION_VARIANTS} key={category.title}>
+        {categories.map((category) => (
           <Button
+            key={category.title}
             onClick={() => {
               startTransition(() => {
                 router.push(
@@ -103,16 +104,16 @@ const CategoryButtons = ({
             disabled={isPending}
             className={cn(
               slugify(category.title) == categoryParam &&
-                buttonVariant === 'outline' &&
-                'bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground/90',
+                currentSelection &&
+                currentSelection,
             )}
             variant={buttonVariant}
             size={buttonSize}
           >
             {category.title}
           </Button>
-        </m.div>
-      ))}
+        ))}
+      </m.div>
     </m.div>
   )
 }
