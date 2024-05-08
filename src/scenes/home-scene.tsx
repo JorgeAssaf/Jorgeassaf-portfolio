@@ -28,12 +28,11 @@ const HomeScene = () => {
       gl={{ antialias: true }}
       dpr={[1, 2]}
     >
-      <ambientLight intensity={1.8} />
-
+      <ambientLight intensity={2} />
       <Suspense fallback={<HomeSceneFallback />}>
         <Dog position={[0, -0.9, 0]} scale={[0.67, 0.67, 0.67]} />
-        <Preload all />
         <OrbitControls autoRotate autoRotateSpeed={0.5} />
+        <Preload all />
       </Suspense>
     </Canvas>
   )
