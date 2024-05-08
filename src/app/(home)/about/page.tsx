@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
+import { Formaters } from '@/helpers/formaters'
 
 import { JOB_EXPERIENCE } from '@/config/experience'
-import { formatDate } from '@/lib/utils'
 import { FramerDiv } from '@/components/framer'
 import { Next, Prisma, React, Tailwind, Typescript } from '@/components/icons'
 import { MyResumen } from '@/components/my-resumen'
@@ -60,8 +60,11 @@ const AboutPage = () => {
               {JOB_EXPERIENCE.map((job, index) => (
                 <li className='mb-10 ml-4' key={index}>
                   <div className='absolute left-[-0.43rem] mt-1.5 size-3 rounded-full border border-muted-foreground bg-muted-foreground' />
-                  <time className='mb-1 text-sm font-thin leading-none '>
-                    {formatDate(job.startDate)} - {job.endDate || 'Present'}
+                  <time
+                    className='mb-1 text-sm font-thin leading-none '
+                    dateTime={job.startDate}
+                  >
+                    {`${Formaters.formatDateTime(job.startDate, 'MMMM Y')} - ${job.endDate ? Formaters.formatDateTime(job.endDate, 'MMMM Y') : 'Present'}`}
                   </time>
 
                   <h3 className='text-lg font-semibold'>
