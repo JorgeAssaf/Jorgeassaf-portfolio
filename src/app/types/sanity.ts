@@ -1,8 +1,8 @@
-export interface Projects {
+export interface ProjectsEntity {
   image: {
     url: string
     alt: string
-  },
+  }
   category: string
   technologies: Technology[]
   name: string
