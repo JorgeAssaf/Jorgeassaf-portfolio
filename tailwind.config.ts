@@ -59,8 +59,8 @@ const config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       backgroundImage: {
-        "card-gradient":
-          "linear-gradient(180deg, rgba(39, 39, 39, 0.9) , rgba(39, 39, 39, 0) 90%)",
+        'card-gradient':
+          'linear-gradient(180deg, rgba(39, 39, 39, 0.9) , rgba(39, 39, 39, 0) 90%)',
       },
       keyframes: {
         'accordion-down': {
