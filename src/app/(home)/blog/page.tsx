@@ -31,7 +31,12 @@ const BlogPage = ({
 
       <div className='flex grid-cols-[0.5fr,3fr] flex-col gap-10 md:grid'>
         <div>
-          <CategoryButtons categories={siteConfig.blogCategories} withAll />
+          <CategoryButtons
+            categories={siteConfig.blogCategories}
+            className='flex flex-row flex-wrap gap-2'
+            withAll
+            activeCategory='bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground/90'
+          />
         </div>
         <FramerSection
           initial='hidden'
