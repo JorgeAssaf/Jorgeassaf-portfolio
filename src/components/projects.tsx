@@ -5,10 +5,10 @@ import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 import { m } from 'framer-motion'
 
 import { ProjectsCard } from '@/components/cards/projects-card'
-import type { Projects as ProjectsType } from '@/app/types/sanity'
+import type { ProjectsEntity } from '@/app/types/sanity'
 
 interface ProjectsProps {
-  projects: ProjectsType[]
+  projects: ProjectsEntity[]
 }
 
 const Projects: FC<ProjectsProps> = ({ projects }) => {
@@ -26,14 +26,23 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
         },
       }}
     >
-      <m.div
-        variants={FADE_DOWN_ANIMATION_VARIANTS}
-        className='grid grid-cols-1 place-items-center gap-4 md:grid-cols-2'
-      >
-        {projects.map((project) => (
-          <ProjectsCard key={project._id} project={project} />
-        ))}
-      </m.div>
+      {projects.length > 0 ? (
+        <m.div
+          variants={FADE_DOWN_ANIMATION_VARIANTS}
+          className='grid grid-cols-1 place-items-center gap-4 md:grid-cols-2'
+        >
+          {projects.map((project) => (
+            <ProjectsCard key={project._id} project={project} />
+          ))}
+        </m.div>
+      ) : (
+        <div className='flex min-h-[500px] w-full flex-col items-center justify-center gap-2'>
+          <h2 className='text-center text-3xl font-bold'>No projects found</h2>
+          <p className='max-w-sm text-center text-muted-foreground'>
+            Try changing the filters or adding new projects to see them here.
+          </p>
+        </div>
+      )}
     </m.section>
   )
 }
