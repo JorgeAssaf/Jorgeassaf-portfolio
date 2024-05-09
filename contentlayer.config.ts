@@ -30,9 +30,13 @@ export const Post = defineDocumentType(() => ({
     categories: { type: 'list', of: { type: 'string' }, required: true },
   },
   computedFields: {
-    url: {
+    slug: {
       type: 'string',
       resolve: (post) => `${post._raw.flattenedPath.split('/').pop()}`,
+    },
+    slugAsParams: {
+      type: "string",
+      resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
     },
   },
 }))

@@ -1,12 +1,12 @@
 interface MdxPagerItem {
   title: string
-  url: string
+  slug: string
 }
 
 export const getPager = (currentPage: MdxPagerItem, allPosts: MdxPagerItem[]) => {
   const allFlattenedPosts = allPosts.flat()
   const currentIndex = allFlattenedPosts.findIndex(
-    (post) => post.url === currentPage.url,
+    (post) => post.slug === currentPage.slug,
   )
   const nextPost =
     currentIndex !== allFlattenedPosts.length - 1
