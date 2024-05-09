@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'I am a front-end web developer with experience in JavaScript, React, Next.js and Astro. My goal is to become a FullStack programmer. I enjoy creating beautiful and easy to use web applications that connect with users. I am always looking for new opportunities to grow and collaborate on exciting projects.',
 }
 
-const AboutPage = () => {
+export default function AboutPage() {
   return (
     <>
       <PageHeader title='About me' page />
@@ -64,7 +64,7 @@ const AboutPage = () => {
                     className='mb-1 text-sm font-thin leading-none '
                     dateTime={job.startDate}
                   >
-                    {`${Formaters.formatDateTime(job.startDate, 'MMMM Y')} - ${job.endDate ? Formaters.formatDateTime(job.endDate, 'MMMM Y') : 'Present'}`}
+                    {`${Formaters.formatDateTime(job.startDate, 'MMMM y')} - ${job.endDate ? Formaters.formatDateTime(job.endDate, 'MMMM y') : 'Present'}`}
                   </time>
 
                   <h3 className='text-lg font-semibold'>
@@ -121,5 +121,3 @@ const AboutPage = () => {
     </>
   )
 }
-
-export default AboutPage

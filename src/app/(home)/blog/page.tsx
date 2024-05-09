@@ -7,7 +7,7 @@ import { siteConfig } from '@/config/site'
 import { slugify } from '@/lib/utils'
 import { PostCard } from '@/components/cards/post-card'
 import CategoryButtons from '@/components/category-buttons'
-import { FramerH2, FramerSection } from '@/components/framer'
+import { FramerDiv, FramerH2, FramerSection } from '@/components/framer'
 import { PageHeader } from '@/components/page-header'
 
 export const metadata: Metadata = {
@@ -16,11 +16,11 @@ export const metadata: Metadata = {
     'Here my last posts about web development, mobile development, ui/ux design, devops etc ',
 }
 
-const BlogPage = ({
+export default function BlogPage({
   searchParams,
 }: {
   searchParams: { [key: string]: string | string[] | undefined }
-}) => {
+}) {
   return (
     <>
       <PageHeader
@@ -29,15 +29,14 @@ const BlogPage = ({
         description='Here my last posts about web development, mobile development, ui/ux design and devops'
       />
 
-      <div className='flex grid-cols-[0.5fr,3fr] flex-col gap-10 md:grid'>
-        <div>
-          <CategoryButtons
-            categories={siteConfig.blogCategories}
-            className='flex flex-row flex-wrap gap-2'
-            withAll
-            activeCategory='bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground/90'
-          />
-        </div>
+      <div className='flex grid-cols-[150px,calc(100%-170px)] flex-col gap-5 md:grid'>
+        <CategoryButtons
+          categories={siteConfig.blogCategories}
+          className='flex flex-row flex-wrap gap-3 md:flex-col'
+          withAll
+          buttonClassName='text-xs md:text-sm'
+          activeCategory='bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground/90'
+        />
         <FramerSection
           initial='hidden'
           animate='show'
@@ -62,7 +61,20 @@ const BlogPage = ({
           </FramerH2>
 
           {allPosts.length > 0 ? (
-            allPosts.map((post) => <PostCard key={post._id} post={post} />)
+            <FramerDiv
+              variants={FADE_DOWN_ANIMATION_VARIANTS}
+              className='flex snap-x snap-mandatory gap-5 overflow-x-scroll '
+            >
+              {allPosts.map((post) => (
+                <PostCard key={post._id} post={post} />
+              ))}
+              {allPosts.map((post) => (
+                <PostCard key={post._id} post={post} />
+              ))}
+              {allPosts.map((post) => (
+                <PostCard key={post._id} post={post} />
+              ))}
+            </FramerDiv>
           ) : (
             <div className='flex flex-col items-center justify-center'>
               <FileWarningIcon className='mb-5 mt-7 size-10 text-primary' />
@@ -80,4 +92,3 @@ const BlogPage = ({
     </>
   )
 }
-export default BlogPage
