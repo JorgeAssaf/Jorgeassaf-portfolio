@@ -5,7 +5,7 @@ import { siteConfig } from '@/config/site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = allPosts.map((post) => ({
-    url: `${siteConfig.url}/blog/${post.url}`,
+    url: `${siteConfig.url}/blog/${post.slug}`,
     lastModified: post.date,
     changeFrequency: 'monthly',
   })) satisfies MetadataRoute.Sitemap
