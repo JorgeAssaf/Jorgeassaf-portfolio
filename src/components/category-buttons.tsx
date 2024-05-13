@@ -10,19 +10,21 @@ import { cn, slugify } from '@/lib/utils'
 import { Button, type ButtonProps } from './ui/button'
 
 const CategoryButtons = ({
-  withAll = false,
-  buttonVariant = 'outline',
+  activeCategory,
+  buttonClassName,
   buttonSize = 'sm',
+  buttonVariant = 'outline',
   categories,
-  activeCategory: currentSelection,
   className,
+  withAll = false,
 }: {
-  categories: Record<string, string>[]
-  withAll?: boolean
   activeCategory?: string
-  className?: string
+  buttonClassName?: string
   buttonSize?: ButtonProps['size']
   buttonVariant?: ButtonProps['variant']
+  categories: Record<string, string>[]
+  className?: string
+  withAll?: boolean
 }) => {
   const router = useRouter()
   const pathname = usePathname()
@@ -62,6 +64,7 @@ const CategoryButtons = ({
           },
         },
       }}
+      className='flex min-w-40 flex-row flex-wrap gap-3 md:flex-col'
     >
       <m.div
         variants={FADE_LEFT_ANIMATION_VARIANTS}
@@ -79,9 +82,7 @@ const CategoryButtons = ({
               })
             }}
             disabled={isPending}
-            className={cn(
-              !categoryParam && currentSelection && currentSelection,
-            )}
+            className={cn(!categoryParam && activeCategory, buttonClassName)}
             variant={buttonVariant}
             size={buttonSize}
           >
@@ -103,9 +104,8 @@ const CategoryButtons = ({
             }}
             disabled={isPending}
             className={cn(
-              slugify(category.title) == categoryParam &&
-                currentSelection &&
-                currentSelection,
+              slugify(category.title) == categoryParam && activeCategory,
+              buttonClassName,
             )}
             variant={buttonVariant}
             size={buttonSize}
