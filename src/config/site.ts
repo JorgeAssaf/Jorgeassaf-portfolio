@@ -28,7 +28,7 @@ export const siteConfig = {
     {
       title: 'Blog',
       href: '/blog',
-      disabled: true,
+      disabled: false,
       items: [],
     },
     {
@@ -90,5 +90,4 @@ export const siteConfig = {
       ],
     },
   ],
-
 }
