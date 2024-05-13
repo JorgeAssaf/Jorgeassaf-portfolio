@@ -14,7 +14,7 @@ export default async function Home() {
     <main>
       <Hero />
       <Scroll />
-      <PageHeader title='Latest Projects' />
+      <PageHeader title='Last projects' />
       <Projects projects={projects} />
     </main>
   )
