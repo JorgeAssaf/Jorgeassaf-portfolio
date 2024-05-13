@@ -64,7 +64,7 @@ export default function AboutPage() {
                     className='mb-1 text-sm font-thin leading-none '
                     dateTime={job.startDate}
                   >
-                    {`${Formaters.formatDateTime(job.startDate, 'MMMM y')} - ${job.endDate ? Formaters.formatDateTime(job.endDate, 'MMMM y') : 'Present'}`}
+                    {`${Formaters.formatDate(job.startDate, 'MMMM y')} - ${job.endDate ? Formaters.formatDate(job.endDate, 'MMMM y') : 'Present'}`}
                   </time>
 
                   <h3 className='text-lg font-semibold'>
