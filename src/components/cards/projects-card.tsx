@@ -48,7 +48,7 @@ export const ProjectsCard: FC<ProjectsCardProps> = ({ project }) => {
           <div className='group flex flex-wrap items-center gap-3'>
             {project.technologies.map((technology) => (
               <Badge
-                className='flex items-center gap-1.5 py-1 text-xs text-white md:text-sm'
+                className='flex items-center gap-1.5 rounded-lg py-1.5 text-xs text-white md:text-sm'
                 style={{
                   backgroundColor: `#${technology.color}`,
                 }}
