@@ -21,7 +21,7 @@ interface ProjectsCardProps {
   order?: number
 }
 
-export const ProjectsCard: FC<ProjectsCardProps> = ({ project }) => {
+export const ProjectCard: FC<ProjectsCardProps> = ({ project }) => {
   return (
     <Card className='relative flex w-full max-w-lg flex-col rounded-xl bg-card/30 bg-clip-border shadow-lg md:max-w-xl'>
       <div className='relative mx-4 mt-4 overflow-hidden rounded-xl bg-clip-border shadow-lg shadow-primary/20'>
