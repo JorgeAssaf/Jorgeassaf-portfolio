@@ -41,7 +41,7 @@ export const PageHeader = ({
           page ? 'my-10' : 'my-20',
         )}
       >
-        <m.h3
+        <m.h1
           variants={FADE_DOWN_ANIMATION_VARIANTS}
           className={cn(
             'flex flex-col justify-center text-3xl font-bold tracking-tight md:text-5xl ',
@@ -49,10 +49,10 @@ export const PageHeader = ({
           )}
         >
           {title}
-        </m.h3>
+        </m.h1>
 
         {description ? (
-          <m.p
+          <m.h2
             variants={FADE_DOWN_ANIMATION_VARIANTS}
             className={cn(
               'mt-3 line-clamp-2 text-lg text-muted-foreground md:text-xl  ',
@@ -60,7 +60,7 @@ export const PageHeader = ({
             )}
           >
             {description}
-          </m.p>
+          </m.h2>
         ) : null}
       </div>
     </m.div>
