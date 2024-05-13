@@ -64,10 +64,12 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
             <div>
               {items.map((item) => (
                 <MobileLink
-                  key={item.title}
-                  href={`${item.href}`}
-                  pathname={pathname}
+                  aria-label={`Navigate to ${item.title} page`}
                   disabled={item.disabled}
+                  href={item.href!}
+                  key={item.title}
+                  pathname={pathname}
+                  title={item.title}
                   setIsOpen={setIsOpen}
                 >
                   {item.title}
@@ -83,9 +85,7 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
 
 export default MobileNav
 
-interface MobileLinkProps {
-  children?: React.ReactNode
-  href: string
+interface MobileLinkProps extends React.ComponentPropsWithRef<typeof Link> {
   disabled?: boolean
   pathname: string
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
@@ -93,10 +93,12 @@ interface MobileLinkProps {
 
 function MobileLink({
   children,
-  href,
+  className,
   disabled,
+  href,
   pathname,
   setIsOpen,
+  ...props
 }: MobileLinkProps) {
   return (
     <Link
@@ -105,8 +107,10 @@ function MobileLink({
         'text-xl font-medium text-foreground transition-colors hover:text-primary/90',
         pathname === href && 'text-primary',
         disabled && 'pointer-events-none opacity-60',
+        className,
       )}
       onClick={() => setIsOpen(false)}
+      {...props}
     >
       {children}
     </Link>

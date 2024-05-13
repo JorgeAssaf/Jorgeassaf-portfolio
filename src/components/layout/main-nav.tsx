@@ -19,6 +19,7 @@ const MainNav: FC<MainNavProps> = ({ items }) => {
       <div className='hidden h-20 items-center justify-between md:flex'>
         <Link
           aria-label='Home'
+          title='Home'
           href='/'
           className='hidden items-center space-x-2 md:flex'
         >
@@ -30,11 +31,13 @@ const MainNav: FC<MainNavProps> = ({ items }) => {
         <div className='flex items-center gap-6'>
           {items?.map((item) => (
             <MenuLink
-              pathname={pathname}
-              key={item.title}
+              aria-label={`Navigate to ${item.title} page`}
+              className='text-lg font-medium'
               disabled={item.disabled}
               href={item.href!}
-              className='text-lg font-medium'
+              key={item.title}
+              pathname={pathname}
+              title={item.title}
             >
               {item.title}
             </MenuLink>
@@ -47,30 +50,29 @@ const MainNav: FC<MainNavProps> = ({ items }) => {
 }
 
 export default MainNav
-interface MenuLinkProps {
-  children?: React.ReactNode
-  href: string
+interface MenuLinkProps extends React.ComponentPropsWithRef<typeof Link> {
   disabled?: boolean
   pathname: string
-  className?: string
 }
 
 function MenuLink({
   children,
-  href,
-  disabled,
-  pathname,
   className,
+  disabled,
+  href,
+  pathname,
+  ...props
 }: MenuLinkProps) {
   return (
     <Link
-      href={`${href}`}
+      href={href}
       className={cn(
         'relative text-foreground transition-colors hover:text-primary/90',
         pathname === href && 'text-primary',
         disabled && 'pointer-events-none opacity-60',
         className,
       )}
+      {...props}
     >
       {children}
     </Link>
