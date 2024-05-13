@@ -32,18 +32,14 @@ const Hero = () => {
       className='my-14 flex items-center justify-between '
     >
       <div className='w-full'>
-        <m.h1
-          variants={FADE_DOWN_ANIMATION_VARIANTS}
-          className='text-4xl font-bold md:text-6xl'
-        >
-          Hi, I’m Jorge Assaf.
-        </m.h1>
-        <m.h2
-          variants={FADE_DOWN_ANIMATION_VARIANTS}
-          className=' my-1 text-2xl font-semibold text-primary md:text-4xl'
-        >
-          Front-end Developer.
-        </m.h2>
+        <m.hgroup variants={FADE_DOWN_ANIMATION_VARIANTS}>
+          <m.h1 className='text-4xl font-bold md:text-6xl'>
+            Hi, I’m Jorge Assaf.
+          </m.h1>
+          <m.h2 className=' my-1 text-2xl font-semibold text-primary md:text-4xl'>
+            Front-end Developer.
+          </m.h2>
+        </m.hgroup>
         <m.p
           variants={FADE_DOWN_ANIMATION_VARIANTS}
           className='mt-3 max-w-2xl text-base text-muted-foreground md:text-xl'
