@@ -4,7 +4,7 @@ import type { FC } from 'react'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 import { m } from 'framer-motion'
 
-import { ProjectsCard } from '@/components/cards/projects-card'
+import { ProjectCard } from '@/components/cards/project-card'
 import type { ProjectsEntity } from '@/app/types/sanity'
 
 interface ProjectsProps {
@@ -32,7 +32,7 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
           className='grid grid-cols-1 place-items-center gap-4 md:grid-cols-2'
         >
           {projects.map((project) => (
-            <ProjectsCard key={project._id} project={project} />
+            <ProjectCard key={project._id} project={project} />
           ))}
         </m.div>
       ) : (
