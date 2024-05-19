@@ -3,7 +3,10 @@ interface MdxPagerItem {
   slug: string
 }
 
-export const getPager = (currentPage: MdxPagerItem, allPosts: MdxPagerItem[]) => {
+export const getPager = (
+  currentPage: MdxPagerItem,
+  allPosts: MdxPagerItem[],
+) => {
   const allFlattenedPosts = allPosts.flat()
   const currentIndex = allFlattenedPosts.findIndex(
     (post) => post.slug === currentPage.slug,
