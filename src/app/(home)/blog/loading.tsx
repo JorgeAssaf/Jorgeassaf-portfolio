@@ -5,7 +5,7 @@ export default function BlogLoading() {
   return (
     <div>
       <div className='mt-10 space-y-3'>
-        <Skeleton className='h-14 w-28' />
+        <Skeleton className='h-10 w-20' />
         <Skeleton className='h-4 w-80' />
       </div>
 
@@ -25,7 +25,6 @@ export default function BlogLoading() {
                     <CardTitle>
                       <Skeleton className='h-4 w-1/2' />
                     </CardTitle>
-
                     <Skeleton className='h-4 w-1/4' />
                     <div className='flex flex-wrap gap-3'>
                       {new Array(2).fill(0).map((_, i) => (
