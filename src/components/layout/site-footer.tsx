@@ -1,58 +1,57 @@
-'use client'
-
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 
 import { cn } from '@/lib/utils'
-import { Fiverr, LinkedIn } from '@/components/icons'
+import { GitHub, LinkedIn, Twitter } from '@/components/icons'
 
 import { buttonVariants } from '../ui/button'
 
 const SiteFooter = () => {
   return (
-    <motion.footer
-      initial='hidden'
-      animate='show'
-      viewport={{ once: true }}
-      variants={{
-        hidden: {},
-        show: {
-          transition: {
-            staggerChildren: 0.15,
-          },
-        },
-      }}
-      className='my-10 w-full border-t'
-    >
-      <div className='container py-7 '>
-        <div className='flex scroll-m-20  items-center justify-between gap-5'>
+    <footer className='my-10 w-full border-t'>
+      <div className='container py-7'>
+        <div className='flex scroll-m-20 items-center justify-between gap-5'>
           <div>
             <h3 className='mb-5 scroll-m-20 text-3xl font-semibold tracking-tight'>
               Let&apos;s talk
             </h3>
-            <h4 className='scroll-m-20 text-base tracking-tight '>
-              Send me message on LinkedIn or Fiverr.
+            <h4 className='scroll-m-20 text-base tracking-tight'>
+              Send me message on LinkedIn or in X (Twitter)
             </h4>
           </div>
 
-          <div className='flex gap-5'>
+          <div className='flex flex-wrap gap-5'>
+            <Link
+              href='https://www.x.com/assafenrique'
+              target='_blank'
+              rel='noreferrer'
+              className={cn(
+                buttonVariants({ size: 'icon', variant: 'outline' }),
+              )}
+            >
+              <Twitter className='size-4' />
+              <span className='sr-only'>X (Twitter)</span>
+            </Link>
             <Link
               href='https://www.linkedin.com/in/jorge-enrique-assaf/'
               target='_blank'
               rel='noreferrer'
-              className={cn(buttonVariants())}
+              className={cn(
+                buttonVariants({ size: 'icon', variant: 'outline' }),
+              )}
             >
-              <LinkedIn className='size-6' />
+              <LinkedIn className='size-4' />
               <span className='sr-only'>LinkedIn</span>
             </Link>
             <Link
-              href='https://www.fiverr.com/jorgeassaf/custom-landing-pages-for-your-business-or-personal-projects?utm_campaign=gigs_show&utm_medium=shared&utm_source=copy_link&utm_term=gl40al'
+              href='https://www.github.com/jorgeassaf'
               target='_blank'
-              rel='noreferrer noopener'
-              className={cn(buttonVariants())}
+              rel='noreferrer'
+              className={cn(
+                buttonVariants({ size: 'icon', variant: 'outline' }),
+              )}
             >
-              <Fiverr className='size-12 md:size-14' />
-              <span className='sr-only'>Fiverr</span>
+              <GitHub className='size-4' />
+              <span className='sr-only'>GitHub</span>
             </Link>
           </div>
         </div>
@@ -74,7 +73,7 @@ const SiteFooter = () => {
           </Link>
         </p>
       </div>
-    </motion.footer>
+    </footer>
   )
 }
 
