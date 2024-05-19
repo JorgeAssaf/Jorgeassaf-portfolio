@@ -3,11 +3,11 @@
 import { useState, type FC } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { Menu } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 import type { MainNavItem } from '@/app/types/site'
 
-import { Menu } from '../icons'
 import { Button } from '../ui/button'
 import {
   Sheet,

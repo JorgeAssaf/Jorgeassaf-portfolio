@@ -1,8 +1,7 @@
-/* eslint-disable deprecation/deprecation */
 import type { FC } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Github, Link2 } from 'lucide-react'
+import { Link2 as LinkIcon } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 import { buttonVariants } from '@/components/ui/button'
@@ -14,6 +13,7 @@ import {
 } from '@/components/ui/card'
 import type { ProjectsEntity } from '@/app/types/sanity'
 
+import { GitHub } from '../icons'
 import { Badge } from '../ui/badge'
 
 interface ProjectsCardProps {
@@ -29,6 +29,8 @@ export const ProjectCard: FC<ProjectsCardProps> = ({ project }) => {
           width={900}
           height={485}
           src={project.image.url}
+          priority
+          loading='eager'
           alt={project.image.alt}
         />
       </div>
@@ -73,7 +75,7 @@ export const ProjectCard: FC<ProjectsCardProps> = ({ project }) => {
             href={project.link}
             className={cn(buttonVariants({ size: 'sm' }), 'text-sm')}
           >
-            <Link2 size={20} />
+            <LinkIcon size={20} />
           </Link>
           <Link
             target='_blank'
@@ -84,7 +86,7 @@ export const ProjectCard: FC<ProjectsCardProps> = ({ project }) => {
               'text-sm',
             )}
           >
-            <Github size={20} />
+            <GitHub className='size-5' />
           </Link>
         </CardFooter>
       </div>

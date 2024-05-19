@@ -2,8 +2,7 @@
 
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 import { m } from 'framer-motion'
-
-import { ArrowDown } from '@/components/icons'
+import { ArrowDown } from 'lucide-react'
 
 const Scroll = () => {
   return (
