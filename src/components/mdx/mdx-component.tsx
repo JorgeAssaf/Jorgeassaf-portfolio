@@ -17,7 +17,7 @@ export const MdxComponent = ({ post }: { post: Post }) => {
         }: React.HTMLAttributes<HTMLHeadingElement>) => (
           <h1
             className={cn(
-              'mt-2 scroll-m-20 text-4xl font-bold leading-tight lg:text-5xl',
+              'mt-2 scroll-m-32 text-4xl font-bold leading-tight lg:text-5xl',
               className,
             )}
             {...props}
@@ -29,7 +29,7 @@ export const MdxComponent = ({ post }: { post: Post }) => {
         }: React.HTMLAttributes<HTMLHeadingElement>) => (
           <h2
             className={cn(
-              'mt-8 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0',
+              'mt-8 scroll-m-32 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0',
               className,
             )}
             {...props}
@@ -41,7 +41,7 @@ export const MdxComponent = ({ post }: { post: Post }) => {
         }: React.HTMLAttributes<HTMLHeadingElement>) => (
           <h3
             className={cn(
-              'mt-6 scroll-m-20 text-xl font-semibold tracking-tight',
+              'mt-6 scroll-m-32 text-xl font-semibold tracking-tight',
               className,
             )}
             {...props}
@@ -53,7 +53,7 @@ export const MdxComponent = ({ post }: { post: Post }) => {
         }: React.HTMLAttributes<HTMLHeadingElement>) => (
           <h4
             className={cn(
-              'mt-6 scroll-m-20 text-lg font-semibold tracking-tight',
+              'mt-6 scroll-m-32 text-lg font-semibold tracking-tight',
               className,
             )}
             {...props}
@@ -65,7 +65,7 @@ export const MdxComponent = ({ post }: { post: Post }) => {
         }: React.HTMLAttributes<HTMLHeadingElement>) => (
           <h5
             className={cn(
-              'mt-6 scroll-m-20 text-lg font-semibold tracking-tight',
+              'mt-6 scroll-m-32 text-lg font-semibold tracking-tight',
               className,
             )}
             {...props}
@@ -77,7 +77,7 @@ export const MdxComponent = ({ post }: { post: Post }) => {
         }: React.HTMLAttributes<HTMLHeadingElement>) => (
           <h6
             className={cn(
-              'mt-6 scroll-m-20 text-base font-semibold tracking-tight',
+              'mt-6 scroll-m-32 text-base font-semibold tracking-tight',
               className,
             )}
             {...props}
