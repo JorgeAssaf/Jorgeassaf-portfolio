@@ -13,7 +13,7 @@ import type { ProjectsEntity } from '@/app/types/sanity'
 export const metadata: Metadata = {
   title: 'Projects',
   description:
-    'Here you can see my latest projects and what technologies they are made with',
+    'Here you can see my projects and what technologies they are made with and the links to the repositories and the live version',
 }
 
 const categories = [
