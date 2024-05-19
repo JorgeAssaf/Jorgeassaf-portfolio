@@ -3,3 +3,5 @@ node_module
 .next
 build
 .contentlayer
+components.json
+postcss.config.js
