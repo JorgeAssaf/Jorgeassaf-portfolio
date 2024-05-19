@@ -4,9 +4,11 @@ import { useCallback, useTransition } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { FADE_LEFT_ANIMATION_VARIANTS } from '@/constans'
 import { m } from 'framer-motion'
+import { Home, type LucideIcon } from 'lucide-react'
 
 import { cn, slugify } from '@/lib/utils'
 
+import icons from './icons'
 import { Button, type ButtonProps } from './ui/button'
 
 const CategoryButtons = ({
@@ -16,15 +18,19 @@ const CategoryButtons = ({
   buttonVariant = 'outline',
   categories,
   className,
+  iconStyle,
   withAll = false,
+  withIcons = false,
 }: {
   activeCategory?: string
   buttonClassName?: string
   buttonSize?: ButtonProps['size']
   buttonVariant?: ButtonProps['variant']
-  categories: Record<string, string>[]
+  categories: { title: string; icon?: keyof typeof icons }[]
   className?: string
+  iconStyle?: string
   withAll?: boolean
+  withIcons?: boolean
 }) => {
   const router = useRouter()
   const pathname = usePathname()
@@ -78,41 +84,53 @@ const CategoryButtons = ({
                   `${pathname}?${createQueryString({
                     category: null,
                   })}`,
-                )
-              })
-            }}
-            disabled={isPending}
-            className={cn(!categoryParam && activeCategory, buttonClassName)}
-            variant={buttonVariant}
-            size={buttonSize}
-          >
-            All
-          </Button>
-        )}
-
-        {categories.map((category) => (
-          <Button
-            key={category.title}
-            onClick={() => {
-              startTransition(() => {
-                router.push(
-                  `${pathname}?${createQueryString({
-                    category: slugify(category.title),
-                  })}`,
+                  { scroll: false },
                 )
               })
             }}
             disabled={isPending}
             className={cn(
-              slugify(category.title) == categoryParam && activeCategory,
+              !categoryParam && activeCategory,
               buttonClassName,
+              withIcons && 'flex items-center gap-2',
             )}
             variant={buttonVariant}
             size={buttonSize}
           >
-            {category.title}
+            {withIcons && <Home className={cn(iconStyle)} size={16} />}
+            All
           </Button>
-        ))}
+        )}
+
+        {categories.map((category) => {
+          const Icon = icons[category.icon as keyof typeof icons] as LucideIcon
+          return (
+            <Button
+              key={category.title}
+              onClick={() => {
+                startTransition(() => {
+                  router.push(
+                    `${pathname}?${createQueryString({
+                      category: slugify(category.title),
+                    })}`,
+                    { scroll: false },
+                  )
+                })
+              }}
+              disabled={isPending}
+              className={cn(
+                slugify(category.title) == categoryParam && activeCategory,
+                buttonClassName,
+                withIcons && 'flex items-center gap-2',
+              )}
+              variant={buttonVariant}
+              size={buttonSize}
+            >
+              {withIcons && <Icon className={cn(iconStyle)} size={16} />}
+              {category.title}
+            </Button>
+          )
+        })}
       </m.div>
     </m.div>
   )
