@@ -1,43 +1,72 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
-import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 import { Formaters } from '@/helpers/formaters'
 import type { Post } from 'contentlayer/generated'
-import { m } from 'framer-motion'
 
 import { Badge } from '../ui/badge'
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
 
-export const PostCard = ({ post }: { post: Post }) => {
+export const PostCard = ({ post, i }: { post: Post; i: number }) => {
   return (
-    <Card className='flex shrink-0 snap-start flex-col md:basis-1/2'>
-      <CardHeader>
-        <Link href={`/blog/${post.slug}`}>
-          <CardTitle className='my-2 line-clamp-2 text-2xl font-bold'>
-            <m.span variants={FADE_DOWN_ANIMATION_VARIANTS}>
-              {post.title}
-            </m.span>
-          </CardTitle>
-        </Link>
-        <div className='mt-0 md:mt-2'>
-          <div className='flex flex-wrap gap-4'>
-            <span>{Formaters.formatDate(post.date, 'LLLL Y')}</span>
-            <div className='flex flex-wrap gap-3'>
-              {post.categories.map((category) => (
-                <Badge
-                  className='bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground'
-                  key={category}
-                >
-                  {category}
-                </Badge>
-              ))}
-            </div>
-          </div>
+    <article className='flex max-w-xl flex-col items-start' key={post._id}>
+      <Link href={`/blog/${post.slug}`} className='relative w-full'>
+        <div className='aspect-video overflow-hidden rounded-md'>
+          <Image
+            src={post.mainImage ?? '/images/placeholder.svg'}
+            className='rounded-md object-cover'
+            alt={post.title}
+            fill
+            priority={i < 2}
+          />
         </div>
-        <p className='leading-7 [&:not(:first-child)]:mt-6'>{post.title}</p>
-      </CardHeader>
-      <CardContent>{post.author.name}</CardContent>
-    </Card>
+      </Link>
+
+      <div className='mt-4 flex items-center gap-3 text-xs'>
+        <time dateTime={post.date} className='text-muted-foreground'>
+          {Formaters.formatDate(post.date, 'LLLL y')}
+        </time>
+        {post.categories.map((category) => (
+          <Badge className='py-1' key={category}>
+            {category}
+          </Badge>
+        ))}
+      </div>
+
+      <div className='relative'>
+        <h3 className='m-0 mt-3 text-xl font-semibold leading-6'>
+          <Link href={`/blog/${post.slug}`} className='text-foreground'>
+            How to use SEO to drive sales
+          </Link>
+        </h3>
+        <p className='m-0 mt-3 line-clamp-2 leading-5'>
+          Increase your chances of success with our proven strategies. We
+          provide expert advice. Increase your chances of success with our
+          proven strategies. We provide expert advice. Increase your chances of
+          success with our proven strategies.
+        </p>
+      </div>
+
+      <div className='relative mt-4 flex items-center gap-3'>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={post.author.image}
+          alt='Author face'
+          className='rounded-full'
+          width='40'
+          height='40'
+          loading='lazy'
+        />
+
+        <div className='text-sm leading-6'>
+          <p className='m-0 font-semibold'>
+            <Link href='' className='text-foreground'>
+              {post.author.name}
+            </Link>
+          </p>
+          <p className='m-0 text-muted-foreground'>Front-end Developer</p>
+        </div>
+      </div>
+    </article>
   )
 }
