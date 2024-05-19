@@ -11,7 +11,6 @@ export function GET(req: Request) {
     const parsedValues = Object.fromEntries(url.searchParams)
 
     const { mode, title, description, type } = parsedValues
-    console.log(parsedValues)
     return new ImageResponse(
       (
         <div
