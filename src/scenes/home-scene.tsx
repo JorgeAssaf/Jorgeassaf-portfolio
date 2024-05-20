@@ -9,7 +9,7 @@ import { Dog } from './Model'
 const HomeSceneFallback = () => {
   const { progress } = useProgress()
   return (
-    <Html className='w-[500px] text-foreground'>
+    <Html className='flex items-center justify-center'>
       {progress.toFixed(1)}% loaded
     </Html>
   )
