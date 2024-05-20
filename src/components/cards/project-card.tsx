@@ -22,7 +22,7 @@ export const ProjectCard: FC<ProjectsCardProps> = ({ project }) => {
       <figure className='relative aspect-[16/10] w-full overflow-hidden'>
         <Image
           src={project.image.url ?? '/images/placeholder.svg'}
-          alt={`${project.name} project`}
+          alt={`${project.image.alt ?? project.name} image`}
           className='rounded-t-lg object-cover'
           fill
           sizes='(min-width: 640px) 640px, 100vw'
