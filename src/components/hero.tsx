@@ -8,7 +8,6 @@ import { m } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { GitHub, LinkedIn } from '@/components/icons'
 
-import { MyResumen } from './my-resumen'
 import { buttonVariants } from './ui/button'
 
 const HomeScene = dynamic(() => import('@/scenes/home-scene'), {
