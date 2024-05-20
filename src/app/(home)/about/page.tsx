@@ -3,7 +3,7 @@ import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 
 import { JOB_EXPERIENCE } from '@/config/experience'
 import { Experience } from '@/components/experience'
-import { FramerDiv } from '@/components/framer'
+import { FramerDiv, FramerSection } from '@/components/framer'
 import { Next, Prisma, React, Tailwind, Typescript } from '@/components/icons'
 import { MyResumen } from '@/components/my-resumen'
 import { PageHeader } from '@/components/page-header'
@@ -18,7 +18,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHeader title='About me' page />
-      <FramerDiv
+      <FramerSection
         initial='hidden'
         animate='show'
         viewport={{ once: true }}
@@ -62,31 +62,31 @@ export default function AboutPage() {
           variants={FADE_DOWN_ANIMATION_VARIANTS}
           className='flex flex-col items-center justify-center'
         >
-          <h3 className='text-3xl font-bold '>My stack</h3>
+          <h3 className='text-3xl font-bold'>My stack</h3>
           <div className='my-7 flex flex-wrap items-center justify-center gap-5'>
-            <div className='flex flex-col items-center justify-center gap-y-1'>
-              <React className='size-7' />
+            <div className='flex items-center justify-center gap-1.5 rounded-md bg-[#61DAFB]/20 px-4 py-2'>
+              <React className='size-5' />
               <span>React</span>
             </div>
-            <div className='flex flex-col items-center justify-center gap-y-1'>
-              <Next className='size-7' />
+            <div className='flex items-center justify-center gap-1.5 rounded-md bg-[#202021] px-4 py-2'>
+              <Next className='size-5' />
               <span>Next</span>
             </div>
-            <div className='flex flex-col items-center justify-center gap-y-1'>
-              <Tailwind className='size-7' />
+            <div className='flex items-center justify-center gap-1.5 rounded-md bg-[#49c1cf]/25 px-4 py-2'>
+              <Tailwind className='size-5' />
               <span>Tailwind</span>
             </div>
-            <div className='flex flex-col items-center justify-center gap-y-1'>
-              <Typescript className='size-7' />
+            <div className='flex items-center justify-center gap-1.5 rounded-md bg-[#3583d7]/30 px-4 py-2'>
+              <Typescript className='size-5' />
               <span>Typescript</span>
             </div>
-            <div className='flex flex-col items-center justify-center gap-y-1'>
-              <Prisma className='size-7' />
+            <div className='flex items-center justify-center gap-1.5  rounded-md bg-[#2D3748] px-4 py-2'>
+              <Prisma className='size-5' />
               <span>Prisma</span>
             </div>
           </div>
         </FramerDiv>
-      </FramerDiv>
+      </FramerSection>
     </>
   )
 }
