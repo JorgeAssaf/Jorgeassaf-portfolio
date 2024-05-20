@@ -1,19 +1,14 @@
 import type { FC } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Link2 as LinkIcon } from 'lucide-react'
+import { Formaters } from '@/helpers/formaters'
+import { CalendarCheck, CodeIcon } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 import { buttonVariants } from '@/components/ui/button'
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardTitle,
-} from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import type { ProjectsEntity } from '@/app/types/sanity'
 
-import { GitHub } from '../icons'
 import { Badge } from '../ui/badge'
 
 interface ProjectsCardProps {
@@ -23,73 +18,85 @@ interface ProjectsCardProps {
 
 export const ProjectCard: FC<ProjectsCardProps> = ({ project }) => {
   return (
-    <Card className='relative flex w-full max-w-lg flex-col rounded-xl bg-card/30 bg-clip-border shadow-lg md:max-w-xl'>
-      <div className='relative mx-4 mt-4 overflow-hidden rounded-xl bg-clip-border shadow-lg shadow-primary/20'>
+    <Card className='w-full max-w-lg'>
+      <figure className='relative aspect-[16/10] w-full overflow-hidden'>
         <Image
-          width={900}
-          height={485}
-          src={project.image.url}
-          priority
-          loading='eager'
-          alt={project.image.alt}
+          src={project.image.url ?? '/images/placeholder.svg'}
+          alt={`${project.name} project`}
+          className='rounded-t-lg object-cover'
+          fill
+          sizes='(min-width: 640px) 640px, 100vw'
         />
-      </div>
-      <div className='flex flex-1 flex-col justify-between gap-4 p-6'>
-        <div className='space-y-2'>
-          <div className='flex items-center justify-between'>
-            <CardTitle className='text-xl font-medium leading-snug tracking-normal md:text-2xl'>
-              {project.name}
-            </CardTitle>
-            <Badge className='py-1 text-[10px] sm:text-xs'>
-              {project.category}
-            </Badge>
-          </div>
-          <CardDescription className='line-clamp-6 break-all text-base leading-relaxed'>
-            {project.description}
-          </CardDescription>
-          <div className='group flex flex-wrap items-center gap-3'>
-            {project.technologies.map((technology) => (
-              <Badge
-                className='flex items-center gap-1.5 rounded-lg py-1.5 text-xs text-white md:text-sm'
-                style={{
-                  backgroundColor: `#${technology.color}`,
-                }}
-                key={technology.name}
-              >
-                <Image
-                  width={20}
-                  height={20}
-                  src={technology.image}
-                  alt={technology.name}
-                  className='size-5'
-                />
-                <p>{technology.name}</p>
-              </Badge>
-            ))}
+      </figure>
+      <CardContent className='space-y-3 p-4'>
+        <div className='flex items-center justify-between'>
+          <Badge
+            variant={'secondary'}
+            className='inline-flex items-center gap-2 rounded-lg '
+          >
+            <CodeIcon className='size-4' />
+            {project.category}
+          </Badge>
+          <div className='flex items-center gap-2 text-xs text-muted-foreground'>
+            {project.createdAt && (
+              <>
+                <CalendarCheck className='size-4' />
+                <p>
+                  {Formaters.formatDate(project.createdAt, 'MMMM dd, yyyy')}
+                </p>
+              </>
+            )}
           </div>
         </div>
-        <CardFooter className='flex gap-10 p-0'>
+        <h3 className='text-xl font-semibold'>{project.name}</h3>
+        <p className='text-muted-foreground'>{project.description}</p>
+        <div className=' flex flex-wrap gap-2'>
+          {project.technologies.map((tech) => (
+            <Badge
+              key={tech.name}
+              variant='secondary'
+              className='inline-flex items-center gap-2 rounded-lg'
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={tech.image}
+                alt={tech.name}
+                width={16}
+                loading='eager'
+                height={16}
+                className='size-4'
+              />
+              {tech.name}
+            </Badge>
+          ))}
+        </div>
+        <div className='flex items-center gap-4'>
           <Link
-            target='_blank'
-            rel='noreferrer noopener'
-            href={project.link}
-            className={cn(buttonVariants({ size: 'sm' }), 'text-sm')}
-          >
-            <LinkIcon size={20} />
-          </Link>
-          <Link
-            target='_blank'
-            rel='noreferrer noopener'
-            href={project.repo}
             className={cn(
-              buttonVariants({ variant: 'outline', size: 'sm' }),
-              'text-sm',
+              buttonVariants({
+                variant: 'link',
+              }),
             )}
+            href={project.repo}
+            target='_blank'
+            rel='noopener noreferrer'
           >
-            <GitHub className='size-5' />
+            View Repository
           </Link>
-        </CardFooter>
-      </div>
+          <Link
+            className={cn(
+              buttonVariants({
+                variant: 'link',
+              }),
+            )}
+            href={project.link}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Live Site
+          </Link>
+        </div>
+      </CardContent>
     </Card>
   )
 }
