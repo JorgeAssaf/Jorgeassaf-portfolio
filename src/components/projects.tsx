@@ -29,7 +29,7 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
       {projects.length > 0 ? (
         <m.div
           variants={FADE_DOWN_ANIMATION_VARIANTS}
-          className='grid grid-cols-1 place-items-center gap-4 md:grid-cols-2'
+          className='grid grid-cols-1 place-items-center gap-4 md:grid-cols-2 lg:grid-cols-3 '
         >
           {projects.map((project) => (
             <ProjectCard key={project._id} project={project} />
