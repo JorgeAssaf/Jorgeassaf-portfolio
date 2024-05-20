@@ -11,10 +11,10 @@ import { PageHeader } from '@/components/page-header'
 import Projects from '@/components/projects'
 import Scroll from '@/components/scroll'
 
-import { type ProjectsEntity as ProjectsType } from '../types/sanity'
+import { type ProjectsEntity } from '../types/sanity'
 
 export default async function Home() {
-  const projects = await client.fetch<ProjectsType[]>(getLatestProjectsQuery)
+  const projects = await client.fetch<ProjectsEntity[]>(getLatestProjectsQuery)
 
   return (
     <main>
@@ -29,6 +29,8 @@ export default async function Home() {
       <Link className={cn(buttonVariants(), 'my-5')} href='/about'>
         View my experience in about page
       </Link>
+
+     
       <PageHeader
         title='Recent Resourses'
         description='Some of my recent posts'
