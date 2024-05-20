@@ -17,7 +17,7 @@ const HomeScene = dynamic(() => import('@/scenes/home-scene'), {
 
 const Hero = () => {
   return (
-    <m.div
+    <m.section
       initial='hidden'
       animate='show'
       viewport={{ once: true }}
@@ -29,59 +29,55 @@ const Hero = () => {
           },
         },
       }}
-      className='my-14 flex items-center justify-between '
+      className='w-full py-16'
     >
-      <div className='w-full'>
-        <m.hgroup variants={FADE_DOWN_ANIMATION_VARIANTS}>
-          <m.h1 className='text-4xl font-bold md:text-6xl'>
-            Hi, I’m Jorge Assaf.
-          </m.h1>
-          <m.h2 className=' my-1 text-2xl font-semibold text-primary md:text-4xl'>
-            Front-end Developer.
-          </m.h2>
-        </m.hgroup>
-        <m.p
-          variants={FADE_DOWN_ANIMATION_VARIANTS}
-          className='mt-3 max-w-2xl text-base text-muted-foreground md:text-xl'
-        >
-          Based in Mexico City. I take great pleasure in creating and developing
-          applications for both web and mobile devices.
-        </m.p>
-        <m.div
-          variants={FADE_DOWN_ANIMATION_VARIANTS}
-          className='mt-5 flex gap-5'
-        >
-          <Link
-            arial-label='GitHub'
-            href='https://github.com/JorgeAssaf'
-            target='_blank'
-            rel='noopener noreferrer'
-            className={cn(buttonVariants({ variant: 'default' }))}
+      <div className='flex flex-col justify-between gap-8 lg:flex-row lg:items-center'>
+        <div className='space-y-2 '>
+          <m.div variants={FADE_DOWN_ANIMATION_VARIANTS} className='space-y-2'>
+            <m.h1 className='text-4xl font-bold tracking-tighter lg:text-6xl'>
+              Hi, I’m Jorge Assaf.
+            </m.h1>
+            <m.p className='text-3xl font-semibold text-primary lg:text-4xl'>
+              Front-end Developer.
+            </m.p>
+          </m.div>
+          <m.p
+            variants={FADE_DOWN_ANIMATION_VARIANTS}
+            className='max-w-2xl text-muted-foreground md:text-lg'
           >
-            <GitHub className='size-6' />
-            <span className='sr-only'>GitHub</span>
-          </Link>
+            I am a passionate software engineer with a strong background in
+            full-stack web development. I love building innovative and
+            user-friendly applications.
+          </m.p>
 
-          <Link
-            arial-label='LinkedIn'
-            href='https://www.linkedin.com/in/jorge-enrique-assaf/'
-            target='_blank'
-            rel='noopener noreferrer'
-            className={cn(buttonVariants({ variant: 'default' }))}
+          <m.div
+            className='flex flex-row gap-5'
+            variants={FADE_DOWN_ANIMATION_VARIANTS}
           >
-            <LinkedIn className='size-6' />
-            <span className='sr-only'>LinkedIn</span>
-          </Link>
-          <MyResumen variant={'outline'} className='bg-background/60' />
+            <Link className={cn(buttonVariants())} href='#'>
+              <GitHub className='size-6' />
+              <span className='sr-only'>GitHub</span>
+            </Link>
+            <Link className={cn(buttonVariants())} href='#'>
+              <LinkedIn className='size-6' />
+              <span className='sr-only'>LinkedIn</span>
+            </Link>
+            <Link
+              className={cn(buttonVariants({ variant: 'secondary' }))}
+              href='#'
+            >
+              Resume
+            </Link>
+          </m.div>
+        </div>
+        <m.div
+          className='hidden size-[450px] lg:block'
+          variants={FADE_DOWN_ANIMATION_VARIANTS}
+        >
+          <HomeScene />
         </m.div>
       </div>
-      <m.div
-        variants={FADE_DOWN_ANIMATION_VARIANTS}
-        className='mx-auto hidden size-full max-w-sm md:max-w-md lg:block '
-      >
-        <HomeScene />
-      </m.div>
-    </m.div>
+    </m.section>
   )
 }
 
