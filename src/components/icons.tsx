@@ -327,3 +327,132 @@ const icons = {
   GitHub,
 }
 export default icons
+
+// function CalendarDaysIcon(props: React.SVGProps<SVGSVGElement>) {
+//   return (
+//     <svg
+//       {...props}
+//       xmlns='http://www.w3.org/2000/svg'
+//       width='24'
+//       height='24'
+//       viewBox='0 0 24 24'
+//       fill='none'
+//       stroke='currentColor'
+//       strokeWidth='2'
+//       strokeLinecap='round'
+//       strokeLinejoin='round'
+//     >
+//       <path d='M8 2v4' />
+//       <path d='M16 2v4' />
+//       <rect width='18' height='18' x='3' y='4' rx='2' />
+//       <path d='M3 10h18' />
+//       <path d='M8 14h.01' />
+//       <path d='M12 14h.01' />
+//       <path d='M16 14h.01' />
+//       <path d='M8 18h.01' />
+//       <path d='M12 18h.01' />
+//       <path d='M16 18h.01' />
+//     </svg>
+//   )
+// }
+
+// function CodeIcon(props: React.SVGProps<SVGSVGElement>) {
+//   return (
+//     <svg
+//       {...props}
+//       xmlns='http://www.w3.org/2000/svg'
+//       width='24'
+//       height='24'
+//       viewBox='0 0 24 24'
+//       fill='none'
+//       stroke='currentColor'
+//       strokeWidth='2'
+//       strokeLinecap='round'
+//       strokeLinejoin='round'
+//     >
+//       <polyline points='16 18 22 12 16 6' />
+//       <polyline points='8 6 2 12 8 18' />
+//     </svg>
+//   )
+// }
+
+// function ComponentIcon(props: React.SVGProps<SVGSVGElement>) {
+//   return (
+//     <svg
+//       {...props}
+//       xmlns='http://www.w3.org/2000/svg'
+//       width='24'
+//       height='24'
+//       viewBox='0 0 24 24'
+//       fill='none'
+//       stroke='currentColor'
+//       strokeWidth='2'
+//       strokeLinecap='round'
+//       strokeLinejoin='round'
+//     >
+//       <path d='M5.5 8.5 9 12l-3.5 3.5L2 12l3.5-3.5Z' />
+//       <path d='m12 2 3.5 3.5L12 9 8.5 5.5 12 2Z' />
+//       <path d='M18.5 8.5 22 12l-3.5 3.5L15 12l3.5-3.5Z' />
+//       <path d='m12 15 3.5 3.5L12 22l-3.5-3.5L12 15Z' />
+//     </svg>
+//   )
+// }
+
+// function NavigationIcon(props: React.SVGProps<SVGSVGElement>) {
+//   return (
+//     <svg
+//       {...props}
+//       xmlns='http://www.w3.org/2000/svg'
+//       width='24'
+//       height='24'
+//       viewBox='0 0 24 24'
+//       fill='none'
+//       stroke='currentColor'
+//       strokeWidth='2'
+//       strokeLinecap='round'
+//       strokeLinejoin='round'
+//     >
+//       <polygon points='3 11 22 2 13 21 11 13 3 11' />
+//     </svg>
+//   )
+// }
+
+// function TriangleIcon(props: React.SVGProps<SVGSVGElement>) {
+//   return (
+//     <svg
+//       {...props}
+//       xmlns='http://www.w3.org/2000/svg'
+//       width='24'
+//       height='24'
+//       viewBox='0 0 24 24'
+//       fill='none'
+//       stroke='currentColor'
+//       strokeWidth='2'
+//       strokeLinecap='round'
+//       strokeLinejoin='round'
+//     >
+//       <path d='M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z' />
+//     </svg>
+//   )
+// }
+
+// function WindIcon(props: React.SVGProps<SVGSVGElement>) {
+//   return (
+//     <svg
+//       {...props}
+//       xmlns='http://www.w3.org/2000/svg'
+//       width='24'
+//       height='24'
+//       viewBox='0 0 24 24'
+//       fill='none'
+//       stroke='currentColor'
+//       strokeWidth='2'
+//       strokeLinecap='round'
+//       strokeLinejoin='round'
+//     >
+//       <path d='M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2' />
+//       <path d='M9.6 4.6A2 2 0 1 1 11 8H2' />
+//       <path d='M12.6 19.4A2 2 0 1 0 14 16H2' />
+//     </svg>
+//   )
+// }
