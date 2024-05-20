@@ -7,6 +7,7 @@ export const getProjectsQuery = groq`*[_type == 'projects' && (defined(category)
     "url": image.asset->url,
     "alt": image.alt
   },
+  createdAt,   
   repo,
   link,
   category,
@@ -25,6 +26,7 @@ export const getLatestProjectsQuery = groq`*[_type == 'projects'] | order(_creat
     "url": image.asset->url,
     "alt": image.alt
   },
+  createdAt,
   repo,
   link,
   category,

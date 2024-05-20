@@ -10,7 +10,7 @@ export interface ProjectsEntity {
   link: string
   description: string
   _id: string
-  _createdAt: Date
+  createdAt: Date
 }
 
 export interface Technology {
