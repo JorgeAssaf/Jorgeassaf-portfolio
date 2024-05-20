@@ -77,7 +77,7 @@ const Hero = () => {
       </div>
       <m.div
         variants={FADE_DOWN_ANIMATION_VARIANTS}
-        className='mx-auto hidden size-[500px] lg:block lg:shrink-0'
+        className='mx-auto hidden size-full max-w-sm md:max-w-md lg:block '
       >
         <HomeScene />
       </m.div>
