@@ -11,11 +11,10 @@ export function GET(req: Request) {
     const parsedValues = Object.fromEntries(url.searchParams)
 
     const { mode, title, description, type } = parsedValues
-    console.log(parsedValues)
     return new ImageResponse(
       (
         <div
-          tw='flex size-full flex-col items-center justify-center'
+          tw='flex h-full w-full flex-col items-center justify-center'
           style={{
             color: mode === 'dark' ? '#fff' : '#000',
             background: mode === 'dark' ? '#09090b' : '#ffffff',

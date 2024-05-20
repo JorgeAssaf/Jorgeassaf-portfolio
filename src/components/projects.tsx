@@ -2,18 +2,18 @@
 
 import type { FC } from 'react'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 
-import ProjectsCard from '@/components/projects-card'
-import type { Projects as ProjectsType } from '@/app/types/sanity'
+import { ProjectCard } from '@/components/cards/project-card'
+import type { ProjectsEntity } from '@/app/types/sanity'
 
 interface ProjectsProps {
-  projects: ProjectsType[]
+  projects: ProjectsEntity[]
 }
 
 const Projects: FC<ProjectsProps> = ({ projects }) => {
   return (
-    <motion.section
+    <m.section
       initial='hidden'
       animate='show'
       viewport={{ once: true }}
@@ -26,13 +26,24 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
         },
       }}
     >
-      <motion.div
-        className='grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3    '
-        variants={FADE_DOWN_ANIMATION_VARIANTS}
-      >
-        <ProjectsCard projects={projects} />
-      </motion.div>
-    </motion.section>
+      {projects.length > 0 ? (
+        <m.div
+          variants={FADE_DOWN_ANIMATION_VARIANTS}
+          className='grid grid-cols-1 place-items-center gap-4 md:grid-cols-2 lg:grid-cols-3 '
+        >
+          {projects.map((project) => (
+            <ProjectCard key={project._id} project={project} />
+          ))}
+        </m.div>
+      ) : (
+        <div className='flex min-h-[500px] w-full flex-col items-center justify-center gap-2'>
+          <h2 className='text-center text-3xl font-bold'>No projects found</h2>
+          <p className='max-w-sm text-center text-muted-foreground'>
+            Try changing the filters or adding new projects to see them here.
+          </p>
+        </div>
+      )}
+    </m.section>
   )
 }
 

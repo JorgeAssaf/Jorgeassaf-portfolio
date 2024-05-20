@@ -1,0 +1,291 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
+import { Formaters } from '@/helpers/formaters'
+import { allPosts } from 'contentlayer/generated'
+import {
+  ChevronLeft,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  Link2Icon,
+  TagIcon,
+} from 'lucide-react'
+
+import { cn, slugify } from '@/lib/utils'
+import { Badge } from '@/components/ui/badge'
+import { buttonVariants } from '@/components/ui/button'
+import { MdxComponent } from '@/components/mdx/mdx-component'
+import { getPager } from '@/components/mdx/mdx-pager'
+
+import '@/styles/mdx.css'
+
+import Image from 'next/image'
+
+import icons from '@/components/icons'
+
+interface PostPageProps {
+  params: {
+    slug: string[]
+  }
+}
+type Toc = {
+  level: string
+  text: string
+  slug: string
+}
+// eslint-disable-next-line @typescript-eslint/require-await
+export async function generateStaticParams() {
+  return allPosts.map((post) => ({
+    slug: post.slug.split('/'),
+  }))
+}
+
+function getPostFromParams(params: PostPageProps['params']) {
+  const slug = params.slug.join('/')
+
+  const post = allPosts.find((post) => post.slugAsParams === slug)
+  if (!post) {
+    return notFound()
+  }
+
+  return post
+}
+
+export function generateMetadata({ params }: PostPageProps): Metadata {
+  const post = getPostFromParams(params)
+  if (!post) {
+    return {
+      metadataBase: new URL(
+        process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000',
+      ),
+      title: 'Post not found',
+    }
+  }
+  const url = process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'
+
+  const ogUrl = new URL(`${url}/api/og`)
+  ogUrl.searchParams.set('title', post.title)
+  ogUrl.searchParams.set('type', 'Blog Post')
+  ogUrl.searchParams.set('mode', 'dark')
+
+  return {
+    metadataBase: new URL(url),
+    title: post.title,
+    authors: {
+      name: post.author.name,
+    },
+    openGraph: {
+      title: post.title,
+      type: 'article',
+      url: url + post.slug,
+      images: [
+        {
+          url: ogUrl.toString(),
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+
+      images: [ogUrl.toString()],
+    },
+  }
+}
+
+export default function PostPage({ params }: PostPageProps) {
+  const post = getPostFromParams(params)
+  if (!post) notFound()
+  const pager = getPager(post, allPosts)
+  return (
+    <section className='mx-auto'>
+      <div className='grid grid-cols-1 justify-center gap-8 md:grid-cols-3'>
+        <div className='col-span-1 max-w-[80ch] md:col-span-2'>
+          <Badge className='mb-10 hover:bg-primary hover:text-primary-foreground'>
+            <Link
+              href={{
+                pathname: '/blog',
+                query: { category: slugify(post.categories[0]) },
+              }}
+              className='flex flex-wrap items-center justify-start gap-1.5 text-[0.625rem] md:text-sm '
+            >
+              <ChevronLeft size='20' />
+              Blog
+              <ChevronLeft size='20' />
+              {post.categories.map((category, i) => (
+                <span key={category}>
+                  {category}
+                  {i < post.categories.length - 1 && ' / '}
+                </span>
+              ))}
+            </Link>
+          </Badge>
+
+          <article className='border-b pb-2 '>
+            <div className='relative my-3 aspect-video'>
+              {post.mainImage ? (
+                <Image
+                  src={post.mainImage}
+                  alt={`${post.title} image`}
+                  fill
+                  decoding='async'
+                  loading='eager'
+                  priority
+                  quality={100}
+                  sizes='(min-width: 1024px) 384px, (min-width: 768px) 288px, (min-width: 640px) 224px, 100vw'
+                  className='rounded-lg object-cover'
+                />
+              ) : (
+                <>
+                  <Image
+                    src='/images/placeholder.svg'
+                    alt='Placeholder'
+                    fill
+                    className=' rounded-lg  object-cover'
+                  />
+                  <div className='absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent' />
+                  <div className='absolute inset-x-0 bottom-0 px-6 py-8 '>
+                    <h1 className='mt-3 scroll-m-20 text-4xl font-bold leading-tight tracking-tight first:mt-0'>
+                      {post.title}
+                    </h1>
+                  </div>
+                </>
+              )}
+            </div>
+            <span className=' text-sm text-muted-foreground'>
+              Published on {Formaters.formatDate(post.date)}
+            </span>
+            {/* <h1 className='mt-3 scroll-m-20 text-4xl font-bold leading-tight tracking-tight transition-colors first:mt-0'>
+              {post.title}
+            </h1> */}
+            <div className='my-4 flex items-center justify-between gap-10'>
+              <div className='mt-1 flex items-center gap-3'>
+                {post.author.image && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={post.author.image}
+                    decoding='async'
+                    alt={post.author.name}
+                    className='rounded-full'
+                    width={40}
+                    height={40}
+                  />
+                )}
+                <div className='flex flex-col'>
+                  <p className='leading-7'>{post.author.name}</p>
+                  <span className='text-xs text-muted-foreground'>
+                    @{post.author.name.split(' ').join('').toLowerCase()}
+                  </span>
+                </div>
+              </div>
+              <div className='flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground md:flex-row'>
+                {post.author.links.map((link) => {
+                  const LucideIcon = icons[link.name as keyof typeof icons]
+                  return (
+                    <Link
+                      key={link.url}
+                      href={link.url}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className={cn(
+                        buttonVariants({ variant: 'ghost', size: 'icon' }),
+                      )}
+                    >
+                      <LucideIcon
+                        className='size-4 fill-foreground text-foreground'
+                        aria-hidden='true'
+                      />
+                      <span className='sr-only'>{link.name}</span>
+                    </Link>
+                  )
+                })}
+                {post.originalUrl && (
+                  <Link
+                    href={post.originalUrl}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className={cn(
+                      buttonVariants({ variant: 'ghost', size: 'icon' }),
+                    )}
+                  >
+                    <Link2Icon
+                      className=' size-4 text-foreground'
+                      aria-hidden='true'
+                    />
+                  </Link>
+                )}
+              </div>
+            </div>
+            <div className='flex gap-2 py-3'>
+              {post.categories.map((category) => (
+                <Badge key={category} className='flex items-center text-xs'>
+                  <TagIcon className='mr-2 size-4' aria-hidden='true' />
+                  {category}
+                </Badge>
+              ))}
+            </div>
+          </article>
+
+          <div className='pb-8 pt-10'>
+            <MdxComponent post={post} />
+          </div>
+
+          <div className='mt-7 flex items-center justify-between'>
+            {pager?.previousPost ? (
+              <Link
+                aria-label='Previous post'
+                href={pager.previousPost.slug}
+                className={cn(buttonVariants({ variant: 'ghost' }))}
+              >
+                <ChevronLeftIcon className='mr-2 size-4' aria-hidden='true' />
+                {pager.previousPost.title}
+              </Link>
+            ) : null}
+            {pager?.nextPost ? (
+              <Link
+                aria-label='Next post'
+                href={pager.nextPost.slug}
+                className={cn(buttonVariants({ variant: 'ghost' }), 'ml-auto')}
+              >
+                {pager.nextPost.title}
+                <ChevronRightIcon className='ml-2 size-4' aria-hidden='true' />
+              </Link>
+            ) : null}
+          </div>
+        </div>
+        <div className='sticky top-32 mx-auto my-10 h-fit max-w-[200px]'>
+          <h3 className='text-lg font-semibold'>Table of Contents</h3>
+          <ul className=' mt-4 text-base'>
+            {post.toc.slice(1).map((heading: Toc) => {
+              return (
+                <li key={`#${heading.slug}`} className=' py-1'>
+                  <a
+                    href={`#${slugify(heading.slug)}`}
+                    data-level={heading.level}
+                    className='flex flex-col data-[level=four]:pl-8 data-[level=three]:pl-4'
+                  >
+                    <span
+                      className={cn(
+                        'hover:underline',
+                        heading.level === 'three' &&
+                          'list-item list-inside list-disc',
+                        heading.level === 'four' && 'list-item list-inside ',
+                      )}
+                    >
+                      {heading.text}
+                    </span>
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
+      </div>
+    </section>
+  )
+}

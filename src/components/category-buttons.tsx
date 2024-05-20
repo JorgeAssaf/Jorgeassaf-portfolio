@@ -1,23 +1,41 @@
 'use client'
 
-import { useCallback, useTransition, type FC } from 'react'
+import { useCallback, useTransition } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { FADE_LEFT_ANIMATION_VARIANTS } from '@/constans'
-import { domAnimation, LazyMotion, m } from 'framer-motion'
+import { m } from 'framer-motion'
+import { Home, type LucideIcon } from 'lucide-react'
 
 import { cn, slugify } from '@/lib/utils'
-import type { Category } from '@/app/types/sanity'
 
-import { Button } from './ui/button'
+import icons from './icons'
+import { Button, type ButtonProps } from './ui/button'
 
-interface CategoryButtonsProps {
-  categories: Category[]
-}
-
-const CategoryButtons: FC<CategoryButtonsProps> = ({ categories }) => {
+const CategoryButtons = ({
+  activeCategory,
+  buttonClassName,
+  buttonSize = 'sm',
+  buttonVariant = 'outline',
+  categories,
+  className,
+  iconStyle,
+  withAll = false,
+  withIcons = false,
+}: {
+  activeCategory?: string
+  buttonClassName?: string
+  buttonSize?: ButtonProps['size']
+  buttonVariant?: ButtonProps['variant']
+  categories: { title: string; icon?: keyof typeof icons }[]
+  className?: string
+  iconStyle?: string
+  withAll?: boolean
+  withIcons?: boolean
+}) => {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
+
   const [isPending, startTransition] = useTransition()
 
   const categoryParam = searchParams.get('category')
@@ -40,22 +58,25 @@ const CategoryButtons: FC<CategoryButtonsProps> = ({ categories }) => {
   )
 
   return (
-    <LazyMotion features={domAnimation}>
-      <m.div
-        initial='hidden'
-        animate='show'
-        viewport={{ once: true }}
-        variants={{
-          hidden: {},
-          show: {
-            transition: {
-              staggerChildren: 0.15,
-            },
+    <m.div
+      initial='hidden'
+      animate='show'
+      viewport={{ once: true }}
+      variants={{
+        hidden: {},
+        show: {
+          transition: {
+            staggerChildren: 0.15,
           },
-        }}
-        className='flex flex-row flex-wrap gap-5  md:flex-col  '
+        },
+      }}
+      className='flex min-w-40 flex-row flex-wrap gap-3 md:flex-col'
+    >
+      <m.div
+        variants={FADE_LEFT_ANIMATION_VARIANTS}
+        className={cn('flex flex-col items-start gap-5', className)}
       >
-        <m.div variants={FADE_LEFT_ANIMATION_VARIANTS}>
+        {withAll && (
           <Button
             onClick={() => {
               startTransition(() => {
@@ -63,47 +84,55 @@ const CategoryButtons: FC<CategoryButtonsProps> = ({ categories }) => {
                   `${pathname}?${createQueryString({
                     category: null,
                   })}`,
+                  { scroll: false },
                 )
               })
             }}
             disabled={isPending}
             className={cn(
-              !categoryParam &&
-                'bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground/90',
+              !categoryParam && activeCategory,
+              buttonClassName,
+              withIcons && 'flex items-center gap-2',
             )}
-            variant='outline'
-            size='sm'
+            variant={buttonVariant}
+            size={buttonSize}
           >
-            All posts
+            {withIcons && <Home className={cn(iconStyle)} size={16} />}
+            All
           </Button>
-        </m.div>
+        )}
 
-        {categories.map((category: Category) => (
-          <m.div variants={FADE_LEFT_ANIMATION_VARIANTS} key={category.title}>
+        {categories.map((category) => {
+          const Icon = icons[category.icon as keyof typeof icons] as LucideIcon
+          return (
             <Button
+              key={category.title}
               onClick={() => {
                 startTransition(() => {
                   router.push(
                     `${pathname}?${createQueryString({
                       category: slugify(category.title),
                     })}`,
+                    { scroll: false },
                   )
                 })
               }}
               disabled={isPending}
               className={cn(
-                slugify(category.title) == categoryParam &&
-                  'bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground/90',
+                slugify(category.title) == categoryParam && activeCategory,
+                buttonClassName,
+                withIcons && 'flex items-center gap-2',
               )}
-              variant='outline'
-              size='sm'
+              variant={buttonVariant}
+              size={buttonSize}
             >
+              {withIcons && <Icon className={cn(iconStyle)} size={16} />}
               {category.title}
             </Button>
-          </m.div>
-        ))}
+          )
+        })}
       </m.div>
-    </LazyMotion>
+    </m.div>
   )
 }
 

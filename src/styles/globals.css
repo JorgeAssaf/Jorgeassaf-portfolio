@@ -13,7 +13,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
 
-    --primary: 261.9 83.2% 58%;
+    --primary: 260 93% 70%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 0 0% 96.1%;
@@ -45,7 +45,7 @@
     --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 250.8 95.1% 92%;
+    --primary: 251 95% 92%;
     --primary-foreground: 0 0% 9%;
 
     --secondary: 0 0% 14.9%;
@@ -68,11 +68,20 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply scroll-smooth border-border;
   }
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-balance;
   }
 
   p {
@@ -81,6 +90,7 @@
 
   ::-webkit-scrollbar {
     width: 7px;
+    height: 5px;
     background-color: transparent;
   }
 

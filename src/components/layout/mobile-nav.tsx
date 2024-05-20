@@ -3,11 +3,11 @@
 import { useState, type FC } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { Menu } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 import type { MainNavItem } from '@/app/types/site'
 
-import { Menu } from '../icons'
 import { Button } from '../ui/button'
 import {
   Sheet,
@@ -45,7 +45,7 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
             <span className='sr-only'>Toggle Menu</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side='left' className='px-7 pl-1 pr-0'>
+        <SheetContent side='right' className='px-5'>
           <SheetHeader>
             <div className='my-5'>
               <Link
@@ -54,24 +54,29 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
                 className='flex items-center'
                 onClick={() => setIsOpen(false)}
               >
-                <p className='text-2xl font-bold md:inline-block'>
+                <p className='text-3xl font-bold md:inline-block'>
                   JA<span className='text-primary'>.</span>
                 </p>
               </Link>
             </div>
           </SheetHeader>
-
-          {items?.map((item) => (
-            <SheetDescription key={item.title}>
-              <MobileLink
-                href={`${item.href}`}
-                pathname={pathname}
-                setIsOpen={setIsOpen}
-              >
-                {item.title}
-              </MobileLink>
-            </SheetDescription>
-          ))}
+          <SheetDescription asChild className='flex flex-col gap-2'>
+            <div>
+              {items.map((item) => (
+                <MobileLink
+                  aria-label={`Navigate to ${item.title} page`}
+                  disabled={item.disabled}
+                  href={item.href!}
+                  key={item.title}
+                  pathname={pathname}
+                  title={item.title}
+                  setIsOpen={setIsOpen}
+                >
+                  {item.title}
+                </MobileLink>
+              ))}
+            </div>
+          </SheetDescription>
         </SheetContent>
       </Sheet>
     </div>
@@ -80,9 +85,7 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
 
 export default MobileNav
 
-interface MobileLinkProps {
-  children?: React.ReactNode
-  href: string
+interface MobileLinkProps extends React.ComponentPropsWithRef<typeof Link> {
   disabled?: boolean
   pathname: string
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
@@ -90,20 +93,24 @@ interface MobileLinkProps {
 
 function MobileLink({
   children,
-  href,
+  className,
   disabled,
+  href,
   pathname,
   setIsOpen,
+  ...props
 }: MobileLinkProps) {
   return (
     <Link
       href={href}
       className={cn(
-        'text-lg text-foreground transition-colors hover:text-primary/90',
+        'text-xl font-medium text-foreground transition-colors hover:text-primary/90',
         pathname === href && 'text-primary',
         disabled && 'pointer-events-none opacity-60',
+        className,
       )}
       onClick={() => setIsOpen(false)}
+      {...props}
     >
       {children}
     </Link>

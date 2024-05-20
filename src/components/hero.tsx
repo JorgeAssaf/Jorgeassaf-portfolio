@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
-import { domAnimation, LazyMotion, m } from 'framer-motion'
+import { m } from 'framer-motion'
 
 import { cn } from '@/lib/utils'
 import { GitHub, LinkedIn } from '@/components/icons'
@@ -16,89 +16,67 @@ const HomeScene = dynamic(() => import('@/scenes/home-scene'), {
 
 const Hero = () => {
   return (
-    <LazyMotion features={domAnimation}>
-      <m.div
-        initial='hidden'
-        animate='show'
-        viewport={{ once: true }}
-        variants={{
-          hidden: {},
-          show: {
-            transition: {
-              staggerChildren: 0.15,
-            },
+    <m.section
+      initial='hidden'
+      animate='show'
+      viewport={{ once: true }}
+      variants={{
+        hidden: {},
+        show: {
+          transition: {
+            staggerChildren: 0.15,
           },
-        }}
-        className='my-14 flex items-center justify-between '
-      >
-        <div className='w-[37rem]'>
-          <m.h1
-            variants={FADE_DOWN_ANIMATION_VARIANTS}
-            className='text-4xl font-bold md:text-6xl'
-          >
-            Hi, I’m Jorge Assaf.
-          </m.h1>
-          <m.h2
-            variants={FADE_DOWN_ANIMATION_VARIANTS}
-            className=' my-1 text-2xl font-semibold text-primary md:text-4xl'
-          >
-            Front-end Developer.
-          </m.h2>
+        },
+      }}
+      className='w-full py-16'
+    >
+      <div className='flex flex-col justify-between gap-8 lg:flex-row lg:items-center'>
+        <div className='space-y-2 '>
+          <m.div variants={FADE_DOWN_ANIMATION_VARIANTS} className='space-y-2'>
+            <m.h1 className='text-4xl font-bold tracking-tighter lg:text-6xl'>
+              Hi, I’m Jorge Assaf.
+            </m.h1>
+            <m.p className='text-3xl font-semibold text-primary lg:text-4xl'>
+              Front-end Developer.
+            </m.p>
+          </m.div>
           <m.p
             variants={FADE_DOWN_ANIMATION_VARIANTS}
-            className='mt-3 text-base text-muted-foreground md:text-xl'
+            className='max-w-2xl text-muted-foreground md:text-lg'
           >
-            Based in Mexico City. I take great pleasure in creating and
-            developing applications for both web and mobile devices.
+            I am a passionate software engineer with a strong background in
+            full-stack web development. I love building innovative and
+            user-friendly applications.
           </m.p>
+
           <m.div
+            className='flex flex-row gap-5'
             variants={FADE_DOWN_ANIMATION_VARIANTS}
-            className='mt-5 flex gap-5'
           >
-            <Link
-              arial-label='GitHub'
-              href='https://github.com/JorgeAssaf'
-              target='_blank'
-              rel='noopener noreferrer'
-              className={cn(buttonVariants({ variant: 'default' }))}
-            >
+            <Link className={cn(buttonVariants())} href='#'>
               <GitHub className='size-6' />
               <span className='sr-only'>GitHub</span>
             </Link>
-
-            <Link
-              arial-label='LinkedIn'
-              href='https://www.linkedin.com/in/jorge-enrique-assaf/'
-              target='_blank'
-              rel='noopener noreferrer'
-              className={cn(buttonVariants({ variant: 'default' }))}
-            >
+            <Link className={cn(buttonVariants())} href='#'>
               <LinkedIn className='size-6' />
               <span className='sr-only'>LinkedIn</span>
             </Link>
             <Link
-              arial-label='Download Resume'
-              target='_blank'
-              rel='noopener noreferrer'
-              href='https://drive.google.com/file/d/1KGmCNQLKOSRosglp8x-hNxsHgeHxkGPr/view?usp=sharing'
-              className={cn(
-                buttonVariants({
-                  variant: 'outline',
-                }),
-              )}
+              className={cn(buttonVariants({ variant: 'secondary' }))}
+              href='#'
             >
               Resume
             </Link>
           </m.div>
         </div>
         <m.div
+          className='hidden size-[450px] lg:block'
           variants={FADE_DOWN_ANIMATION_VARIANTS}
-          className='hidden size-[500px] items-center justify-center lg:flex'
         >
           <HomeScene />
         </m.div>
-      </m.div>
-    </LazyMotion>
+      </div>
+    </m.section>
   )
 }
 
