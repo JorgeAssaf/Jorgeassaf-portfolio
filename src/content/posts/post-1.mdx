@@ -1,14 +1,22 @@
 ---
 title: My First Post
-date:
+originalUrl: https://dev.to/sadmann7/my-first-post-1j7l
+mainImage: 'https://pub-f17d057acab94eff8169231fde6b2dd0.r2.dev/Img-GenerativeAI.png'
+date: 2022-03-01
 author:
   image: 'https://avatars.githubusercontent.com/u/56456745'
+  links:
+    - name: Twitter
+      url: 'https://twitter.com/sadmann17'
+    - name: GitHub
+      url: 'https://twitter.com/sadmann7'
+
 categories:
   - Markdown
   - Tutorial
 ---
 
-# Introduction
+## Introduction
 
 Welcome to my first post! In this article, we will explore the basics of Markdown and how it can be used to format text in a simple and efficient way.
 
@@ -24,18 +32,21 @@ Markdown provides a set of simple and intuitive syntax rules for formatting text
 
 You can create headings using the `#` symbol. The number of `#` symbols determines the level of the heading.
 
+#### Text
+
 Example:
 
 <Link href='/posts/post-2'>Next Post</Link>
 
-```typescript
-const Button = ({ variant, children }) => {
-  return (
-    <button className={`btn btn-${variant}`}>
-      {children}
-    </button>
-  );
-};
+```tsx
+interface ButtonProps {
+  variant: 'primary' | 'secondary'
+  children: ReactNode
+}
+
+const Button = ({ variant, children }: ButtonProps) => {
+  return <button className={`btn btn-${variant}`}>{children}</button>
+}
 ```
 
 1. Clone the repository

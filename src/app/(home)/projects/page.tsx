@@ -29,6 +29,7 @@ export default async function ProjectsPage({
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
   const { category } = searchParams
+
   const projects = await client.fetch<ProjectsEntity[]>(getProjectsQuery, {
     category:
       category !== undefined ? Formaters.capitalizeFirstLetter(category) : '',

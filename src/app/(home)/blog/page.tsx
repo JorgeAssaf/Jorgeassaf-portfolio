@@ -69,10 +69,9 @@ export default function BlogPage({
             ) : allPosts.length === 0 ? (
               <NotFoundPosts />
             ) : (
-              allPosts.slice(startIndex, endIndex).map((post, i) => {
-                console.log(post)
-                return <PostCard key={post._id} post={post} i={i} />
-              })
+              allPosts
+                .slice(startIndex, endIndex)
+                .map((post, i) => <PostCard key={post._id} post={post} i={i} />)
             )}
           </div>
         </div>
