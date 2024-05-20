@@ -46,7 +46,7 @@ export const PageHeader = ({
             variants={FADE_DOWN_ANIMATION_VARIANTS}
             className={cn(
               'flex flex-col justify-center text-3xl font-bold tracking-tight md:text-5xl ',
-              !description && 'flex flex-row',
+              !description && 'flex-row',
             )}
           >
             {title}
@@ -56,7 +56,7 @@ export const PageHeader = ({
             variants={FADE_DOWN_ANIMATION_VARIANTS}
             className={cn(
               'flex flex-col justify-center text-3xl font-bold tracking-tight md:text-5xl ',
-              !description && 'flex flex-row',
+              !description && 'flex-row',
             )}
           >
             {title}
