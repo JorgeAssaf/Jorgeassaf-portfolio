@@ -38,5 +38,5 @@ export const JOB_EXPERIENCE = [
     endDate: '2021-10-01',
     description:
       'Worked on the frontend in PIMS project. Using Next 12, React, TypeScript, Material UI, and Supabase.',
-  }
+  },
 ] satisfies JobExperience[]
