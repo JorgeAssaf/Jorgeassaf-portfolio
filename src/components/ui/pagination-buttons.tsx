@@ -47,7 +47,8 @@ export const PaginationButtons = ({
     }
 
     return range
-  }, [delta, page, totalPage])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page, totalPage])
 
   return (
     <div className={cn('flex items-center justify-center gap-2', className)}>
