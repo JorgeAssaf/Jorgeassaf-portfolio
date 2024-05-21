@@ -119,7 +119,7 @@ const CategoryButtons = ({
               }}
               disabled={isPending}
               className={cn(
-                slugify(category.title) == categoryParam && activeCategory,
+                slugify(category.title) === categoryParam && activeCategory,
                 buttonClassName,
                 withIcons && 'flex items-center gap-2',
               )}
