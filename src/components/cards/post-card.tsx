@@ -37,15 +37,10 @@ export const PostCard = ({ post, i }: { post: Post; i: number }) => {
       <div className='relative'>
         <h3 className='m-0 mt-3 text-xl font-semibold leading-6'>
           <Link href={`/blog/${post.slug}`} className='text-foreground'>
-            How to use SEO to drive sales
+            {post.title}
           </Link>
         </h3>
-        <p className='m-0 mt-3 line-clamp-2 leading-5'>
-          Increase your chances of success with our proven strategies. We
-          provide expert advice. Increase your chances of success with our
-          proven strategies. We provide expert advice. Increase your chances of
-          success with our proven strategies.
-        </p>
+        <p className='m-0 mt-3 line-clamp-2 leading-5'>{post.description}</p>
       </div>
 
       <div className='relative mt-4 flex items-center gap-3'>

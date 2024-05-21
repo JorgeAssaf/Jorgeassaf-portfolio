@@ -47,6 +47,7 @@ export const Post = defineDocumentType(() => ({
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
+    description: { type: 'string', required: true },
     originalUrl: { type: 'string' },
     mainImage: { type: 'string', default: '/images/placeholder.svg' },
     date: { type: 'date', required: true, default: new Date().toString() },
