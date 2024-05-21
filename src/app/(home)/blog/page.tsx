@@ -29,7 +29,7 @@ export default function BlogPage({
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
   const category = searchParams.category
-  const page = parseInt(searchParams.page as string) || 1
+  const page = Number.parseInt(searchParams.page as string) || 1
   const postsPerPage = 6
   const startIndex = (page - 1) * postsPerPage
   const endIndex = startIndex + postsPerPage
