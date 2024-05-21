@@ -3,6 +3,7 @@ import { allPosts } from 'contentlayer/generated'
 import { FileWarningIcon } from 'lucide-react'
 
 import { siteConfig } from '@/config/site'
+import { slugify } from '@/lib/utils'
 import { PaginationButtons } from '@/components/ui/pagination-buttons'
 import { PostCard } from '@/components/cards/post-card'
 import CategoryButtons from '@/components/category-buttons'
@@ -56,8 +57,13 @@ export default function BlogPage({
           />
           <div className='flex w-full flex-col items-center justify-center gap-5 md:grid md:grid-cols-2'>
             {category ? (
-              allPosts.filter((post) => post.categories.includes(category[0]))
-                .length > 0 ? (
+              allPosts.filter((post) =>
+                post.categories
+                  .map((category) => slugify(category))
+                  .includes(
+                    Array.isArray(category) ? category.join('') : category,
+                  ),
+              ).length > 0 ? (
                 allPosts
                   .slice(startIndex, endIndex)
                   .map((post, i) => (
