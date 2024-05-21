@@ -25,6 +25,8 @@ export const metadata: Metadata = {
     'Jorge Assaf',
     'Portfolio',
     'Blog',
+    'Sanity',
+    'Software Development',
     'Web Development',
     'Frontend Development',
     'Fullstack Development',
