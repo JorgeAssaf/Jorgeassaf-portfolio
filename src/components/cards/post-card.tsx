@@ -24,7 +24,7 @@ export const PostCard = ({ post, i }: { post: Post; i: number }) => {
 
       <div className='mt-4 flex items-center gap-3 text-xs'>
         <time dateTime={post.date} className='text-muted-foreground'>
-          {Formaters.formatDate(post.date, 'LLLL y')}
+          {Formaters.formatDate(post.date, 'LLLL d, yyyy')}
         </time>
         {post.categories.map((category) => (
           <Badge className='py-1' key={category}>
