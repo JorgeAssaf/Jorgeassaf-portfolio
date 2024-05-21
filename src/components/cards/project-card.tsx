@@ -25,6 +25,7 @@ export const ProjectCard: FC<ProjectsCardProps> = ({ project }) => {
           alt={`${project.image.alt ?? project.name} image`}
           className='rounded-t-lg object-cover'
           fill
+          priority
           sizes='(min-width: 640px) 640px, 100vw'
         />
       </figure>
