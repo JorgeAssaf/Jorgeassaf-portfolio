@@ -13,10 +13,11 @@ export const PostCard = ({ post, i }: { post: Post; i: number }) => {
       <Link href={`/blog/${post.slug}`} className='relative w-full'>
         <div className='aspect-video overflow-hidden rounded-md'>
           <Image
-            src={post.mainImage ?? '/images/placeholder.svg'}
+            src={post.mainImage}
             className='rounded-md object-cover'
             alt={post.title}
             fill
+            sizes='(min-width: 640px) 640px, 100vw'
             priority={i < 2}
           />
         </div>

@@ -48,7 +48,7 @@ export const Post = defineDocumentType(() => ({
   fields: {
     title: { type: 'string', required: true },
     originalUrl: { type: 'string' },
-    mainImage: { type: 'string' },
+    mainImage: { type: 'string', default: '/images/placeholder.svg' },
     date: { type: 'date', required: true, default: new Date().toString() },
     author: { type: 'nested', of: Author, required: true },
     categories: {
