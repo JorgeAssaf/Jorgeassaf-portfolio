@@ -30,7 +30,6 @@ export default async function Home() {
         View my experience in about page
       </Link>
 
-     
       <PageHeader
         title='Recent Resourses'
         description='Some of my recent posts'

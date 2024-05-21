@@ -18,7 +18,6 @@ export const JOB_EXPERIENCE = [
     startDate: '2024-02-20',
     description:
       'Working on projects for clients using Next.js, React, TypeScript, and Tailwindcss. Developing features, fixing bugs, and improving the performance of the applications.',
-
   },
   {
     ocupation: 'Frontend Developer',
