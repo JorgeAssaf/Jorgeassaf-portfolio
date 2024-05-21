@@ -6,7 +6,7 @@ export class Formaters {
     Pattern = 'PPPP',
     { options }: { options?: FormatOptions } = {},
   ): string {
-    return format(new Date(date), Pattern, options)
+    return format(date, Pattern, options)
   }
   static capitalizeFirstLetter(string: string | string[]): string {
     if (string.length === 0) return ''
