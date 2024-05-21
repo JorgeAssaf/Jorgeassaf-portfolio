@@ -14,6 +14,15 @@ export const metadata: Metadata = {
   title: 'Projects',
   description:
     'Here you can see my projects and what technologies they are made with and the links to the repositories and the live version',
+  keywords: [
+    'projects',
+    'portfolio',
+    'frontend',
+    'backend',
+    'fullstack',
+    'mobile',
+  ],
+  robots: 'index, follow',
 }
 
 const categories = [

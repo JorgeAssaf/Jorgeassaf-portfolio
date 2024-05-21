@@ -1,4 +1,4 @@
-import { type MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next'
 import { allPosts } from 'contentlayer/generated'
 
 import { siteConfig } from '@/config/site'

@@ -13,10 +13,11 @@ export const PostCard = ({ post, i }: { post: Post; i: number }) => {
       <Link href={`/blog/${post.slug}`} className='relative w-full'>
         <div className='aspect-video overflow-hidden rounded-md'>
           <Image
-            src={post.mainImage ?? '/images/placeholder.svg'}
+            src={post.mainImage}
             className='rounded-md object-cover'
             alt={post.title}
             fill
+            sizes='(min-width: 640px) 640px, 100vw'
             priority={i < 2}
           />
         </div>
@@ -24,7 +25,7 @@ export const PostCard = ({ post, i }: { post: Post; i: number }) => {
 
       <div className='mt-4 flex items-center gap-3 text-xs'>
         <time dateTime={post.date} className='text-muted-foreground'>
-          {Formaters.formatDate(post.date, 'LLLL y')}
+          {Formaters.formatDate(post.date, 'LLLL d, yyyy')}
         </time>
         {post.categories.map((category) => (
           <Badge className='py-1' key={category}>

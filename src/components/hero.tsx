@@ -31,12 +31,12 @@ const Hero = () => {
       className='w-full py-16'
     >
       <div className='flex flex-col justify-between gap-8 lg:flex-row lg:items-center'>
-        <div className='space-y-2 '>
+        <div className='space-y-2'>
           <m.div variants={FADE_DOWN_ANIMATION_VARIANTS} className='space-y-2'>
-            <m.h1 className='text-4xl font-bold tracking-tighter lg:text-6xl'>
+            <m.h1 className='text-4xl font-bold tracking-tighter md:text-5xl lg:text-6xl'>
               Hi, I’m Jorge Assaf.
             </m.h1>
-            <m.p className='text-3xl font-semibold text-primary lg:text-4xl'>
+            <m.p className='text-2xl font-semibold text-primary md:text-3xl lg:text-4xl'>
               Front-end Developer.
             </m.p>
           </m.div>

@@ -1,11 +1,14 @@
 import type { Metadata } from 'next'
+import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 import { allPosts } from 'contentlayer/generated'
 import { FileWarningIcon } from 'lucide-react'
 
 import { siteConfig } from '@/config/site'
+import { slugify } from '@/lib/utils'
 import { PaginationButtons } from '@/components/ui/pagination-buttons'
 import { PostCard } from '@/components/cards/post-card'
 import CategoryButtons from '@/components/category-buttons'
+import { FramerDiv } from '@/components/framer'
 import { PageHeader } from '@/components/page-header'
 
 export const metadata: Metadata = {
@@ -28,7 +31,7 @@ export default function BlogPage({
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
   const category = searchParams.category
-  const page = parseInt(searchParams.page as string) || 1
+  const page = Number.parseInt(searchParams.page as string) || 1
   const postsPerPage = 6
   const startIndex = (page - 1) * postsPerPage
   const endIndex = startIndex + postsPerPage
@@ -41,7 +44,13 @@ export default function BlogPage({
         description='Here my last resources about web development, mobile development, ui/ux design, devops, blogs etc'
       />
 
-      <div className='flex flex-row gap-5 md:flex-col'>
+      <FramerDiv
+        initial='hidden'
+        animate='show'
+        viewport={{ once: true }}
+        variants={FADE_DOWN_ANIMATION_VARIANTS}
+        className='flex flex-row gap-5 md:flex-col'
+      >
         <div className='relative flex flex-col gap-5 md:flex-row'>
           <CategoryButtons
             categories={siteConfig.blogCategories}
@@ -56,8 +65,13 @@ export default function BlogPage({
           />
           <div className='flex w-full flex-col items-center justify-center gap-5 md:grid md:grid-cols-2'>
             {category ? (
-              allPosts.filter((post) => post.categories.includes(category[0]))
-                .length > 0 ? (
+              allPosts.filter((post) =>
+                post.categories
+                  .map((category) => slugify(category))
+                  .includes(
+                    Array.isArray(category) ? category.join('') : category,
+                  ),
+              ).length > 0 ? (
                 allPosts
                   .slice(startIndex, endIndex)
                   .map((post, i) => (
@@ -75,7 +89,7 @@ export default function BlogPage({
             )}
           </div>
         </div>
-      </div>
+      </FramerDiv>
       <PaginationButtons
         className='mt-10'
         page={page}
@@ -91,7 +105,7 @@ const NotFoundPosts = () => (
     <FileWarningIcon className='mb-5 mt-7 size-12 text-primary' />
 
     <h2 className='scroll-m-20 text-3xl font-semibold tracking-tight transition-colors first:mt-0'>
-      No posts found
+      No posts found 😢
     </h2>
     <p className='leading-7 [&:not(:first-child)]:mt-2'>
       Try changing the filters or reloading the page

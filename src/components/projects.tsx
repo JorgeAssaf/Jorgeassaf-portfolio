@@ -3,6 +3,7 @@
 import type { FC } from 'react'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 import { m } from 'framer-motion'
+import { FileWarningIcon } from 'lucide-react'
 
 import { ProjectCard } from '@/components/cards/project-card'
 import type { ProjectsEntity } from '@/app/types/sanity'
@@ -36,9 +37,13 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
           ))}
         </m.div>
       ) : (
-        <div className='flex min-h-[500px] w-full flex-col items-center justify-center gap-2'>
-          <h2 className='text-center text-3xl font-bold'>No projects found</h2>
-          <p className='max-w-sm text-center text-muted-foreground'>
+        <div className='flex min-h-[500px] w-full flex-col items-center justify-center'>
+          <FileWarningIcon className='mb-5 mt-7 size-12 text-primary' />
+
+          <h2 className='scroll-m-20 text-3xl font-semibold tracking-tight transition-colors first:mt-0'>
+            No projects found 😢
+          </h2>
+          <p className='max-w-md text-center text-muted-foreground'>
             Try changing the filters or adding new projects to see them here.
           </p>
         </div>
