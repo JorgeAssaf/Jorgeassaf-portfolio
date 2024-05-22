@@ -34,7 +34,7 @@ export const JOB_EXPERIENCE = [
     company: 'Omaka',
     url: 'https://omaka.app/',
     location: 'Remote',
-    startDate: '2023-07-1',
+    startDate: '2023-07-01',
     endDate: '2024-02-20',
     description:
       'Worked on the frontend of the admin panel, using vite, React, TypeScript, and Material UI.',

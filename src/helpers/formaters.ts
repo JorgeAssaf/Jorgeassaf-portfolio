@@ -1,4 +1,4 @@
-import { format, type FormatOptions } from 'date-fns'
+import { format, parseISO, type FormatOptions } from 'date-fns'
 
 export class Formaters {
   static formatDate(
@@ -6,7 +6,8 @@ export class Formaters {
     Pattern = 'PPPP',
     { options }: { options?: FormatOptions } = {},
   ): string {
-    return format(date, Pattern, options)
+    return format(parseISO(date.toString()), Pattern, options)
+
   }
   static capitalizeFirstLetter(string: string | string[]): string {
     if (string.length === 0) return ''
