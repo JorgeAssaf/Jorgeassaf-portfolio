@@ -85,6 +85,8 @@ export const ProjectCard: FC<ProjectsCardProps> = ({ project }) => {
             href={project.repo}
             target='_blank'
             rel='noopener noreferrer'
+            title={`View ${project.name} repository`}
+            aria-label={`View ${project.name} repository`}
           >
             View Repository
           </Link>
@@ -97,6 +99,8 @@ export const ProjectCard: FC<ProjectsCardProps> = ({ project }) => {
             href={project.link}
             target='_blank'
             rel='noopener noreferrer'
+            title={`View ${project.name} live site`}
+            aria-label={`View ${project.name} live site`}
           >
             Live Site
           </Link>
