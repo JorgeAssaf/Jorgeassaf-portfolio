@@ -29,6 +29,9 @@ const Author = defineNestedType(() => ({
       type: 'string',
       default: 'Anonymous',
     },
+    username: {
+      type: 'string',
+    },
     links: {
       type: 'list',
       of: AuthorLinks,
