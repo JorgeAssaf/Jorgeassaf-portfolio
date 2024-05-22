@@ -1,10 +1,7 @@
-import Link from 'next/link'
 import { allPosts } from 'contentlayer/generated'
 
 import { getLatestProjectsQuery } from '@/lib/querys'
 import { client } from '@/lib/sanity'
-import { cn } from '@/lib/utils'
-import { buttonVariants } from '@/components/ui/button'
 import { PostCard } from '@/components/cards/post-card'
 import Hero from '@/components/hero'
 import { PageHeader } from '@/components/page-header'
@@ -22,19 +19,16 @@ export default async function Home() {
       <Scroll />
       <PageHeader
         title='Recent Projects'
-        description={'Some of my recent projects'}
+        description='View my latest projects and experiments'
       />
 
       <Projects projects={projects} />
-      <Link className={cn(buttonVariants(), 'my-5')} href='/about'>
-        View my experience in about page
-      </Link>
 
       <PageHeader
         title='Recent Resourses'
-        description='Some of my recent posts'
+        description='View my latest shared resources and articles'
       />
-      {allPosts.map((post, i) => (
+      {allPosts.slice(0, 3).map((post, i) => (
         <PostCard i={i} key={post.slug} post={post} />
       ))}
     </main>
