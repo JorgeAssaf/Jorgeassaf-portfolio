@@ -66,7 +66,10 @@ export const Post = defineDocumentType(() => ({
   computedFields: {
     slug: {
       type: 'string',
-      resolve: (post) => `${slugify(post._raw.flattenedPath).split('/').pop()}`,
+      resolve: (post) => {
+        const slug = post._raw.flattenedPath.split('/').pop()
+        return slugify(slug)
+      }
     },
     slugAsParams: {
       type: 'string',
