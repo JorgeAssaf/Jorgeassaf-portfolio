@@ -5,15 +5,13 @@ import Link from 'next/link'
 import { Formaters } from '@/helpers/formaters'
 import type { Post } from 'contentlayer/generated'
 
-import { slugify } from '@/lib/utils'
-
 import { Badge } from '../ui/badge'
 
 export const PostCard = ({ post, i }: { post: Post; i: number }) => {
   return (
     <article className='flex max-w-xl flex-col items-start' key={post._id}>
       <Link
-        href={`/blog/${slugify(post.slug)}`}
+        href={`/blog/${post.slug}`}
         className='relative w-full'
         title={post.title}
         aria-label={post.title}
@@ -44,7 +42,7 @@ export const PostCard = ({ post, i }: { post: Post; i: number }) => {
       <div className='relative'>
         <h3 className='m-0 mt-3 text-xl font-semibold leading-6'>
           <Link
-            href={`/blog/${slugify(post.slug)}`}
+            href={`/blog/${post.slug}`}
             className='text-foreground'
             title={post.title}
             aria-label={post.title}

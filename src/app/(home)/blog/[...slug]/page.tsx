@@ -45,9 +45,7 @@ export async function generateStaticParams() {
 function getPostFromParams(params: PostPageProps['params']) {
   const slug = params.slug.join('/')
 
-  const post = allPosts.find(
-    (post) => slugify(post.slugAsParams) === slugify(slug),
-  )
+  const post = allPosts.find((post) => post.slugAsParams === slugify(slug))
   if (!post) {
     return notFound()
   }
@@ -238,7 +236,7 @@ export default function PostPage({ params }: PostPageProps) {
             {pager?.previousPost ? (
               <Link
                 aria-label='Previous post'
-                href={slugify(pager.previousPost.slug)}
+                href={pager.previousPost.slug}
                 className={cn(buttonVariants({ variant: 'ghost' }))}
               >
                 <ChevronLeftIcon className='mr-2 size-4' aria-hidden='true' />
@@ -250,7 +248,7 @@ export default function PostPage({ params }: PostPageProps) {
             {pager?.nextPost ? (
               <Link
                 aria-label='Next post'
-                href={slugify(pager.nextPost.slug)}
+                href={pager.nextPost.slug}
                 className={cn(buttonVariants({ variant: 'ghost' }), 'ml-auto')}
               >
                 {pager.nextPost.title.trim().length > 30

@@ -1,3 +1,4 @@
+import { slugify } from '@/lib/utils'
 import rehypeShiki from '@shikijs/rehype'
 import {
   defineDocumentType,
@@ -65,7 +66,7 @@ export const Post = defineDocumentType(() => ({
   computedFields: {
     slug: {
       type: 'string',
-      resolve: (post) => `${post._raw.flattenedPath.split('/').pop()}`,
+      resolve: (post) => `${slugify(post._raw.flattenedPath).split('/').pop()}`,
     },
     slugAsParams: {
       type: 'string',
