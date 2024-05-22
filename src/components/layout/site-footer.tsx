@@ -15,7 +15,7 @@ const SiteFooter = () => {
               Let&apos;s talk
             </h3>
             <h4 className='scroll-m-20 text-base tracking-tight'>
-              Send me message on LinkedIn or in X (Twitter)
+              Send me message on LinkedIn or in X {'(Twitter)'}
             </h4>
           </div>
 
@@ -24,33 +24,39 @@ const SiteFooter = () => {
               href='https://www.x.com/assafenrique'
               target='_blank'
               rel='noreferrer'
+              title='Visit my X profile'
+              aria-label='Visit my X profile'
               className={cn(
                 buttonVariants({ size: 'icon', variant: 'outline' }),
               )}
             >
-              <Twitter className='size-4' />
-              <span className='sr-only'>X (Twitter)</span>
+              <Twitter className='size-4' aria-hidden='true' />
+              <span className='sr-only'>X {'(Twitter)'}</span>
             </Link>
             <Link
               href='https://www.linkedin.com/in/jorge-enrique-assaf/'
               target='_blank'
               rel='noreferrer'
+              title='Visit my LinkedIn profile'
+              aria-label='Visit my LinkedIn profile'
               className={cn(
                 buttonVariants({ size: 'icon', variant: 'outline' }),
               )}
             >
-              <LinkedIn className='size-4' />
+              <LinkedIn className='size-4' aria-hidden='true' />
               <span className='sr-only'>LinkedIn</span>
             </Link>
             <Link
               href='https://www.github.com/jorgeassaf'
               target='_blank'
               rel='noreferrer'
+              title='Visit my GitHub profile'
+              aria-label='Visit my GitHub profile'
               className={cn(
                 buttonVariants({ size: 'icon', variant: 'outline' }),
               )}
             >
-              <GitHub className='size-4' />
+              <GitHub className='size-4' aria-hidden='true' />
               <span className='sr-only'>GitHub</span>
             </Link>
           </div>
@@ -62,6 +68,7 @@ const SiteFooter = () => {
             target='_blank'
             href='https://www.craftz.dog/'
             rel='noopener noreferrer'
+            title='Visit Craftz Dog website for view model'
             className={cn(
               buttonVariants({
                 variant: 'link',

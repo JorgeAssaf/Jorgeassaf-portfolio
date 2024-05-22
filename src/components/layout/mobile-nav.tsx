@@ -28,7 +28,7 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
   return (
     <div className='flex h-20 items-center justify-between md:hidden'>
       <div className='flex text-left md:flex'>
-        <Link aria-label='Home' href='/'>
+        <Link aria-label='Home' href='/' title='Home'>
           <p className='text-2xl font-bold md:flex'>
             JA<span className='text-primary'>.</span>
           </p>
@@ -50,6 +50,7 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
             <div className='my-5'>
               <Link
                 aria-label='Home'
+                title='Home'
                 href='/'
                 className='flex items-center'
                 onClick={() => setIsOpen(false)}
@@ -69,7 +70,7 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
                   href={item.href!}
                   key={item.title}
                   pathname={pathname}
-                  title={item.title}
+                  title={`Navigate to ${item.title} page`}
                   setIsOpen={setIsOpen}
                 >
                   {item.title}
