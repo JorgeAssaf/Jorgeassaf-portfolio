@@ -1,4 +1,4 @@
-import { slugify } from '@/lib/utils'
+import { slugify } from './src/lib/utils'
 import rehypeShiki from '@shikijs/rehype'
 import {
   defineDocumentType,
