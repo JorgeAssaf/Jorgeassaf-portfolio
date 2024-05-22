@@ -54,11 +54,11 @@ const Hero = () => {
             variants={FADE_DOWN_ANIMATION_VARIANTS}
           >
             <Link className={cn(buttonVariants())} href='#'>
-              <GitHub className='size-6' />
+              <GitHub className='size-6' aria-hidden='true' />
               <span className='sr-only'>GitHub</span>
             </Link>
             <Link className={cn(buttonVariants())} href='#'>
-              <LinkedIn className='size-6' />
+              <LinkedIn className='size-6' aria-hidden='true' />
               <span className='sr-only'>LinkedIn</span>
             </Link>
             <Link
