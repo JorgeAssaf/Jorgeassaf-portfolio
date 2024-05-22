@@ -10,14 +10,19 @@ import { Badge } from '../ui/badge'
 export const PostCard = ({ post, i }: { post: Post; i: number }) => {
   return (
     <article className='flex max-w-xl flex-col items-start' key={post._id}>
-      <Link href={`/blog/${post.slug}`} className='relative w-full'>
+      <Link
+        href={`/blog/${post.slug}`}
+        className='relative w-full'
+        title={post.title}
+        aria-label={post.title}
+      >
         <div className='aspect-video overflow-hidden rounded-md'>
           <Image
             src={post.mainImage}
-            className='rounded-md object-cover'
+            className='rounded-md'
             alt={post.title}
             fill
-            sizes='(min-width: 640px) 640px, 100vw'
+            sizes='(min-width: 1024px) 1024px, 100vw'
             priority={i < 2}
           />
         </div>
@@ -36,16 +41,16 @@ export const PostCard = ({ post, i }: { post: Post; i: number }) => {
 
       <div className='relative'>
         <h3 className='m-0 mt-3 text-xl font-semibold leading-6'>
-          <Link href={`/blog/${post.slug}`} className='text-foreground'>
-            How to use SEO to drive sales
+          <Link
+            href={`/blog/${post.slug}`}
+            className='text-foreground'
+            title={post.title}
+            aria-label={post.title}
+          >
+            {post.title}
           </Link>
         </h3>
-        <p className='m-0 mt-3 line-clamp-2 leading-5'>
-          Increase your chances of success with our proven strategies. We
-          provide expert advice. Increase your chances of success with our
-          proven strategies. We provide expert advice. Increase your chances of
-          success with our proven strategies.
-        </p>
+        <p className='m-0 mt-3 line-clamp-2 leading-5'>{post.description}</p>
       </div>
 
       <div className='relative mt-4 flex items-center gap-3'>

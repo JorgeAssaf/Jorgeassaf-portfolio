@@ -14,6 +14,7 @@ export function GET(req: Request) {
     return new ImageResponse(
       (
         <div
+          // eslint-disable-next-line tailwindcss/enforces-shorthand
           tw='flex h-full w-full flex-col items-center justify-center'
           style={{
             color: mode === 'dark' ? '#fff' : '#000',
@@ -61,8 +62,6 @@ export function GET(req: Request) {
     error instanceof Error
       ? console.log(`${error.message}`)
       : console.log(error)
-    return new Response(`Failed to generate the image`, {
-      status: 500,
-    })
+    return new Response('Failed to generate image', { status: 500 })
   }
 }

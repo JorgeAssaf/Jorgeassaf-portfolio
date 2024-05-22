@@ -1,3 +1,4 @@
+import { slugify } from './src/lib/utils'
 import rehypeShiki from '@shikijs/rehype'
 import {
   defineDocumentType,
@@ -29,6 +30,9 @@ const Author = defineNestedType(() => ({
       type: 'string',
       default: 'Anonymous',
     },
+    username: {
+      type: 'string',
+    },
     links: {
       type: 'list',
       of: AuthorLinks,
@@ -47,6 +51,7 @@ export const Post = defineDocumentType(() => ({
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
+    description: { type: 'string', required: true },
     originalUrl: { type: 'string' },
     mainImage: { type: 'string', default: '/images/placeholder.svg' },
     date: { type: 'date', required: true, default: new Date().toString() },
@@ -61,7 +66,10 @@ export const Post = defineDocumentType(() => ({
   computedFields: {
     slug: {
       type: 'string',
-      resolve: (post) => `${post._raw.flattenedPath.split('/').pop()}`,
+      resolve: (post) => {
+        const slug = post._raw.flattenedPath.split('/').pop()
+        return slugify(slug)
+      }
     },
     slugAsParams: {
       type: 'string',

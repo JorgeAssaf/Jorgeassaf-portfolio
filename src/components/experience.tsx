@@ -34,6 +34,8 @@ export const Experience = ({
               href={job.url || '#'}
               target='_blank'
               rel='noopener noreferrer'
+              title={`Visit ${job.company} website`}
+              aria-label={`Visit ${job.company} website`}
               className='text-primary underline transition-colors hover:text-primary/90'
             >
               {job.company}

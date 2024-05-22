@@ -1,12 +1,16 @@
 'use client'
 
 import type { FC } from 'react'
+import Link from 'next/link'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
 import { m } from 'framer-motion'
 import { FileWarningIcon } from 'lucide-react'
 
+import { cn } from '@/lib/utils'
 import { ProjectCard } from '@/components/cards/project-card'
 import type { ProjectsEntity } from '@/app/types/sanity'
+
+import { buttonVariants } from './ui/button'
 
 interface ProjectsProps {
   projects: ProjectsEntity[]
@@ -30,7 +34,7 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
       {projects.length > 0 ? (
         <m.div
           variants={FADE_DOWN_ANIMATION_VARIANTS}
-          className='grid grid-cols-1 place-items-center gap-4 md:grid-cols-2 lg:grid-cols-3 '
+          className='grid grid-cols-1 place-content-center place-items-center gap-6 md:grid-cols-2 lg:grid-cols-3'
         >
           {projects.map((project) => (
             <ProjectCard key={project._id} project={project} />
@@ -48,6 +52,11 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
           </p>
         </div>
       )}
+      <m.div variants={FADE_DOWN_ANIMATION_VARIANTS}>
+        <Link className={cn(buttonVariants(), 'my-5')} href='/about'>
+          View my experience in about page
+        </Link>
+      </m.div>
     </m.section>
   )
 }

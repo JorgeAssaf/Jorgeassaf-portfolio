@@ -10,11 +10,9 @@ export default function HomeLayout({
   return (
     <>
       <SiteHeader />
-
       <div className='container flex-1'>
         <FramerWrapper>{children}</FramerWrapper>
       </div>
-
       <SiteFooter />
     </>
   )

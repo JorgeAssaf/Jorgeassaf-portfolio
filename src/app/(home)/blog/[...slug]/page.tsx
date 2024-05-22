@@ -45,7 +45,7 @@ export async function generateStaticParams() {
 function getPostFromParams(params: PostPageProps['params']) {
   const slug = params.slug.join('/')
 
-  const post = allPosts.find((post) => post.slugAsParams === slug)
+  const post = allPosts.find((post) => post.slugAsParams === slugify(slug))
   if (!post) {
     return notFound()
   }
@@ -108,9 +108,13 @@ export default function PostPage({ params }: PostPageProps) {
         <div className='col-span-1 max-w-[80ch] md:col-span-2'>
           <Badge className='mb-10 hover:bg-primary hover:text-primary-foreground'>
             <Link
+              aria-label='Visit blog category'
+              title='Visit blog category'
               href={{
                 pathname: '/blog',
-                query: { category: slugify(post.categories[0]) },
+                query: {
+                  category: slugify(post.categories[0]),
+                },
               }}
               className='flex flex-wrap items-center justify-start gap-1.5 text-[0.625rem] md:text-sm '
             >
@@ -128,34 +132,23 @@ export default function PostPage({ params }: PostPageProps) {
 
           <article className='border-b pb-2 '>
             <div className='relative my-3 aspect-video'>
-              {post.mainImage ? (
-                <Image
-                  src={post.mainImage}
-                  alt={`${post.title} image`}
-                  fill
-                  decoding='async'
-                  loading='eager'
-                  priority
-                  quality={100}
-                  sizes='(min-width: 1024px) 384px, (min-width: 768px) 288px, (min-width: 640px) 224px, 100vw'
-                  className='rounded-lg object-cover'
-                />
-              ) : (
-                <>
-                  <Image
-                    src='/images/placeholder.svg'
-                    alt='Placeholder'
-                    fill
-                    className=' rounded-lg  object-cover'
-                  />
-                  <div className='absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent' />
-                  <div className='absolute inset-x-0 bottom-0 px-6 py-8 '>
-                    <h1 className='mt-3 scroll-m-20 text-4xl font-bold leading-tight tracking-tight first:mt-0'>
-                      {post.title}
-                    </h1>
-                  </div>
-                </>
-              )}
+              <Image
+                src={post.mainImage}
+                alt={`${post.title} image`}
+                fill
+                decoding='async'
+                loading='eager'
+                priority
+                quality={100}
+                sizes='min(100vw, 1000px)'
+                className='rounded-lg'
+              />
+              <div className='absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent' />
+              <div className='absolute inset-x-0 bottom-0 px-6 py-8 '>
+                <h1 className='mt-3 max-w-xl scroll-m-20 text-3xl font-bold leading-tight tracking-tight first:mt-0 md:text-5xl '>
+                  {post.title}
+                </h1>
+              </div>
             </div>
             <span className=' text-sm text-muted-foreground'>
               Published on {Formaters.formatDate(post.date)}
@@ -172,15 +165,17 @@ export default function PostPage({ params }: PostPageProps) {
                     decoding='async'
                     alt={post.author.name}
                     className='rounded-full'
-                    width={40}
-                    height={40}
+                    width={42}
+                    height={42}
                   />
                 )}
                 <div className='flex flex-col'>
                   <p className='leading-7'>{post.author.name}</p>
-                  <span className='text-xs text-muted-foreground'>
-                    @{post.author.name.split(' ').join('').toLowerCase()}
-                  </span>
+                  {post.author.username && (
+                    <span className='text-xs text-muted-foreground'>
+                      @{post.author.username}
+                    </span>
+                  )}
                 </div>
               </div>
               <div className='flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground md:flex-row'>
@@ -190,6 +185,8 @@ export default function PostPage({ params }: PostPageProps) {
                     <Link
                       key={link.url}
                       href={link.url}
+                      title={`Visit ${link.name} author profile`}
+                      aria-label={`Visit ${link.name} author profile`}
                       target='_blank'
                       rel='noopener noreferrer'
                       className={cn(
@@ -207,6 +204,8 @@ export default function PostPage({ params }: PostPageProps) {
                 {post.originalUrl && (
                   <Link
                     href={post.originalUrl}
+                    title='View original post'
+                    aria-label='View original post'
                     target='_blank'
                     rel='noopener noreferrer'
                     className={cn(
@@ -214,7 +213,7 @@ export default function PostPage({ params }: PostPageProps) {
                     )}
                   >
                     <Link2Icon
-                      className=' size-4 text-foreground'
+                      className='size-4 text-foreground'
                       aria-hidden='true'
                     />
                   </Link>
@@ -239,29 +238,35 @@ export default function PostPage({ params }: PostPageProps) {
             {pager?.previousPost ? (
               <Link
                 aria-label='Previous post'
+                title='Previous post'
                 href={pager.previousPost.slug}
                 className={cn(buttonVariants({ variant: 'ghost' }))}
               >
                 <ChevronLeftIcon className='mr-2 size-4' aria-hidden='true' />
-                {pager.previousPost.title}
+                {pager.previousPost.title.trim().length > 30
+                  ? `${pager.previousPost.title.slice(0, 30)}...`
+                  : pager.previousPost.title}
               </Link>
             ) : null}
             {pager?.nextPost ? (
               <Link
                 aria-label='Next post'
+                title='Next post'
                 href={pager.nextPost.slug}
                 className={cn(buttonVariants({ variant: 'ghost' }), 'ml-auto')}
               >
-                {pager.nextPost.title}
+                {pager.nextPost.title.trim().length > 30
+                  ? `${pager.nextPost.title.slice(0, 30)}...`
+                  : pager.nextPost.title}
                 <ChevronRightIcon className='ml-2 size-4' aria-hidden='true' />
               </Link>
             ) : null}
           </div>
         </div>
-        <div className='sticky top-32 mx-auto my-10 h-fit max-w-[200px]'>
+        <div className='sticky top-32 my-10 hidden h-fit max-w-[200px] md:grid'>
           <h3 className='text-lg font-semibold'>Table of Contents</h3>
-          <ul className=' mt-4 text-base'>
-            {post.toc.slice(1).map((heading: Toc) => {
+          <ul className='mt-4 text-base'>
+            {post.toc.map((heading: Toc) => {
               return (
                 <li key={`#${heading.slug}`} className=' py-1'>
                   <a
