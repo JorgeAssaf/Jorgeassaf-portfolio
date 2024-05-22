@@ -241,7 +241,7 @@ export default function PostPage({ params }: PostPageProps) {
               >
                 <ChevronLeftIcon className='mr-2 size-4' aria-hidden='true' />
                 {pager.previousPost.title.trim().length > 30
-                  ? pager.previousPost.title.slice(0, 30) + '...'
+                  ? `${pager.previousPost.title.slice(0, 30)}...`
                   : pager.previousPost.title}
               </Link>
             ) : null}
@@ -252,7 +252,7 @@ export default function PostPage({ params }: PostPageProps) {
                 className={cn(buttonVariants({ variant: 'ghost' }), 'ml-auto')}
               >
                 {pager.nextPost.title.trim().length > 30
-                  ? pager.nextPost.title.slice(0, 30) + '...'
+                  ? `${pager.nextPost.title.slice(0, 30)}...`
                   : pager.nextPost.title}
                 <ChevronRightIcon className='ml-2 size-4' aria-hidden='true' />
               </Link>
