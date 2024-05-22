@@ -5,19 +5,26 @@ import Link from 'next/link'
 import { Formaters } from '@/helpers/formaters'
 import type { Post } from 'contentlayer/generated'
 
+import { slugify } from '@/lib/utils'
+
 import { Badge } from '../ui/badge'
 
 export const PostCard = ({ post, i }: { post: Post; i: number }) => {
   return (
     <article className='flex max-w-xl flex-col items-start' key={post._id}>
-      <Link href={`/blog/${post.slug}`} className='relative w-full'>
+      <Link
+        href={`/blog/${slugify(post.slug)}`}
+        className='relative w-full'
+        title={post.title}
+        aria-label={post.title}
+      >
         <div className='aspect-video overflow-hidden rounded-md'>
           <Image
             src={post.mainImage}
-            className='rounded-md object-cover'
+            className='rounded-md'
             alt={post.title}
             fill
-            sizes='(min-width: 640px) 640px, 100vw'
+            sizes='(min-width: 1024px) 1024px, 100vw'
             priority={i < 2}
           />
         </div>
@@ -36,7 +43,12 @@ export const PostCard = ({ post, i }: { post: Post; i: number }) => {
 
       <div className='relative'>
         <h3 className='m-0 mt-3 text-xl font-semibold leading-6'>
-          <Link href={`/blog/${post.slug}`} className='text-foreground'>
+          <Link
+            href={`/blog/${slugify(post.slug)}`}
+            className='text-foreground'
+            title={post.title}
+            aria-label={post.title}
+          >
             {post.title}
           </Link>
         </h3>
