@@ -3,7 +3,7 @@ import type { Post } from 'contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 
 import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
 
 export const MdxComponent = ({ post }: { post: Post }) => {
   const MDXContent = useMDXComponent(post.body.code)
@@ -93,6 +93,21 @@ export const MdxComponent = ({ post }: { post: Post }) => {
               'font-medium underline underline-offset-4',
               className,
             )}
+            {...props}
+          />
+        ),
+        ExternalLink: ({
+          className,
+          ...props
+        }: React.ComponentProps<typeof Link>) => (
+          <Link
+            className={cn(
+              buttonVariants({ variant: 'default' }),
+              'my-5',
+              className,
+            )}
+            target='_blank'
+            rel='noopener noreferrer'
             {...props}
           />
         ),
