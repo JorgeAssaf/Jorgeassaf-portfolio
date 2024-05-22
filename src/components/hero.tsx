@@ -53,17 +53,35 @@ const Hero = () => {
             className='flex flex-row gap-5'
             variants={FADE_DOWN_ANIMATION_VARIANTS}
           >
-            <Link className={cn(buttonVariants())} href='#'>
+            <Link
+              className={cn(buttonVariants())}
+              href='https://github.com/JorgeAssaf'
+              target='_blank'
+              rel='noopener noreferrer'
+              title='View my GitHub profile'
+              aria-label='View my GitHub profile'
+            >
               <GitHub className='size-6' aria-hidden='true' />
               <span className='sr-only'>GitHub</span>
             </Link>
-            <Link className={cn(buttonVariants())} href='#'>
+            <Link
+              className={cn(buttonVariants())}
+              href='https://www.linkedin.com/in/jorge-enrique-assaf/'
+              title='View my LinkedIn profile'
+              aria-label='View my LinkedIn profile'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               <LinkedIn className='size-6' aria-hidden='true' />
               <span className='sr-only'>LinkedIn</span>
             </Link>
             <Link
               className={cn(buttonVariants({ variant: 'secondary' }))}
-              href='#'
+              href='https://drive.google.com/file/d/1KGmCNQLKOSRosglp8x-hNxsHgeHxkGPr/view?usp=sharing'
+              title='Download my resume'
+              aria-label='Download my resume'
+              target='_blank'
+              rel='noopener noreferrer'
             >
               Resume
             </Link>
