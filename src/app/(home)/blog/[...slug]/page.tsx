@@ -112,7 +112,9 @@ export default function PostPage({ params }: PostPageProps) {
               title='Visit blog category'
               href={{
                 pathname: '/blog',
-                query: { category: slugify(post.categories[0]) },
+                query: {
+                  category: slugify(post.categories[0]),
+                },
               }}
               className='flex flex-wrap items-center justify-start gap-1.5 text-[0.625rem] md:text-sm '
             >
@@ -236,6 +238,7 @@ export default function PostPage({ params }: PostPageProps) {
             {pager?.previousPost ? (
               <Link
                 aria-label='Previous post'
+                title='Previous post'
                 href={pager.previousPost.slug}
                 className={cn(buttonVariants({ variant: 'ghost' }))}
               >
@@ -248,6 +251,7 @@ export default function PostPage({ params }: PostPageProps) {
             {pager?.nextPost ? (
               <Link
                 aria-label='Next post'
+                title='Next post'
                 href={pager.nextPost.slug}
                 className={cn(buttonVariants({ variant: 'ghost' }), 'ml-auto')}
               >
