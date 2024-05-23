@@ -10,7 +10,7 @@ export default function BlogLoading() {
 
       <div className='flex flex-row gap-5 md:flex-col'>
         <div className='relative flex flex-col gap-5 md:flex-row'>
-          <div className='flex flex-col gap-5'>
+          <div className='flex flex-row flex-wrap gap-5 md:flex-col'>
             {new Array(6).fill(0).map((_, i) => (
               <Skeleton key={i} className='h-10 w-32' />
             ))}
