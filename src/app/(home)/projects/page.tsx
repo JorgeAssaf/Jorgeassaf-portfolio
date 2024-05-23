@@ -10,6 +10,8 @@ import { PageHeader } from '@/components/page-header'
 import Projects from '@/components/projects'
 import type { ProjectsEntity } from '@/app/types/sanity'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Projects',
   description:
@@ -43,7 +45,6 @@ export default async function ProjectsPage({
     category:
       category !== undefined ? Formaters.capitalizeFirstLetter(category) : '',
   })
-  // fist word in category is capitalized
   return (
     <section>
       <PageHeader
