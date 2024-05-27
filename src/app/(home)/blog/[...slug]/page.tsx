@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -24,17 +22,20 @@ import '@/styles/mdx.css'
 import Image from 'next/image'
 
 import icons from '@/components/icons'
+import { Toc } from '@/components/toc'
 
 interface PostPageProps {
   params: {
     slug: string[]
   }
 }
-type Toc = {
+
+export type TocItem = {
   level: string
   text: string
   slug: string
 }
+
 // eslint-disable-next-line @typescript-eslint/require-await
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -263,33 +264,9 @@ export default function PostPage({ params }: PostPageProps) {
             ) : null}
           </div>
         </div>
-        <div className='sticky top-32 my-10 hidden h-fit max-w-[200px] md:grid'>
-          <h3 className='text-lg font-semibold'>Table of Contents</h3>
-          <ul className='mt-4 text-base'>
-            {post.toc.map((heading: Toc) => {
-              return (
-                <li key={`#${heading.slug}`} className=' py-1'>
-                  <a
-                    href={`#${slugify(heading.slug)}`}
-                    data-level={heading.level}
-                    className='flex flex-col data-[level=four]:pl-8 data-[level=three]:pl-4'
-                  >
-                    <span
-                      className={cn(
-                        'hover:underline',
-                        heading.level === 'three' &&
-                          'list-item list-inside list-disc',
-                        heading.level === 'four' && 'list-item list-inside ',
-                      )}
-                    >
-                      {heading.text}
-                    </span>
-                  </a>
-                </li>
-              )
-            })}
-          </ul>
-        </div>
+        <aside className='sticky top-32 hidden h-fit w-3/6 grow overflow-auto lg:grid'>
+          <Toc toc={post.toc as TocItem[]} />
+        </aside>
       </div>
     </section>
   )
