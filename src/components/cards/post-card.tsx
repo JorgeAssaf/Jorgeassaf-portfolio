@@ -39,8 +39,8 @@ export const PostCard = ({ post, i }: { post: Post; i: number }) => {
         ))}
       </div>
 
-      <div className='relative'>
-        <h3 className='m-0 mt-3 text-xl font-semibold leading-6'>
+      <div className='relative mt-3'>
+        <h3 className='text-xl font-semibold leading-6'>
           <Link
             href={`/blog/${post.slug}`}
             className='text-foreground'
@@ -50,14 +50,13 @@ export const PostCard = ({ post, i }: { post: Post; i: number }) => {
             {post.title}
           </Link>
         </h3>
-        <p className='m-0 mt-3 line-clamp-2 leading-5'>{post.description}</p>
+        <p className='mt-3 line-clamp-2 leading-5'>{post.description}</p>
       </div>
 
       <div className='relative mt-4 flex items-center gap-3'>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={post.author.image}
-          alt='Author face'
+          alt={`${post.author.name} profile`}
           className='rounded-full'
           width='40'
           height='40'
@@ -70,7 +69,7 @@ export const PostCard = ({ post, i }: { post: Post; i: number }) => {
               {post.author.name}
             </Link>
           </p>
-          <p className='m-0 text-muted-foreground'>Front-end Developer</p>
+          <p className='m-0 text-muted-foreground'>{post.author.role}</p>
         </div>
       </div>
     </article>
