@@ -264,7 +264,7 @@ export default function PostPage({ params }: PostPageProps) {
             ) : null}
           </div>
         </div>
-        <aside className='sticky top-32 hidden h-fit w-3/6 grow overflow-auto lg:grid'>
+        <aside className='sticky top-32 hidden h-fit w-full max-w-sm grow overflow-auto lg:grid'>
           <Toc toc={post.toc as TocItem[]} />
         </aside>
       </div>
