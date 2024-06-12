@@ -1,4 +1,3 @@
-import { slugify } from './src/lib/utils'
 import rehypeShiki from '@shikijs/rehype'
 import {
   defineDocumentType,
@@ -8,6 +7,8 @@ import {
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
 import remarkToc from 'remark-toc'
+
+import { slugify } from './src/lib/utils'
 
 const AuthorLinks = defineNestedType(() => ({
   name: 'AuthorLinks',
@@ -32,6 +33,10 @@ const Author = defineNestedType(() => ({
     },
     username: {
       type: 'string',
+    },
+    role: {
+      type: 'string',
+      required: true,
     },
     links: {
       type: 'list',
@@ -69,7 +74,7 @@ export const Post = defineDocumentType(() => ({
       resolve: (post) => {
         const slug = post._raw.flattenedPath.split('/').pop()
         return slugify(slug)
-      }
+      },
     },
     slugAsParams: {
       type: 'string',
