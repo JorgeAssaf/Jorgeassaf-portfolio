@@ -1,4 +1,3 @@
-import type { FC } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Formaters } from '@/helpers/formaters'
@@ -16,7 +15,7 @@ interface ProjectsCardProps {
   order?: number
 }
 
-export const ProjectCard: FC<ProjectsCardProps> = ({ project }) => {
+export const ProjectCard = ({ project }: ProjectsCardProps) => {
   return (
     <Card className='flex min-h-[540px] w-full max-w-lg flex-col justify-center '>
       <figure className='relative aspect-[16/10] w-full overflow-hidden'>
