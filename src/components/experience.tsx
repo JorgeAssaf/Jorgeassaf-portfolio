@@ -19,7 +19,7 @@ export const Experience = ({
         <li className='mb-10 ml-4' key={job.startDate}>
           <div className='absolute left-[-0.43rem] mt-1.5 size-3 rounded-full border border-muted-foreground bg-muted-foreground' />
           <time
-            className='mb-1 text-sm font-thin leading-none '
+            className='mb-1 text-sm font-thin leading-none'
             dateTime={job.startDate}
           >
             {`${Formaters.formatDate(

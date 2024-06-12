@@ -52,7 +52,7 @@ export default function PostLoading() {
         </div>
         <div className='sticky top-32 mx-auto my-10 h-fit max-w-[200px]'>
           <h3 className='text-lg font-semibold'>Table of Contents</h3>
-          <ul className=' mt-4 text-base'>
+          <ul className='mt-4 text-base'>
             <Skeleton className='size-20' />
           </ul>
         </div>

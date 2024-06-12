@@ -17,7 +17,7 @@ interface ProjectsCardProps {
 
 export const ProjectCard = ({ project }: ProjectsCardProps) => {
   return (
-    <Card className='flex min-h-[540px] w-full max-w-lg flex-col justify-center '>
+    <Card className='flex min-h-[540px] w-full max-w-lg flex-col justify-center'>
       <figure className='relative aspect-[16/10] w-full overflow-hidden'>
         <Image
           src={project.image.url ?? '/images/placeholder.svg'}
@@ -33,7 +33,7 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
           <div className='flex items-center justify-between'>
             <Badge
               variant={'secondary'}
-              className='inline-flex items-center gap-2 rounded-lg '
+              className='inline-flex items-center gap-2 rounded-lg'
             >
               <CodeIcon className='size-4' />
               {project.category}
@@ -53,7 +53,7 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
           <p className='text-base text-muted-foreground'>
             {project.description}
           </p>
-          <div className=' flex flex-wrap gap-2'>
+          <div className='flex flex-wrap gap-2'>
             {project.technologies.map((tech) => (
               <Badge
                 key={tech.name}

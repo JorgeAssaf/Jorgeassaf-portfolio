@@ -43,7 +43,7 @@ export const Toc = ({ toc }: { toc: TocItem[] }) => {
                   className={cn(
                     heading.level === 'three' &&
                       'list-item list-inside list-disc',
-                    heading.level === 'four' && 'list-item list-inside ',
+                    heading.level === 'four' && 'list-item list-inside',
                   )}
                 >
                   {heading.text}

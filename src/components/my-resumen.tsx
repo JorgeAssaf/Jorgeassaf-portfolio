@@ -32,7 +32,7 @@ export const MyResumen = ({
       download
       className={cn(
         buttonVariants({ variant: variant, size: size, className }),
-        'flex h-0 items-center rounded-full px-2.5 py-5 ',
+        'flex h-0 items-center rounded-full px-2.5 py-5',
       )}
     >
       <ArrowDown size={20} aria-hidden='true' />

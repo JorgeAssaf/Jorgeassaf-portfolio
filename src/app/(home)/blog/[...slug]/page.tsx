@@ -117,7 +117,7 @@ export default function PostPage({ params }: PostPageProps) {
                   category: slugify(post.categories[0]),
                 },
               }}
-              className='flex flex-wrap items-center justify-start gap-1.5 text-[0.625rem] md:text-sm '
+              className='flex flex-wrap items-center justify-start gap-1.5 text-[0.625rem] md:text-sm'
             >
               <ChevronLeft size='20' />
               Blog
@@ -131,7 +131,7 @@ export default function PostPage({ params }: PostPageProps) {
             </Link>
           </Badge>
 
-          <article className='border-b pb-2 '>
+          <article className='border-b pb-2'>
             <div className='relative my-3 aspect-video'>
               <Image
                 src={post.mainImage}
@@ -145,13 +145,13 @@ export default function PostPage({ params }: PostPageProps) {
                 className='rounded-lg'
               />
               <div className='absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent' />
-              <div className='absolute inset-x-0 bottom-0 px-6 py-8 '>
-                <h1 className='mt-3 max-w-xl scroll-m-20 text-3xl font-bold leading-tight tracking-tight first:mt-0 md:text-5xl '>
+              <div className='absolute inset-x-0 bottom-0 px-6 py-8'>
+                <h1 className='mt-3 max-w-xl scroll-m-20 text-3xl font-bold leading-tight tracking-tight first:mt-0 md:text-5xl'>
                   {post.title}
                 </h1>
               </div>
             </div>
-            <span className=' text-sm text-muted-foreground'>
+            <span className='text-sm text-muted-foreground'>
               Published on {Formaters.formatDate(post.date)}
             </span>
             {/* <h1 className='mt-3 scroll-m-20 text-4xl font-bold leading-tight tracking-tight transition-colors first:mt-0'>

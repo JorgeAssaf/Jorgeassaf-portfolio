@@ -30,10 +30,10 @@ export default function AboutPage() {
             },
           },
         }}
-        className=' mx-auto max-w-[75ch]'
+        className='mx-auto max-w-[75ch]'
       >
         <FramerDiv variants={FADE_DOWN_ANIMATION_VARIANTS}>
-          <p className=' leading-7 text-foreground/70 md:text-lg [&:not(:first-child)]:mt-6'>
+          <p className='leading-7 text-foreground/70 md:text-lg [&:not(:first-child)]:mt-6'>
             I&apos;m a front-end web developer with experience in JavaScript,
             React, Next.js and Astro. My goal is to become a FullStack
             programmer. I enjoy creating beautiful and easy to use web
@@ -53,7 +53,7 @@ export default function AboutPage() {
           variants={FADE_DOWN_ANIMATION_VARIANTS}
           className='my-10 flex flex-col items-center justify-center'
         >
-          <h3 className='text-3xl font-bold '>Experience</h3>
+          <h3 className='text-3xl font-bold'>Experience</h3>
           <section className='my-5'>
             <Experience experience={JOB_EXPERIENCE} />
           </section>
@@ -80,7 +80,7 @@ export default function AboutPage() {
               <Typescript className='size-5' />
               <span>Typescript</span>
             </div>
-            <div className='flex items-center justify-center gap-1.5  rounded-md bg-[#2D3748] px-4 py-2'>
+            <div className='flex items-center justify-center gap-1.5 rounded-md bg-[#2D3748] px-4 py-2'>
               <Prisma className='size-5' />
               <span>Prisma</span>
             </div>

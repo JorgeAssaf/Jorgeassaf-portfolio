@@ -27,7 +27,7 @@ const SiteHeader = () => {
       >
         <m.div
           variants={FADE_DOWN_ANIMATION_VARIANTS}
-          className='container py-5 '
+          className='container py-5'
         >
           <MainNav items={siteConfig.mainNav} />
           <MobileNav items={siteConfig.mainNav} />
