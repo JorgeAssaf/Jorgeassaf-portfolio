@@ -7,7 +7,6 @@ export class Formaters {
     { options }: { options?: FormatOptions } = {},
   ): string {
     return format(parseISO(date.toString()), Pattern, options)
-
   }
   static capitalizeFirstLetter(string: string | string[]): string {
     if (string.length === 0) return ''
