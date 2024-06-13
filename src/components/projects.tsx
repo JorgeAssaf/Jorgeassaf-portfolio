@@ -18,7 +18,7 @@ interface ProjectsProps {
 
 const Projects: FC<ProjectsProps> = ({ projects }) => {
   return (
-    <m.section
+    <m.div
       initial='hidden'
       animate='show'
       viewport={{ once: true }}
@@ -57,7 +57,7 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
           View my experience in about page
         </Link>
       </m.div>
-    </m.section>
+    </m.div>
   )
 }
 

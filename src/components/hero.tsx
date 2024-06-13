@@ -16,7 +16,7 @@ const HomeScene = dynamic(() => import('@/scenes/home-scene'), {
 
 const Hero = () => {
   return (
-    <m.section
+    <m.div
       initial='hidden'
       animate='show'
       viewport={{ once: true }}
@@ -94,7 +94,7 @@ const Hero = () => {
           <HomeScene />
         </m.div>
       </div>
-    </m.section>
+    </m.div>
   )
 }
 

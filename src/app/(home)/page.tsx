@@ -14,7 +14,7 @@ export default async function Home() {
   const projects = await client.fetch<ProjectsEntity[]>(getLatestProjectsQuery)
 
   return (
-    <main>
+    <section>
       <Hero />
       <Scroll />
       <PageHeader
@@ -31,6 +31,6 @@ export default async function Home() {
       {allPosts.slice(0, 3).map((post, i) => (
         <PostCard i={i} key={post.slug} post={post} />
       ))}
-    </main>
+    </section>
   )
 }
