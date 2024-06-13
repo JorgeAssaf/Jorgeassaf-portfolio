@@ -93,7 +93,6 @@ export function generateMetadata({ params }: PostPageProps): Metadata {
     twitter: {
       card: 'summary_large_image',
       title: post.title,
-
       images: [ogUrl.toString()],
     },
   }
@@ -107,56 +106,60 @@ export default function PostPage({ params }: PostPageProps) {
     <section className='mx-auto'>
       <div className='grid grid-cols-1 justify-center gap-8 md:grid-cols-3'>
         <div className='col-span-1 max-w-[80ch] md:col-span-2'>
-          <Badge className='mb-10 hover:bg-primary hover:text-primary-foreground'>
-            <Link
-              aria-label='Visit blog category'
-              title='Visit blog category'
-              href={{
-                pathname: '/blog',
-                query: {
-                  category: slugify(post.categories[0]),
-                },
-              }}
-              className='flex flex-wrap items-center justify-start gap-1.5 text-[0.625rem] md:text-sm'
-            >
-              <ChevronLeft size='20' />
-              Blog
-              <ChevronLeft size='20' />
-              {post.categories.map((category, i) => (
-                <span key={category}>
-                  {category}
-                  {i < post.categories.length - 1 && ' / '}
-                </span>
-              ))}
-            </Link>
-          </Badge>
+          <nav aria-label='Breadcrumb' className='mb-10'>
+            <Badge className='hover:bg-primary hover:text-primary-foreground'>
+              <Link
+                aria-label='Visit blog category'
+                title='Visit blog category'
+                href={{
+                  pathname: '/blog',
+                  query: {
+                    category: slugify(post.categories[0]),
+                  },
+                }}
+                className='flex flex-wrap items-center justify-start gap-1.5 text-[0.625rem] md:text-sm'
+              >
+                <ChevronLeft size='20' aria-hidden='true' />
+                Blog
+                <ChevronLeft size='20' aria-hidden='true' />
+                {post.categories.map((category, i) => (
+                  <span key={category}>
+                    {category}
+                    {i < post.categories.length - 1 && ' / '}
+                  </span>
+                ))}
+              </Link>
+            </Badge>
+          </nav>
 
           <article className='border-b pb-2'>
-            <div className='relative my-3 aspect-video'>
-              <Image
-                src={post.mainImage}
-                alt={`${post.title} image`}
-                fill
-                decoding='async'
-                loading='eager'
-                priority
-                quality={100}
-                sizes='min(100vw, 1000px)'
-                className='rounded-lg'
-              />
-              <div className='absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent' />
-              <div className='absolute inset-x-0 bottom-0 px-6 py-8'>
-                <h1 className='mt-3 max-w-xl scroll-m-20 text-3xl font-bold leading-tight tracking-tight first:mt-0 md:text-5xl'>
-                  {post.title}
-                </h1>
+            <header>
+              <div className='relative my-3 aspect-video'>
+                <Image
+                  src={post.mainImage}
+                  alt={`${post.title} image`}
+                  fill
+                  decoding='async'
+                  loading='eager'
+                  priority
+                  quality={100}
+                  sizes='min(100vw, 1000px)'
+                  className='rounded-lg'
+                />
+                <div className='absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent' />
+                <div className='absolute inset-x-0 bottom-0 px-6 py-8'>
+                  <h1 className='mt-3 max-w-xl scroll-m-20 text-3xl font-bold leading-tight tracking-tight first:mt-0 md:text-5xl'>
+                    {post.title}
+                  </h1>
+                </div>
               </div>
-            </div>
-            <span className='text-sm text-muted-foreground'>
-              Published on {Formaters.formatDate(post.date)}
-            </span>
-            {/* <h1 className='mt-3 scroll-m-20 text-4xl font-bold leading-tight tracking-tight transition-colors first:mt-0'>
-              {post.title}
-            </h1> */}
+              <time
+                className='text-sm text-muted-foreground'
+                dateTime={post.date}
+              >
+                Published on {Formaters.formatDate(post.date)}
+              </time>
+            </header>
             <div className='my-4 flex items-center justify-between gap-10'>
               <div className='mt-1 flex items-center gap-3'>
                 {post.author.image && (
@@ -235,7 +238,10 @@ export default function PostPage({ params }: PostPageProps) {
             <MdxComponent post={post} />
           </div>
 
-          <div className='mt-7 flex items-center justify-between'>
+          <nav
+            className='mt-7 flex items-center justify-between'
+            aria-label='Pagination'
+          >
             {pager?.previousPost ? (
               <Link
                 aria-label='Previous post'
@@ -262,7 +268,7 @@ export default function PostPage({ params }: PostPageProps) {
                 <ChevronRightIcon className='ml-2 size-4' aria-hidden='true' />
               </Link>
             ) : null}
-          </div>
+          </nav>
         </div>
         <aside className='sticky top-32 hidden h-fit w-full max-w-sm grow overflow-auto lg:grid'>
           <Toc toc={post.toc as TocItem[]} />
