@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
+import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constants'
 
 import { JOB_EXPERIENCE } from '@/config/experience'
 import { Experience } from '@/components/experience'
