@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
+import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constants'
 import { allPosts } from 'contentlayer/generated'
 import { FileWarningIcon } from 'lucide-react'
 
@@ -25,13 +25,13 @@ export const metadata: Metadata = {
   ],
 }
 
-export default function BlogPage({
+export default async function BlogPage({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | string[] | undefined }
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
-  const category = searchParams.category
-  const page = Number.parseInt(searchParams.page as string) || 1
+  const { category, page: activePage } = await searchParams
+  const page = Number.parseInt(activePage as string) || 1
   const postsPerPage = 6
   const startIndex = (page - 1) * postsPerPage
   const endIndex = startIndex + postsPerPage
