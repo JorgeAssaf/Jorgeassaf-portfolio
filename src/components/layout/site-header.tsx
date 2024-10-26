@@ -1,6 +1,6 @@
 'use client'
 
-import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
+import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constants'
 import { domAnimation, LazyMotion, m } from 'framer-motion'
 
 import { siteConfig } from '@/config/site'

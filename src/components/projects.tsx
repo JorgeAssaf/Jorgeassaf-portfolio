@@ -2,7 +2,7 @@
 
 import type { FC } from 'react'
 import Link from 'next/link'
-import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
+import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constants'
 import { m } from 'framer-motion'
 import { FileWarningIcon } from 'lucide-react'
 

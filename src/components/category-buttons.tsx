@@ -2,7 +2,7 @@
 
 import { useCallback, useTransition } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { FADE_LEFT_ANIMATION_VARIANTS } from '@/constans'
+import { FADE_LEFT_ANIMATION_VARIANTS } from '@/constants'
 import { m } from 'framer-motion'
 import { Home, type LucideIcon } from 'lucide-react'
 

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constans'
+import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constants'
 import { Formaters } from '@/helpers/formaters'
 
 import { getProjectsQuery } from '@/lib/querys'
@@ -37,9 +37,9 @@ const categories = [
 export default async function ProjectsPage({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | string[] | undefined }
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
-  const { category } = searchParams
+  const { category } = await searchParams
 
   const projects = await client.fetch<ProjectsEntity[]>(getProjectsQuery, {
     category:
