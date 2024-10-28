@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import { cn } from '@/lib/utils'
-import type { MainNavItem } from '@/app/types/site'
+import type { MainNavItem } from '@/types/site'
 
 import { ThemeToggle } from './theme-toggle'
 

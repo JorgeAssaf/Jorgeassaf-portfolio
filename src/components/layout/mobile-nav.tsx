@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import { Menu } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
-import type { MainNavItem } from '@/app/types/site'
+import type { MainNavItem } from '@/types/site'
 
 import { Button } from '../ui/button'
 import {

@@ -6,7 +6,7 @@ import { CalendarCheck, CodeIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import type { ProjectsEntity } from '@/app/types/sanity'
+import type { ProjectsEntity } from '@/types/sanity'
 
 import { Badge } from '../ui/badge'
 

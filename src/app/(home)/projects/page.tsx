@@ -8,7 +8,7 @@ import CategoryButtons from '@/components/category-buttons'
 import { FramerDiv } from '@/components/framer'
 import { PageHeader } from '@/components/page-header'
 import Projects from '@/components/projects'
-import type { ProjectsEntity } from '@/app/types/sanity'
+import type { ProjectsEntity } from '@/types/sanity'
 
 export const dynamic = 'force-dynamic'
 
