@@ -2,7 +2,7 @@ import { JetBrains_Mono as FontMono } from 'next/font/google'
 import localFont from 'next/font/local'
 
 export const fontsans = localFont({
-  src: '../app/fonts/satoshi.ttf',
+  src: '../fonts/satoshi.ttf',
   preload: true,
   display: 'swap',
   fallback: ['ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
