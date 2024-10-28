@@ -12,14 +12,12 @@ import { Button } from './button'
 
 interface PaginationButtonsProps extends React.HTMLAttributes<HTMLDivElement> {
   page: number
-  perPage: number
   totalPage: number
 }
 
 export const PaginationButtons = ({
   className,
   page,
-  perPage,
   totalPage,
 }: PaginationButtonsProps) => {
   const delta = 1 + 2
