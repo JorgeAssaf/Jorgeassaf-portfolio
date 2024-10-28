@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { withContentlayer } = require('next-contentlayer')
+import type { NextConfig } from 'next'
+import { withContentCollections } from '@content-collections/next'
 
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
     formats: ['image/webp'],
@@ -25,6 +25,6 @@ const nextConfig = {
     ],
   },
   transpilePackages: ['three', '@react-three/drei', '@react-three/fiber'],
-}
+} satisfies NextConfig
 
-module.exports = withContentlayer(nextConfig)
+export default withContentCollections(nextConfig)
