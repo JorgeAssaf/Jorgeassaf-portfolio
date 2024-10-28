@@ -4,7 +4,7 @@ import type { Metadata, Viewport } from 'next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import { siteConfig } from '@/config/site'
-import { fontmono, fontsans } from '@/lib/fonts'
+import { fontmono, fontsans } from '@/config/fonts'
 import { cn } from '@/lib/utils'
 import { Analytics } from '@/components/analytics'
 import { ThemeProvider } from '@/components/theme-provider'
