@@ -4,7 +4,7 @@ import type { Metadata, Viewport } from 'next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import { siteConfig } from '@/config/site'
-import { fontmono, Satoshi } from '@/lib/fonts'
+import { fontmono, fontsans } from '@/lib/fonts'
 import { cn } from '@/lib/utils'
 import { Analytics } from '@/components/analytics'
 import { ThemeProvider } from '@/components/theme-provider'
@@ -53,9 +53,6 @@ export const metadata: Metadata = {
     images: [`${siteConfig.url}/opengraph-image.png`],
     creator: '@AssafEnrique',
   },
-  icons: {
-    icon: '/favicon.ico',
-  },
 }
 
 export const viewport: Viewport = {
@@ -72,7 +69,7 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
         className={cn(
           'flex min-h-screen flex-col antialiased',
           fontmono.variable,
-          Satoshi.className,
+          fontsans.className,
         )}
       >
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
