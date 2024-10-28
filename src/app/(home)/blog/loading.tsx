@@ -11,12 +11,12 @@ export default function BlogLoading() {
       <div className='flex flex-row gap-5 md:flex-col'>
         <div className='relative flex flex-col gap-5 md:flex-row'>
           <div className='flex flex-row flex-wrap gap-5 md:flex-col'>
-            {new Array(6).fill(0).map((_, i) => (
+            {Array.from({ length: 6 }).map((_, i) => (
               <Skeleton key={i} className='h-10 w-32' />
             ))}
           </div>
           <div className='flex w-full flex-col items-center justify-center gap-5 md:grid md:grid-cols-2'>
-            {new Array(2).fill(0).map((_, i) => (
+            {Array.from({ length: 2 }).map((_, i) => (
               <div
                 key={i}
                 className='flex w-full max-w-xl flex-col items-start rounded-lg bg-card'
