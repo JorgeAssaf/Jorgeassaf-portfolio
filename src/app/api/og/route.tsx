@@ -59,9 +59,10 @@ export function GET(req: Request) {
       },
     )
   } catch (error) {
-    error instanceof Error
-      ? console.log(`${error.message}`)
-      : console.log(error)
+    if (error instanceof Error) {
+      console.error(error)
+    }
+
     return new Response('Failed to generate image', { status: 500 })
   }
 }
