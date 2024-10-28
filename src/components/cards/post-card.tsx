@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Formaters } from '@/helpers/formaters'
-import type { Post } from 'contentlayer/generated'
+import type { Post } from 'content-collections'
 
 import { Badge } from '../ui/badge'
 
@@ -50,11 +50,11 @@ export const PostCard = ({ post, i }: { post: Post; i: number }) => {
             {post.title}
           </Link>
         </h3>
-        <p className='mt-3 line-clamp-2 leading-5'>{post.description}</p>
+        <p className='mt-3 line-clamp-2 leading-5'>{post.summary}</p>
       </div>
 
       <div className='relative mt-4 flex items-center gap-3'>
-        <img
+        <Image
           src={post.author.image}
           alt={`${post.author.name} profile`}
           className='rounded-full'

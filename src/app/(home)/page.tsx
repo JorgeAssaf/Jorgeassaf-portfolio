@@ -1,4 +1,4 @@
-import { allPosts } from 'contentlayer/generated'
+import { allPosts } from 'content-collections'
 
 import { getLatestProjectsQuery } from '@/lib/querys'
 import { client } from '@/lib/sanity'

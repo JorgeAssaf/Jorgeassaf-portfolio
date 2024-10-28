@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Formaters } from '@/helpers/formaters'
-import { allPosts } from 'contentlayer/generated'
+import { allPosts } from 'content-collections'
 import {
   ChevronLeft,
   ChevronLeftIcon,
@@ -25,9 +25,7 @@ import icons from '@/components/icons'
 import { Toc } from '@/components/toc'
 
 interface PostPageProps {
-  params: {
-    slug: string[]
-  }
+  params: Promise<{ slug: string[] }>
 }
 
 export type TocItem = {
@@ -43,8 +41,8 @@ export async function generateStaticParams() {
   }))
 }
 
-function getPostFromParams(params: PostPageProps['params']) {
-  const slug = params.slug.join('/')
+async function getPostFromParams(params: PostPageProps['params']) {
+  const slug = (await params).slug.join('/')
 
   const post = allPosts.find((post) => post.slugAsParams === slugify(slug))
   if (!post) {
@@ -54,8 +52,10 @@ function getPostFromParams(params: PostPageProps['params']) {
   return post
 }
 
-export function generateMetadata({ params }: PostPageProps): Metadata {
-  const post = getPostFromParams(params)
+export async function generateMetadata({
+  params,
+}: PostPageProps): Promise<Metadata> {
+  const post = await getPostFromParams(params)
   if (!post) {
     return {
       metadataBase: new URL(
@@ -98,14 +98,14 @@ export function generateMetadata({ params }: PostPageProps): Metadata {
   }
 }
 
-export default function PostPage({ params }: PostPageProps) {
-  const post = getPostFromParams(params)
+export default async function PostPage({ params }: PostPageProps) {
+  const post = await getPostFromParams(params)
   if (!post) notFound()
   const pager = getPager(post, allPosts)
   return (
     <section className='mx-auto'>
       <div className='grid grid-cols-1 justify-center gap-8 md:grid-cols-3'>
-        <div className='col-span-1 max-w-[80ch] md:col-span-2'>
+        <div className='col-span-1 max-w-[75ch] md:col-span-2'>
           <nav aria-label='Breadcrumb' className='mb-10'>
             <Badge className='hover:bg-primary hover:text-primary-foreground'>
               <Link

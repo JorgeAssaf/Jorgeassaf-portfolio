@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constants'
-import { allPosts } from 'contentlayer/generated'
+import { allPosts } from 'content-collections'
 import { FileWarningIcon } from 'lucide-react'
 
 import { siteConfig } from '@/config/site'
@@ -93,7 +93,6 @@ export default async function BlogPage({
       <PaginationButtons
         className='mt-10'
         page={page}
-        perPage={postsPerPage}
         totalPage={Math.ceil(allPosts.length / postsPerPage)}
       />
     </>
@@ -179,7 +178,7 @@ const NotFoundPosts = () => (
 // import Link from 'next/link'
 // import { notFound } from 'next/navigation'
 // import { Formaters } from '@/helpers/formaters'
-// import { allPosts } from 'contentlayer/generated'
+// import { allPosts } from "content-collections";
 // import { ChevronLeft, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
 
 // import { cn, slugify } from '@/lib/utils'

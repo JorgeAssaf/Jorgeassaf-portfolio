@@ -1,14 +1,14 @@
 import Link from 'next/link'
-import type { Post } from 'contentlayer/generated'
-import { useMDXComponent } from 'next-contentlayer/hooks'
+import { MDXContent } from '@content-collections/mdx/react'
+import type { Post } from 'content-collections'
 
 import { cn } from '@/lib/utils'
 import { Button, buttonVariants } from '@/components/ui/button'
 
 export const MdxComponent = ({ post }: { post: Post }) => {
-  const MDXContent = useMDXComponent(post.body.code)
   return (
     <MDXContent
+      code={post.mdx}
       components={{
         Button,
         h1: ({
