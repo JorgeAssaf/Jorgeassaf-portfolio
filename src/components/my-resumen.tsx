@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
+import { useMediaQuery } from '@/hooks/use-media-query'
 
 import { buttonVariants, type ButtonProps } from './ui/button'
 
@@ -19,6 +20,24 @@ export const MyResumen = ({
   size?: ButtonProps['size']
 }) => {
   const [isHovered, setHovered] = useState(false)
+  const isDesktop = useMediaQuery('(min-width: 1024px)')
+  if (!isDesktop)
+    return (
+      <Link
+        href='https://drive.google.com/file/d/1KGmCNQLKOSRosglp8x-hNxsHgeHxkGPr/view?usp=sharing'
+        arial-label='Download Resume'
+        target='_blank'
+        rel='noopener noreferrer'
+        download
+        className={cn(
+          buttonVariants({ variant: variant, size: size, className }),
+          'flex h-0 items-center rounded-full px-2.5 py-5',
+        )}
+      >
+        <ArrowDown size={20} aria-hidden='true' />
+        <span className='overflow-hidden whitespace-nowrap'>My resume</span>
+      </Link>
+    )
   return (
     <Link
       href='https://drive.google.com/file/d/1KGmCNQLKOSRosglp8x-hNxsHgeHxkGPr/view?usp=sharing'
