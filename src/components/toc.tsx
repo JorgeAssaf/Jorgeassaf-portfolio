@@ -5,7 +5,7 @@
 import { useEffect, useState } from 'react'
 
 import { cn, slugify } from '@/lib/utils'
-import type { TocItem } from '@/app/(home)/blog/[...slug]/page'
+import type { TocItem } from '@/app/(home)/blog/[slug]/page'
 
 export const Toc = ({ toc }: { toc: TocItem[] }) => {
   const [hash, setHash] = useState('')
