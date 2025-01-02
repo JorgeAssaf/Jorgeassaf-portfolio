@@ -4,8 +4,8 @@ import type { FC } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import { cn } from '@/lib/utils'
 import type { MainNavItem } from '@/types/site'
+import { cn } from '@/lib/utils'
 
 import { ThemeToggle } from './theme-toggle'
 
