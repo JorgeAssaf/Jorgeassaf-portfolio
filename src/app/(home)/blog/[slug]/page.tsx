@@ -25,7 +25,7 @@ import icons from '@/components/icons'
 import { Toc } from '@/components/toc'
 
 interface PostPageProps {
-  params: Promise<{ slug: string[] }>
+  params: Promise<{ slug: string }>
 }
 
 export type TocItem = {
@@ -37,12 +37,12 @@ export type TocItem = {
 // eslint-disable-next-line @typescript-eslint/require-await
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
-    slug: post.slug.split('/'),
+    slug: post.slug,
   }))
 }
 
 async function getPostFromParams(params: PostPageProps['params']) {
-  const slug = (await params).slug.join('/')
+  const slug = (await params).slug
 
   const post = allPosts.find((post) => post.slugAsParams === slugify(slug))
   if (!post) {
@@ -66,10 +66,10 @@ export async function generateMetadata({
   }
   const url = process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'
 
-  const ogUrl = new URL(`${url}/api/og`)
-  ogUrl.searchParams.set('title', post.title)
-  ogUrl.searchParams.set('type', 'Blog Post')
-  ogUrl.searchParams.set('mode', 'dark')
+  // const ogUrl = new URL(`${url}/api/og`)
+  // ogUrl.searchParams.set('title', post.title)
+  // ogUrl.searchParams.set('type', 'Blog Post')
+  // ogUrl.searchParams.set('mode', 'dark')
 
   return {
     metadataBase: new URL(url),
@@ -79,11 +79,12 @@ export async function generateMetadata({
     },
     openGraph: {
       title: post.title,
+      description: post.summary,
       type: 'article',
       url: url + post.slug,
       images: [
         {
-          url: ogUrl.toString(),
+          url: post.mainImage,
           width: 1200,
           height: 630,
           alt: post.title,
@@ -93,7 +94,7 @@ export async function generateMetadata({
     twitter: {
       card: 'summary_large_image',
       title: post.title,
-      images: [ogUrl.toString()],
+      images: [post.mainImage],
     },
   }
 }
