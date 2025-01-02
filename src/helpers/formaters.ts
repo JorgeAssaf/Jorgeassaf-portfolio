@@ -3,10 +3,15 @@ import { format, parseISO, type FormatOptions } from 'date-fns'
 export class Formaters {
   static formatDate(
     date: Date | string | number,
-    Pattern = 'PPPP',
-    { options }: { options?: FormatOptions } = {},
+    {
+      pattern = 'PPPP',
+      options,
+    }: {
+      pattern?: string
+      options?: FormatOptions
+    } = {},
   ): string {
-    return format(parseISO(date.toString()), Pattern, options)
+    return format(parseISO(date.toString()), pattern, options)
   }
   static capitalizeFirstLetter(string: string | string[]): string {
     if (string.length === 0) return ''

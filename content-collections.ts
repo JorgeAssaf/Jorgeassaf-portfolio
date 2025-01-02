@@ -1,6 +1,5 @@
 import { defineCollection, defineConfig } from '@content-collections/core'
 import { compileMDX } from '@content-collections/mdx'
-
 import rehypeShiki from '@shikijs/rehype'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
@@ -16,7 +15,7 @@ const posts = defineCollection({
     summary: z.string(),
     originalUrl: z.string().max(125).optional(),
     mainImage: z.string().optional().default('/images/placeholder.svg'),
-    date: z.string().default(new Date().toISOString()),
+    date: z.string(),
     author: z.object({
       name: z.string().optional().default('Anonymous'),
       username: z.string().optional(),
