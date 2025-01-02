@@ -5,8 +5,8 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu } from 'lucide-react'
 
-import { cn } from '@/lib/utils'
 import type { MainNavItem } from '@/types/site'
+import { cn } from '@/lib/utils'
 
 import { Button } from '../ui/button'
 import {

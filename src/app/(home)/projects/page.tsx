@@ -1,14 +1,15 @@
 import type { Metadata } from 'next'
+import { unstable_noStore } from 'next/cache'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constants'
 import { Formaters } from '@/helpers/formaters'
 
-import { getProjectsQuery } from '@/lib/querys'
+import type { ProjectsEntity } from '@/types/sanity'
+import { GETPROJECTSQUERY } from '@/lib/querys'
 import { client } from '@/lib/sanity'
 import CategoryButtons from '@/components/category-buttons'
 import { FramerDiv } from '@/components/framer'
 import { PageHeader } from '@/components/page-header'
 import Projects from '@/components/projects'
-import type { ProjectsEntity } from '@/types/sanity'
 
 export const dynamic = 'force-dynamic'
 
@@ -40,8 +41,8 @@ export default async function ProjectsPage({
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
   const { category } = await searchParams
-
-  const projects = await client.fetch<ProjectsEntity[]>(getProjectsQuery, {
+  unstable_noStore()
+  const projects = await client.fetch<ProjectsEntity[]>(GETPROJECTSQUERY, {
     category:
       category !== undefined ? Formaters.capitalizeFirstLetter(category) : '',
   })

@@ -3,10 +3,10 @@ import Link from 'next/link'
 import { Formaters } from '@/helpers/formaters'
 import { CalendarCheck, CodeIcon } from 'lucide-react'
 
+import type { ProjectsEntity } from '@/types/sanity'
 import { cn } from '@/lib/utils'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import type { ProjectsEntity } from '@/types/sanity'
 
 import { Badge } from '../ui/badge'
 
@@ -58,6 +58,9 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
               <Badge
                 key={tech.name}
                 variant='secondary'
+                style={{
+                  backgroundColor: `#${tech.color}`,
+                }}
                 className='inline-flex items-center gap-2 rounded-lg'
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -75,34 +78,38 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
           </div>
         </div>
         <div className='flex items-center gap-4'>
-          <Link
-            className={cn(
-              buttonVariants({
-                variant: 'link',
-              }),
-            )}
-            href={project.repo}
-            target='_blank'
-            rel='noopener noreferrer'
-            title={`View ${project.name} repository`}
-            aria-label={`View ${project.name} repository`}
-          >
-            View Repository
-          </Link>
-          <Link
-            className={cn(
-              buttonVariants({
-                variant: 'link',
-              }),
-            )}
-            href={project.link}
-            target='_blank'
-            rel='noopener noreferrer'
-            title={`View ${project.name} live site`}
-            aria-label={`View ${project.name} live site`}
-          >
-            Live Site
-          </Link>
+          {project.repo && (
+            <Link
+              className={cn(
+                buttonVariants({
+                  variant: 'link',
+                }),
+              )}
+              href={project.repo}
+              target='_blank'
+              rel='noopener noreferrer'
+              title={`View ${project.name} repository`}
+              aria-label={`View ${project.name} repository`}
+            >
+              View Repository
+            </Link>
+          )}
+          {project.link && (
+            <Link
+              className={cn(
+                buttonVariants({
+                  variant: 'link',
+                }),
+              )}
+              href={project.link}
+              target='_blank'
+              rel='noopener noreferrer'
+              title={`View ${project.name} live site`}
+              aria-label={`View ${project.name} live site`}
+            >
+              Live Site
+            </Link>
+          )}
         </div>
       </CardContent>
     </Card>

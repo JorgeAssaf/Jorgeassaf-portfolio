@@ -6,9 +6,9 @@ import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constants'
 import { m } from 'framer-motion'
 import { FileWarningIcon } from 'lucide-react'
 
+import type { ProjectsEntity } from '@/types/sanity'
 import { cn } from '@/lib/utils'
 import { ProjectCard } from '@/components/cards/project-card'
-import type { ProjectsEntity } from '@/types/sanity'
 
 import { buttonVariants } from './ui/button'
 
