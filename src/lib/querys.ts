@@ -1,6 +1,7 @@
-import { groq } from 'next-sanity'
+import { defineQuery } from 'next-sanity'
 
-export const getProjectsQuery = groq`*[_type == 'projects' && (defined(category) && category == $category || !defined(category) || $category == '')] {
+export const GETPROJECTSQUERY =
+  defineQuery(`*[_type == 'projects' && (defined(category) && category == $category || !defined(category) || $category == '')] {
   _id,
   name,
   "image": {
@@ -17,9 +18,10 @@ export const getProjectsQuery = groq`*[_type == 'projects' && (defined(category)
     color
   },
   description
-}`
+}`)
 
-export const getLatestProjectsQuery = groq`*[_type == 'projects'] | order(_createdAt desc) {
+export const getLatestProjectsQuery =
+  defineQuery(`*[_type == 'projects'][0..2] | order(_createdAt desc) {
   _id,
   name,
   "image": {
@@ -36,4 +38,4 @@ export const getLatestProjectsQuery = groq`*[_type == 'projects'] | order(_creat
     color
   },
   description
-}`
+}`)
