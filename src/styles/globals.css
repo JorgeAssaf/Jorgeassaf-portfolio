@@ -73,6 +73,9 @@
 
   body {
     @apply bg-background text-foreground;
+    transition:
+      background-color ease-in 0.3s,
+      color ease-in 0.3s;
   }
 
   h1,
