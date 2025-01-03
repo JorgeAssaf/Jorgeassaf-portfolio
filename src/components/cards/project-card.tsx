@@ -43,7 +43,9 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
                 <>
                   <CalendarCheck className='size-4' />
                   <p>
-                    {Formaters.formatDate(project.createdAt, 'MMMM dd, yyyy')}
+                    {Formaters.formatDate(project.createdAt, {
+                      pattern: 'MMMM dd, yyyy',
+                    })}
                   </p>
                 </>
               )}
