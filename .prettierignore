@@ -1,7 +1,9 @@
 dist
 node_module
 .next
+.content-collections
 build
-.contentlayer
 components.json
 postcss.config.js
+pnpm-lock.yaml
+tsconfig.json
