@@ -63,7 +63,7 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
                 style={{
                   backgroundColor: `#${tech.color}`,
                 }}
-                className='inline-flex items-center gap-2 rounded-lg'
+                className='inline-flex items-center gap-2 rounded-lg text-white'
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
