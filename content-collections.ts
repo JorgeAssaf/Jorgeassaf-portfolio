@@ -7,17 +7,32 @@ import remarkToc from 'remark-toc'
 
 import { siteConfig } from '@/config/site'
 
-const categories = siteConfig.blogCategories.map((cat) => cat.title)
-console.log(categories)
-
 const posts = defineCollection({
   name: 'posts',
   directory: 'src/content/posts',
   include: '*.mdx',
 
   schema: (z) => ({
-    title: z.string(),
-    summary: z.string(),
+    title: z
+      .string({
+        description: 'The title of the post',
+      })
+      .max(100, {
+        message: 'Title is too long',
+      })
+      .min(10, {
+        message: 'Title is too short',
+      }),
+    summary: z
+      .string({
+        description: 'A brief summary of the post',
+      })
+      .min(20, {
+        message: 'Summary is too short',
+      })
+      .max(250, {
+        message: 'Summary is too long',
+      }),
     originalUrl: z.string().max(125).optional(),
     mainImage: z.string().optional().default('/images/placeholder.svg'),
     date: z.string(),
@@ -35,10 +50,16 @@ const posts = defineCollection({
     }),
     categories: z.array(
       z
-        .string()
-        .refine((val) => categories.includes(val), {
-          message: 'Invalid category',
-        }),
+        .string({
+          description: 'The categories this post belongs to',
+        })
+        .refine(
+          (val) => siteConfig.blogCategories.map((c) => c.title).includes(val),
+          {
+            message: 'Invalid category',
+            path: ['categories'],
+          },
+        ),
     ),
   }),
   transform: async (document, context) => {
