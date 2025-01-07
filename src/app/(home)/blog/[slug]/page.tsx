@@ -109,8 +109,8 @@ export default async function PostPage({ params }: PostPageProps) {
         <div className='col-span-1 max-w-[75ch] md:col-span-2'>
           <nav aria-label='Breadcrumb' className='mb-10'>
             <Badge className='hover:bg-primary hover:text-primary-foreground'>
-              <div className='flex flex-wrap items-center justify-start gap-1.5 text-[0.625rem] md:text-sm'>
-                <ChevronLeft size='20' aria-hidden='true' />
+              <div className='flex flex-wrap items-center gap-1 text-[0.825rem]'>
+                <ChevronLeft className='size-5' aria-hidden='true' />
                 <Link
                   aria-label='Visit blog home'
                   title='Visit blog home'
@@ -120,7 +120,7 @@ export default async function PostPage({ params }: PostPageProps) {
                 >
                   Blog
                 </Link>
-                <ChevronLeft size='20' aria-hidden='true' />
+                <ChevronLeft className='size-5' aria-hidden='true' />
                 {post.categories.map((category, i) => (
                   <Link
                     key={category}
