@@ -5,6 +5,11 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
 import remarkToc from 'remark-toc'
 
+import { siteConfig } from '@/config/site'
+
+const categories = siteConfig.blogCategories.map((cat) => cat.title)
+console.log(categories)
+
 const posts = defineCollection({
   name: 'posts',
   directory: 'src/content/posts',
@@ -26,9 +31,15 @@ const posts = defineCollection({
           url: z.string(),
         }),
       ),
-      image: z.string(),
+      image: z.string().url(),
     }),
-    categories: z.array(z.string()),
+    categories: z.array(
+      z
+        .string()
+        .refine((val) => categories.includes(val), {
+          message: 'Invalid category',
+        }),
+    ),
   }),
   transform: async (document, context) => {
     const mdx = await compileMDX(context, document, {
