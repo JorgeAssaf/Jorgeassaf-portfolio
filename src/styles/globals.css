@@ -73,7 +73,6 @@
 
   body {
     @apply bg-background text-foreground;
-
   }
 
   h1,
