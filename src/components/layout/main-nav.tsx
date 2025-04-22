@@ -67,7 +67,7 @@ function MenuLink({
     <Link
       href={href}
       className={cn(
-        'relative text-foreground transition-colors hover:text-primary/90',
+        'text-foreground hover:text-primary/90 relative transition-colors',
         pathname === href && 'text-primary',
         disabled && 'pointer-events-none opacity-60',
         className,

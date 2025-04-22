@@ -36,13 +36,13 @@ const Hero = () => {
             <m.h1 className='text-4xl font-bold tracking-tighter md:text-5xl lg:text-6xl'>
               Hi, I’m Jorge Assaf.
             </m.h1>
-            <m.p className='text-2xl font-semibold text-primary md:text-3xl lg:text-4xl'>
+            <m.p className='text-primary text-2xl font-semibold md:text-3xl lg:text-4xl'>
               Front-end Developer.
             </m.p>
           </m.div>
           <m.p
             variants={FADE_DOWN_ANIMATION_VARIANTS}
-            className='max-w-2xl text-muted-foreground md:text-lg'
+            className='text-muted-foreground max-w-2xl md:text-lg'
           >
             I am a passionate software engineer with a strong background in
             full-stack web development. I love building innovative and
