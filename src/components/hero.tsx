@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constants'
-import { m } from 'framer-motion'
+import * as m from 'motion/react-m'
 
 import { cn } from '@/lib/utils'
 import { GitHub, LinkedIn } from '@/components/icons'

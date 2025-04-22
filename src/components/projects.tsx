@@ -3,8 +3,8 @@
 import type { FC } from 'react'
 import Link from 'next/link'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constants'
-import { m } from 'framer-motion'
 import { FileWarningIcon } from 'lucide-react'
+import * as m from 'motion/react-m'
 
 import type { ProjectsEntity } from '@/types/sanity'
 import { cn } from '@/lib/utils'

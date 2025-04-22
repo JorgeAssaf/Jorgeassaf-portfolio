@@ -1,7 +1,8 @@
 'use client'
 
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constants'
-import { domAnimation, LazyMotion, m } from 'framer-motion'
+import { domAnimation, LazyMotion } from 'motion/react'
+import * as m from 'motion/react-m'
 
 import { siteConfig } from '@/config/site'
 

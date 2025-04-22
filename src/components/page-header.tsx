@@ -1,7 +1,7 @@
 'use client'
 
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constants'
-import { m } from 'framer-motion'
+import * as m from 'motion/react-m'
 
 import { cn } from '@/lib/utils'
 
