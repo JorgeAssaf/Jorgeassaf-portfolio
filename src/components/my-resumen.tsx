@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
+import * as m from 'motion/react-m'
 
 import { cn } from '@/lib/utils'
 import { useMediaQuery } from '@/hooks/use-media-query'
@@ -55,7 +55,7 @@ export const MyResumen = ({
       )}
     >
       <ArrowDown size={20} aria-hidden='true' />
-      <motion.span
+      <m.span
         className='overflow-hidden whitespace-nowrap'
         initial={{
           width: 0,
@@ -69,7 +69,7 @@ export const MyResumen = ({
         }}
       >
         My resume
-      </motion.span>
+      </m.span>
     </Link>
   )
 }
