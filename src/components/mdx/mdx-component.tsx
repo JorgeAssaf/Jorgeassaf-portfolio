@@ -10,7 +10,7 @@ export const MdxComponent = ({ post }: { post: Post }) => {
     <MDXContent
       code={post.mdx}
       components={{
-        Button,
+        Button: (props) => <Button {...props} />,
         h1: ({
           className,
           ...props
