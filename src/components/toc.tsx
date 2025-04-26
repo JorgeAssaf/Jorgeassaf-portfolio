@@ -22,14 +22,14 @@ export const Toc = ({ toc }: { toc: TocItem[] }) => {
   }, [])
 
   return (
-    <div className='relative mx-auto my-0 rounded-xl border border-solid bg-card/60 px-4 py-3 font-medium'>
+    <div className='bg-card/60 relative mx-auto my-0 rounded-xl border border-solid px-4 py-3 font-medium'>
       <h3 className='py-2 text-xl font-semibold'>Table of Contents</h3>
       <ul className='list-none'>
         {toc.map((heading: TocItem) => {
           return (
             <li
               key={`#${heading.slug}`}
-              className='border-t border-muted-foreground py-2 first:border-0'
+              className='border-muted-foreground border-t py-2 first:border-0'
             >
               <a
                 href={`#${slugify(heading.slug)}`}

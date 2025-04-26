@@ -28,13 +28,13 @@ export function GET(req: Request) {
             }}
           >
             {type ? (
-              <div tw='px-8 text-xl font-medium uppercase leading-tight tracking-tight'>
+              <div tw='px-8 text-xl leading-tight font-medium tracking-tight uppercase'>
                 {type}
               </div>
             ) : null}
             <h1
               tw={cn(
-                'px-8 text-6xl font-bold leading-tight tracking-tight',
+                'px-8 text-6xl leading-tight font-bold tracking-tight',
                 mode === 'dark' ? 'text-zinc-100' : 'text-zinc-800',
               )}
             >
@@ -43,7 +43,7 @@ export function GET(req: Request) {
             {description ? (
               <p
                 tw={cn(
-                  'px-20 text-center text-3xl font-normal leading-tight tracking-tight',
+                  'px-20 text-center text-3xl leading-tight font-normal tracking-tight',
                   mode === 'dark' ? 'text-zinc-400' : 'text-zinc-500',
                 )}
               >

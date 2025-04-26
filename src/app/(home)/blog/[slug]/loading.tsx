@@ -24,7 +24,7 @@ export default function PostLoading() {
                   <Skeleton className='h-4 w-24' />
                 </div>
               </div>
-              <div className='flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground md:flex-row'>
+              <div className='text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm md:flex-row'>
                 <Skeleton className='h-4 w-20' />
                 <Skeleton className='h-4 w-20' />
 

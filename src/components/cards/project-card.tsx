@@ -38,7 +38,7 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
               <CodeIcon className='size-4' />
               {project.category}
             </Badge>
-            <div className='flex items-center gap-2 text-xs text-muted-foreground'>
+            <div className='text-muted-foreground flex items-center gap-2 text-xs'>
               {project.createdAt && (
                 <>
                   <CalendarCheck className='size-4' />
@@ -50,7 +50,7 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
             </div>
           </div>
           <h3 className='text-xl font-semibold'>{project.name}</h3>
-          <p className='text-base text-muted-foreground'>
+          <p className='text-muted-foreground text-base'>
             {project.description}
           </p>
           <div className='flex flex-wrap gap-2'>

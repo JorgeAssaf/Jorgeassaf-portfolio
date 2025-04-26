@@ -40,7 +40,7 @@ export const PostCard = ({ post, i }: { post: Post; i: number }) => {
       </div>
 
       <div className='relative mt-3'>
-        <h3 className='text-xl font-semibold leading-6'>
+        <h3 className='text-xl leading-6 font-semibold'>
           <Link
             href={`/blog/${post.slug}`}
             className='text-foreground'
@@ -69,7 +69,7 @@ export const PostCard = ({ post, i }: { post: Post; i: number }) => {
               {post.author.name}
             </Link>
           </p>
-          <p className='m-0 text-muted-foreground'>{post.author.role}</p>
+          <p className='text-muted-foreground m-0'>{post.author.role}</p>
         </div>
       </div>
     </article>
