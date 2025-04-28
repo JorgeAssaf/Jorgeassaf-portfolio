@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "pnpm biome lint --write --fix ./src",
+    "lint": "pnpm biome lint --write --unsafe ./src",
     "format": "pnpm biome format --write ./",
     "clean": "rm -rf .next && rm -rf node_modules .contentlayer .unlighthouse",
     "unlighthouse": "pnpx unlighthouse --site https://jorgeassaf.vercel.app --desktop --no-cache"
