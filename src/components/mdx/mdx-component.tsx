@@ -17,7 +17,7 @@ export const MdxComponent = ({ post }: { post: Post }) => {
         }: React.HTMLAttributes<HTMLHeadingElement>) => (
           <h1
             className={cn(
-              'mt-2 scroll-m-32 text-4xl leading-tight font-bold lg:text-5xl',
+              'mt-2 scroll-m-32 font-bold text-4xl leading-tight lg:text-5xl',
               className,
             )}
             {...props}
@@ -29,7 +29,7 @@ export const MdxComponent = ({ post }: { post: Post }) => {
         }: React.HTMLAttributes<HTMLHeadingElement>) => (
           <h2
             className={cn(
-              'mt-8 scroll-m-32 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0',
+              'mt-8 scroll-m-32 border-b pb-2 font-semibold text-2xl tracking-tight first:mt-0',
               className,
             )}
             {...props}
@@ -41,7 +41,7 @@ export const MdxComponent = ({ post }: { post: Post }) => {
         }: React.HTMLAttributes<HTMLHeadingElement>) => (
           <h3
             className={cn(
-              'mt-6 scroll-m-32 text-xl font-semibold tracking-tight',
+              'mt-6 scroll-m-32 font-semibold text-xl tracking-tight',
               className,
             )}
             {...props}
@@ -53,7 +53,7 @@ export const MdxComponent = ({ post }: { post: Post }) => {
         }: React.HTMLAttributes<HTMLHeadingElement>) => (
           <h4
             className={cn(
-              'mt-6 scroll-m-32 text-lg font-semibold tracking-tight',
+              'mt-6 scroll-m-32 font-semibold text-lg tracking-tight',
               className,
             )}
             {...props}
@@ -65,7 +65,7 @@ export const MdxComponent = ({ post }: { post: Post }) => {
         }: React.HTMLAttributes<HTMLHeadingElement>) => (
           <h5
             className={cn(
-              'mt-6 scroll-m-32 text-lg font-semibold tracking-tight',
+              'mt-6 scroll-m-32 font-semibold text-lg tracking-tight',
               className,
             )}
             {...props}
@@ -77,7 +77,7 @@ export const MdxComponent = ({ post }: { post: Post }) => {
         }: React.HTMLAttributes<HTMLHeadingElement>) => (
           <h6
             className={cn(
-              'mt-6 scroll-m-32 text-base font-semibold tracking-tight',
+              'mt-6 scroll-m-32 font-semibold text-base tracking-tight',
               className,
             )}
             {...props}
@@ -159,7 +159,7 @@ export const MdxComponent = ({ post }: { post: Post }) => {
           alt,
           ...props
         }: React.ImgHTMLAttributes<HTMLImageElement>) => (
-          // eslint-disable-next-line @next/next/no-img-element
+          // biome-ignore lint/a11y/useAltText: <explanation>
           <img className={cn('rounded-md', className)} alt={alt} {...props} />
         ),
         hr: ({ ...props }: React.HTMLAttributes<HTMLHRElement>) => (
@@ -178,7 +178,7 @@ export const MdxComponent = ({ post }: { post: Post }) => {
           ...props
         }: React.HTMLAttributes<HTMLTableRowElement>) => (
           <tr
-            className={cn('even:bg-muted m-0 border-t p-0', className)}
+            className={cn('m-0 border-t p-0 even:bg-muted', className)}
             {...props}
           />
         ),

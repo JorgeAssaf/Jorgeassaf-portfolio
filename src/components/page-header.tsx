@@ -45,7 +45,7 @@ export const PageHeader = ({
           <m.h1
             variants={FADE_DOWN_ANIMATION_VARIANTS}
             className={cn(
-              'flex flex-col justify-center text-3xl font-bold tracking-tight md:text-5xl',
+              'flex flex-col justify-center font-bold text-3xl tracking-tight md:text-5xl',
               !description && 'flex-row',
             )}
           >
@@ -55,7 +55,7 @@ export const PageHeader = ({
           <m.h2
             variants={FADE_DOWN_ANIMATION_VARIANTS}
             className={cn(
-              'flex flex-col justify-center text-3xl font-bold tracking-tight md:text-5xl',
+              'flex flex-col justify-center font-bold text-3xl tracking-tight md:text-5xl',
               !description && 'flex-row',
             )}
           >
@@ -68,7 +68,7 @@ export const PageHeader = ({
             <m.h2
               variants={FADE_DOWN_ANIMATION_VARIANTS}
               className={cn(
-                'text-muted-foreground mt-3 line-clamp-2 text-lg md:text-xl',
+                'mt-3 line-clamp-2 text-lg text-muted-foreground md:text-xl',
                 !description && 'hidden',
               )}
             >
@@ -78,7 +78,7 @@ export const PageHeader = ({
             <m.p
               variants={FADE_DOWN_ANIMATION_VARIANTS}
               className={cn(
-                'text-muted-foreground mt-3 line-clamp-2 text-lg md:text-xl',
+                'mt-3 line-clamp-2 text-lg text-muted-foreground md:text-xl',
                 !description && 'hidden',
               )}
             >

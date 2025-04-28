@@ -33,16 +33,16 @@ const Hero = () => {
       <div className='flex flex-col justify-between gap-8 lg:flex-row lg:items-center'>
         <div className='space-y-2'>
           <m.div variants={FADE_DOWN_ANIMATION_VARIANTS} className='space-y-2'>
-            <m.h1 className='text-4xl font-bold tracking-tighter md:text-5xl lg:text-6xl'>
+            <m.h1 className='font-bold text-4xl tracking-tighter md:text-5xl lg:text-6xl'>
               Hi, I’m Jorge Assaf.
             </m.h1>
-            <m.p className='text-primary text-2xl font-semibold md:text-3xl lg:text-4xl'>
+            <m.p className='font-semibold text-2xl text-primary md:text-3xl lg:text-4xl'>
               Front-end Developer.
             </m.p>
           </m.div>
           <m.p
             variants={FADE_DOWN_ANIMATION_VARIANTS}
-            className='text-muted-foreground max-w-2xl md:text-lg'
+            className='max-w-2xl text-muted-foreground md:text-lg'
           >
             I am a passionate software engineer with a strong background in
             full-stack web development. I love building innovative and

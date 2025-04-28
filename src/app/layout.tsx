@@ -73,7 +73,7 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
         )}
       >
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          <div className='fixed -z-20 size-full dark:bg-[radial-gradient(ellipse_100%_100%_at_50%_-10%,rgba(120,119,198,0.35),transparent)]' />
+          <div className='-z-20 fixed size-full dark:bg-[radial-gradient(ellipse_100%_100%_at_50%_-10%,rgba(120,119,198,0.35),transparent)]' />
           {children}
           <Analytics />
           <SpeedInsights />

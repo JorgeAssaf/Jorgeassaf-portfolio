@@ -12,7 +12,7 @@ html.dark .shiki span {
 h1 > a > .icon.icon-link:before,
 h2 > a > .icon.icon-link:before,
 h3 > a > .icon.icon-link:before {
-  content: '#';
+  content: "#";
   margin-left: 0.7rem;
   font-size: 1.2rem;
 }

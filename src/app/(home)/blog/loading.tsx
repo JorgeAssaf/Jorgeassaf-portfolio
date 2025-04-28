@@ -19,7 +19,7 @@ export default function BlogLoading() {
             {Array.from({ length: 2 }).map((_, i) => (
               <div
                 key={i}
-                className='bg-card flex w-full max-w-xl flex-col items-start rounded-lg'
+                className='flex w-full max-w-xl flex-col items-start rounded-lg bg-card'
               >
                 <Skeleton className='h-72 w-full' />
 

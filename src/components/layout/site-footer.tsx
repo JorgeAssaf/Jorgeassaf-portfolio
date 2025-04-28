@@ -11,7 +11,7 @@ const SiteFooter = () => {
       <div className='container py-7'>
         <div className='flex scroll-m-20 items-center justify-between gap-5'>
           <div>
-            <h3 className='mb-5 scroll-m-20 text-3xl font-semibold tracking-tight'>
+            <h3 className='mb-5 scroll-m-20 font-semibold text-3xl tracking-tight'>
               Let&apos;s talk
             </h3>
             <h4 className='scroll-m-20 text-base tracking-tight'>

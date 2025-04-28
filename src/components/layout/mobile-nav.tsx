@@ -29,7 +29,7 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
     <div className='flex h-20 items-center justify-between md:hidden'>
       <div className='flex text-left md:flex'>
         <Link aria-label='Home' href='/' title='Home'>
-          <p className='text-2xl font-bold md:flex'>
+          <p className='font-bold text-2xl md:flex'>
             JA<span className='text-primary'>.</span>
           </p>
         </Link>
@@ -55,7 +55,7 @@ const MobileNav: FC<MobileNavProps> = ({ items }) => {
                 className='flex items-center'
                 onClick={() => setIsOpen(false)}
               >
-                <p className='text-3xl font-bold md:inline-block'>
+                <p className='font-bold text-3xl md:inline-block'>
                   JA<span className='text-primary'>.</span>
                 </p>
               </Link>
@@ -105,7 +105,7 @@ function MobileLink({
     <Link
       href={href}
       className={cn(
-        'text-foreground hover:text-primary/90 text-xl font-medium transition-colors',
+        'font-medium text-foreground text-xl transition-colors hover:text-primary/90',
         pathname === href && 'text-primary',
         disabled && 'pointer-events-none opacity-60',
         className,

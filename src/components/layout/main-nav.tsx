@@ -23,7 +23,7 @@ const MainNav: FC<MainNavProps> = ({ items }) => {
           href='/'
           className='hidden items-center space-x-2 md:flex'
         >
-          <p className='hidden text-2xl font-bold md:inline-block'>
+          <p className='hidden font-bold text-2xl md:inline-block'>
             JA<span className='text-primary'>.</span>
           </p>
         </Link>
@@ -32,7 +32,7 @@ const MainNav: FC<MainNavProps> = ({ items }) => {
           {items?.map((item) => (
             <MenuLink
               aria-label={`Navigate to ${item.title} page`}
-              className='text-lg font-medium'
+              className='font-medium text-lg'
               disabled={item.disabled}
               href={item.href!}
               key={item.title}
@@ -67,7 +67,7 @@ function MenuLink({
     <Link
       href={href}
       className={cn(
-        'text-foreground hover:text-primary/90 relative transition-colors',
+        'relative text-foreground transition-colors hover:text-primary/90',
         pathname === href && 'text-primary',
         disabled && 'pointer-events-none opacity-60',
         className,

@@ -53,7 +53,7 @@ export default function AboutPage() {
           variants={FADE_DOWN_ANIMATION_VARIANTS}
           className='my-10 flex flex-col items-center justify-center'
         >
-          <h3 className='text-3xl font-bold'>Experience</h3>
+          <h3 className='font-bold text-3xl'>Experience</h3>
           <section className='my-5'>
             <Experience experience={JOB_EXPERIENCE} />
           </section>
@@ -62,7 +62,7 @@ export default function AboutPage() {
           variants={FADE_DOWN_ANIMATION_VARIANTS}
           className='flex flex-col items-center justify-center'
         >
-          <h3 className='text-3xl font-bold'>My stack</h3>
+          <h3 className='font-bold text-3xl'>My stack</h3>
           <div className='my-7 flex flex-wrap items-center justify-center gap-5'>
             <div className='flex items-center justify-center gap-1.5 rounded-md bg-[#61DAFB]/20 px-4 py-2'>
               <React className='size-5' />

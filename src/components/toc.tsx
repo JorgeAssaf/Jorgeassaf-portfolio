@@ -22,8 +22,8 @@ export const Toc = ({ toc }: { toc: TocItem[] }) => {
   }, [])
 
   return (
-    <div className='bg-card/60 relative mx-auto my-0 rounded-xl border border-solid px-4 py-3 font-medium'>
-      <h3 className='py-2 text-xl font-semibold'>Table of Contents</h3>
+    <div className='relative mx-auto my-0 rounded-xl border border-solid bg-card/60 px-4 py-3 font-medium'>
+      <h3 className='py-2 font-semibold text-xl'>Table of Contents</h3>
       <ul className='list-none'>
         {toc.map((heading: TocItem) => {
           return (

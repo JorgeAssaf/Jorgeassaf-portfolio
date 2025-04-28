@@ -149,7 +149,7 @@ export default async function PostPage({ params }: PostPageProps) {
                 />
                 <div className='absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent' />
                 <div className='absolute inset-x-0 bottom-0 px-6 py-8'>
-                  <h1 className='mt-3 max-w-xl scroll-m-20 text-3xl leading-tight font-bold tracking-tight first:mt-0 md:text-4xl'>
+                  <h1 className='mt-3 max-w-xl scroll-m-20 font-bold text-3xl leading-tight tracking-tight first:mt-0 md:text-4xl'>
                     {post.title}
                   </h1>
                 </div>
@@ -183,7 +183,7 @@ export default async function PostPage({ params }: PostPageProps) {
                   )}
                 </div>
               </div>
-              <div className='text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm md:flex-row'>
+              <div className='flex flex-wrap items-center gap-1.5 text-muted-foreground text-sm md:flex-row'>
                 {post.author.links.map((link) => {
                   const LucideIcon = icons[link.name as keyof typeof icons]
                   return (
@@ -199,7 +199,7 @@ export default async function PostPage({ params }: PostPageProps) {
                       )}
                     >
                       <LucideIcon
-                        className='fill-foreground text-foreground size-4'
+                        className='size-4 fill-foreground text-foreground'
                         aria-hidden='true'
                       />
                       <span className='sr-only'>{link.name}</span>
@@ -218,7 +218,7 @@ export default async function PostPage({ params }: PostPageProps) {
                     )}
                   >
                     <Link2Icon
-                      className='text-foreground size-4'
+                      className='size-4 text-foreground'
                       aria-hidden='true'
                     />
                   </Link>

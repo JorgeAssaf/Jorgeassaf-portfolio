@@ -42,12 +42,12 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
         </m.div>
       ) : (
         <div className='flex min-h-[500px] w-full flex-col items-center justify-center'>
-          <FileWarningIcon className='text-primary mt-7 mb-5 size-12' />
+          <FileWarningIcon className='mt-7 mb-5 size-12 text-primary' />
 
-          <h2 className='scroll-m-20 text-3xl font-semibold tracking-tight transition-colors first:mt-0'>
+          <h2 className='scroll-m-20 font-semibold text-3xl tracking-tight transition-colors first:mt-0'>
             No projects found 😢
           </h2>
-          <p className='text-muted-foreground max-w-md text-center'>
+          <p className='max-w-md text-center text-muted-foreground'>
             Try changing the filters or adding new projects to see them here.
           </p>
         </div>

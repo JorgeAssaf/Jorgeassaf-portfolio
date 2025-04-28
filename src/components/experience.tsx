@@ -17,9 +17,9 @@ export const Experience = ({
     <ol className={cn('relative border-l-2', className)} {...props}>
       {experience.map((job) => (
         <li className='mb-10 ml-4' key={job.startDate}>
-          <div className='border-muted-foreground bg-muted-foreground absolute left-[-0.43rem] mt-1.5 size-3 rounded-full border' />
+          <div className='absolute left-[-0.43rem] mt-1.5 size-3 rounded-full border border-muted-foreground bg-muted-foreground' />
           <time
-            className='mb-1 text-sm leading-none font-thin'
+            className='mb-1 font-thin text-sm leading-none'
             dateTime={job.startDate}
           >
             {`${Formaters.formatDate(
@@ -28,7 +28,7 @@ export const Experience = ({
             )} - ${job.endDate ? Formaters.formatDate(job.endDate, 'MMMM y') : 'Present'}`}
           </time>
 
-          <h3 className='text-lg font-semibold'>
+          <h3 className='font-semibold text-lg'>
             {job.ocupation} at{' '}
             <Link
               href={job.url || '#'}
@@ -36,15 +36,15 @@ export const Experience = ({
               rel='noopener noreferrer'
               title={`Visit ${job.company} website`}
               aria-label={`Visit ${job.company} website`}
-              className='text-primary hover:text-primary/90 underline transition-colors'
+              className='text-primary underline transition-colors hover:text-primary/90'
             >
               {job.company}
             </Link>
           </h3>
-          <h4 className='text-primary/80 my-1 text-sm font-normal'>
+          <h4 className='my-1 font-normal text-primary/80 text-sm'>
             {job.location}
           </h4>
-          <p className='text-muted-foreground mb-4 text-base font-normal'>
+          <p className='mb-4 font-normal text-base text-muted-foreground'>
             {job.description}
           </p>
         </li>

@@ -24,7 +24,7 @@ export default function PostLoading() {
                   <Skeleton className='h-4 w-24' />
                 </div>
               </div>
-              <div className='text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm md:flex-row'>
+              <div className='flex flex-wrap items-center gap-1.5 text-muted-foreground text-sm md:flex-row'>
                 <Skeleton className='h-4 w-20' />
                 <Skeleton className='h-4 w-20' />
 
@@ -51,7 +51,7 @@ export default function PostLoading() {
           </div>
         </div>
         <div className='sticky top-32 mx-auto my-10 h-fit max-w-[200px]'>
-          <h3 className='text-lg font-semibold'>Table of Contents</h3>
+          <h3 className='font-semibold text-lg'>Table of Contents</h3>
           <ul className='mt-4 text-base'>
             <Skeleton className='size-20' />
           </ul>
