@@ -13,26 +13,17 @@
     "attributePosition": "auto",
     "bracketSpacing": true,
     "ignore": [
-      "**/dist",
-      "**/node_module",
-      "**/.next",
-      "**/build",
-      "**/.contentlayer",
-      "**/components.json",
-      "**/postcss.config.js"
+      "./dist",
+      "./node_module",
+      ".next",
+      "./build",
+      "./.contentlayer",
+      "./components.json",
+      "./postcss.config.js"
     ]
   },
   "organizeImports": { "enabled": true },
   "linter": {
-    "ignore": [
-      "**/dist",
-      "**/node_module",
-      "**/.next",
-      "**/build",
-      "**/.contentlayer",
-      "**/components.json",
-      "**/postcss.config.js"
-    ],
     "enabled": true,
     "rules": {
       "recommended": false,
@@ -65,17 +56,15 @@
         "useValidAriaRole": "error",
         "useValidAriaValues": "error"
       },
-      "complexity": {
-        "noUselessThisAlias": "error",
-        "noUselessTypeConstraint": "error"
-      },
+      "complexity": { "noUselessTypeConstraint": "error" },
       "correctness": { "noUnusedVariables": "off", "useArrayLiterals": "off" },
       "style": {
         "noNamespace": "error",
         "useAsConstAssertion": "error",
-        "useBlockStatements": "off",
-        "useImportType": "warn",
-        "useThrowOnlyError": "error"
+        "useBlockStatements": "off"
+      },
+      "nursery": {
+        "useSortedClasses": "error"
       },
       "suspicious": {
         "noExplicitAny": "error",
@@ -101,76 +90,6 @@
     }
   },
   "overrides": [
-    {
-      "include": ["*.ts", "*.tsx", "*.mts", "*.cts"],
-      "linter": {
-        "rules": {
-          "complexity": { "noWith": "off" },
-          "correctness": {
-            "noConstAssign": "off",
-            "noGlobalObjectCalls": "off",
-            "noInvalidBuiltinInstantiation": "off",
-            "noInvalidConstructorSuper": "off",
-            "noNewSymbol": "off",
-            "noSetterReturn": "off",
-            "noUndeclaredVariables": "off",
-            "noUnreachable": "off",
-            "noUnreachableSuper": "off"
-          },
-          "style": {
-            "noArguments": "error",
-            "noVar": "error",
-            "useConst": "error"
-          },
-          "suspicious": {
-            "noClassAssign": "off",
-            "noDuplicateClassMembers": "off",
-            "noDuplicateObjectKeys": "off",
-            "noDuplicateParameters": "off",
-            "noFunctionAssign": "off",
-            "noImportAssign": "off",
-            "noRedeclare": "off",
-            "noUnsafeNegation": "off",
-            "useGetterReturn": "off"
-          }
-        }
-      }
-    },
-    {
-      "include": ["*.ts", "*.tsx", "*.mts", "*.cts"],
-      "linter": {
-        "rules": {
-          "complexity": { "noWith": "off" },
-          "correctness": {
-            "noConstAssign": "off",
-            "noGlobalObjectCalls": "off",
-            "noInvalidBuiltinInstantiation": "off",
-            "noInvalidConstructorSuper": "off",
-            "noNewSymbol": "off",
-            "noSetterReturn": "off",
-            "noUndeclaredVariables": "off",
-            "noUnreachable": "off",
-            "noUnreachableSuper": "off"
-          },
-          "style": {
-            "noArguments": "error",
-            "noVar": "error",
-            "useConst": "error"
-          },
-          "suspicious": {
-            "noClassAssign": "off",
-            "noDuplicateClassMembers": "off",
-            "noDuplicateObjectKeys": "off",
-            "noDuplicateParameters": "off",
-            "noFunctionAssign": "off",
-            "noImportAssign": "off",
-            "noRedeclare": "off",
-            "noUnsafeNegation": "off",
-            "useGetterReturn": "off"
-          }
-        }
-      }
-    },
     {
       "include": ["*.ts", "*.tsx", "*.mts", "*.cts"],
       "linter": {
