@@ -72,10 +72,10 @@ export const PaginationButtons = ({
           </Button>
         )
       })}
-      <Button variant={'outline'} size={'icon'} disabled={page === 1}>
+      <Button variant={'outline'} size={'icon'} disabled={page === totalPage}>
         <ChevronRightIcon className='size-4' aria-hidden='true' />
       </Button>
-      <Button variant={'outline'} size={'icon'} disabled={page === 1}>
+      <Button variant={'outline'} size={'icon'} disabled={page === totalPage}>
         <ChevronsRightIcon className='size-4' aria-hidden='true' />
       </Button>
     </div>

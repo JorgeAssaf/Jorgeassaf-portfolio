@@ -25,7 +25,7 @@ export const MyResumen = ({
     return (
       <Link
         href='https://drive.google.com/file/d/1bwEF1UQPz5Bj_yS8Y0yNyifDOGMDJOlU/view?usp=drive_link'
-        arial-label='Download Resume'
+        aria-label='Download Resume'
         target='_blank'
         rel='noopener noreferrer'
         download
