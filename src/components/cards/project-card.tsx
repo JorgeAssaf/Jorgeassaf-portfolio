@@ -1,12 +1,11 @@
+import { CalendarCheck, CodeIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Formaters } from '@/helpers/formaters'
-import { CalendarCheck, CodeIcon } from 'lucide-react'
-
-import type { ProjectsEntity } from '@/types/sanity'
-import { cn } from '@/lib/utils'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
+import { Formaters } from '@/helpers/formaters'
+import { cn } from '@/lib/utils'
+import type { ProjectsEntity } from '@/types/sanity'
 
 import { Badge } from '../ui/badge'
 
@@ -63,7 +62,6 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
                 }}
                 className='inline-flex items-center gap-2 rounded-lg'
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={tech.image}
                   alt={tech.name}

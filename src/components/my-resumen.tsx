@@ -30,7 +30,7 @@ export const MyResumen = ({
         rel='noopener noreferrer'
         download
         className={cn(
-          buttonVariants({ variant: variant, size: size, className }),
+          buttonVariants({ variant, size, className }),
           'flex h-0 items-center rounded-full px-2.5 py-5',
         )}
       >
@@ -50,7 +50,7 @@ export const MyResumen = ({
       onMouseLeave={() => setHovered(false)}
       download
       className={cn(
-        buttonVariants({ variant: variant, size: size, className }),
+        buttonVariants({ variant, size, className }),
         'flex h-0 items-center rounded-full px-2.5 py-5',
       )}
     >

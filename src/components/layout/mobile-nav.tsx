@@ -1,12 +1,11 @@
 'use client'
 
-import { useState, type FC } from 'react'
+import { type FC, useState } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import { Menu } from 'lucide-react'
-
-import type { MainNavItem } from '@/types/site'
+import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
+import type { MainNavItem } from '@/types/site'
 
 import { Button } from '../ui/button'
 import {

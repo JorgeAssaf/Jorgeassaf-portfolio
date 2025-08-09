@@ -12,8 +12,8 @@ export const Toc = ({ toc }: { toc: TocItem[] }) => {
   useEffect(() => {
     const getHash = () => {
       if (typeof window === 'undefined') return null
-      const hash = window.location.hash
-      setHash(hash)
+      const currentHash = window.location.hash
+      setHash(currentHash)
     }
 
     window.addEventListener('hashchange', getHash)

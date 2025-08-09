@@ -1,9 +1,30 @@
 import Link from 'next/link'
 import { MDXContent } from '@content-collections/mdx/react'
 import type { Post } from 'content-collections'
-
-import { cn } from '@/lib/utils'
 import { Button, buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+
+const ExternalLink = ({
+  className,
+  ...props
+}: React.ComponentProps<typeof Link>) => (
+  <Link
+    className={cn(buttonVariants({ variant: 'default' }), 'my-5', className)}
+    target='_blank'
+    rel='noopener noreferrer'
+    {...props}
+  />
+)
+
+const MdxLink = ({
+  className,
+  ...props
+}: React.ComponentProps<typeof Link>) => (
+  <Link
+    className={cn('font-medium underline underline-offset-4', className)}
+    {...props}
+  />
+)
 
 export const MdxComponent = ({ post }: { post: Post }) => {
   return (
@@ -88,7 +109,6 @@ export const MdxComponent = ({ post }: { post: Post }) => {
           ...props
         }: React.HTMLAttributes<HTMLAnchorElement>) => (
           <a
-            aria-label='Link'
             className={cn(
               'font-medium underline underline-offset-4',
               className,
@@ -96,30 +116,8 @@ export const MdxComponent = ({ post }: { post: Post }) => {
             {...props}
           />
         ),
-        ExternalLink: ({
-          className,
-          ...props
-        }: React.ComponentProps<typeof Link>) => (
-          <Link
-            className={cn(
-              buttonVariants({ variant: 'default' }),
-              'my-5',
-              className,
-            )}
-            target='_blank'
-            rel='noopener noreferrer'
-            {...props}
-          />
-        ),
-        Link: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
-          <Link
-            className={cn(
-              'font-medium underline underline-offset-4',
-              className,
-            )}
-            {...props}
-          />
-        ),
+        ExternalLink,
+        Link: MdxLink,
         p: ({
           className,
           ...props
@@ -159,7 +157,6 @@ export const MdxComponent = ({ post }: { post: Post }) => {
           alt,
           ...props
         }: React.ImgHTMLAttributes<HTMLImageElement>) => (
-          // biome-ignore lint/a11y/useAltText: <explanation>
           <img className={cn('rounded-md', className)} alt={alt} {...props} />
         ),
         hr: ({ ...props }: React.HTMLAttributes<HTMLHRElement>) => (

@@ -33,7 +33,7 @@ export function GET(req: Request) {
           ) : null}
           <h1
             tw={cn(
-              'px-8 text-6xl leading-tight font-bold tracking-tight',
+              'px-8 font-bold text-6xl leading-tight tracking-tight',
               mode === 'dark' ? 'text-zinc-100' : 'text-zinc-800',
             )}
           >
@@ -42,7 +42,7 @@ export function GET(req: Request) {
           {description ? (
             <p
               tw={cn(
-                'px-20 text-center text-3xl leading-tight font-normal tracking-tight',
+                'px-20 text-center font-normal text-3xl leading-tight tracking-tight',
                 mode === 'dark' ? 'text-zinc-400' : 'text-zinc-500',
               )}
             >
@@ -58,7 +58,7 @@ export function GET(req: Request) {
     )
   } catch (error) {
     if (error instanceof Error) {
-      console.error(error)
+      console.error('Error generating image:', error.message)
     }
 
     return new Response('Failed to generate image', { status: 500 })

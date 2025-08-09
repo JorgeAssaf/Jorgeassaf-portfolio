@@ -15,37 +15,35 @@ interface MainNavProps {
 const MainNav: FC<MainNavProps> = ({ items }) => {
   const pathname = usePathname()
   return (
-    <>
-      <div className='hidden h-20 items-center justify-between md:flex'>
-        <Link
-          aria-label='Home'
-          title='Home'
-          href='/'
-          className='hidden items-center space-x-2 md:flex'
-        >
-          <p className='hidden font-bold text-2xl md:inline-block'>
-            JA<span className='text-primary'>.</span>
-          </p>
-        </Link>
+    <div className='hidden h-20 items-center justify-between md:flex'>
+      <Link
+        aria-label='Home'
+        title='Home'
+        href='/'
+        className='hidden items-center space-x-2 md:flex'
+      >
+        <p className='hidden font-bold text-2xl md:inline-block'>
+          JA<span className='text-primary'>.</span>
+        </p>
+      </Link>
 
-        <div className='flex items-center gap-6'>
-          {items?.map((item) => (
-            <MenuLink
-              aria-label={`Navigate to ${item.title} page`}
-              className='font-medium text-lg'
-              disabled={item.disabled}
-              href={item.href!}
-              key={item.title}
-              pathname={pathname}
-              title={item.title}
-            >
-              {item.title}
-            </MenuLink>
-          ))}
-          <ThemeToggle />
-        </div>
+      <div className='flex items-center gap-6'>
+        {items?.map((item) => (
+          <MenuLink
+            aria-label={`Navigate to ${item.title} page`}
+            className='font-medium text-lg'
+            disabled={item.disabled}
+            href={item.href!}
+            key={item.title}
+            pathname={pathname}
+            title={item.title}
+          >
+            {item.title}
+          </MenuLink>
+        ))}
+        <ThemeToggle />
       </div>
-    </>
+    </div>
   )
 }
 

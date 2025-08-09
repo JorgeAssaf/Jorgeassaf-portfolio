@@ -1,13 +1,11 @@
-/* eslint-disable deprecation/deprecation */
 import {
   Book,
   Braces,
   FlaskConical,
-  PanelsTopLeft,
-  PocketKnife,
-  X,
   type LucideIcon,
   type LucideProps,
+  PanelsTopLeft,
+  PocketKnife,
 } from 'lucide-react'
 
 type Icon = LucideIcon
@@ -321,10 +319,10 @@ export {
   Tailwind,
   Twitter,
   Typescript,
-  X,
   Placeholder,
   type Icon,
 }
+export { X } from 'lucide-react'
 
 const icons = {
   braces: Braces,

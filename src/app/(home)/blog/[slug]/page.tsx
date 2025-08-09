@@ -34,8 +34,7 @@ export type TocItem = {
   slug: string
 }
 
-// eslint-disable-next-line @typescript-eslint/require-await
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return allPosts.map((post) => ({
     slug: post.slug,
   }))
@@ -44,7 +43,7 @@ export async function generateStaticParams() {
 async function getPostFromParams(params: PostPageProps['params']) {
   const slug = (await params).slug
 
-  const post = allPosts.find((post) => post.slugAsParams === slugify(slug))
+  const post = allPosts.find((p) => p.slugAsParams === slugify(slug))
   if (!post) {
     return notFound()
   }
@@ -164,7 +163,6 @@ export default async function PostPage({ params }: PostPageProps) {
             <div className='my-4 flex items-center justify-between gap-10'>
               <div className='mt-1 flex items-center gap-3'>
                 {post.author.image && (
-                  // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={post.author.image}
                     decoding='async'
