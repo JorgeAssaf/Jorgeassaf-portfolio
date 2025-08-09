@@ -28,7 +28,7 @@ export const Experience = ({
           </time>
 
           <h3 className='text-lg font-semibold'>
-            {job.ocupation} at{' '}
+            {job.occupation} at{' '}
             <Link
               href={job.url || '#'}
               target='_blank'
