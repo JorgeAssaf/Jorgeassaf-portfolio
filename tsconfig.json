@@ -23,7 +23,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "content-collections": ["./.content-collections/generated"]
-    }
+    },
+    "strictNullChecks": true
   },
   "include": [
     ".eslintrc.cjs",
