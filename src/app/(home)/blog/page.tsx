@@ -1,15 +1,14 @@
-import type { Metadata } from 'next'
-import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constants'
 import { allPosts } from 'content-collections'
 import { FileWarningIcon } from 'lucide-react'
-
-import { siteConfig } from '@/config/site'
-import { slugify } from '@/lib/utils'
-import { PaginationButtons } from '@/components/ui/pagination-buttons'
+import type { Metadata } from 'next'
 import { PostCard } from '@/components/cards/post-card'
 import CategoryButtons from '@/components/category-buttons'
 import { FramerDiv } from '@/components/framer'
 import { PageHeader } from '@/components/page-header'
+import { PaginationButtons } from '@/components/ui/pagination-buttons'
+import { siteConfig } from '@/config/site'
+import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constants'
+import { slugify } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -31,7 +30,7 @@ export default async function BlogPage({
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
   const { category, page: activePage } = await searchParams
-  const page = Number.parseInt(activePage as string) || 1
+  const page = Number.parseInt(activePage as string, 10) || 1
   const postsPerPage = 6
   const startIndex = (page - 1) * postsPerPage
   const endIndex = startIndex + postsPerPage
@@ -67,7 +66,7 @@ export default async function BlogPage({
             {category ? (
               allPosts.filter((post) =>
                 post.categories
-                  .map((category) => slugify(category))
+                  .map((cat) => slugify(cat))
                   .includes(
                     Array.isArray(category) ? category.join('') : category,
                   ),
