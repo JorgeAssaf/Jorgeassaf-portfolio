@@ -17,7 +17,7 @@ export const MdxComponent = ({ post }: { post: Post }) => {
         }: React.HTMLAttributes<HTMLHeadingElement>) => (
           <h1
             className={cn(
-              'mt-2 scroll-m-32 text-4xl font-bold leading-tight lg:text-5xl',
+              'mt-2 scroll-m-32 text-4xl leading-tight font-bold lg:text-5xl',
               className,
             )}
             {...props}
@@ -178,7 +178,7 @@ export const MdxComponent = ({ post }: { post: Post }) => {
           ...props
         }: React.HTMLAttributes<HTMLTableRowElement>) => (
           <tr
-            className={cn('m-0 border-t p-0 even:bg-muted', className)}
+            className={cn('even:bg-muted m-0 border-t p-0', className)}
             {...props}
           />
         ),

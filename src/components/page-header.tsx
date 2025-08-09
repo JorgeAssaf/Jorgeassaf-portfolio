@@ -1,7 +1,7 @@
 'use client'
 
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constants'
-import { m } from 'framer-motion'
+import * as m from 'motion/react-m'
 
 import { cn } from '@/lib/utils'
 
@@ -68,7 +68,7 @@ export const PageHeader = ({
             <m.h2
               variants={FADE_DOWN_ANIMATION_VARIANTS}
               className={cn(
-                'mt-3 line-clamp-2 text-lg text-muted-foreground md:text-xl',
+                'text-muted-foreground mt-3 line-clamp-2 text-lg md:text-xl',
                 !description && 'hidden',
               )}
             >
@@ -78,7 +78,7 @@ export const PageHeader = ({
             <m.p
               variants={FADE_DOWN_ANIMATION_VARIANTS}
               className={cn(
-                'mt-3 line-clamp-2 text-lg text-muted-foreground md:text-xl',
+                'text-muted-foreground mt-3 line-clamp-2 text-lg md:text-xl',
                 !description && 'hidden',
               )}
             >

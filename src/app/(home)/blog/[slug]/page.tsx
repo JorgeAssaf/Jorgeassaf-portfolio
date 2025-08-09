@@ -152,13 +152,13 @@ export default async function PostPage({ params }: PostPageProps) {
                 />
                 <div className='absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent' />
                 <div className='absolute inset-x-0 bottom-0 px-6 py-8'>
-                  <h1 className='mt-3 max-w-xl scroll-m-20 text-3xl font-bold leading-tight tracking-tight first:mt-0 md:text-5xl'>
+                  <h1 className='mt-3 max-w-xl scroll-m-20 text-3xl leading-tight font-bold tracking-tight first:mt-0 md:text-4xl'>
                     {post.title}
                   </h1>
                 </div>
               </div>
               <time
-                className='text-sm text-muted-foreground'
+                className='text-muted-foreground text-sm'
                 dateTime={post.date}
               >
                 Published on {Formaters.formatDate(post.date)}
@@ -180,13 +180,13 @@ export default async function PostPage({ params }: PostPageProps) {
                 <div className='flex flex-col'>
                   <p className='leading-7'>{post.author.name}</p>
                   {post.author.username && (
-                    <span className='text-xs text-muted-foreground'>
+                    <span className='text-muted-foreground text-xs'>
                       @{post.author.username}
                     </span>
                   )}
                 </div>
               </div>
-              <div className='flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground md:flex-row'>
+              <div className='text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm md:flex-row'>
                 {post.author.links.map((link) => {
                   const LucideIcon = icons[link.name as keyof typeof icons]
                   return (
@@ -202,7 +202,7 @@ export default async function PostPage({ params }: PostPageProps) {
                       )}
                     >
                       <LucideIcon
-                        className='size-4 fill-foreground text-foreground'
+                        className='fill-foreground text-foreground size-4'
                         aria-hidden='true'
                       />
                       <span className='sr-only'>{link.name}</span>
@@ -221,7 +221,7 @@ export default async function PostPage({ params }: PostPageProps) {
                     )}
                   >
                     <Link2Icon
-                      className='size-4 text-foreground'
+                      className='text-foreground size-4'
                       aria-hidden='true'
                     />
                   </Link>
@@ -238,7 +238,7 @@ export default async function PostPage({ params }: PostPageProps) {
             </div>
           </article>
 
-          <div className='pb-8 pt-10'>
+          <div className='pt-10 pb-8'>
             <MdxComponent post={post} />
           </div>
 

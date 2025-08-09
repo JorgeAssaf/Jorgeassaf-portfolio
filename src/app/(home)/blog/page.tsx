@@ -101,7 +101,7 @@ export default async function BlogPage({
 
 const NotFoundPosts = () => (
   <div className='col-span-2 flex min-h-[26.25rem] w-full flex-col items-center justify-center'>
-    <FileWarningIcon className='mb-5 mt-7 size-12 text-primary' />
+    <FileWarningIcon className='text-primary mt-7 mb-5 size-12' />
 
     <h2 className='scroll-m-20 text-3xl font-semibold tracking-tight transition-colors first:mt-0'>
       No posts found 😢

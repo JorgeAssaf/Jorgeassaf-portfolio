@@ -1,6 +1,7 @@
 'use client'
 
-import { domAnimation, LazyMotion, m } from 'framer-motion'
+import { domAnimation, LazyMotion } from 'motion/react'
+import * as m from 'motion/react-m'
 
 export const FramerDiv = m.div
 export const FramerSection = m.section

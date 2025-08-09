@@ -23,12 +23,7 @@ module.exports = {
     '',
     '^[./]',
   ],
-  importOrderSeparation: false,
-  importOrderSortSpecifiers: true,
-  importOrderBuiltinModulesToTop: true,
   importOrderParserPlugins: ['typescript', 'jsx', 'decorators-legacy'],
-  importOrderMergeDuplicateImports: true,
-  importOrderCombineTypeAndValueImports: true,
   tailwindAttributes: ['tw'],
   tailwindFunctions: ['cva'],
   plugins: [

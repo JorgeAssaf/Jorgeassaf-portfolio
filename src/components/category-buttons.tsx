@@ -3,8 +3,8 @@
 import { useCallback, useTransition } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { FADE_LEFT_ANIMATION_VARIANTS } from '@/constants'
-import { m } from 'framer-motion'
 import { Home, type LucideIcon } from 'lucide-react'
+import * as m from 'motion/react-m'
 
 import { cn, slugify } from '@/lib/utils'
 

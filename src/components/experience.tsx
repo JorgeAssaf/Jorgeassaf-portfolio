@@ -17,9 +17,9 @@ export const Experience = ({
     <ol className={cn('relative border-l-2', className)} {...props}>
       {experience.map((job) => (
         <li className='mb-10 ml-4' key={job.startDate}>
-          <div className='absolute left-[-0.43rem] mt-1.5 size-3 rounded-full border border-muted-foreground bg-muted-foreground' />
+          <div className='border-muted-foreground bg-muted-foreground absolute left-[-0.43rem] mt-1.5 size-3 rounded-full border' />
           <time
-            className='mb-1 text-sm font-thin leading-none'
+            className='mb-1 text-sm leading-none font-thin'
             dateTime={job.startDate}
           >
             {`${Formaters.formatDate(job.startDate, {
@@ -35,15 +35,15 @@ export const Experience = ({
               rel='noopener noreferrer'
               title={`Visit ${job.company} website`}
               aria-label={`Visit ${job.company} website`}
-              className='text-primary underline transition-colors hover:text-primary/90'
+              className='text-primary hover:text-primary/90 underline transition-colors'
             >
               {job.company}
             </Link>
           </h3>
-          <h4 className='my-1 text-sm font-normal text-primary/80'>
+          <h4 className='text-primary/80 my-1 text-sm font-normal'>
             {job.location}
           </h4>
-          <p className='mb-4 text-base font-normal text-muted-foreground'>
+          <p className='text-muted-foreground mb-4 text-base font-normal'>
             {job.description}
           </p>
         </li>

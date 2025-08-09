@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
+import * as m from 'motion/react-m'
 
 import { cn } from '@/lib/utils'
 import { useMediaQuery } from '@/hooks/use-media-query'
@@ -41,7 +41,7 @@ export const MyResumen = ({
   return (
     <Link
       href='https://drive.google.com/file/d/1bwEF1UQPz5Bj_yS8Y0yNyifDOGMDJOlU/view?usp=drive_link'
-      arial-label='Download Resume'
+      aria-label='Download Resume'
       target='_blank'
       rel='noopener noreferrer'
       onMouseEnter={() => setHovered(true)}
@@ -55,7 +55,7 @@ export const MyResumen = ({
       )}
     >
       <ArrowDown size={20} aria-hidden='true' />
-      <motion.span
+      <m.span
         className='overflow-hidden whitespace-nowrap'
         initial={{
           width: 0,
@@ -69,7 +69,7 @@ export const MyResumen = ({
         }}
       >
         My resume
-      </motion.span>
+      </m.span>
     </Link>
   )
 }

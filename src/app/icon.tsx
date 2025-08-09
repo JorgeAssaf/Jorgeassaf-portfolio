@@ -14,7 +14,7 @@ export const contentType = 'image/png'
 export default function Icon() {
   return new ImageResponse(
     (
-      // ImageResponse JSX element
+      // eslint-disable-next-line tailwindcss/enforces-shorthand
       <div tw='flex h-full w-full items-center justify-center rounded-full bg-black text-[24px] leading-8 text-white'>
         A
       </div>

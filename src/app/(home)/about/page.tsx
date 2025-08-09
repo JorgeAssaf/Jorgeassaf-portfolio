@@ -33,7 +33,7 @@ export default function AboutPage() {
         className='mx-auto max-w-[75ch]'
       >
         <FramerDiv variants={FADE_DOWN_ANIMATION_VARIANTS}>
-          <p className='leading-7 text-foreground/70 md:text-lg [&:not(:first-child)]:mt-6'>
+          <p className='text-foreground/70 leading-7 md:text-lg [&:not(:first-child)]:mt-6'>
             I&apos;m a front-end web developer with experience in JavaScript,
             React, Next.js and Astro. My goal is to become a FullStack
             programmer. I enjoy creating beautiful and easy to use web
