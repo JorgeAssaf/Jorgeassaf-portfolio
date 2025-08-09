@@ -5,17 +5,37 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
 import remarkToc from 'remark-toc'
 
+import { siteConfig } from '@/config/site'
+
 const posts = defineCollection({
   name: 'posts',
   directory: 'src/content/posts',
   include: '*.mdx',
 
   schema: (z) => ({
-    title: z.string(),
-    summary: z.string(),
+    title: z
+      .string({
+        description: 'The title of the post',
+      })
+      .max(100, {
+        message: 'Title is too long',
+      })
+      .min(10, {
+        message: 'Title is too short',
+      }),
+    summary: z
+      .string({
+        description: 'A brief summary of the post',
+      })
+      .min(20, {
+        message: 'Summary is too short',
+      })
+      .max(250, {
+        message: 'Summary is too long',
+      }),
     originalUrl: z.string().max(125).optional(),
     mainImage: z.string().optional().default('/images/placeholder.svg'),
-    date: z.string().default(new Date().toISOString()),
+    date: z.string(),
     author: z.object({
       name: z.string().optional().default('Anonymous'),
       username: z.string().optional(),
@@ -26,9 +46,21 @@ const posts = defineCollection({
           url: z.string(),
         }),
       ),
-      image: z.string(),
+      image: z.string().url(),
     }),
-    categories: z.array(z.string()),
+    categories: z.array(
+      z
+        .string({
+          description: 'The categories this post belongs to',
+        })
+        .refine(
+          (val) => siteConfig.blogCategories.map((c) => c.title).includes(val),
+          {
+            message: 'Invalid category',
+            path: ['categories'],
+          },
+        ),
+    ),
   }),
   transform: async (document, context) => {
     const mdx = await compileMDX(context, document, {

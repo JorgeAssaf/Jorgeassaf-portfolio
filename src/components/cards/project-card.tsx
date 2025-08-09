@@ -43,7 +43,9 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
                 <>
                   <CalendarCheck className='size-4' />
                   <p>
-                    {Formaters.formatDate(project.createdAt, 'MMMM dd, yyyy')}
+                    {Formaters.formatDate(project.createdAt, {
+                      pattern: 'MMMM dd, yyyy',
+                    })}
                   </p>
                 </>
               )}
@@ -61,7 +63,7 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
                 style={{
                   backgroundColor: `#${tech.color}`,
                 }}
-                className='inline-flex items-center gap-2 rounded-lg'
+                className='inline-flex items-center gap-2 rounded-lg text-white'
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img

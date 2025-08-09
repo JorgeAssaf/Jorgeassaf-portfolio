@@ -109,43 +109,46 @@ export default async function PostPage({ params }: PostPageProps) {
         <div className='col-span-1 max-w-[75ch] md:col-span-2'>
           <nav aria-label='Breadcrumb' className='mb-10'>
             <Badge className='hover:bg-primary hover:text-primary-foreground'>
-              <Link
-                aria-label='Visit blog category'
-                title='Visit blog category'
-                href={{
-                  pathname: '/blog',
-                  query: {
-                    category: slugify(post.categories[0]),
-                  },
-                }}
-                className='flex flex-wrap items-center justify-start gap-1.5 text-[0.625rem] md:text-sm'
-              >
-                <ChevronLeft size='20' aria-hidden='true' />
-                Blog
-                <ChevronLeft size='20' aria-hidden='true' />
+              <div className='flex flex-wrap items-center gap-1 text-[0.825rem]'>
+                <ChevronLeft className='size-5' aria-hidden='true' />
+                <Link
+                  aria-label='Visit blog home'
+                  title='Visit blog home'
+                  href={{
+                    pathname: '/blog',
+                  }}
+                >
+                  Blog
+                </Link>
+                <ChevronLeft className='size-5' aria-hidden='true' />
                 {post.categories.map((category, i) => (
-                  <span key={category}>
+                  <Link
+                    key={category}
+                    aria-label={`Visit ${category} category`}
+                    title={`Visit ${category} category`}
+                    href={{
+                      pathname: '/blog',
+                      query: { category: slugify(category) },
+                    }}
+                  >
                     {category}
                     {i < post.categories.length - 1 && ' / '}
-                  </span>
+                  </Link>
                 ))}
-              </Link>
+              </div>
             </Badge>
           </nav>
 
           <article className='border-b pb-2'>
             <header>
-              <div className='relative my-3 aspect-video'>
+              <div className='relative my-3 aspect-video rounded-lg'>
                 <Image
                   src={post.mainImage}
                   alt={`${post.title} image`}
                   fill
                   decoding='async'
-                  loading='eager'
                   priority
-                  quality={100}
                   sizes='min(100vw, 1000px)'
-                  className='rounded-lg'
                 />
                 <div className='absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent' />
                 <div className='absolute inset-x-0 bottom-0 px-6 py-8'>

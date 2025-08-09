@@ -1,5 +1,5 @@
 export interface JobExperience {
-  ocupation: string
+  occupation: string
   company: string
   asLink?: boolean
   location: string
@@ -11,7 +11,7 @@ export interface JobExperience {
 
 export const JOB_EXPERIENCE = [
   {
-    ocupation: 'Fullstack Developer',
+    occupation: 'Fullstack Developer',
     company: 'Lika Software',
     url: 'https://likasoftware.com/',
     location: 'Remote',
@@ -20,7 +20,7 @@ export const JOB_EXPERIENCE = [
       'Working on projects for clients using Next.js, React, TypeScript, and Tailwindcss. Developing features, fixing bugs, and improving the performance of the applications.',
   },
   {
-    ocupation: 'Frontend Developer',
+    occupation: 'Frontend Developer',
     company: 'Pawtrics',
     url: 'https://pawtrics.com/',
     location: 'Remote',
@@ -30,7 +30,7 @@ export const JOB_EXPERIENCE = [
       'Worked on the frontend in PIMS project. Using Next 12, React, TypeScript, Material UI, and Supabase.',
   },
   {
-    ocupation: 'Frontend Developer',
+    occupation: 'Frontend Developer',
     company: 'Omaka',
     url: 'https://omaka.app/',
     location: 'Remote',

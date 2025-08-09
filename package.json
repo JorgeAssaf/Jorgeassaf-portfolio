@@ -7,8 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "ts:check": "tsc --noEmit",
     "format": "prettier --write .",
-    "clean": "rm -rf .next && rm -rf node_modules .contentlayer .unlighthouse",
+    "clean": "rm -rf .next && rm -rf node_modules .content-collections .unlighthouse",
     "unlighthouse": "pnpx unlighthouse --site https://jorgeassaf.vercel.app --desktop --no-cache"
   },
   "dependencies": {
@@ -22,7 +23,6 @@
     "@vercel/speed-insights": "1.2.0",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
-    "contentlayer": "0.3.4",
     "date-fns": "4.1.0",
     "lucide-react": "0.503.0",
     "motion": "12.7.4",
@@ -66,3 +66,4 @@
     "typescript": "5.8.3"
   }
 }
+
