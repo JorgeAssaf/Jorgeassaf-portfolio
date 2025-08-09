@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/suspicious/noArrayIndexKey: <> */
 import { Skeleton } from '@/components/ui/skeleton'
 
 export default function BlogLoading() {
@@ -35,11 +36,9 @@ export default function BlogLoading() {
                       <Skeleton className='h-5 w-11/12' />
                     </div>
                     <div className='flex gap-2'>
-                      {Array(3)
-                        .fill(0)
-                        .map((_, i) => (
-                          <Skeleton key={i} className='h-5 w-20' />
-                        ))}
+                      {Array.from({ length: 3 }).map((_, j) => (
+                        <Skeleton key={j} className='h-5 w-20' />
+                      ))}
                     </div>
                     <div className='flex gap-10'>
                       <Skeleton className='h-5 w-32' />
