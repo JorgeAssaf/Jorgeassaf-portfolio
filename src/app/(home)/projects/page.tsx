@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { unstable_noStore } from 'next/cache'
+import { connection } from 'next/server'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constants'
 import { Formaters } from '@/helpers/formaters'
 
@@ -41,7 +41,7 @@ export default async function ProjectsPage({
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
   const { category } = await searchParams
-  unstable_noStore()
+  connection()
   const projects = await client.fetch<ProjectsEntity[]>(GETPROJECTSQUERY, {
     category:
       category !== undefined ? Formaters.capitalizeFirstLetter(category) : '',
