@@ -17,8 +17,8 @@ interface ProjectsCardProps {
 
 export const ProjectCard = ({ project }: ProjectsCardProps) => {
   return (
-    <Card className='flex min-h-[540px] w-full max-w-lg flex-col justify-center'>
-      <figure className='relative aspect-[16/10] w-full overflow-hidden'>
+    <Card className='flex size-full max-w-lg flex-col py-0'>
+      <figure className='relative aspect-video w-full overflow-hidden'>
         <Image
           src={project.image.url ?? '/images/placeholder.svg'}
           alt={`${project.image.alt ?? project.name} image`}
