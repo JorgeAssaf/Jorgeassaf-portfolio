@@ -9,7 +9,7 @@ import { client } from '@/lib/sanity'
 import CategoryButtons from '@/components/category-buttons'
 import { FramerDiv } from '@/components/framer'
 import { PageHeader } from '@/components/page-header'
-import Projects from '@/components/projects'
+import { Projects } from '@/components/projects'
 
 export const dynamic = 'force-dynamic'
 
