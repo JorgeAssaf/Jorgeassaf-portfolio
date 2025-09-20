@@ -33,12 +33,12 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
           <div className='flex items-center justify-between'>
             <Badge
               variant={'secondary'}
-              className='inline-flex items-center gap-2 rounded-lg'
+              className='inline-flex items-center gap-2 rounded-lg text-sm'
             >
               <CodeIcon className='size-4' />
               {project.category}
             </Badge>
-            <div className='text-muted-foreground flex items-center gap-2 text-xs'>
+            <div className='text-muted-foreground flex items-center gap-2 text-sm'>
               {project.createdAt && (
                 <>
                   <CalendarCheck className='size-4' />
@@ -55,7 +55,7 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
           <p className='text-muted-foreground text-base'>
             {project.description}
           </p>
-          <div className='flex flex-wrap gap-2'>
+          <div className='grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-2 '>
             {project.technologies.map((tech) => (
               <Badge
                 key={tech.name}
@@ -63,16 +63,17 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
                 style={{
                   backgroundColor: `#${tech.color}`,
                 }}
-                className='inline-flex items-center gap-2 rounded-lg text-white'
+                className='inline-flex items-center gap-1.5 text-sm rounded-lg text-white w-auto font-semibold'
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={tech.image}
                   alt={tech.name}
-                  width={16}
+                  width={20}
                   loading='eager'
-                  height={16}
-                  className='size-4'
+                  height={20}
+                  className='size-auto'
+
                 />
                 {tech.name}
               </Badge>
