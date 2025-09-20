@@ -5,10 +5,10 @@ import { client } from '@/lib/sanity'
 import { PostCard } from '@/components/cards/post-card'
 import Hero from '@/components/hero'
 import { PageHeader } from '@/components/page-header'
+import { Projects } from '@/components/projects'
 import Scroll from '@/components/scroll'
 
 import type { ProjectsEntity } from '../../types/sanity'
-import { Projects } from '@/components/projects'
 
 export default async function Home() {
   const projects = await client.fetch<ProjectsEntity[]>(getLatestProjectsQuery)
