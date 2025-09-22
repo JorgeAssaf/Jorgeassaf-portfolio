@@ -25,7 +25,7 @@ export default async function Home() {
       <Projects projects={projects} />
 
       <PageHeader
-        title='Recent Resourses'
+        title='Recent Resources'
         description='View my latest shared resources and articles'
       />
       {allPosts.slice(0, 3).map((post, i) => (
