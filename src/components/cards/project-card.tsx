@@ -52,10 +52,8 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
             </div>
           </div>
           <h3 className='text-xl font-semibold'>{project.name}</h3>
-          <p className='text-muted-foreground'>
-            {project.description}
-          </p>
-          <div className='grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-2 '>
+          <p className='text-muted-foreground'>{project.description}</p>
+          <div className='grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-2'>
             {project.technologies.map((tech) => (
               <Badge
                 key={tech.name}
@@ -63,7 +61,7 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
                 style={{
                   backgroundColor: `#${tech.color}`,
                 }}
-                className='inline-flex items-center gap-1.5 text-sm rounded-lg text-white w-auto font-semibold'
+                className='inline-flex w-auto items-center gap-1.5 rounded-lg text-sm font-semibold text-white'
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -73,7 +71,6 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
                   loading='eager'
                   height={20}
                   className='size-auto'
-
                 />
                 {tech.name}
               </Badge>

@@ -12,7 +12,7 @@ import { buttonVariants, type ButtonProps } from './ui/button'
 
 /**
  * MyResumen component renders a button or link for downloading the user's resume.
- * 
+ *
  * @param {string} [className] - Optional CSS class for styling.
  * @param {ButtonProps['variant']} [variant='default'] - Button variant style.
  * @param {ButtonProps['size']} [size] - Button size.
@@ -42,7 +42,7 @@ export const MyResumen = ({
       >
         <ArrowDown size={20} aria-hidden='true' />
         <span className='overflow-hidden whitespace-nowrap'>My resume</span>
-      </Link >
+      </Link>
     )
   return (
     <Link
@@ -79,4 +79,3 @@ export const MyResumen = ({
     </Link>
   )
 }
-
