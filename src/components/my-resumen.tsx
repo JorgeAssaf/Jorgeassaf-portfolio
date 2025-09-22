@@ -10,6 +10,13 @@ import { useMediaQuery } from '@/hooks/use-media-query'
 
 import { buttonVariants, type ButtonProps } from './ui/button'
 
+/**
+ * MyResumen component renders a button or link for downloading the user's resume.
+ * 
+ * @param {string} [className] - Optional CSS class for styling.
+ * @param {ButtonProps['variant']} [variant='default'] - Button variant style.
+ * @param {ButtonProps['size']} [size] - Button size.
+ */
 export const MyResumen = ({
   className,
   variant = 'default',
@@ -28,15 +35,14 @@ export const MyResumen = ({
         aria-label='Download Resume'
         target='_blank'
         rel='noopener noreferrer'
-        download
         className={cn(
           buttonVariants({ variant: variant, size: size, className }),
-          'flex h-0 items-center rounded-full px-2.5 py-5',
+          'gap-0',
         )}
       >
         <ArrowDown size={20} aria-hidden='true' />
         <span className='overflow-hidden whitespace-nowrap'>My resume</span>
-      </Link>
+      </Link >
     )
   return (
     <Link
@@ -51,7 +57,7 @@ export const MyResumen = ({
       download
       className={cn(
         buttonVariants({ variant: variant, size: size, className }),
-        'flex h-0 items-center rounded-full px-2.5 py-5',
+        'gap-0',
       )}
     >
       <ArrowDown size={20} aria-hidden='true' />
@@ -73,3 +79,4 @@ export const MyResumen = ({
     </Link>
   )
 }
+
