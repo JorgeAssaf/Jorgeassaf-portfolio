@@ -28,8 +28,8 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
           sizes='(min-width: 640px) 640px, 100vw'
         />
       </figure>
-      <CardContent className='flex flex-1 flex-col justify-between gap-3 p-4'>
-        <div className='flex flex-col gap-3'>
+      <CardContent className='flex flex-1 flex-col justify-between gap-4 p-4'>
+        <div className='flex flex-col gap-4'>
           <div className='flex items-center justify-between'>
             <Badge
               variant={'secondary'}
@@ -52,7 +52,7 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
             </div>
           </div>
           <h3 className='text-xl font-semibold'>{project.name}</h3>
-          <p className='text-muted-foreground text-base'>
+          <p className='text-muted-foreground'>
             {project.description}
           </p>
           <div className='grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-2 '>
