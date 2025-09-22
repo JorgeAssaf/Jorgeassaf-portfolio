@@ -1,5 +1,6 @@
 import { format, parseISO, type FormatOptions } from 'date-fns'
 
+// biome-ignore lint/complexity/noStaticOnlyClass: <explanation>
 export class Formaters {
   static formatDate(
     date: Date | string | number,

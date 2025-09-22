@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { unstable_noStore } from 'next/cache'
+import { connection } from 'next/server'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constants'
 import { Formaters } from '@/helpers/formaters'
 
@@ -9,7 +9,7 @@ import { client } from '@/lib/sanity'
 import CategoryButtons from '@/components/category-buttons'
 import { FramerDiv } from '@/components/framer'
 import { PageHeader } from '@/components/page-header'
-import Projects from '@/components/projects'
+import { Projects } from '@/components/projects'
 
 export const dynamic = 'force-dynamic'
 
@@ -41,7 +41,7 @@ export default async function ProjectsPage({
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
   const { category } = await searchParams
-  unstable_noStore()
+  connection()
   const projects = await client.fetch<ProjectsEntity[]>(GETPROJECTSQUERY, {
     category:
       category !== undefined ? Formaters.capitalizeFirstLetter(category) : '',

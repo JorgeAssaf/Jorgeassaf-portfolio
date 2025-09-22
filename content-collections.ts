@@ -101,11 +101,11 @@ const posts = defineCollection({
 
           return {
             level:
-              flag?.length == 1
+              flag?.length === 1
                 ? 'one'
-                : flag?.length == 2
+                : flag?.length === 2
                   ? 'two'
-                  : flag?.length == 3
+                  : flag?.length === 3
                     ? 'three'
                     : 'four',
             text: content,
