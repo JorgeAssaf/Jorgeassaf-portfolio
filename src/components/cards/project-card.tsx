@@ -17,8 +17,8 @@ interface ProjectsCardProps {
 
 export const ProjectCard = ({ project }: ProjectsCardProps) => {
   return (
-    <Card className='flex min-h-[540px] w-full max-w-lg flex-col justify-center'>
-      <figure className='relative aspect-[16/10] w-full overflow-hidden'>
+    <Card className='flex size-full max-w-lg flex-col py-0'>
+      <figure className='relative aspect-video w-full overflow-hidden'>
         <Image
           src={project.image.url ?? '/images/placeholder.svg'}
           alt={`${project.image.alt ?? project.name} image`}
@@ -28,17 +28,17 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
           sizes='(min-width: 640px) 640px, 100vw'
         />
       </figure>
-      <CardContent className='flex flex-1 flex-col justify-between gap-3 p-4'>
-        <div className='flex flex-col gap-3'>
+      <CardContent className='flex flex-1 flex-col justify-between gap-4 p-4'>
+        <div className='flex flex-col gap-4'>
           <div className='flex items-center justify-between'>
             <Badge
               variant={'secondary'}
-              className='inline-flex items-center gap-2 rounded-lg'
+              className='inline-flex items-center gap-2 rounded-lg text-sm'
             >
               <CodeIcon className='size-4' />
               {project.category}
             </Badge>
-            <div className='text-muted-foreground flex items-center gap-2 text-xs'>
+            <div className='text-muted-foreground flex items-center gap-2 text-sm'>
               {project.createdAt && (
                 <>
                   <CalendarCheck className='size-4' />
@@ -52,10 +52,10 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
             </div>
           </div>
           <h3 className='text-xl font-semibold'>{project.name}</h3>
-          <p className='text-muted-foreground text-base'>
+          <p className='text-muted-foreground'>
             {project.description}
           </p>
-          <div className='flex flex-wrap gap-2'>
+          <div className='grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-2 '>
             {project.technologies.map((tech) => (
               <Badge
                 key={tech.name}
@@ -63,16 +63,17 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
                 style={{
                   backgroundColor: `#${tech.color}`,
                 }}
-                className='inline-flex items-center gap-2 rounded-lg text-white'
+                className='inline-flex items-center gap-1.5 text-sm rounded-lg text-white w-auto font-semibold'
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={tech.image}
                   alt={tech.name}
-                  width={16}
+                  width={20}
                   loading='eager'
-                  height={16}
-                  className='size-4'
+                  height={20}
+                  className='size-auto'
+
                 />
                 {tech.name}
               </Badge>

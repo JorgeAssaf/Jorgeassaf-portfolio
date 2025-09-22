@@ -38,7 +38,7 @@ export const PageHeader = ({
         className={cn(
           'mx-auto my-20 justify-center',
           className,
-          page ? 'my-10' : 'my-20',
+          page ? 'my-10' : 'my-14',
         )}
       >
         {page ? (

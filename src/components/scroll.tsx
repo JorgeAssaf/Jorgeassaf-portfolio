@@ -18,7 +18,7 @@ const Scroll = () => {
           },
         },
       }}
-      className='my-10 flex items-center justify-center'
+      className='my-16 flex items-center justify-center'
     >
       <div className='my-10 flex animate-pulse flex-col items-center justify-center md:my-20'>
         <m.p variants={FADE_DOWN_ANIMATION_VARIANTS}>Scroll</m.p>

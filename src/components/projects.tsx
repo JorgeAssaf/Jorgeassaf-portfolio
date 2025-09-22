@@ -16,7 +16,7 @@ interface ProjectsProps {
   projects: ProjectsEntity[]
 }
 
-const Projects: FC<ProjectsProps> = ({ projects }) => {
+export const Projects: FC<ProjectsProps> = ({ projects }) => {
   return (
     <m.div
       initial='hidden'
@@ -60,5 +60,3 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
     </m.div>
   )
 }
-
-export default Projects

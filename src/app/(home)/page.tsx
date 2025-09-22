@@ -5,13 +5,18 @@ import { client } from '@/lib/sanity'
 import { PostCard } from '@/components/cards/post-card'
 import Hero from '@/components/hero'
 import { PageHeader } from '@/components/page-header'
-import Projects from '@/components/projects'
+import { Projects } from '@/components/projects'
 import Scroll from '@/components/scroll'
 
 import type { ProjectsEntity } from '../../types/sanity'
 
 export default async function Home() {
-  const projects = await client.fetch<ProjectsEntity[]>(getLatestProjectsQuery)
+  const projects = await client.fetch<ProjectsEntity[]>(getLatestProjectsQuery, {}, {
+    cache: 'no-store',
+    next: {
+      revalidate: (3600 * 24 * 7) * 4
+    },
+  })
 
   return (
     <section>

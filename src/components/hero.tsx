@@ -77,7 +77,7 @@ const Hero = () => {
             </Link>
             <Link
               className={cn(buttonVariants({ variant: 'secondary' }))}
-              href='https://drive.google.com/file/d/1bwEF1UQPz5Bj_yS8Y0yNyifDOGMDJOlU/view?usp=drive_link'
+              href='https://drive.google.com/file/d/1otwH0PfASvgTkgElIAiqiGkkAfv4_80_/view?usp=share_link'
               title='Download my resume'
               aria-label='Download my resume'
               target='_blank'
