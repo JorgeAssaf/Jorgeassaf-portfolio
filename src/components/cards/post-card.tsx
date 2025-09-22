@@ -12,20 +12,20 @@ export const PostCard = ({ post, i }: { post: Post; i: number }) => {
     <article className='flex max-w-xl flex-col items-start' key={post._id}>
       <Link
         href={`/blog/${post.slug}`}
-        className='relative w-full'
+        className='relative aspect-video size-full rounded-md'
         title={post.title}
         aria-label={post.title}
       >
-        <div className='aspect-video overflow-hidden rounded-md'>
-          <Image
-            src={post.mainImage}
-            className='rounded-md'
-            alt={post.title}
-            fill
-            sizes='(min-width: 1024px) 1024px, 100vw'
-            priority={i < 2}
-          />
-        </div>
+        <Image
+          src={post.mainImage}
+          className='rounded-md object-cover'
+          alt={post.title}
+          fill
+          sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+          loading={i < 3 ? 'eager' : 'lazy'}
+          decoding='async'
+          priority={i < 3}
+        />
       </Link>
 
       <div className='mt-4 flex items-center gap-3 text-xs'>
