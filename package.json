@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -25,8 +25,8 @@
     "clsx": "2.1.1",
     "date-fns": "4.1.0",
     "lucide-react": "0.544.0",
-    "motion": "12.23.18",
-    "next": "15.5.3",
+    "motion": "12.23.21",
+    "next": "15.5.4",
     "next-sanity": "11.1.1",
     "next-themes": "0.4.6",
     "react": "19.1.1",
@@ -53,7 +53,7 @@
     "@typescript-eslint/parser": "8.44.1",
     "autoprefixer": "10.4.21",
     "eslint": "8.57.1",
-    "eslint-config-next": "15.5.3",
+    "eslint-config-next": "15.5.4",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-deprecation": "3.0.0",
     "eslint-plugin-jsx-a11y": "6.10.2",
