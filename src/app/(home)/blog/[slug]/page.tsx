@@ -152,7 +152,7 @@ export default async function PostPage({ params }: PostPageProps) {
                 />
                 <div className='absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent' />
                 <div className='absolute inset-x-0 bottom-0 px-6 py-8'>
-                  <h1 className='mt-3 max-w-xl scroll-m-20 text-3xl leading-tight font-bold tracking-tight first:mt-0 md:text-4xl'>
+                  <h1 className='mt-3 max-w-xl scroll-m-20 text-3xl leading-tight font-bold tracking-tight text-white first:mt-0 md:text-4xl'>
                     {post.title}
                   </h1>
                 </div>
