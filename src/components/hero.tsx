@@ -1,6 +1,5 @@
 'use client'
 
-import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constants'
 import * as m from 'motion/react-m'
@@ -10,9 +9,6 @@ import { GitHub, LinkedIn } from '@/components/icons'
 
 import { buttonVariants } from './ui/button'
 
-const HomeScene = dynamic(() => import('@/scenes/home-scene'), {
-  ssr: false,
-})
 
 const Hero = () => {
   return (
@@ -91,7 +87,7 @@ const Hero = () => {
           className='hidden size-[450px] lg:block'
           variants={FADE_DOWN_ANIMATION_VARIANTS}
         >
-          <HomeScene />
+
         </m.div>
       </div>
     </m.div>
