@@ -61,7 +61,7 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
                 style={{
                   backgroundColor: `#${tech.color}`,
                 }}
-                className='inline-flex w-auto items-center gap-1.5 rounded-lg text-sm font-semibold text-white'
+                className='inline-flex w-auto h-auto items-center gap-1.5 rounded-lg text-sm font-semibold text-white'
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -70,7 +70,7 @@ export const ProjectCard = ({ project }: ProjectsCardProps) => {
                   width={20}
                   loading='eager'
                   height={20}
-                  className='size-auto'
+                  className='size-6'
                 />
                 {tech.name}
               </Badge>
