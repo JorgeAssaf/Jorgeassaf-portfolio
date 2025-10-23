@@ -77,7 +77,7 @@ const Hero = () => {
             </Link>
             <Link
               className={cn(buttonVariants({ variant: 'secondary' }))}
-              href='https://drive.google.com/file/d/1otwH0PfASvgTkgElIAiqiGkkAfv4_80_/view?usp=share_link'
+              href='https://pub-b29265e317ef4f8eb5e76207721bbc52.r2.dev/Jorge_Enrique_Assaf_CV_2025.pdf'
               title='Download my resume'
               aria-label='Download my resume'
               target='_blank'
@@ -99,3 +99,4 @@ const Hero = () => {
 }
 
 export default Hero
+
