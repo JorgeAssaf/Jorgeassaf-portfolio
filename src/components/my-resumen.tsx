@@ -31,7 +31,7 @@ export const MyResumen = ({
   if (!isDesktop)
     return (
       <Link
-        href='https://drive.google.com/file/d/1bwEF1UQPz5Bj_yS8Y0yNyifDOGMDJOlU/view?usp=drive_link'
+        href='https://pub-b29265e317ef4f8eb5e76207721bbc52.r2.dev/Jorge_Enrique_Assaf_CV_2025.pdf'
         aria-label='Download Resume'
         target='_blank'
         rel='noopener noreferrer'
@@ -46,7 +46,7 @@ export const MyResumen = ({
     )
   return (
     <Link
-      href='https://drive.google.com/file/d/1otwH0PfASvgTkgElIAiqiGkkAfv4_80_/view?usp=share_link'
+      href='https://pub-b29265e317ef4f8eb5e76207721bbc52.r2.dev/Jorge_Enrique_Assaf_CV_2025.pdf'
       aria-label='Download Resume'
       target='_blank'
       rel='noopener noreferrer'
@@ -79,3 +79,4 @@ export const MyResumen = ({
     </Link>
   )
 }
+
