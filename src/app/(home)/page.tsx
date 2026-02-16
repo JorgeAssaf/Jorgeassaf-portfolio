@@ -9,18 +9,9 @@ import { Projects } from '@/components/projects'
 import Scroll from '@/components/scroll'
 
 import type { ProjectsEntity } from '../../types/sanity'
+import { Suspense } from 'react'
 
 export default async function Home() {
-  const projects = await client.fetch<ProjectsEntity[]>(
-    getLatestProjectsQuery,
-    {},
-    {
-      cache: 'no-store',
-      next: {
-        revalidate: 3600 * 24 * 7 * 4,
-      },
-    },
-  )
 
   return (
     <section>
@@ -30,9 +21,9 @@ export default async function Home() {
         title='Recent Projects'
         description='View my latest projects and experiments'
       />
-
-      <Projects projects={projects} />
-
+      <Suspense fallback={<div>Loading projects...</div>}>
+        <Projects />
+      </Suspense>
       <PageHeader
         title='Recent Resources'
         description='View my latest shared resources and articles'

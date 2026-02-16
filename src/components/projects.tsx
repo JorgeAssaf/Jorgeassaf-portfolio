@@ -1,6 +1,6 @@
-'use client'
 
-import type { FC } from 'react'
+
+import { Suspense, type FC } from 'react'
 import Link from 'next/link'
 import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constants'
 import { FileWarningIcon } from 'lucide-react'
@@ -11,12 +11,18 @@ import { cn } from '@/lib/utils'
 import { ProjectCard } from '@/components/cards/project-card'
 
 import { buttonVariants } from './ui/button'
+import { getLatestProjectsQuery } from '../lib/querys'
+import { client } from '../lib/sanity'
 
-interface ProjectsProps {
-  projects: ProjectsEntity[]
-}
 
-export const Projects: FC<ProjectsProps> = ({ projects }) => {
+
+export const Projects = async () => {
+  const projects = await client.fetch<ProjectsEntity[]>(
+    getLatestProjectsQuery,
+    {},
+
+  )
+
   return (
     <m.div
       initial='hidden'

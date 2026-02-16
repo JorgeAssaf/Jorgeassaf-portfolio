@@ -14,7 +14,7 @@ export const Experience = ({
   ...props
 }: ExperienceProps) => {
   return (
-    <ol className={cn('relative border-l-2', className)} {...props}>
+    <ol className={cn('relative border-l-2 *:my-[1lh]', className)} {...props}>
       {experience.map((job) => (
         <li className='mb-10 ml-4' key={job.startDate}>
           <div className='border-muted-foreground bg-muted-foreground absolute left-[-0.43rem] mt-1.5 size-3 rounded-full border' />
