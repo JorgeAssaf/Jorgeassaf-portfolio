@@ -3,7 +3,6 @@ import { ImageResponse } from 'next/og'
 
 import { cn } from '@/lib/utils'
 
-export const runtime: ServerRuntime = 'edge'
 
 export function GET(req: Request) {
   try {
