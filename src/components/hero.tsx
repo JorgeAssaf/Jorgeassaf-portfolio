@@ -9,7 +9,10 @@ import { cn } from '@/lib/utils'
 import { GitHub, LinkedIn } from '@/components/icons'
 
 import { buttonVariants } from './ui/button'
-import HomeScene from '../scenes/home-scene'
+
+const HomeScene = dynamic(() => import('@/scenes/home-scene'), {
+  ssr: false,
+})
 
 const Hero = () => {
   return (
