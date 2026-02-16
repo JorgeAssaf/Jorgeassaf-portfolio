@@ -1,3 +1,4 @@
+'use client'
 
 import { Suspense } from 'react'
 import { Html, OrbitControls, Preload, useProgress } from '@react-three/drei'
@@ -16,7 +17,6 @@ const HomeSceneFallback = () => {
 
 const HomeScene = () => {
   return (
-
     <Canvas
       className='size-full'
       camera={{

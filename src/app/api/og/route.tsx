@@ -1,13 +1,12 @@
-import type { ServerRuntime } from 'next'
 import { ImageResponse } from 'next/og'
+import type { NextRequest } from 'next/server'
 
 import { cn } from '@/lib/utils'
 
-
-export function GET(req: Request) {
+export async function GET(req: NextRequest) {
   try {
-    const url = new URL(req.url)
-    const parsedValues = Object.fromEntries(url.searchParams)
+    const searchParams = req.nextUrl.searchParams
+    const parsedValues = Object.fromEntries(searchParams)
 
     const { mode, title, description, type } = parsedValues
     return new ImageResponse(
