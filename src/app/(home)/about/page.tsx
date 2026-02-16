@@ -4,7 +4,7 @@ import { FADE_DOWN_ANIMATION_VARIANTS } from '@/constants'
 import { JOB_EXPERIENCE } from '@/config/experience'
 import { Experience } from '@/components/experience'
 import { FramerDiv, FramerSection } from '@/components/framer'
-import { Next, Prisma, React, Tailwind, Typescript } from '@/components/icons'
+import { DrizzleORM, Expo, Next, Prisma, React, Tailwind, Typescript } from '@/components/icons'
 import { MyResumen } from '@/components/my-resumen'
 import { PageHeader } from '@/components/page-header'
 
@@ -33,7 +33,7 @@ export default function AboutPage() {
         className='mx-auto max-w-[75ch]'
       >
         <FramerDiv variants={FADE_DOWN_ANIMATION_VARIANTS}>
-          <p className='text-foreground/70 leading-7 md:text-lg [&:not(:first-child)]:mt-6'>
+          <p className='text-foreground/70 leading-7 md:text-lg not-first:mt-6'>
             I&apos;m a front-end web developer with experience in JavaScript,
             React, Next.js and Astro. My goal is to become a FullStack
             programmer. I enjoy creating beautiful and easy to use web
@@ -83,6 +83,14 @@ export default function AboutPage() {
             <div className='flex items-center justify-center gap-1.5 rounded-md bg-[#2D3748] px-4 py-2'>
               <Prisma className='size-5' />
               <span>Prisma</span>
+            </div>
+            <div className='flex items-center justify-center gap-1.5 rounded-md bg-[#0C344B] px-4 py-2'>
+              <DrizzleORM className='size-5' />
+              <span>DrizzleORM</span>
+            </div>
+            <div className='flex items-center justify-center gap-1.5 rounded-md bg-[#000000] px-4 py-2'>
+              <Expo className='size-5' />
+              <span>Expo</span>
             </div>
           </div>
         </FramerDiv>

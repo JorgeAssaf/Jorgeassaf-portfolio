@@ -1,10 +1,9 @@
-'use client'
 
 import { Suspense } from 'react'
 import { Html, OrbitControls, Preload, useProgress } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 
-import { Dog } from './Model'
+import { Dog } from './model'
 
 const HomeSceneFallback = () => {
   const { progress } = useProgress()
@@ -17,6 +16,7 @@ const HomeSceneFallback = () => {
 
 const HomeScene = () => {
   return (
+
     <Canvas
       className='size-full'
       camera={{
@@ -28,8 +28,8 @@ const HomeScene = () => {
       gl={{ antialias: true }}
       dpr={[1, 2]}
     >
-      <ambientLight intensity={2} />
       <Suspense fallback={<HomeSceneFallback />}>
+        <ambientLight intensity={2} />
         <Dog position={[0, -0.9, 0]} scale={[0.67, 0.67, 0.67]} />
         <OrbitControls autoRotate autoRotateSpeed={0.5} />
         <Preload all />
