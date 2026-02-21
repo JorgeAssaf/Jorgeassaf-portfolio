@@ -23,7 +23,8 @@ const nextConfig = {
       },
     ],
   },
-  transpilePackages: ['three', '@react-three/drei', '@react-three/fiber'],
+  // transpilePackages: ['three', '@react-three/drei', '@react-three/fiber'],
+
 } satisfies NextConfig
 
 export default withContentCollections(nextConfig)
