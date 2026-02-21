@@ -2,7 +2,6 @@ import type { NextConfig } from 'next'
 import { withContentCollections } from '@content-collections/next'
 
 const nextConfig = {
-  cacheComponents: true,
   images: {
     formats: ['image/webp'],
     remotePatterns: [
