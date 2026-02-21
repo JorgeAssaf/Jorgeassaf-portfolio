@@ -3,7 +3,6 @@
 import { Suspense } from 'react'
 import { Html, OrbitControls, Preload, useProgress } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
-
 import { Dog } from './model'
 
 const HomeSceneFallback = () => {
